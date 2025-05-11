@@ -113,7 +113,7 @@ function renderProjects() {
 // Render Experience Timeline
 function renderExperience() {
     console.log('Rendering experience section...');
-    const timeline = document.querySelector('.timeline');
+    const timeline = document.querySelector('.experience-timeline');
     console.log('Timeline element:', timeline);
     
     if (!timeline) {
@@ -143,15 +143,22 @@ function rotateBackground() {
     const backgrounds = document.querySelectorAll('.background-image');
     let currentIndex = 0;
 
+    // Set initial state: only the first image is visible
+    backgrounds.forEach((bg, idx) => {
+        bg.style.opacity = idx === 0 ? '0.3' : '0';
+    });
+
     setInterval(() => {
-        // Fade out current background
-        backgrounds[currentIndex].style.opacity = '0';
-        
-        // Move to next background
-        currentIndex = (currentIndex + 1) % backgrounds.length;
-        
-        // Fade in next background
-        backgrounds[currentIndex].style.opacity = '0.3';
+        const nextIndex = (currentIndex + 1) % backgrounds.length;
+
+        // Fade in the next background first
+        backgrounds[nextIndex].style.opacity = '0.3';
+
+        // After a short delay, fade out the current background
+        setTimeout(() => {
+            backgrounds[currentIndex].style.opacity = '0';
+            currentIndex = nextIndex;
+        }, 1000); // 1 second matches your CSS transition
     }, 60000); // Rotate every 60 seconds
 }
 
@@ -160,14 +167,17 @@ function typeText() {
     const mainText = "Hi, I'm Favour Umejesi";
     const subtitleText = "Aspiring Software Engineer";
     const epigraphText = "Passionate about creating innovative solutions and building robust applications.";
+    const thanksText = "Welcome to my portfolio – where technology meets creativity and sustainability. Let's explore how we can build a better digital future together.";
     
     const typingElement = document.querySelector('.typing-text');
     const subtitleElement = document.querySelector('.typing-text-subtitle');
     const epigraphElement = document.querySelector('.typing-text-epigraph');
+    const thanksElement = document.querySelector('.typing-text-thanks');
     
     let mainIndex = 0;
     let subtitleIndex = 0;
     let epigraphIndex = 0;
+    let thanksIndex = 0;
     
     function typeMain() {
         if (mainIndex < mainText.length) {
@@ -194,6 +204,16 @@ function typeText() {
             epigraphElement.textContent += epigraphText.charAt(epigraphIndex);
             epigraphIndex++;
             setTimeout(typeEpigraph, 50);
+        } else {
+            setTimeout(typeThanks, 700);
+        }
+    }
+
+    function typeThanks() {
+        if (thanksIndex < thanksText.length) {
+            thanksElement.textContent += thanksText.charAt(thanksIndex);
+            thanksIndex++;
+            setTimeout(typeThanks, 40);
         }
     }
     

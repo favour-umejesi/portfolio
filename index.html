@@ -11,12 +11,19 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-content">
-            <div class="logo">FU</div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </div>
             <div class="theme-toggle">
                 <i class="fas fa-moon"></i>
             </div>
@@ -52,8 +59,14 @@
             <div class="about-content">
                 <div class="about-grid">
                     <div class="about-card main-card">
-                        <div class="card-content">
-                            <p>Hi, I'm Favour Umejesi, a rising sophomore at Grambling State University majoring in Computer Science with a minor in Data Analytics. I'm passionate about software development and the transformative power of AI/ML. I believe AI is reshaping the future of tech, and I'm particularly interested in building full-stack applications that integrate machine learning—like predictive models or sentiment analysis—to create scalable solutions that truly meet user needs.</p>
+                        <div class="card-content about-description">
+                            <p>
+                                Hi, I'm <span class="highlight">Favour Umejesi</span>, a rising sophomore at <span class="highlight">Grambling State University</span> majoring in <span class="highlight">Computer Science</span>.<br><br>
+                                My passion lies at the fascinating intersection of <span class="highlight">AI/ML</span>, <span class="highlight">software development</span>, and <span class="highlight">sustainability</span>.<br><br>
+                                I'm driven by the goal of building <span class="highlight">sustainable full-stack applications</span> that harness the power of <span class="highlight">AI/ML</span> to create scalable solutions and enhance user experiences. My approach combines technical expertise with a commitment to <span class="highlight">environmental consciousness</span>, ensuring that the digital solutions I create have a positive impact on both users and our planet.<br><br>
+                                When I'm not immersed in code or exploring new technologies, you'll find me <span class="highlight">connecting with nature</span> on long walks or <span class="highlight">diving into classic literature</span>. I'm also an huge fan of <span class="highlight">Studio Ghibli</span>, drawn to their masterful storytelling and artistic innovation.<br><br>
+                                <span class="thanks"><span class="typing-text-thanks"></span></span>
+                            </p>
                         </div>
                     </div>
                     <div class="about-card interests-card">
@@ -87,24 +100,26 @@
                             <div class="timeline-item">
                                 <div class="timeline-dot"></div>
                                 <div class="timeline-content">
+                                    <h4>2022</h4>
+                                    <p><strong>Began Computer Science Studies</strong><br>Started my academic journey in CS at GSU.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <img src="assets/hackathon1.png" alt="AI4Good Hackathon" class="timeline-img">
+                                <div class="timeline-content">
                                     <h4>2023</h4>
-                                    <p>Started exploring AI/ML</p>
+                                    <p><strong>AI4Good Hackathon</strong><br>Built a sustainability-focused chatbot with a team of 4.</p>
                                 </div>
                             </div>
                             <div class="timeline-item">
                                 <div class="timeline-dot"></div>
                                 <div class="timeline-content">
                                     <h4>2022</h4>
-                                    <p>Began Computer Science studies</p>
+                                    <p><strong>GSU Coding Club</strong><br>Active member, led workshops on Python and web dev.</p>
                                 </div>
                             </div>
-                            <div class="timeline-item">
-                                <div class="timeline-dot"></div>
-                                <div class="timeline-content">
-                                    <h4>2021</h4>
-                                    <p>First coding project</p>
-                                </div>
-                            </div>
+                            <!-- Add more activities as needed -->
                         </div>
                     </div>
                 </div>
@@ -119,20 +134,20 @@
             <div class="experience-grid">
                 <div class="experience-card">
                     <div class="company-logo">
-                        <img src="https://via.placeholder.com/100x100?text=TS" alt="Tech Solutions logo">
+                        <img src="assets/netskope.png" alt="Tech Solutions logo">
                     </div>
-                    <h3>Senior Full Stack Developer</h3>
-                    <h4>Tech Solutions Inc</h4>
-                    <p class="period">2022 - Present</p>
+                    <h3>Platform Engineering Intern</h3>
+                    <h4>Netskope</h4>
+                    <p class="period">June 2025 - Present</p>
                     <p>Leading development of enterprise applications using React, Node.js, and MongoDB. Implementing CI/CD pipelines and mentoring junior developers.</p>
                 </div>
                 <div class="experience-card">
                     <div class="company-logo">
-                        <img src="https://via.placeholder.com/100x100?text=DI" alt="Digital Innovations logo">
+                        <img src="assets/pwc.png" alt="Digital Innovations logo">
                     </div>
-                    <h3>Full Stack Developer</h3>
-                    <h4>Digital Innovations</h4>
-                    <p class="period">2020 - 2022</p>
+                    <h3>AI Extern</h3>
+                    <h4>PricewaterhouseCoopers</h4>
+                    <p class="period">Febuary 2025 - April 2025</p>
                     <p>Developed and maintained multiple web applications using Angular and Node.js. Implemented RESTful APIs and integrated third-party services.</p>
                 </div>
                 <div class="experience-card">

@@ -69,6 +69,43 @@ body {
     backdrop-filter: blur(5px);
 }
 
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    margin-left: 2rem;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.2s;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.3s;
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
 /* Sections */
 .section {
     padding: 5rem 2rem;
@@ -194,13 +231,13 @@ body {
     background: #f0f0f0;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: contain;
 }
 
 .experience-card .company-logo img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover top;
 }
 
 .experience-card h3 {
@@ -217,6 +254,7 @@ body {
     margin-bottom: 0.5rem;
     font-size: 1.2rem;
     text-align: center;
+    font-style: italic;
 }
 
 .experience-card .period {
@@ -252,7 +290,6 @@ body {
     padding: 2rem;
     box-shadow: var(--shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -456,23 +493,18 @@ body {
 
 .background-image[data-image="1"] {
     background-image: url("assets/R.jpg");
-    opacity: 0.3;
 }
 
 .background-image[data-image="2"] {
     background-image: url('assets/studio_hilibi.png');
+    
 }
 
 .background-image[data-image="3"] {
     background-image: url('assets/mononoke.jpg');
+    
 }
 
-/* Remove old video styles */
-.background-video-container,
-#background-video,
-.background-video-container::after {
-    display: none;
-}
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -548,4 +580,66 @@ body {
 
 .welcome-text .highlight {
     color: var(--primary-color);
+}
+
+.about-description p {
+    font-family: 'Spectral', serif;
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--text-color);
+}
+
+.about-description .highlight {
+    color: var(--primary-color);
+    font-weight: 600;
+    background: rgba(74, 144, 226, 0.08);
+    border-radius: 4px;
+    padding: 0 0.2em;
+    transition: background 0.3s;
+}
+
+.about-description .thanks {
+    display: block;
+    margin-top: 1.2em;
+    font-weight: 700;
+    color: #8B5C2A;
+    font-size: 1.1em;
+    letter-spacing: 0.5px;
+}
+
+.typing-text-thanks {
+    display: inline-block;
+    font-family: 'Spectral', serif;
+    color: #8B5C2A;
+    font-weight: 700;
+    font-size: 1.1em;
+    letter-spacing: 0.5px;
+}
+
+.timeline-img {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-right: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    vertical-align: middle;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+}
+
+.timeline-content {
+    flex: 1;
+}
+
+[data-theme="dark"] .experience-card h3,
+[data-theme="dark"] .experience-card h4,
+[data-theme="dark"] .experience-card .period,
+[data-theme="dark"] .experience-card p {
+    color: #fff;
+    font-weight: 400;
 } 
