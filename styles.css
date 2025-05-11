@@ -455,16 +455,16 @@ body {
 }
 
 .background-image[data-image="1"] {
-    background-image: url('R.jpg');
+    background-image: url("assets/R.jpg");
     opacity: 0.3;
 }
 
 .background-image[data-image="2"] {
-    background-image: url('studio_hilibi.png');
+    background-image: url('assets/studio_hilibi.png');
 }
 
 .background-image[data-image="3"] {
-    background-image: url('mononoke.jpg');
+    background-image: url('assets/mononoke.jpg');
 }
 
 /* Remove old video styles */
