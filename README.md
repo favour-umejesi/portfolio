@@ -4,9 +4,9 @@ A clean, responsive portfolio website with a nature and Studio Ghibli-inspired d
 
 ## Features
 
-- 🌓 Light/Dark mode toggle
 - 🎵 Optional lofi background music
 - 🎨 Studio Ghibli-inspired design elements
+- 🌙 Dark mode interface for better readability
 - 📱 Fully responsive layout
 - ⚡ Smooth animations and transitions
 - 🎯 Interactive project showcase
@@ -18,8 +18,9 @@ A clean, responsive portfolio website with a nature and Studio Ghibli-inspired d
 2. Add your profile image to the `assets` folder as `profile-placeholder.jpg`
 3. Add your background music to the `assets` folder as `lofi-background.mp3`
 4. Add your Ghibli-inspired background image to the `assets` folder as `ghibli-bg.jpg`
-5. Customize the content in `index.html` and `script.js` with your personal information
-6. Open `index.html` in your browser to view the website
+5. Add your resume to the `assets` folder as `Favour_Odalo.pdf`
+6. Customize the content in `index.html` and `script.js` with your personal information
+7. Open `index.html` in your browser to view the website
 
 ## Customization
 

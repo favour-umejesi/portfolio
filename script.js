@@ -1,14 +1,3 @@
-// Theme Toggle
-const themeToggle = document.querySelector('.theme-toggle');
-const body = document.body;
-
-themeToggle.addEventListener('click', () => {
-    body.dataset.theme = body.dataset.theme === 'dark' ? 'light' : 'dark';
-    themeToggle.innerHTML = body.dataset.theme === 'dark' ? 
-        '<i class="fas fa-sun"></i>' : 
-        '<i class="fas fa-moon"></i>';
-});
-
 // Music Player
 const musicToggle = document.getElementById('music-toggle');
 const backgroundMusic = document.getElementById('background-music');
@@ -28,10 +17,10 @@ musicToggle.addEventListener('click', () => {
 // Projects Data
 const projects = [
     {
-        title: 'Sentiment Analysis API',
-        description: 'A full-stack application that uses natural language processing to analyze sentiment in text data. Built with Python, TensorFlow, and React.',
-        techStack: ['Python', 'TensorFlow', 'React', 'Node.js', 'MongoDB'],
-        githubLink: '#',
+        title: 'Smoking Status Prediction Model',
+        description: 'Led the development of a machine learning model for healthcare applications during the DataSpark hackathon. Achieved Top 4 ranking among 10+ submissions with a binary classification model reaching 79% accuracy and 0.87 AUC-ROC. Utilized Python data science stack for feature engineering and created insightful visualizations using Matplotlib/Seaborn.',
+        techStack: ['Python', 'Pandas', 'NumPy', 'Scikit-learn', 'Matplotlib', 'Seaborn'],
+        githubLink: 'https://colab.research.google.com/drive/13M_34Vs0xWcjUwxafGazbWDeoNZYVm6N',
         liveLink: '#'
     },
     {
@@ -42,11 +31,11 @@ const projects = [
         liveLink: '#'
     },
     {
-        title: 'E-Commerce Platform',
-        description: 'A full-stack e-commerce platform built with React, Node.js, and MongoDB. Features include user authentication, product management, shopping cart, and payment integration.',
-        techStack: ['React', 'Node.js', 'MongoDB', 'Express', 'Stripe'],
-        githubLink: '#',
-        liveLink: '#'
+        title: 'Carbon Footprint Calculator',
+        description: 'An interactive web application that empowers users to track and reduce their environmental impact through personalized carbon footprint calculations. Features include dynamic data visualization with Chart.js and integration with Carbon Interface API.',
+        techStack: ['HTML', 'CSS', 'JavaScript', 'Chart.js', 'Node.js'],
+        githubLink: 'https://github.com/KingOz-stack/EcoTrack-',
+        liveLink: 'https://eco-track-five.vercel.app/'
     },
     {
         title: 'Task Management System',
@@ -67,25 +56,25 @@ const projects = [
 // Experience Data
 const experiences = [
     {
-        role: 'Senior Full Stack Developer',
-        company: 'Tech Solutions Inc',
-        period: '2022 - Present',
+        role: 'Platform Engineering Intern',
+        company: 'Netskope',
+        period: 'June 2025 - Present',
         description: 'Leading development of enterprise applications using React, Node.js, and MongoDB. Implementing CI/CD pipelines and mentoring junior developers.',
-        logo: 'https://via.placeholder.com/80x80?text=TS'
+        logo: 'assets/netskope.png'
     },
     {
-        role: 'Full Stack Developer',
-        company: 'Digital Innovations',
-        period: '2020 - 2022',
-        description: 'Developed and maintained multiple web applications using Angular and Node.js. Implemented RESTful APIs and integrated third-party services.',
-        logo: 'https://via.placeholder.com/80x80?text=DI'
+        role: 'AI Extern',
+        company: 'PricewaterhouseCoopers',
+        period: 'Febuary 2025 - April 2025',
+        description: 'Worked on real-world automation challenges in a 10-week AI externship focused on finance document processing.\n\n• Automated extraction from financial documents using <strong>NLP</strong> tools like <strong>PyPDF2</strong> and <strong>pdfplumber</strong>, reducing processing time by 80%.\n\n• Built and deployed <strong>OCR</strong> + <strong>Label Studio</strong> pipelines to extract structured data from multiple document types, boosting speed by 75% and accuracy by 90%.\n\n• Developed a <strong>Retrieval-Augmented Generation (RAG)</strong> pipeline using <strong>Mistral B</strong> and <strong>LLaMA Index</strong>, automating mortgage document classification and insights extraction, cutting down manual underwriting work by 80%.',
+        logo: 'assets/pwc.png'
     },
     {
         role: 'Frontend Developer',
         company: 'WebTech Solutions',
         period: '2018 - 2020',
         description: 'Created responsive web interfaces using HTML5, CSS3, and JavaScript. Collaborated with UX designers to implement modern design patterns.',
-        logo: 'https://via.placeholder.com/80x80?text=WS'
+        logo: 'https://via.placeholder.com/100x100?text=WS'
     }
 ];
 
@@ -93,13 +82,24 @@ const experiences = [
 function renderProjects() {
     const projectsGrid = document.querySelector('.projects-grid');
     projects.forEach(project => {
+        // Bold technologies in description
+        let description = project.description;
+        project.techStack.forEach(tech => {
+            const regex = new RegExp(tech, 'g');
+            description = description.replace(regex, `<strong>${tech}</strong>`);
+        });
+
         const projectCard = document.createElement('div');
         projectCard.className = 'project-card';
         projectCard.innerHTML = `
             <h3>${project.title}</h3>
-            <p>${project.description}</p>
+            <p>${description}</p>
             <div class="tech-stack">
-                ${project.techStack.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                ${project.techStack.map(tech => `
+                    <span class="tech-tag">
+                        <strong>${tech}</strong>
+                    </span>
+                `).join('')}
             </div>
             <div class="project-links">
                 <a href="${project.githubLink}" target="_blank"><i class="fab fa-github"></i></a>
