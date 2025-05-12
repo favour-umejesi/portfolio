@@ -166,8 +166,8 @@ function rotateBackground() {
 function typeText() {
     const mainText = "Hi, I'm Favour Umejesi";
     const subtitleText = "Aspiring Software Engineer";
-    const epigraphText = "Passionate about creating innovative solutions and building robust applications.";
-    const thanksText = "Welcome to my portfolio – where technology meets creativity and sustainability. Let's explore how we can build a better digital future together.";
+    const epigraphText = "Driven by a passion for creating innovative solutions by integrating intelligent systems into robust, real-world applications.";
+    const thanksText = "Welcome to my digital space — where code meets creativity, and innovation is rooted in sustainability. Join me in exploring how thoughtful technology can shape a better future.";
     
     const typingElement = document.querySelector('.typing-text');
     const subtitleElement = document.querySelector('.typing-text-subtitle');
