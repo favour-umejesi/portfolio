@@ -527,6 +527,16 @@ body {
     
 }
 
+.background-image[data-image="4"] {
+    background-image: url('assets/me_corrreee.png');
+    background-size: cover top;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.background-image[data-image="5"] {
+    background-image: url('assets/frieren.jpeg');
+}
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -567,25 +577,85 @@ body {
 /* Typing Animation */
 .typing-text {
     display: inline-block;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 3.2rem;
+    background: linear-gradient(120deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 8s ease infinite, fadeInUp 1s ease-out;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .typing-text-subtitle {
     display: inline-block;
-    font-family: 'Pacifico', cursive;
+    font-family: 'Comic Neue', cursive;
     color: var(--secondary-color);
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transform: rotate(-1deg);
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+    animation: wobble 2s ease-in-out infinite;
+}
+
+@keyframes wobble {
+    0%, 100% {
+        transform: rotate(-1deg);
+    }
+    50% {
+        transform: rotate(1deg);
+    }
 }
 
 .typing-text-epigraph {
     display: inline-block;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Spectral', serif;
     font-style: italic;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--text-color);
 }
 
 .welcome-text h1 {
     min-height: 2.5em;
     display: flex;
     align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.highlight {
+    position: relative;
+    display: inline-block;
+}
+
+.highlight::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--primary-color);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.highlight:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
 }
 
 .welcome-text .subtitle {
