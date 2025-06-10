@@ -178,7 +178,7 @@ function typeText() {
         const mainText = "Hi, I'm Favour Umejesi";
         const subtitleText = "Aspiring Software Engineer";
         const epigraphText = "Driven by a passion for creating innovative solutions by integrating intelligent systems into robust, real-world applications.";
-        const thanksText = "Welcome to my digital space — where code meets creativity, and innovation is rooted in sustainability. Join me in exploring how thoughtful technology can shape a better future.";
+        const thanksText = "";
         
         let mainIndex = 0;
         let subtitleIndex = 0;
