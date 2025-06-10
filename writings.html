@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Writings</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="icon" type="image/png" href="assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="experience.html">Experience</a>
+                <a href="projects.html">Projects</a>
+                <a href="skills.html">Skills</a>
+                <a href="assets/Favour_Odalo.pdf" target="_blank" class="resume-link">Resume <i class="fas fa-file-pdf"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Writings Section -->
+    <section id="writings" class="section">
+        <div class="container">
+            <h2>My Writings</h2>
+            <div class="writings-grid">
+                <article class="writing-card">
+                    <div class="writing-preview">
+                        <div class="medium-preview">
+                            <div class="medium-header">
+                                <div class="medium-author">
+                                    <img src="assets/notion-avatar-1747033852429.png" alt="Author" class="author-avatar">
+                                    <div class="author-info">
+                                        <span class="author-name">Favour Umejesi</span>
+                                        <span class="publish-date">Mar 15 · 5 min read</span>
+                                    </div>
+                                </div>
+                                <button class="medium-follow">Follow</button>
+                            </div>
+                            <div class="medium-content">
+                                <h3>Using AI to Read Documents: Automating Boring Tasks Part I</h3>
+                                <p class="writing-excerpt">
+                                    Explore how to leverage LangChain, FAISS, and OpenAI to create an intelligent document reading system. Learn how to automate the tedious task of document analysis and extraction...
+                                </p>
+                                <div class="medium-tags">
+                                    <span class="tag">Artificial Intelligence</span>
+                                    <span class="tag">Python</span>
+                                    <span class="tag">LangChain</span>
+                                    <span class="tag">OpenAI</span>
+                                </div>
+                            </div>
+                            <div class="medium-footer">
+                                <div class="medium-stats">
+                                    <span><i class="far fa-heart"></i> 42</span>
+                                    <span><i class="far fa-comment"></i> 8</span>
+                                </div>
+                                <a href="https://medium.com/@ahmed.mohiuddin.architecture/using-ai-to-chat-with-your-documents-leveraging-langchain-faiss-and-openai-3281acfcc4e9" target="_blank" class="read-more">Read on Medium <i class="fab fa-medium"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <!-- More writing cards can be added here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Music Player -->
+    <div class="music-player">
+        <button id="music-toggle" class="music-toggle">
+            <i class="fas fa-music"></i>
+        </button>
+        <audio id="background-music" loop>
+            <source src="assets/⏱️ - Lofi Girl.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <!-- Background Images -->
+    <div class="background-container">
+        <div class="background-image" data-image="1"></div>
+        <div class="background-image" data-image="2"></div>
+        <div class="background-image" data-image="3"></div>
+        <div class="background-image" data-image="4"></div>
+        <div class="background-image" data-image="5"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
