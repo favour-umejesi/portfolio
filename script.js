@@ -26,10 +26,10 @@ if (window.location.pathname.includes('projects.html')) {
             liveLink: '#'
         },
         {
-            title: 'Predictive Analytics Dashboard',
-            description: 'An interactive dashboard for visualizing and predicting trends using machine learning models. Features include data visualization and real-time predictions.',
-            techStack: ['Python', 'Pandas', 'Scikit-learn', 'React', 'D3.js'],
-            githubLink: '#',
+            title: 'AgriSmart Africa',
+            description: 'A comprehensive web platform empowering African farmers through streamlined farm operations, AI-driven business support, and investor connections. The application combines inventory management, intelligent matchmaking between farmers and investors, personalized farming guidance via LLM assistant, and automated brand asset creation to help agricultural entrepreneurs scale their businesses digitally.',
+            techStack: ['Next.js', 'Tailwind CSS', 'FastAPI', 'PostgreSQL', 'Firebase Authentication', 'LangChain + Mistral-7B', 'Stable Diffusion'],
+            githubLink: 'https://github.com/favour-umejesi/AgriSmart',
             liveLink: '#'
         },
         {
