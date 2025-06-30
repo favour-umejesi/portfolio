@@ -21,7 +21,7 @@ if (window.location.pathname.includes('projects.html') || window.location.pathna
         {
             title: '🌿 AgriSmart Africa',
             description: 'A comprehensive web platform empowering African farmers through streamlined <strong>farm operations</strong>, <strong>AI-driven business support</strong>, and <strong>investor connections</strong>. The application combines <strong>inventory management</strong>, a <strong>marketplace</strong> for farmers to display and sell produce to traders, <strong>intelligent matchmaking</strong> between farmers and investors, <strong>personalized farming guidance</strong> via <strong>LLM assistant</strong>, and <strong>automated brand asset creation</strong> to help <strong>agricultural entrepreneurs</strong> <strong>scale their businesses digitally</strong>.',
-            techStack: ['Next.js', 'Tailwind CSS', 'FastAPI', 'PostgreSQL', 'Firebase Authentication', 'LangChain + Mistral-7B', 'Stable Diffusion'],
+            techStack: ['Next.js', 'Tailwind CSS', 'FastAPI', 'PostgreSQL', 'Firebase Authentication', 'LangChain + Mistral-7B', 'Stable Diffusion Model'],
             githubLink: 'https://github.com/favour-umejesi/AgriSmart',
             liveLink: '#'
         },
