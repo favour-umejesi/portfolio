@@ -1,6 +1,6 @@
-# Nature-Inspired Portfolio Website
+# Personal Portfolio Website
 
-A clean, responsive portfolio website with a nature and Studio Ghibli-inspired design. Built with HTML, CSS, and vanilla JavaScript.
+A clean, responsive portfolio website with a nature and Studio Ghibli-inspired design. Built with HTML, CSS, and vanilla JavaScript. This is my personal portfolio that I'm constantly updating with new projects and experiences.
 
 ## Features
 
@@ -11,29 +11,6 @@ A clean, responsive portfolio website with a nature and Studio Ghibli-inspired d
 - ⚡ Smooth animations and transitions
 - 🎯 Interactive project showcase
 - 📝 Dynamic experience timeline
-
-## Setup
-
-1. Clone this repository
-2. Add your profile image to the `assets` folder as `profile-placeholder.jpg`
-3. Add your background music to the `assets` folder as `lofi-background.mp3`
-4. Add your Ghibli-inspired background image to the `assets` folder as `ghibli-bg.jpg`
-5. Add your resume to the `assets` folder as `Favour_Odalo.pdf`
-6. Customize the content in `index.html` and `script.js` with your personal information
-7. Open `index.html` in your browser to view the website
-
-## Customization
-
-### Personal Information
-- Update the profile section in `index.html`
-- Modify the projects array in `script.js`
-- Edit the experiences array in `script.js`
-- Update social media links in `index.html`
-
-### Styling
-- Modify colors in the CSS variables (in `styles.css`)
-- Adjust animations and transitions
-- Customize the layout and spacing
 
 ## Browser Support
 
