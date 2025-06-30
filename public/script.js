@@ -235,9 +235,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Run functions based on the current page
     if (window.location.pathname.includes('index.html') || window.location.pathname === '/') {
         typeText();
-    } else if (window.location.pathname.includes('projects.html')) {
+    } else if (window.location.pathname.includes('projects.html') || window.location.pathname === '/projects') {
         renderProjects();
-    } else if (window.location.pathname.includes('about.html')) {
+    } else if (window.location.pathname.includes('about.html') || window.location.pathname === '/about') {
         setupTimelineGallery();
     }
     
