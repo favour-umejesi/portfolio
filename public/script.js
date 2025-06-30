@@ -14,9 +14,9 @@ musicToggle.addEventListener('click', () => {
     isMusicPlaying = !isMusicPlaying;
 });
 
-// Projects Data (if on projects.html)
+// Projects Data (if on projects page)
 let projects = [];
-if (window.location.pathname.includes('projects.html')) {
+if (window.location.pathname.includes('projects.html') || window.location.pathname === '/projects') {
     projects = [
         {
             title: '🌿 AgriSmart Africa',
@@ -56,9 +56,9 @@ if (window.location.pathname.includes('projects.html')) {
     ];
 }
 
-// Experience Data (if on experience.html)
+// Experience Data (if on experience page)
 let experiences = [];
-if (window.location.pathname.includes('experience.html')) {
+if (window.location.pathname.includes('experience.html') || window.location.pathname === '/experience') {
     experiences = [
         {
             role: 'Platform Engineering Intern',
