@@ -19,40 +19,40 @@ let projects = [];
 if (window.location.pathname.includes('projects.html')) {
     projects = [
         {
-            title: 'AgriSmart Africa',
-            description: 'A comprehensive web platform empowering African farmers through streamlined farm operations, AI-driven business support, and investor connections. The application combines inventory management, intelligent matchmaking between farmers and investors, personalized farming guidance via LLM assistant, and automated brand asset creation to help agricultural entrepreneurs scale their businesses digitally.',
-            techStack: ['Next.js', 'Tailwind CSS', 'FastAPI', 'PostgreSQL', 'Firebase Authentication', 'LangChain + Mistral-7B', 'Stable Diffusion'],
+            title: '🌿 AgriSmart Africa',
+            description: 'A comprehensive web platform empowering African farmers through streamlined <strong>farm operations</strong>, <strong>AI-driven business support</strong>, and <strong>investor connections</strong>. The application combines <strong>inventory management</strong>, <strong>intelligent matchmaking</strong> between farmers and investors, <strong>personalized farming guidance</strong> via <strong>LLM assistant</strong>, and <strong>automated brand asset creation</strong> to help <strong>agricultural entrepreneurs</strong> <strong>scale their businesses digitally</strong>.',
+            techStack: ['Next.js', 'Tailwind CSS', 'FastAPI', 'PostgreSQL', 'Firebase', 'LangChain + Mistral-7B', 'Stable Diffusion Model'],
             githubLink: 'https://github.com/favour-umejesi/AgriSmart',
             liveLink: '#'
         },
         {
-            title: 'Smoking Status Prediction Model',
-            description: 'Led the development of a machine learning model for healthcare applications during the DataSpark hackathon. Achieved Top 4 ranking among 10+ submissions with a binary classification model reaching 79% accuracy and 0.87 AUC-ROC. Utilized Python data science stack for feature engineering and created insightful visualizations using Matplotlib/Seaborn.',
+            title: '📈 Smoking Status Prediction Model',
+            description: 'Led the development of a machine learning model for healthcare applications during the DataSpark Datathon on Kaggle. Achieved Top 4 ranking among 10+ submissions with a binary classification model reaching 79% accuracy and 0.87 AUC-ROC. Utilized Python data science stack for feature engineering and created insightful visualizations using Matplotlib/Seaborn.',
             techStack: ['Python', 'Pandas', 'NumPy', 'Scikit-learn', 'Matplotlib', 'Seaborn'],
             githubLink: 'https://colab.research.google.com/drive/13M_34Vs0xWcjUwxafGazbWDeoNZYVm6N',
             liveLink: '#'
         },
         {
-            title: 'EcoTrack',
+            title: '👣 EcoTrack',
             description: 'An interactive web application that empowers users to track and reduce their environmental impact through personalized carbon footprint calculations. Features include dynamic data visualization with Chart.js and integration with Carbon Interface API.',
             techStack: ['HTML', 'CSS', 'JavaScript', 'Chart.js', 'Node.js'],
             githubLink: 'https://github.com/KingOz-stack/EcoTrack-',
             liveLink: 'https://eco-track-five.vercel.app/'
         },
-        {
-            title: 'Task Management System',
-            description: 'A collaborative task management application with real-time updates, team collaboration features, and progress tracking.',
-            techStack: ['Angular', 'Node.js', 'Socket.io', 'MongoDB'],
-            githubLink: '#',
-            liveLink: '#'
-        },
-        {
-            title: 'Portfolio Website',
-            description: 'A responsive portfolio website showcasing projects and skills with modern design and animations.',
-            techStack: ['HTML5', 'CSS3', 'JavaScript', 'GSAP'],
-            githubLink: '#',
-            liveLink: '#'
-        }
+        // {
+        //     title: 'Task Management System',
+        //     description: 'A collaborative task management application with real-time updates, team collaboration features, and progress tracking.',
+        //     techStack: ['Angular', 'Node.js', 'Socket.io', 'MongoDB'],
+        //     githubLink: '#',
+        //     liveLink: '#'
+        // },
+        // {
+        //     title: 'Portfolio Website',
+        //     description: 'A responsive portfolio website showcasing projects and skills with modern design and animations.',
+        //     techStack: ['HTML5', 'CSS3', 'JavaScript', 'GSAP'],
+        //     githubLink: '#',
+        //     liveLink: '#'
+        // }
     ];
 }
 
