@@ -65,21 +65,21 @@ if (window.location.pathname.includes('experience.html')) {
             company: 'Netskope',
             period: 'June 2025 - Present',
             description: 'Managed secure infrastructure access and automated deployment processes for engineering teams in a production environment. Designed and implemented access control systems using Okta and Kubernetes orchestration through Rancher, while developing automation tooling to streamline SSL certificate deployments.\n\nKey Contributions:\n\n• Architected secure platform access workflows that improved engineering team productivity by 80% through systematic ticketing and access management\n• Built automation scripts in Python and Golang for SSL certificate deployment, reducing manual operational overhead by 40-50%\n• Collaborated with cross-functional teams to optimize containerized infrastructure and enhance security protocols\n\n<strong>Technologies:</strong> Okta • Kubernetes • Rancher • Python • Golang • SSL/TLS • Infrastructure Automation',
-            logo: 'public/assets/netskope.png'
+            logo: 'assets/netskope.png'
         },
         {
             role: 'AI Extern',
             company: 'PricewaterhouseCoopers',
             period: 'Febuary 2025 - April 2025',
             description: 'Worked on real-world automation challenges in a 10-week AI externship focused on finance document processing.\n\n• Automated extraction from financial documents using <strong>NLP</strong> tools like <strong>PyPDF2</strong> and <strong>pdfplumber</strong>, reducing processing time by 80%.\n\n• Built and deployed <strong>OCR</strong> + <strong>Label Studio</strong> pipelines to extract structured data from multiple document types, boosting speed by 75% and accuracy by 90%.\n\n• Developed a <strong>Retrieval-Augmented Generation (RAG)</strong> pipeline using <strong>Mistral B</strong> and <strong>LLaMA Index</strong>, automating mortgage document classification and insights extraction, cutting down manual underwriting work by 80%.',
-            logo: 'public/assets/pwc.png'
+            logo: 'assets/pwc.png'
         },
         {
             role: 'Student IT Assistant',
             company: 'Student Technology Center - Grambling State University',
             period: 'October 2024 - Present',
             description: 'Support the daily operations of the campus computer labs, ensuring a reliable and efficient learning environment for students and faculty.\n\n• Deliver technical support to <strong>50+</strong> users daily, resolving hardware and software issues across <strong>50+</strong> managed systems, maintaining <strong>99%</strong> uptime.\n\n• Lead weekly orientation sessions for new users, resulting in a <strong>90%</strong> reduction in policy violations and improved resource usage.\n\n• Collaborate with IT staff to tackle complex issues, implementing solutions that boosted lab uptime by <strong>25%</strong> and cut user complaints by <strong>40%</strong>.',
-            logo: 'public/assets/download.jpeg'
+            logo: 'assets/download.jpeg'
         }
     ];
 }

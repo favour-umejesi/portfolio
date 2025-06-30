@@ -563,28 +563,28 @@ body {
 }
 
 .background-image[data-image="1"] {
-    background-image: url("public/assets/R.jpg");
+    background-image: url("assets/R.jpg");
 }
 
 .background-image[data-image="2"] {
-    background-image: url('public/assets/studio_hilibi.png');
+    background-image: url('assets/studio_hilibi.png');
     
 }
 
 .background-image[data-image="3"] {
-    background-image: url('public/assets/mononoke.jpg');
+    background-image: url('assets/mononoke.jpg');
     
 }
 
 .background-image[data-image="4"] {
-    background-image: url('public/assets/me_corrreee.png');
+    background-image: url('assets/me_corrreee.png');
     background-size: cover top;
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .background-image[data-image="5"] {
-    background-image: url('public/assets/frieren.jpeg');
+    background-image: url('assets/frieren.jpeg');
 }
 
 /* Responsive Design */
