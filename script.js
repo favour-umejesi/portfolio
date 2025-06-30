@@ -19,13 +19,6 @@ let projects = [];
 if (window.location.pathname.includes('projects.html')) {
     projects = [
         {
-            title: 'Smoking Status Prediction Model',
-            description: 'Led the development of a machine learning model for healthcare applications during the DataSpark hackathon. Achieved Top 4 ranking among 10+ submissions with a binary classification model reaching 79% accuracy and 0.87 AUC-ROC. Utilized Python data science stack for feature engineering and created insightful visualizations using Matplotlib/Seaborn.',
-            techStack: ['Python', 'Pandas', 'NumPy', 'Scikit-learn', 'Matplotlib', 'Seaborn'],
-            githubLink: 'https://colab.research.google.com/drive/13M_34Vs0xWcjUwxafGazbWDeoNZYVm6N',
-            liveLink: '#'
-        },
-        {
             title: 'AgriSmart Africa',
             description: 'A comprehensive web platform empowering African farmers through streamlined farm operations, AI-driven business support, and investor connections. The application combines inventory management, intelligent matchmaking between farmers and investors, personalized farming guidance via LLM assistant, and automated brand asset creation to help agricultural entrepreneurs scale their businesses digitally.',
             techStack: ['Next.js', 'Tailwind CSS', 'FastAPI', 'PostgreSQL', 'Firebase Authentication', 'LangChain + Mistral-7B', 'Stable Diffusion'],
@@ -33,7 +26,14 @@ if (window.location.pathname.includes('projects.html')) {
             liveLink: '#'
         },
         {
-            title: 'Carbon Footprint Calculator',
+            title: 'Smoking Status Prediction Model',
+            description: 'Led the development of a machine learning model for healthcare applications during the DataSpark hackathon. Achieved Top 4 ranking among 10+ submissions with a binary classification model reaching 79% accuracy and 0.87 AUC-ROC. Utilized Python data science stack for feature engineering and created insightful visualizations using Matplotlib/Seaborn.',
+            techStack: ['Python', 'Pandas', 'NumPy', 'Scikit-learn', 'Matplotlib', 'Seaborn'],
+            githubLink: 'https://colab.research.google.com/drive/13M_34Vs0xWcjUwxafGazbWDeoNZYVm6N',
+            liveLink: '#'
+        },
+        {
+            title: 'EcoTrack',
             description: 'An interactive web application that empowers users to track and reduce their environmental impact through personalized carbon footprint calculations. Features include dynamic data visualization with Chart.js and integration with Carbon Interface API.',
             techStack: ['HTML', 'CSS', 'JavaScript', 'Chart.js', 'Node.js'],
             githubLink: 'https://github.com/KingOz-stack/EcoTrack-',
@@ -64,7 +64,7 @@ if (window.location.pathname.includes('experience.html')) {
             role: 'Platform Engineering Intern',
             company: 'Netskope',
             period: 'June 2025 - Present',
-            description: 'Incoming summer intern focused on platform engineering and cloud infrastructure.',
+            description: 'Managed secure infrastructure access and automated deployment processes for engineering teams in a production environment. Designed and implemented access control systems using Okta and Kubernetes orchestration through Rancher, while developing automation tooling to streamline SSL certificate deployments.\n\nKey Contributions:\n\n• Architected secure platform access workflows that improved engineering team productivity by 80% through systematic ticketing and access management\n• Built automation scripts in Python and Golang for SSL certificate deployment, reducing manual operational overhead by 40-50%\n• Collaborated with cross-functional teams to optimize containerized infrastructure and enhance security protocols\n\n<strong>Technologies:</strong> Okta • Kubernetes • Rancher • Python • Golang • SSL/TLS • Infrastructure Automation',
             logo: 'assets/netskope.png'
         },
         {
