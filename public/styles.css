@@ -1123,4 +1123,35 @@ body {
 
 .medium-stats .resume-link i {
     font-size: 1.5rem;
+}
+
+.awards-card {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 1.5rem;
+}
+
+.awards-card h3 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.awards-list {
+    list-style: disc inside;
+    padding-left: 1rem;
+    margin: 0;
+    font-family: 'Spectral', serif;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.awards-list li {
+    margin-bottom: 0.7rem;
+    background: rgba(255,255,255,0.03);
+    border-radius: 6px;
+    padding: 0.5rem 0.8rem;
 } 
