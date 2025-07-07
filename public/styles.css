@@ -1154,4 +1154,44 @@ body {
     background: rgba(255,255,255,0.03);
     border-radius: 6px;
     padding: 0.5rem 0.8rem;
+}
+
+.awards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.2rem;
+    margin-top: 1rem;
+}
+
+.award-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background-color: #3a3a3a;
+    border-radius: 8px;
+    padding: 1rem 1.2rem;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.award-item i {
+    font-size: 2.1rem;
+    color: var(--primary-color);
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+}
+
+.award-item strong {
+    font-size: 1.08rem;
+    color: var(--primary-color);
+    display: block;
+    margin-bottom: 0.2rem;
+}
+
+.award-item p {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--text-color);
+    font-family: 'Spectral', serif;
+    line-height: 1.6;
 } 
