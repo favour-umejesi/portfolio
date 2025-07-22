@@ -143,6 +143,35 @@ function setupTimelineGallery() {
     }
 }
 
+// Journey Timeline Carousel
+const journeySlides = [
+    document.getElementById('journey-slide-1'),
+    document.getElementById('journey-slide-2'),
+    document.getElementById('journey-slide-3')
+];
+let currentJourneySlide = 0;
+
+function showJourneySlide(index) {
+    journeySlides.forEach((slide, i) => {
+        slide.style.display = (i === index) ? 'flex' : 'none';
+    });
+}
+
+const prevBtn = document.getElementById('journey-prev');
+const nextBtn = document.getElementById('journey-next');
+if (prevBtn && nextBtn && journeySlides.length) {
+    prevBtn.addEventListener('click', () => {
+        currentJourneySlide = (currentJourneySlide - 1 + journeySlides.length) % journeySlides.length;
+        showJourneySlide(currentJourneySlide);
+    });
+    nextBtn.addEventListener('click', () => {
+        currentJourneySlide = (currentJourneySlide + 1) % journeySlides.length;
+        showJourneySlide(currentJourneySlide);
+    });
+    // Initialize
+    showJourneySlide(currentJourneySlide);
+}
+
 // Background Rotation
 function rotateBackground() {
     const backgrounds = document.querySelectorAll('.background-image');
