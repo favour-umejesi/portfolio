@@ -562,13 +562,6 @@ body {
     background-repeat: no-repeat;
 }
 
-/* DEBUG: Show all background images with red border and high z-index */
-.background-image {
-    opacity: 1 !important;
-    z-index: 1000 !important;
-    border: 5px solid red !important;
-}
-
 .background-image[data-image="1"] {
     background-image: url("assets/R.jpg");
 }
