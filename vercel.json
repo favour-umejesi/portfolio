@@ -5,7 +5,8 @@
       { "source": "/writings", "destination": "/writings.html" },
       { "source": "/experience", "destination": "/experience.html" },
       { "source": "/projects", "destination": "/projects.html" },
-      { "source": "/skills", "destination": "/skills.html" }
+      { "source": "/skills", "destination": "/skills.html" },
+      { "source": "/journey", "destination": "/Journey.html" }
     ]
   }
   
