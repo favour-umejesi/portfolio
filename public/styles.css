@@ -578,7 +578,7 @@ body {
 
 .background-image[data-image="4"] {
     background-image: url('assets/me_corrreee.jpg');
-    background-size: cover top;
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
