@@ -143,35 +143,6 @@ function setupTimelineGallery() {
     }
 }
 
-// Journey Timeline Carousel
-const journeySlides = [
-    document.getElementById('journey-slide-1'),
-    document.getElementById('journey-slide-2'),
-    document.getElementById('journey-slide-3')
-];
-let currentJourneySlide = 0;
-
-function showJourneySlide(index) {
-    journeySlides.forEach((slide, i) => {
-        slide.style.display = (i === index) ? 'flex' : 'none';
-    });
-}
-
-const prevBtn = document.getElementById('journey-prev');
-const nextBtn = document.getElementById('journey-next');
-if (prevBtn && nextBtn && journeySlides.length) {
-    prevBtn.addEventListener('click', () => {
-        currentJourneySlide = (currentJourneySlide - 1 + journeySlides.length) % journeySlides.length;
-        showJourneySlide(currentJourneySlide);
-    });
-    nextBtn.addEventListener('click', () => {
-        currentJourneySlide = (currentJourneySlide + 1) % journeySlides.length;
-        showJourneySlide(currentJourneySlide);
-    });
-    // Initialize
-    showJourneySlide(currentJourneySlide);
-}
-
 // Background Rotation
 function rotateBackground() {
     const backgrounds = document.querySelectorAll('.background-image');
@@ -268,6 +239,44 @@ document.addEventListener('DOMContentLoaded', () => {
         renderProjects();
     } else if (window.location.pathname.includes('about.html') || window.location.pathname === '/about') {
         setupTimelineGallery();
+    }
+    
+    // Journey Timeline Carousel Logic
+    if (window.location.pathname.toLowerCase().includes('journey')) {
+        const track = document.querySelector('.carousel-track');
+        const cards = document.querySelectorAll('.carousel-card');
+        const leftArrow = document.querySelector('.carousel-arrow.left-arrow');
+        const rightArrow = document.querySelector('.carousel-arrow.right-arrow');
+        let currentIndex = 0;
+
+        function scrollToCard(index) {
+            if (!track || !cards[index]) return;
+            const card = cards[index];
+            card.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        }
+
+        leftArrow && leftArrow.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                scrollToCard(currentIndex);
+            }
+        });
+        rightArrow && rightArrow.addEventListener('click', () => {
+            if (currentIndex < cards.length - 1) {
+                currentIndex++;
+                scrollToCard(currentIndex);
+            }
+        });
+
+        // Optional: allow arrow keys for navigation
+        document.addEventListener('keydown', (e) => {
+            if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') return;
+            if (e.key === 'ArrowLeft') leftArrow && leftArrow.click();
+            if (e.key === 'ArrowRight') rightArrow && rightArrow.click();
+        });
+
+        // Center the first card on load
+        scrollToCard(currentIndex);
     }
     
     rotateBackground();
