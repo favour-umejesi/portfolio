@@ -20,7 +20,7 @@ if (window.location.pathname.includes('projects.html') || window.location.pathna
     projects = [
         {
             title: '🌿 AgriSmart Africa',
-            description: 'A comprehensive full-stack web application to support African farmers with inventory tracking, produce sales, investor matchmaking, and AI-powered farming advice—designed to drive digital growth and attract venture-style funding for agricultural entrepreneurs.',
+            description: 'A comprehensive <strong>full-stack</strong> web application empowering African farmers with <strong>inventory management</strong>, <strong>produce sales</strong>, <strong>AI-driven farming guidance</strong>, and <strong>investor matchmaking</strong>—designed to support digital growth and attract venture-style funding for <strong>agricultural entrepreneurs</strong>.',
             techStack: ['Next.js', 'Tailwind CSS', 'FastAPI', 'PostgreSQL', 'Firebase Authentication', 'LangChain + Mistral-7B', 'Stable Diffusion Model'],
             githubLink: 'https://github.com/favour-umejesi/AgriSmart',
             liveLink: '#'
