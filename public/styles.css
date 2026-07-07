@@ -55,12 +55,15 @@ body {
       var(--margin-line) 97.6px,
       transparent 97.6px
     ),
-    repeating-linear-gradient(
-      transparent 0,
+    linear-gradient(
+      to bottom,
       transparent calc(var(--lh) - 1.5px),
       var(--rule-line) calc(var(--lh) - 1.5px),
       var(--rule-line) var(--lh)
     );
+  /* fixed 33px tile (not one long repeating-gradient) so subpixel rounding
+     can't drift the rule spacing wider down the page */
+  background-size: auto, 100% var(--lh);
   background-position: 0 0, 0 -9px;
 }
 
@@ -143,6 +146,30 @@ a:hover {
 
 .corner-doodle svg {
   display: block;
+}
+
+/* greg at his desk, contributing — taped-in snapshot, tucked toward the
+   right corner (publications page) */
+.desk-doodle {
+  width: fit-content;
+  margin: var(--lh) 12px 0 auto;
+  padding: 10px 12px 2px;
+  background: #fff;
+  border: 2.5px solid var(--ink);
+  border-radius: 2px;
+  box-shadow: 5px 5px 0 0 var(--ink);
+  transform: rotate(-2.5deg);
+  text-align: center;
+}
+
+.desk-doodle svg {
+  display: block;
+  margin: 0 auto;
+}
+
+.desk-doodle figcaption {
+  font-size: 16px;
+  opacity: 0.6;
 }
 
 /* --------------------------------------------------------------------------
@@ -510,13 +537,6 @@ a:hover {
   margin-top: var(--lh);
 }
 
-.wavy-divider {
-  display: block;
-  width: 100%;
-  height: 12px;
-  margin-bottom: 21px; /* 12 + 21 = one ruled line */
-}
-
 .footer-row {
   display: flex;
   justify-content: space-between;
@@ -612,22 +632,19 @@ body.home .footer {
   margin-top: 40px;
 }
 
-body.home .wavy-divider {
-  margin-bottom: 18px;
-}
-
 /* --------------------------------------------------------------------------
    Responsive
    -------------------------------------------------------------------------- */
 
 @media (max-width: 860px) {
   body {
-    background-image: repeating-linear-gradient(
-      transparent 0,
+    background-image: linear-gradient(
+      to bottom,
       transparent calc(var(--lh) - 1.5px),
       var(--rule-line) calc(var(--lh) - 1.5px),
       var(--rule-line) var(--lh)
     );
+    background-size: 100% var(--lh);
     background-position: 0 -9px;
   }
 

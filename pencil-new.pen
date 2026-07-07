@@ -13287,59 +13287,59 @@
         {
           "type": "path",
           "id": "ZWOmD",
-          "x": 6,
-          "y": 46,
+          "x": 2,
+          "y": 44,
           "name": "Ear L",
-          "geometry": "M6 0q-6 3-4 9 1 4 5 4",
+          "geometry": "M10 0q-10 2-9 10 1 8 10 6",
           "viewBox": [
             0,
             0,
-            8,
-            13
+            11,
+            18
           ],
-          "fill": "#00000000",
-          "width": 8,
-          "height": 13,
+          "fill": "$paper",
+          "width": 11,
+          "height": 18,
           "stroke": "$ink",
-          "strokeWidth": 2.2,
+          "strokeWidth": 2.4,
           "strokeLinecap": "round"
         },
         {
           "type": "path",
           "id": "GAmZx",
-          "x": 64,
-          "y": 46,
+          "x": 65,
+          "y": 44,
           "name": "Ear R",
-          "geometry": "M2 0q6 3 4 9-1 4-5 4",
+          "geometry": "M1 0q10 2 9 10-1 8-10 6",
           "viewBox": [
             0,
             0,
-            8,
-            13
+            11,
+            18
           ],
-          "fill": "#00000000",
-          "width": 8,
-          "height": 13,
+          "fill": "$paper",
+          "width": 11,
+          "height": 18,
           "stroke": "$ink",
-          "strokeWidth": 2.2,
+          "strokeWidth": 2.4,
           "strokeLinecap": "round"
         },
         {
           "type": "path",
           "id": "n6DWai",
-          "x": 27,
+          "x": 28,
           "y": 7,
           "name": "Wisp 1",
-          "geometry": "M7 14q-4-7-7-14",
+          "geometry": "M11 15q-5-9-11-15",
           "viewBox": [
             0,
             0,
-            7,
-            14
+            11,
+            15
           ],
           "fill": "#00000000",
-          "width": 7,
-          "height": 14,
+          "width": 11,
+          "height": 15,
           "stroke": "$ink",
           "strokeWidth": 2,
           "strokeLinecap": "round"
@@ -13350,16 +13350,16 @@
           "x": 38,
           "y": 5,
           "name": "Wisp 2",
-          "geometry": "M2 14q0-8-2-14",
+          "geometry": "M1 17q-1-9 0-17",
           "viewBox": [
             0,
             0,
-            3,
-            14
+            2,
+            17
           ],
           "fill": "#00000000",
-          "width": 3,
-          "height": 14,
+          "width": 2,
+          "height": 17,
           "stroke": "$ink",
           "strokeWidth": 2,
           "strokeLinecap": "round"
@@ -13367,19 +13367,19 @@
         {
           "type": "path",
           "id": "kPfzp",
-          "x": 46,
+          "x": 39,
           "y": 7,
           "name": "Wisp 3",
-          "geometry": "M0 14q4-7 7-14",
+          "geometry": "M0 15q5-9 11-15",
           "viewBox": [
             0,
             0,
-            7,
-            14
+            11,
+            15
           ],
           "fill": "#00000000",
-          "width": 7,
-          "height": 14,
+          "width": 11,
+          "height": 15,
           "stroke": "$ink",
           "strokeWidth": 2,
           "strokeLinecap": "round"
