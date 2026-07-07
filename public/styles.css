@@ -359,9 +359,7 @@ a:hover {
   flex: 0 0 auto;
   width: 66px;
   height: 66px;
-  border: 2px solid var(--ink);
-  border-radius: 2px;
-  background: #fff;
+  border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
