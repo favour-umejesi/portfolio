@@ -1,90 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-    <link rel="icon" type="image/png" href="assets/favicon-16x16.png">
-    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Diary of a Lucid Dame — Favour Umejesi</title>
+  <meta name="description" content="Favour Umejesi — software engineer. AI + full-stack projects, experience, and diary entries.">
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  <link rel="icon" type="image/png" href="assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Patrick+Hand+SC&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-content">
-            <div class="nav-links">
-                <a href="/about">About</a>
-                <a href="/experience">Experience</a>
-                <a href="/journey">Journey</a>
-                <a href="/projects">Projects</a>
-                <a href="/skills">Skills</a>
-                <a href="/writings">Writings</a>
-                <a href="assets/FAVOUR UMEJESI - SWE 2025.pdf" target="_blank" class="resume-link">Resume <i class="fas fa-file-pdf"></i></a>
-            </div>
+  <div class="page">
+
+    <header class="topbar">
+      <a class="diary-mark" href="/">The Diary of a Lucid Dame</a>
+      <nav class="nav">
+        <a href="/about">about</a>
+        <a href="/experience">experience</a>
+        <a href="/projects">projects</a>
+        <a href="/skills">skills</a>
+        <a href="/journey">journey</a>
+        <a href="/writings">writings</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="panel hero">
+        <p class="kicker">THE DIARY OF A —</p>
+        <h1 class="name">LUCID DAME</h1>
+        <svg class="hero-underline" viewBox="0 0 410 14" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M2 8q30-7 58 0t58 0 58 0 58 0 58 0 58 0 58 0" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+        </svg>
+        <p class="byline">kept by Favour Umejesi — software engineer</p>
+        <p class="tagline">I build AI + full-stack things, break a few of them, and write the whole mess down here. Mostly trying to work smart, not hard.</p>
+        <p class="status">Currently — Platform Engineering Intern @ Netskope.</p>
+        <svg class="star-doodle" viewBox="0 0 48 48" aria-hidden="true">
+          <path d="M24 2l6.2 15.3 15.8 1.2-12 10.5 4 16-14-9-14 9 4-16-12-10.5 15.8-1.2z" fill="#111"/>
+        </svg>
+      </section>
+
+      <section class="panel explore">
+        <p class="panel-label">STUFF TO CLICK ON —</p>
+        <div class="explore-cols">
+          <div class="explore-col">
+            <a href="/about">→ about</a>
+            <a href="/experience">→ experience</a>
+            <a href="/projects">→ projects</a>
+          </div>
+          <div class="explore-col">
+            <a href="/skills">→ skills</a>
+            <a href="/journey">→ journey</a>
+            <a href="/writings">→ writings</a>
+          </div>
         </div>
-    </nav>
-
-    <!-- Home Section -->
-    <section id="home" class="section">
-        <div class="container">
-            <div class="profile-container">
-                <div class="profile-image">
-                    <img src="assets/sketch_image.png" alt="Profile Image">
-                </div>
-                <div class="welcome-text">
-                    <h1>
-                        <span class="typing-text"></span>
-                    </h1>
-                    <p class="subtitle">
-                        <span class="typing-text-subtitle"></span>
-                    </p>
-                    <p class="intro-text">
-                        <span class="typing-text-epigraph"></span>
-                    </p>
-                    <p class="thanks">
-                        <span class="typing-text-thanks"></span>
-                            </p>
-                </div>
-            </div>
-    <!-- Contact Section -->
-            <div class="contact-section">
-            <h2>Get in Touch</h2>
-                <div class="social-links">
-                    <a href="mailto:umejesif@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
-                    <a href="https://linkedin.com/in/favour-umejesi" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/favour-umejesi" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
-                    <a href="https://medium.com/@umejesif" target="_blank" class="social-link"><i class="fab fa-medium"></i></a>
-                </div>
-            </div>
+        <div class="dog-doodle" aria-hidden="true">
+          <svg width="126" height="84" viewBox="0 0 126 84">
+            <g fill="none" stroke="#111" stroke-linecap="round" stroke-linejoin="round">
+              <path transform="translate(100,48)" d="M0 10 Q10 2 18 8" stroke-width="2.6"/>
+              <ellipse cx="64" cy="54" rx="38" ry="26" fill="#f6f1e3" stroke-width="2.4"/>
+              <ellipse cx="38.5" cy="75" rx="8.5" ry="5" fill="#f6f1e3" stroke-width="2.2"/>
+              <ellipse cx="58.5" cy="77" rx="8.5" ry="5" fill="#f6f1e3" stroke-width="2.2"/>
+              <ellipse cx="85" cy="76" rx="9" ry="5" fill="#f6f1e3" stroke-width="2.2"/>
+              <path transform="translate(40,54)" d="M1 0 L1 14" stroke-width="2.2"/>
+              <path transform="translate(2,2)" d="M22 8 Q36 0 44 8 Q52 16 48 28 Q44 38 32 40 Q22 42 17 33 L4 19 Q1 16 4 12 L15 13 Q17 9 22 8 Z" fill="#f6f1e3" stroke-width="2.4"/>
+              <g transform="translate(36,2) rotate(12)">
+                <path d="M5 2 Q15 -2 17 8 Q19 21 11 27 Q3 30 2 19 Q1 8 5 2 Z" fill="#f6f1e3" stroke-width="2.2"/>
+              </g>
+              <ellipse cx="6" cy="13.5" rx="5" ry="4.5" fill="#111" stroke="none"/>
+              <ellipse cx="25.2" cy="19.8" rx="2.3" ry="2.8" fill="#111" stroke="none"/>
+              <ellipse cx="34.2" cy="17.8" rx="2.3" ry="2.8" fill="#111" stroke="none"/>
+            </g>
+          </svg>
         </div>
-    </section>
+      </section>
 
-    <!-- Music Player -->
-    <div class="music-player">
-        <button id="music-toggle" class="music-toggle">
-            <i class="fas fa-music"></i>
-        </button>
-        <audio id="background-music" loop>
-            <source src="assets/⏱️ - Lofi Girl.mp3" type="audio/mpeg">
-        </audio>
-    </div>
+      <p class="contact-row">
+        <span>→ find me at:</span>
+        <span class="links">
+          <a href="mailto:umejesif@gmail.com">email</a> ·
+          <a href="https://linkedin.com/in/favour-umejesi" target="_blank" rel="noopener">linkedin</a> ·
+          <a href="https://github.com/favour-umejesi" target="_blank" rel="noopener">github</a> ·
+          <a href="https://medium.com/@umejesif" target="_blank" rel="noopener">medium</a> ·
+          <a href="assets/FAVOUR%20UMEJESI%20-%20SWE%202025.pdf" target="_blank" rel="noopener">resume</a>
+        </span>
+      </p>
+    </main>
 
-    <!-- Background Images -->
-    <div class="background-container">
-        <div class="background-image" data-image="1"></div>
-        <div class="background-image" data-image="2"></div>
-        <div class="background-image" data-image="3"></div>
-        <div class="background-image" data-image="4"></div>
-        <div class="background-image" data-image="5"></div>
-    </div>
+    <footer class="footer">
+      <svg class="wavy-divider" viewBox="0 0 1016 12" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 6q40-6 80 0t80 0 80 0 80 0 80 0 80 0 80 0 80 0 80 0 80 0 80 0 80 0 56 0" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+      </svg>
+      <div class="footer-row">
+        <p class="quote">“Work smart, not hard.”</p>
+        <div class="footer-right">
+          <p class="socials">
+            <a href="mailto:umejesif@gmail.com">email</a> ·
+            <a href="https://github.com/favour-umejesi" target="_blank" rel="noopener">github</a> ·
+            <a href="https://linkedin.com/in/favour-umejesi" target="_blank" rel="noopener">linkedin</a> ·
+            <a href="https://medium.com/@umejesif" target="_blank" rel="noopener">medium</a>
+          </p>
+          <p class="copyright">© 2025 Favour Umejesi</p>
+        </div>
+      </div>
+    </footer>
 
-    <script src="script.js"></script>
+  </div>
 </body>
-</html> 
+</html>
