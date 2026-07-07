@@ -547,6 +547,13 @@ a:hover {
 
 .footer .quote {
   font-size: 21px;
+  max-width: 58%;
+}
+
+.footer .quote .by {
+  font-size: 16px;
+  opacity: 0.6;
+  white-space: nowrap;
 }
 
 .footer-right {
