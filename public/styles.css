@@ -135,6 +135,7 @@ a:hover {
 .title-underline {
   display: block;
   height: 12px;
+  max-width: 100%; /* wide underlines squish instead of forcing horizontal scroll */
   margin-top: -12px; /* net-zero: hugs the title's writing line */
 }
 
@@ -780,5 +781,31 @@ body.home .footer {
 
   .footer-right {
     align-items: flex-start;
+  }
+
+  .footer .quote {
+    max-width: none;
+  }
+
+  .desk-doodle {
+    margin: var(--lh) auto 0;
+  }
+
+  .desk-doodle svg {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* home opts out of the rhythm, so it needs its own mobile spacing */
+  body.home .page {
+    padding: 32px 18px 44px;
+  }
+
+  body.home .hero {
+    padding: 30px 24px 36px;
+  }
+
+  body.home .explore {
+    padding: 26px 24px 32px;
   }
 }
