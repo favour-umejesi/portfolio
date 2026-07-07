@@ -1,6 +1,10 @@
 /* ==========================================================================
    The Diary of a Lucid Dame — Wimpy Kid diary theme
    Black ink on cream lined notebook paper.
+
+   Everything vertical obeys a 33px baseline rhythm (--lh) so text sits ON
+   the ruled lines like real handwriting. If you add spacing, use multiples
+   of 33px; panel top/bottom = 2.5px border + 30.5px padding = one line.
    ========================================================================== */
 
 :root {
@@ -8,7 +12,7 @@
   --ink: #111111;
   --rule-line: rgba(185, 174, 146, 0.42);
   --margin-line: rgba(201, 143, 134, 0.38);
-  --line-gap: 33px;
+  --lh: 33px; /* ruled-line gap AND global line-height */
   --font-hand: "Patrick Hand", "Comic Sans MS", cursive;
   --font-hand-sc: "Patrick Hand SC", "Patrick Hand", cursive;
 }
@@ -39,9 +43,10 @@ body {
   font-family: var(--font-hand);
   color: var(--ink);
   font-size: 19px;
-  line-height: 1.45;
+  line-height: var(--lh);
   background-color: var(--paper);
-  /* ruled notebook lines + pinkish margin line */
+  /* pinkish margin line + ruled notebook lines; the -9px shift tucks each
+     ruled line up against the text baseline */
   background-image:
     linear-gradient(
       90deg,
@@ -52,10 +57,11 @@ body {
     ),
     repeating-linear-gradient(
       transparent 0,
-      transparent calc(var(--line-gap) - 1.5px),
-      var(--rule-line) calc(var(--line-gap) - 1.5px),
-      var(--rule-line) var(--line-gap)
+      transparent calc(var(--lh) - 1.5px),
+      var(--rule-line) calc(var(--lh) - 1.5px),
+      var(--rule-line) var(--lh)
     );
+  background-position: 0 0, 0 -9px;
 }
 
 a {
@@ -71,7 +77,7 @@ a:hover {
 .page {
   max-width: 1016px;
   margin: 0 auto;
-  padding: 46px 28px 56px;
+  padding: var(--lh) 28px calc(var(--lh) * 2);
 }
 
 /* --------------------------------------------------------------------------
@@ -84,7 +90,7 @@ a:hover {
   align-items: center;
   gap: 18px;
   flex-wrap: wrap;
-  margin-bottom: 34px;
+  margin-bottom: var(--lh);
 }
 
 .diary-mark {
@@ -113,20 +119,20 @@ a:hover {
 
 .title-block {
   position: relative;
-  margin-bottom: 34px;
+  margin-bottom: var(--lh);
 }
 
 .page-title {
   font-family: var(--font-hand-sc);
   font-weight: 400;
   font-size: 56px;
-  line-height: 1;
+  line-height: calc(var(--lh) * 2);
 }
 
 .title-underline {
   display: block;
   height: 12px;
-  margin-top: 3px;
+  margin-top: -12px; /* net-zero: hugs the title's writing line */
 }
 
 .corner-doodle {
@@ -148,15 +154,14 @@ a:hover {
   border: 2.5px solid var(--ink);
   border-radius: 2px;
   box-shadow: 6px 6px 0 0 var(--ink);
-  padding: 26px 34px 30px;
-  margin-bottom: 22px;
+  padding: 30.5px 34px; /* 2.5px border + 30.5px = one ruled line */
+  margin-bottom: var(--lh);
 }
 
 .panel-label {
   font-size: 18px;
   opacity: 0.6;
   letter-spacing: 1px;
-  margin-bottom: 11px;
 }
 
 /* --------------------------------------------------------------------------
@@ -165,39 +170,35 @@ a:hover {
 
 .hero {
   box-shadow: 7px 7px 0 0 var(--ink);
-  padding: 38px 44px 44px;
-  margin-bottom: 40px;
+  padding: 30.5px 44px;
+  margin-bottom: var(--lh);
 }
 
 .hero .kicker {
   font-size: 17px;
   letter-spacing: 2px;
-  margin-bottom: 16px;
 }
 
 .hero .name {
   font-family: var(--font-hand-sc);
   font-weight: 400;
   font-size: 70px;
-  line-height: 1;
+  line-height: calc(var(--lh) * 2);
 }
 
 .hero .hero-underline {
   display: block;
   height: 14px;
   width: min(470px, 100%);
-  margin: 4px 0 14px 2px;
+  margin: -14px 0 0 2px; /* net-zero: sits on the name's writing line */
 }
 
 .hero .byline {
   font-size: 22px;
-  margin-bottom: 14px;
 }
 
 .hero .tagline {
-  font-size: 21px;
-  line-height: 1.4;
-  margin-bottom: 14px;
+  font-size: 19px;
 }
 
 .hero .status {
@@ -207,16 +208,44 @@ a:hover {
 
 .star-doodle {
   position: absolute;
-  top: 30px;
-  right: 44px;
+  top: 22px;
+  right: 244px;
   width: 46px;
   height: 46px;
   transform: rotate(-14deg);
 }
 
+/* the author, taped in like a diary photo */
+.hero-photo {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  width: 140px;
+  padding: 8px 8px 0;
+  background: #fff;
+  border: 2.5px solid var(--ink);
+  border-radius: 2px;
+  box-shadow: 5px 5px 0 0 var(--ink);
+  transform: rotate(3deg);
+}
+
+.hero-photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 0.8; /* trimmed height so frame + caption ≈ square */
+  object-fit: cover;
+  object-position: 50% 20%;
+}
+
+.hero-photo figcaption {
+  text-align: center;
+  font-size: 16px;
+  opacity: 0.6;
+}
+
 .explore {
-  padding: 30px 40px 34px;
-  margin-bottom: 40px;
+  padding: 30.5px 40px;
+  margin-bottom: var(--lh);
 }
 
 .explore-cols {
@@ -227,7 +256,6 @@ a:hover {
 .explore-col {
   display: flex;
   flex-direction: column;
-  gap: 12px;
 }
 
 .explore-col a {
@@ -247,7 +275,7 @@ a:hover {
   gap: 12px;
   flex-wrap: wrap;
   font-size: 20px;
-  margin-bottom: 40px;
+  margin-bottom: var(--lh);
 }
 
 .contact-row .links {
@@ -259,7 +287,7 @@ a:hover {
    -------------------------------------------------------------------------- */
 
 .bio p + p {
-  margin-top: 14px;
+  margin-top: var(--lh); /* skip a line between entries, diary-style */
 }
 
 .spread {
@@ -273,33 +301,57 @@ a:hover {
   margin-bottom: 0;
 }
 
-.list-items p + p {
-  margin-top: 12px;
-}
-
-.tag-rows {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
 .tag-row {
   display: flex;
+  align-items: center;
   gap: 10px;
   flex-wrap: wrap;
+  height: var(--lh);
 }
 
 .chip {
   border: 2px solid var(--ink);
   border-radius: 2px;
-  padding: 5px 11px;
+  padding: 0 11px;
   font-size: 17px;
+  line-height: 25px;
   white-space: nowrap;
 }
 
 /* --------------------------------------------------------------------------
    Experience / Projects cards
    -------------------------------------------------------------------------- */
+
+.card-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.card-logo {
+  flex: 0 0 auto;
+  width: 66px;
+  height: 66px;
+  border: 2px solid var(--ink);
+  border-radius: 2px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.card-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: grayscale(1);
+}
+
+.card-head-main {
+  flex: 1;
+  min-width: 0;
+}
 
 .card-row {
   display: flex;
@@ -311,7 +363,7 @@ a:hover {
 .card-title {
   font-weight: 400;
   font-size: 26px;
-  line-height: 1.05;
+  line-height: var(--lh);
 }
 
 .card-meta {
@@ -327,20 +379,15 @@ a:hover {
 .card-sub {
   font-size: 18px;
   opacity: 0.6;
-  margin-top: 8px;
 }
 
 .card-desc {
   font-size: 18px;
-  line-height: 1.45;
-  margin-top: 11px;
 }
 
 .card-tech {
   font-size: 15px;
-  line-height: 1.4;
   opacity: 0.6;
-  margin-top: 11px;
 }
 
 /* --------------------------------------------------------------------------
@@ -350,23 +397,21 @@ a:hover {
 .skills-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 22px;
+  gap: var(--lh) 22px;
 }
 
 .skills-grid .panel {
-  padding: 24px 32px 28px;
+  padding: 30.5px 32px;
   margin-bottom: 0;
 }
 
 .skill-cat {
   font-weight: 400;
   font-size: 23px;
-  margin-bottom: 10px;
 }
 
 .skill-items {
   font-size: 18px;
-  line-height: 1.5;
 }
 
 /* --------------------------------------------------------------------------
@@ -376,12 +421,11 @@ a:hover {
 .section-label {
   font-size: 19px;
   opacity: 0.6;
-  margin-bottom: 14px;
 }
 
 .awards {
-  padding: 24px 32px 28px;
-  margin-bottom: 34px;
+  padding: 30.5px 32px;
+  margin-bottom: var(--lh);
 }
 
 .award {
@@ -389,25 +433,19 @@ a:hover {
   gap: 22px;
 }
 
-.award + .award {
-  margin-top: 15px;
-}
-
 .award-name {
-  flex: 0 0 210px;
+  flex: 0 0 250px;
   font-size: 20px;
-  line-height: 1.1;
 }
 
 .award-desc {
   flex: 1;
   font-size: 18px;
-  line-height: 1.33;
 }
 
 .timeline .panel {
-  padding: 24px 32px 28px;
-  margin-bottom: 18px;
+  padding: 30.5px 32px;
+  margin-bottom: var(--lh);
 }
 
 .event-date {
@@ -419,14 +457,10 @@ a:hover {
 .event-title {
   font-weight: 400;
   font-size: 22px;
-  line-height: 1.1;
-  margin-top: 11px;
 }
 
 .event-desc {
   font-size: 18px;
-  line-height: 1.4;
-  margin-top: 11px;
 }
 
 /* --------------------------------------------------------------------------
@@ -434,7 +468,7 @@ a:hover {
    -------------------------------------------------------------------------- */
 
 .article-panel {
-  padding: 28px 36px 32px;
+  padding: 30.5px 36px;
 }
 
 .article-meta {
@@ -446,32 +480,26 @@ a:hover {
 .article-title {
   font-weight: 400;
   font-size: 29px;
-  line-height: 1.1;
-  margin-top: 14px;
 }
 
 .article-excerpt {
   font-size: 19px;
-  line-height: 1.48;
-  margin-top: 14px;
 }
 
 .article-tags {
   font-size: 16px;
   opacity: 0.6;
-  margin-top: 14px;
 }
 
 .article-link {
   display: inline-block;
   font-size: 20px;
-  margin-top: 14px;
 }
 
 .more-note {
   font-size: 18px;
   opacity: 0.5;
-  margin: 8px 0 40px;
+  margin-bottom: var(--lh);
 }
 
 /* --------------------------------------------------------------------------
@@ -479,14 +507,14 @@ a:hover {
    -------------------------------------------------------------------------- */
 
 .footer {
-  margin-top: 40px;
+  margin-top: var(--lh);
 }
 
 .wavy-divider {
   display: block;
   width: 100%;
   height: 12px;
-  margin-bottom: 18px;
+  margin-bottom: 21px; /* 12 + 21 = one ruled line */
 }
 
 .footer-row {
@@ -505,7 +533,6 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 3px;
 }
 
 .footer .socials {
@@ -519,6 +546,77 @@ a:hover {
 }
 
 /* --------------------------------------------------------------------------
+   Homepage exemption — the home page keeps the original airy spacing and
+   opts out of the 33px writing-on-the-lines rhythm (it felt jam-packed).
+   -------------------------------------------------------------------------- */
+
+body.home {
+  line-height: 1.45;
+  /* undo the rhythm build's -9px line shift so text lands on the rules
+     exactly where it did in the original build */
+  background-position: 0 0, 0 0;
+}
+
+body.home .page {
+  padding: 46px 28px 56px;
+}
+
+body.home .topbar {
+  margin-bottom: 34px;
+}
+
+body.home .hero {
+  padding: 38px 44px 44px;
+  margin-bottom: 40px;
+}
+
+body.home .hero .kicker {
+  margin-bottom: 16px;
+}
+
+body.home .hero .name {
+  line-height: 1;
+}
+
+body.home .hero .hero-underline {
+  margin: 4px 0 14px 2px;
+}
+
+body.home .hero .byline {
+  margin-bottom: 14px;
+}
+
+body.home .hero .tagline {
+  line-height: 1.4;
+  margin-bottom: 14px;
+}
+
+body.home .panel-label {
+  margin-bottom: 11px;
+}
+
+body.home .explore {
+  padding: 30px 40px 34px;
+  margin-bottom: 40px;
+}
+
+body.home .explore-col {
+  gap: 12px;
+}
+
+body.home .contact-row {
+  margin-bottom: 40px;
+}
+
+body.home .footer {
+  margin-top: 40px;
+}
+
+body.home .wavy-divider {
+  margin-bottom: 18px;
+}
+
+/* --------------------------------------------------------------------------
    Responsive
    -------------------------------------------------------------------------- */
 
@@ -526,20 +624,21 @@ a:hover {
   body {
     background-image: repeating-linear-gradient(
       transparent 0,
-      transparent calc(var(--line-gap) - 1.5px),
-      var(--rule-line) calc(var(--line-gap) - 1.5px),
-      var(--rule-line) var(--line-gap)
+      transparent calc(var(--lh) - 1.5px),
+      var(--rule-line) calc(var(--lh) - 1.5px),
+      var(--rule-line) var(--lh)
     );
+    background-position: 0 -9px;
   }
 
   .page {
-    padding: 30px 18px 44px;
+    padding: var(--lh) 18px var(--lh);
   }
 
   .topbar {
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
+    gap: 0;
   }
 
   .nav {
@@ -547,18 +646,26 @@ a:hover {
   }
 
   .hero {
-    padding: 28px 24px 32px;
+    padding: 30.5px 24px;
   }
 
   .hero .name {
-    font-size: 46px;
+    font-size: 44px;
   }
 
   .star-doodle {
-    top: 18px;
-    right: 20px;
-    width: 34px;
-    height: 34px;
+    display: none;
+  }
+
+  .hero-photo {
+    position: static;
+    width: 150px;
+    margin-top: 8px;
+    transform: rotate(2deg);
+  }
+
+  .hero .tagline {
+    max-width: none;
   }
 
   .page-title {
@@ -575,7 +682,7 @@ a:hover {
   }
 
   .panel {
-    padding: 20px 20px 24px;
+    padding: 30.5px 20px;
   }
 
   .explore-cols {
@@ -590,8 +697,22 @@ a:hover {
     display: none;
   }
 
+  .card-head {
+    gap: 12px;
+  }
+
+  .card-logo {
+    width: 44px;
+    height: 44px;
+  }
+
+  .card-row {
+    flex-wrap: wrap;
+  }
+
   .spread {
     flex-direction: column;
+    gap: var(--lh);
   }
 
   .spread .panel {
@@ -605,7 +726,7 @@ a:hover {
 
   .award {
     flex-direction: column;
-    gap: 4px;
+    gap: 0;
   }
 
   .award-name {
