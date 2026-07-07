@@ -537,6 +537,24 @@ a:hover {
   margin-top: var(--lh);
 }
 
+/* the hidden journey link — bottom corner of home, for observant peeps only */
+.psst {
+  text-align: right;
+  margin-top: 40px;
+  font-size: 15px;
+  opacity: 0.3;
+  transform: rotate(-2deg);
+}
+
+.psst:hover {
+  opacity: 1;
+}
+
+/* sign-off on the patent law page */
+.law-sign {
+  text-align: right;
+}
+
 .footer-row {
   display: flex;
   justify-content: space-between;

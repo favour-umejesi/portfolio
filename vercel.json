@@ -6,7 +6,9 @@
       { "source": "/experience", "destination": "/experience.html" },
       { "source": "/projects", "destination": "/projects.html" },
       { "source": "/skills", "destination": "/skills.html" },
-      { "source": "/theories", "destination": "/theories.html" }
+      { "source": "/theories", "destination": "/theories.html" },
+      { "source": "/journey", "destination": "/journey.html" },
+      { "source": "/patent-law", "destination": "/patent-law.html" }
     ]
   }
   
