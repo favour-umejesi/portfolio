@@ -777,8 +777,22 @@ body.home .footer {
     gap: 0;
   }
 
+  /* stacked awards blur together — skip a ruled line between entries,
+     star the names, and mute the descriptions so headers stand out */
+  .award + .award {
+    margin-top: var(--lh);
+  }
+
   .award-name {
     flex: none;
+  }
+
+  .award-name::before {
+    content: "★ ";
+  }
+
+  .award-desc {
+    opacity: 0.7;
   }
 
   .footer-row {
