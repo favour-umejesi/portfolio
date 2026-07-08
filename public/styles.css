@@ -587,6 +587,13 @@ a:hover {
 .footer .copyright {
   font-size: 15px;
   opacity: 0.4;
+  text-align: center;
+}
+
+/* always-on wavy underline for links that should pop (e.g. kiddo's blog) */
+.wavy-link {
+  text-decoration: underline wavy 1.5px;
+  text-underline-offset: 4px;
 }
 
 /* --------------------------------------------------------------------------
