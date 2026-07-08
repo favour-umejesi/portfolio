@@ -234,6 +234,24 @@ a:hover {
   opacity: 0.55;
 }
 
+/* corner scribble crediting the inspiration — above the nav (home only) */
+.design-note {
+  text-align: right;
+  margin: -10px 4px 8px 0;
+  transform: rotate(-2deg);
+}
+
+.design-note .note-line {
+  font-family: "Caveat", var(--font-hand), cursive;
+  font-size: 16px;
+  opacity: 0.8;
+}
+
+.design-note .note-quote {
+  font-size: 11px;
+  opacity: 0.4;
+}
+
 .star-doodle {
   position: absolute;
   top: 22px;
