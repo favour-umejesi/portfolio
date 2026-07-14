@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TitleBlock from '../components/TitleBlock.astro';
+import Rowley from '../components/doodles/Rowley.astro';
+---
+
+<BaseLayout
+  title="Journey — The Diary of a Lucid Dame"
+  description="Favour Umejesi's journey: distinctions, hackathons, and milestones. You found the hidden page. Well done, observant one."
+  noindex
+  quote="Someday this will all be in my memoir."
+>
+  <TitleBlock title="Journey" underlineWidth={250} path="M2 7q24-6 48 0t48 0 48 0 48 0 48 0">
+    <Rowley slot="doodle" />
+  </TitleBlock>
+
+  <p class="section-label">YOU FOUND THE HIDDEN PAGE. GOLD STAR FOR YOU TOO —</p>
+  <section class="panel awards">
+    <div class="award">
+      <p class="award-name">4.0 GPA</p>
+      <p class="award-desc">A perfect 4.0 GPA, every single point of it.</p>
+    </div>
+    <div class="award">
+      <p class="award-name">President's List</p>
+      <p class="award-desc">Recognized for outstanding academic achievement.</p>
+    </div>
+    <div class="award">
+      <p class="award-name">Break Through Tech AI</p>
+      <p class="award-desc">Picked for the ML program taught by faculty from schools like Cornell.</p>
+    </div>
+    <div class="award">
+      <p class="award-name">Discover ServiceNow</p>
+      <p class="award-desc">One of 40+ students chosen from hundreds of applicants.</p>
+    </div>
+  </section>
+
+  <p class="section-label">THE TIMELINE —</p>
+  <div class="timeline">
+    <section class="panel">
+      <p class="event-date">OCT 2024</p>
+      <h2 class="event-title">Started Computer Science at Grambling State</h2>
+      <p class="event-desc">Where the whole coding journey officially kicked off.</p>
+    </section>
+    <section class="panel">
+      <p class="event-date">APR 2025</p>
+      <h2 class="event-title">Data for Good Hackathon @ JP Morgan Chase</h2>
+      <p class="event-desc">Built a K-Means model for Concilio, a nonprofit helping Latino parents get involved in their kids' education, and wired it into a web app for smarter resource allocation. Plano, TX.</p>
+    </section>
+    <section class="panel">
+      <p class="event-date">JUN 2025</p>
+      <h2 class="event-title">Arise &amp; Shine × Apple SwiftUI Bootcamp</h2>
+      <p class="event-desc">Technical Lead. Built Nestly, a student-finance app with an expense tracker, budget planner, and investment-literacy hub. Placed Top 3 with a perfect score.</p>
+    </section>
+    <section class="panel">
+      <p class="event-date">SUMMER 2026</p>
+      <h2 class="event-title">Software Engineering Intern @ ServiceNow</h2>
+      <p class="event-desc">From "Discover ServiceNow" pick to the real thing. Full circle.</p>
+    </section>
+  </div>
+</BaseLayout>

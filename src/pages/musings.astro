@@ -1,0 +1,42 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TitleBlock from '../components/TitleBlock.astro';
+import Manny from '../components/doodles/Manny.astro';
+import { entryMeta, sourceName } from '../lib/entries';
+
+const posts = (await getCollection('musings')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+---
+
+<BaseLayout
+  title="Musings — The Diary of a Lucid Dame"
+  description="Musings by Favour Umejesi: AI, automation, and diary entries on Medium."
+  active="musings"
+  quote="Don't expect me to be all ‘Dear Diary’ this and ‘Dear Diary’ that."
+  quoteBy="Greg Heffley"
+>
+  <TitleBlock title="Musings" underlineWidth={250} path="M2 7q24-6 48 0t48 0 48 0 48 0 48 0">
+    <Manny slot="doodle" />
+  </TitleBlock>
+
+  {posts.map((post) => {
+    const external = post.data.externalUrl ?? undefined;
+    return (
+      <article class="panel article-panel">
+        <p class="article-meta">{entryMeta(post.data.date, post.data.readTime, external)}</p>
+        <h2 class="article-title">{post.data.title}</h2>
+        {post.data.excerpt && <p class="article-excerpt">{post.data.excerpt}</p>}
+        {post.data.tags.length > 0 && <p class="article-tags">{post.data.tags.join(' · ')}</p>}
+        {external ? (
+          <a class="article-link" href={external} target="_blank" rel="noopener">→ read it on {sourceName(external)}</a>
+        ) : (
+          <a class="article-link" href={`/musings/${post.id}`}>→ read the entry</a>
+        )}
+      </article>
+    );
+  })}
+
+  <p class="more-note">more diary entries coming soon...</p>
+</BaseLayout>

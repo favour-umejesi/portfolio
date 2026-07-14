@@ -1,0 +1,109 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TitleBlock from '../components/TitleBlock.astro';
+import { entryMeta, sourceName } from '../lib/entries';
+
+const posts = (await getCollection('theories')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+---
+
+<BaseLayout
+  title="Theories — The Diary of a Lucid Dame"
+  description="Theories: Favour Umejesi's AI research work and findings, as they happen."
+  active="theories"
+  quote="Future historians will thank me for writing this down."
+>
+  <TitleBlock
+    title="My Intrusive Thoughts on AI"
+    underlineWidth={620}
+    viewBoxWidth={626}
+    path="M2 7q24-6 48 0t48 0 48 0 48 0 48 0 48 0 48 0 48 0 48 0 48 0 48 0 48 0 48 0"
+  />
+
+  <section class="panel bio">
+    <p>Here's the thing. I got SO bored of being a consumer of AI goods. Everybody else gets to build the shiny stuff, and I just get to click on it? Yeah, no. I want in.</p>
+    <p>So I'm switching teams, from consumer to contributor. Watch out for research work and findings landing on this very page.</p>
+    <p>Let's hope I make a good research scientist. (If this page stays empty for a while, mind your business... science takes time.)</p>
+  </section>
+
+  {posts.map((post) => {
+    const external = post.data.externalUrl ?? undefined;
+    return (
+      <article class="panel article-panel">
+        <p class="article-meta">{entryMeta(post.data.date, post.data.readTime, external)}</p>
+        <h2 class="article-title">{post.data.title}</h2>
+        {post.data.excerpt && <p class="article-excerpt">{post.data.excerpt}</p>}
+        {post.data.tags.length > 0 && <p class="article-tags">{post.data.tags.join(' · ')}</p>}
+        {external ? (
+          <a class="article-link" href={external} target="_blank" rel="noopener">→ read it on {sourceName(external)}</a>
+        ) : (
+          <a class="article-link" href={`/theories/${post.id}`}>→ read the entry</a>
+        )}
+      </article>
+    );
+  })}
+
+  <figure class="desk-doodle">
+    <svg width="300" height="200" viewBox="0 0 360 240" aria-label="Doodle of me hunched over a table, writing intently under a desk lamp">
+      <g fill="none" stroke="#111" stroke-linecap="round" stroke-linejoin="round">
+        <!-- table -->
+        <rect x="148" y="150" width="192" height="7" rx="3" fill="#f6f1e3" stroke-width="2.4"/>
+        <path d="M166 157 L166 226" stroke-width="2.4"/>
+        <path d="M322 157 L322 226" stroke-width="2.4"/>
+        <!-- chair -->
+        <path d="M52 112 Q68 107 84 112" stroke-width="2.2"/>
+        <path d="M52 112 L56 168" stroke-width="2.4"/>
+        <rect x="52" y="168" width="66" height="6" rx="3" fill="#f6f1e3" stroke-width="2.2"/>
+        <path d="M64 174 L64 226" stroke-width="2.4"/>
+        <path d="M108 174 L108 226" stroke-width="2.4"/>
+        <!-- greg: hunched back, chest, legs -->
+        <path d="M135 103 Q105 122 100 168" stroke-width="2.5"/>
+        <path d="M162 109 Q152 128 150 148" stroke-width="2.4"/>
+        <path d="M100 170 Q122 173 144 174" stroke-width="2.4"/>
+        <path d="M144 174 L144 224" stroke-width="2.4"/>
+        <path d="M144 224 L160 224" stroke-width="2.4"/>
+        <path d="M136 172 L136 220" stroke-width="2.2"/>
+        <path d="M136 220 L149 220" stroke-width="2.2"/>
+        <!-- writing arm -->
+        <path d="M118 122 Q158 126 200 142" stroke-width="2.4"/>
+        <!-- head bent over the desk — the lucid dame herself: bun, swoop of hair, glasses, earring -->
+        <ellipse cx="121" cy="74" rx="9" ry="8" fill="#111" stroke="#111" stroke-width="2"/>
+        <ellipse cx="155" cy="84" rx="27" ry="28" fill="#f6f1e3" stroke-width="2.5"/>
+        <path d="M130 97 Q120 72 140 57 Q158 48 174 59 Q182 66 181 75 Q175 76 171 80 Q161 82 152 81 Q141 82 136 84 Q131 86 131 91 Z" fill="#111" stroke="#111" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M133 78 Q123 80 124 88 Q125 95 134 93" fill="#f6f1e3" stroke-width="2.2"/>
+        <circle cx="128" cy="96.5" r="1.8" fill="#111" stroke="none"/>
+        <!-- round glasses, eyes down on the page -->
+        <circle cx="153" cy="90" r="2.2" fill="#111" stroke="none"/>
+        <circle cx="169" cy="92" r="2.2" fill="#111" stroke="none"/>
+        <circle cx="152" cy="88.5" r="6" stroke-width="1.9"/>
+        <circle cx="168" cy="90.5" r="6" stroke-width="1.9"/>
+        <path d="M158 89 L162 90" stroke-width="1.9"/>
+        <path d="M146 88.5 Q139 88 134 84" stroke-width="1.9"/>
+        <!-- comma nose -->
+        <path transform="translate(158,97)" d="M0 0 Q7 1 6 5 Q5 8 2 7" stroke-width="2.2"/>
+        <!-- small focused lips -->
+        <path d="M155 107 Q158 105 161 107 Q164 105.5 167 107.5" stroke-width="2"/>
+        <path d="M157 109.5 Q161.5 111 166 109.7" stroke-width="1.8"/>
+        <!-- hand, pencil, frantic-scribble marks -->
+        <circle cx="203" cy="143" r="5" fill="#f6f1e3" stroke-width="2.2"/>
+        <path d="M201 138 L216 147" stroke-width="2.2"/>
+        <path d="M212 130 L219 126" stroke-width="1.8"/>
+        <path d="M221 137 L228 134" stroke-width="1.8"/>
+        <!-- paper -->
+        <path d="M186 150 L196 133 L252 133 L242 150 Z" fill="#fff" stroke-width="2.2"/>
+        <path d="M202 139 L234 139" stroke-width="1.8"/>
+        <path d="M197 144 L217 144" stroke-width="1.8"/>
+        <!-- lamp: base, arm, shade, light -->
+        <path d="M284 150 Q284 140 298 140 Q312 140 312 150 Z" fill="#f6f1e3" stroke-width="2.4"/>
+        <path d="M298 140 L305 106" stroke-width="2.4"/>
+        <path d="M305 106 L291 89" stroke-width="2.4"/>
+        <path d="M291 89 L259 100 L283 124 Z" fill="#f6f1e3" stroke-width="2.4"/>
+        <path d="M254 111 L242 121" stroke-width="1.8"/>
+        <path d="M269 128 L259 139" stroke-width="1.8"/>
+      </g>
+    </svg>
+    <figcaption>an artistic drawing of me as a contributor lol</figcaption>
+  </figure>
+</BaseLayout>

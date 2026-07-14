@@ -1,0 +1,10 @@
+title: AgriSmart Africa
+order: 1
+description: >-
+  A full-stack platform for African farmers: inventory tracking, investor
+  matchmaking, an AI farming assistant, and auto-generated logos to help farms
+  grow online.
+tech: Next.js · Tailwind · FastAPI · PostgreSQL · Firebase · LangChain + Mistral-7B · Stable Diffusion
+links:
+  - label: github ↗
+    url: https://github.com/favour-umejesi/AgriSmart

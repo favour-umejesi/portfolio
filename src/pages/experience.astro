@@ -1,0 +1,39 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TitleBlock from '../components/TitleBlock.astro';
+import Rowley from '../components/doodles/Rowley.astro';
+
+const jobs = (await getCollection('experience')).sort(
+  (a, b) => a.data.order - b.data.order
+);
+---
+
+<BaseLayout
+  title="Experience — The Diary of a Lucid Dame"
+  description="Favour Umejesi's experience: ServiceNow, Netskope, PwC, and Grambling State Student Technology Center."
+  active="experience"
+  quote="One day when I'm rich and famous, this page is gonna come in handy."
+>
+  <TitleBlock title="Experience" underlineWidth={330} path="M2 7q24-6 48 0t48 0 48 0 48 0 48 0 48 0 48 0">
+    <Rowley slot="doodle" />
+  </TitleBlock>
+
+  {jobs.map((job) => (
+    <section class="panel">
+      <div class="card-head">
+        {job.data.logo && (
+          <div class="card-logo"><img src={job.data.logo} alt={`${job.data.company} logo`}></div>
+        )}
+        <div class="card-head-main">
+          <div class="card-row">
+            <h2 class="card-title">{job.data.role}</h2>
+            <p class="card-meta">{job.data.dates}</p>
+          </div>
+          <p class="card-sub">{job.data.company}</p>
+        </div>
+      </div>
+      <p class="card-desc">{job.data.description}</p>
+    </section>
+  ))}
+</BaseLayout>

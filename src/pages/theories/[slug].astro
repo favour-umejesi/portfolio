@@ -1,0 +1,36 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TitleBlock from '../../components/TitleBlock.astro';
+import { entryMeta, underline } from '../../lib/entries';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('theories');
+  return posts
+    .filter((post) => !post.data.externalUrl)
+    .map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const u = underline(post.data.title);
+---
+
+<BaseLayout
+  title={`${post.data.title} — The Diary of a Lucid Dame`}
+  description={post.data.excerpt ?? `Research notes by Favour Umejesi: ${post.data.title}`}
+  active="theories"
+  quote="Future historians will thank me for writing this down."
+>
+  <TitleBlock title={post.data.title} underlineWidth={u.width} path={u.path} />
+
+  <article class="panel article-page">
+    <p class="article-meta">{entryMeta(post.data.date, post.data.readTime)}</p>
+    {post.data.tags.length > 0 && <p class="article-tags">{post.data.tags.join(' · ')}</p>}
+    <div class="article-body">
+      <Content />
+    </div>
+  </article>
+
+  <p class="back-link"><a href="/theories">← back to theories</a></p>
+</BaseLayout>

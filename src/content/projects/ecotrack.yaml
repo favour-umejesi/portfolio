@@ -1,0 +1,11 @@
+title: EcoTrack
+order: 3
+description: >-
+  A web app that helps people track and shrink their carbon footprint, with
+  live Chart.js graphs and Carbon Interface API data.
+tech: HTML · CSS · JavaScript · Chart.js · Node.js
+links:
+  - label: github
+    url: https://github.com/KingOz-stack/EcoTrack-
+  - label: live ↗
+    url: https://eco-track-five.vercel.app/

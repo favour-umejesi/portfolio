@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TitleBlock from '../components/TitleBlock.astro';
+import Greg from '../components/doodles/Greg.astro';
+---
+
+<BaseLayout
+  title="About — The Diary of a Lucid Dame"
+  description="About Favour Umejesi: CS + Math student at Grambling State, aspiring relevant engineer, climate nonprofit founder."
+  active="about"
+  quote="Let me get something straight: this is a PORTFOLIO, not a diary."
+  quoteBy="Lucid Dame"
+>
+  <TitleBlock title="About" underlineWidth={190} path="M2 7q24-6 48 0t48 0 48 0 48 0">
+    <Greg slot="doodle" />
+  </TitleBlock>
+
+  <section class="panel bio">
+    <p>I study Computer Science and Mathematics at Grambling State University, and I'm working toward becoming a ... engineer, building intelligent systems that solve real problems and automate the boring stuff.</p>
+    <p>Before college I started a climate-focused nonprofit around UN Goals 11 &amp; 13, reaching 500+ people with tech-driven campaigns on sustainable cities and climate action.</p>
+    <p>These days I'm stuck on one question: how can technology drive sustainability, and how can sustainability shape the future of technology?</p>
+  </section>
+
+  <div class="spread">
+    <section class="panel list-items">
+      <p class="panel-label">WHAT I'M UP TO —</p>
+      <p>→ SWE interning @ ServiceNow</p>
+      <p>→ Studying CS + Math @ Grambling</p>
+      <p>→ Building ML &amp; full-stack projects</p>
+      <p>→ Learning ML with Break Through Tech AI</p>
+      <p>→ Poking at ESG, AI policy &amp; venture</p>
+      <p>→ Reading tech trends on X (no, I have NOT forgotten my username)</p>
+    </section>
+    <section class="panel">
+      <p class="panel-label">STUFF I LIKE —</p>
+      <div class="tag-rows">
+        <div class="tag-row">
+          <span class="chip">AI / ML</span>
+          <span class="chip">Full Stack</span>
+          <span class="chip">ESG</span>
+        </div>
+        <div class="tag-row">
+          <span class="chip">Venture</span>
+          <span class="chip">Studio Ghibli</span>
+          <span class="chip">Chess</span>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

@@ -1,0 +1,8 @@
+role: AI Extern
+company: PwC
+dates: Feb — Apr 2025
+order: 3
+logo: /assets/pwc.png
+description: >-
+  Built NLP + OCR pipelines for finance-document automation, plus a RAG system
+  with Mistral + LlamaIndex that slashed mortgage underwriting work by 80%.
