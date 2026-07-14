@@ -1,0 +1,9 @@
+title: Smoking Status Prediction
+order: 2
+description: >-
+  A healthcare classifier that hit 79% accuracy and 0.87 AUC-ROC, good enough
+  for Top 4 of 10+ teams at the DataSpark Datathon.
+tech: Python · Pandas · NumPy · Scikit-learn · Matplotlib · Seaborn
+links:
+  - label: colab ↗
+    url: https://colab.research.google.com/drive/13M_34Vs0xWcjUwxafGazbWDeoNZYVm6N

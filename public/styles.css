@@ -848,3 +848,72 @@ body.home .footer {
     padding: 26px 24px 32px;
   }
 }
+
+/* --------------------------------------------------------------------------
+   Diary entry pages (musings/theories written on this site)
+   -------------------------------------------------------------------------- */
+
+.article-page {
+  padding: 30.5px 36px;
+}
+
+.article-page .article-tags {
+  margin-bottom: var(--lh);
+}
+
+.article-page .article-meta:last-of-type {
+  margin-bottom: var(--lh);
+}
+
+.article-body > * + *,
+.article-body article > * + * {
+  margin-top: var(--lh);
+}
+
+.article-body h2,
+.article-body h3 {
+  font-family: var(--font-hand-sc);
+  font-weight: 400;
+}
+
+.article-body h2 {
+  font-size: 27px;
+}
+
+.article-body h3 {
+  font-size: 22px;
+}
+
+.article-body ul,
+.article-body ol {
+  padding-left: 30px;
+}
+
+.article-body blockquote {
+  padding-left: 20px;
+  border-left: 3px solid var(--ink);
+  opacity: 0.85;
+}
+
+.article-body code {
+  font-family: "Courier New", monospace;
+  font-size: 16px;
+}
+
+.article-body pre {
+  padding: 13px 16px;
+  border: 2.5px solid var(--ink);
+  background: #fff;
+  overflow-x: auto;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.article-body img {
+  max-width: 100%;
+  border: 2.5px solid var(--ink);
+}
+
+.back-link {
+  margin-bottom: var(--lh);
+}

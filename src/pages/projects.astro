@@ -1,0 +1,41 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TitleBlock from '../components/TitleBlock.astro';
+import Manny from '../components/doodles/Manny.astro';
+
+const projects = (await getCollection('projects')).sort(
+  (a, b) => a.data.order - b.data.order
+);
+---
+
+<BaseLayout
+  title="Projects — The Diary of a Lucid Dame"
+  description="Projects by Favour Umejesi: AgriSmart Africa, Smoking Status Prediction, EcoTrack."
+  active="projects"
+  quote="Most of these worked on the first try. Most."
+>
+  <TitleBlock title="Projects" underlineWidth={270} path="M2 7q24-6 48 0t48 0 48 0 48 0 48 0 48 0">
+    <Manny slot="doodle" />
+  </TitleBlock>
+
+  {projects.map((project) => (
+    <section class="panel">
+      <div class="card-row">
+        <h2 class="card-title">{project.data.title}</h2>
+        {project.data.links.length > 0 && (
+          <p class="card-meta">
+            {project.data.links.map((link, i) => (
+              <>
+                {i > 0 && ' · '}
+                <a href={link.url} target="_blank" rel="noopener">{link.label}</a>
+              </>
+            ))}
+          </p>
+        )}
+      </div>
+      <p class="card-desc">{project.data.description}</p>
+      <p class="card-tech">{project.data.tech}</p>
+    </section>
+  ))}
+</BaseLayout>
