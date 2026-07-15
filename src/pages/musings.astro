@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import TitleBlock from '../components/TitleBlock.astro';
-import Manny from '../components/doodles/Manny.astro';
+import Susan from '../components/doodles/Susan.astro';
 import { entryMeta, sourceName, showDrafts } from '../lib/entries';
 import { readSingleton } from '../lib/reader';
 
@@ -22,7 +22,7 @@ const posts = (await getCollection('musings'))
   quoteBy="Greg Heffley"
 >
   <TitleBlock title="Musings" underlineWidth={250} path="M2 7q24-6 48 0t48 0 48 0 48 0 48 0">
-    <Manny slot="doodle" />
+    <Susan slot="doodle" />
   </TitleBlock>
 
   <section class="panel bio">

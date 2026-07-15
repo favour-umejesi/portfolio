@@ -17,16 +17,21 @@
   --font-hand-sc: "Patrick Hand SC", "Patrick Hand", cursive;
 }
 
-/*
-  When the real Wimpy Kid font file is available, drop it in assets/ and
-  uncomment — then swap it into --font-hand / --font-hand-sc above.
+/* The real Wimpy Kid book fonts, self-hosted in assets/ but currently unused
+   (Patrick Hand reads better spaced). Unreferenced faces are never downloaded
+   by the browser. To try them again, put "Wimpy Kid" / "Wimpy Kid Dialogue"
+   first in --font-hand / --font-hand-sc above. */
+@font-face {
+  font-family: "Wimpy Kid";
+  src: url("assets/WimpyKid.woff") format("woff");
+  font-display: swap;
+}
 
-  @font-face {
-    font-family: "Wimpy Kid";
-    src: url("assets/wimpykid.woff2") format("woff2");
-    font-display: swap;
-  }
-*/
+@font-face {
+  font-family: "Wimpy Kid Dialogue";
+  src: url("assets/WimpyKidDialogue.woff") format("woff");
+  font-display: swap;
+}
 
 * {
   margin: 0;
@@ -97,7 +102,7 @@ a:hover {
 }
 
 .diary-mark {
-  font-size: 21px;
+  font-size: 22px;
   white-space: nowrap;
 }
 
@@ -108,7 +113,7 @@ a:hover {
 }
 
 .nav a {
-  font-size: 17px;
+  font-size: 19px;
 }
 
 .nav a.active {
@@ -376,7 +381,7 @@ a:hover {
 
 .card-logo {
   flex: 0 0 auto;
-  width: 66px;
+  width: 100px;
   height: 66px;
   border-radius: 4px;
   display: flex;
@@ -386,9 +391,12 @@ a:hover {
 }
 
 .card-logo img {
+  /* Fill the fixed box no matter the uploaded file's dimensions; multiply
+     melts white JPEG backgrounds into the paper like the alpha PNGs. */
   width: 100%;
   height: 100%;
   object-fit: contain;
+  mix-blend-mode: multiply;
   filter: grayscale(1);
 }
 
@@ -768,7 +776,7 @@ body.home .footer {
   }
 
   .card-logo {
-    width: 44px;
+    width: 66px;
     height: 44px;
   }
 
