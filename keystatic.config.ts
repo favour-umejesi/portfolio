@@ -177,6 +177,11 @@ export default config({
       format: { contentField: 'body' },
       schema: {
         title: fields.slug({ name: { label: 'Title' } }),
+        draft: fields.checkbox({
+          label: 'Draft',
+          description: 'Drafts are hidden from the live site until you untick this',
+          defaultValue: false,
+        }),
         date: fields.date({ label: 'Date', validation: { isRequired: true } }),
         readTime: fields.integer({ label: 'Read time (minutes)', defaultValue: 5 }),
         tags: fields.array(fields.text({ label: 'Tag' }), {
@@ -207,6 +212,11 @@ export default config({
       format: { contentField: 'body' },
       schema: {
         title: fields.slug({ name: { label: 'Title' } }),
+        draft: fields.checkbox({
+          label: 'Draft',
+          description: 'Drafts are hidden from the live site until you untick this',
+          defaultValue: false,
+        }),
         date: fields.date({ label: 'Date', validation: { isRequired: true } }),
         readTime: fields.integer({ label: 'Read time (minutes)', defaultValue: 5 }),
         tags: fields.array(fields.text({ label: 'Tag' }), {

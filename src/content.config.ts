@@ -1,8 +1,10 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
+import { z } from 'astro/zod';
 
 const entrySchema = z.object({
   title: z.string(),
+  draft: z.boolean().default(false),
   date: z.coerce.date(),
   readTime: z.number().optional().nullable(),
   tags: z.array(z.string()).default([]),

@@ -5,9 +5,10 @@ import TitleBlock from '../components/TitleBlock.astro';
 import Manny from '../components/doodles/Manny.astro';
 import { entryMeta, sourceName } from '../lib/entries';
 
-const posts = (await getCollection('musings')).sort(
-  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
-);
+// drafts are visible in local dev (marked DRAFT) but never in the built site
+const posts = (await getCollection('musings'))
+  .filter((post) => import.meta.env.DEV || !post.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
 <BaseLayout
@@ -25,7 +26,7 @@ const posts = (await getCollection('musings')).sort(
     const external = post.data.externalUrl ?? undefined;
     return (
       <article class="panel article-panel">
-        <p class="article-meta">{entryMeta(post.data.date, post.data.readTime, external)}</p>
+        <p class="article-meta">{post.data.draft && 'DRAFT · '}{entryMeta(post.data.date, post.data.readTime, external)}</p>
         <h2 class="article-title">{post.data.title}</h2>
         {post.data.excerpt && <p class="article-excerpt">{post.data.excerpt}</p>}
         {post.data.tags.length > 0 && <p class="article-tags">{post.data.tags.join(' · ')}</p>}

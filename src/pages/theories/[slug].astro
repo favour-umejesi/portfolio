@@ -8,6 +8,7 @@ export async function getStaticPaths() {
   const posts = await getCollection('theories');
   return posts
     .filter((post) => !post.data.externalUrl)
+    .filter((post) => import.meta.env.DEV || !post.data.draft)
     .map((post) => ({ params: { slug: post.id }, props: { post } }));
 }
 
@@ -25,7 +26,7 @@ const u = underline(post.data.title);
   <TitleBlock title={post.data.title} underlineWidth={u.width} path={u.path} />
 
   <article class="panel article-page">
-    <p class="article-meta">{entryMeta(post.data.date, post.data.readTime)}</p>
+    <p class="article-meta">{post.data.draft && 'DRAFT · '}{entryMeta(post.data.date, post.data.readTime)}</p>
     {post.data.tags.length > 0 && <p class="article-tags">{post.data.tags.join(' · ')}</p>}
     <div class="article-body">
       <Content />
