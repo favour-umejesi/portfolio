@@ -6,3 +6,4 @@ items:
   - Pandas
   - NumPy
   - Scikit-learn
+  - PyTorch
