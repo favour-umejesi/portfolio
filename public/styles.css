@@ -42,7 +42,7 @@ body {
   min-height: 100%;
   font-family: var(--font-hand);
   color: var(--ink);
-  font-size: 19px;
+  font-size: 20px;
   line-height: var(--lh);
   background-color: var(--paper);
   /* pinkish margin line + ruled notebook lines; the -9px shift tucks each
@@ -128,7 +128,7 @@ a:hover {
 .page-title {
   font-family: var(--font-hand-sc);
   font-weight: 400;
-  font-size: 56px;
+  font-size: 55px;
   line-height: calc(var(--lh) * 2);
 }
 
@@ -210,7 +210,7 @@ a:hover {
 .hero .name {
   font-family: var(--font-hand-sc);
   font-weight: 400;
-  font-size: 70px;
+  font-size: 69px;
   line-height: calc(var(--lh) * 2);
 }
 
@@ -911,26 +911,23 @@ body.home .footer {
   text-underline-offset: 4px;
 }
 
-/* quotes are scrawled in cursive with a big hand-drawn quote mark */
+/* quotes are hand-scrawled pull-quotes between two squiggly rules,
+   the same squiggle as the page-title underlines */
 .article-body blockquote {
-  position: relative;
-  margin: 0 8px;
-  padding: 4px 16px 4px 54px;
+  margin: 0 auto;
+  max-width: 620px;
+  padding: 18px 22px;
   font-family: "Caveat", var(--font-hand);
-  font-size: 27px;
+  font-size: 28px;
   line-height: 33px;
+  text-align: center;
   transform: rotate(-0.6deg);
-}
-
-.article-body blockquote::before {
-  content: "“";
-  position: absolute;
-  left: 2px;
-  top: 0;
-  font-family: var(--font-hand-sc);
-  font-size: 62px;
-  line-height: 1;
-  opacity: 0.85;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='8' viewBox='0 0 48 8'%3E%3Cpath d='M0 4q12-6 24 0t24 0' fill='none' stroke='%23111' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='8' viewBox='0 0 48 8'%3E%3Cpath d='M0 4q12-6 24 0t24 0' fill='none' stroke='%23111' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: repeat-x, repeat-x;
+  background-position: center top, center bottom;
+  background-size: 48px 8px, 48px 8px;
 }
 
 /* inline code: a little typed pill so it pops out of the handwriting */
@@ -1051,6 +1048,7 @@ body.home .footer {
   line-height: 23px;
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
