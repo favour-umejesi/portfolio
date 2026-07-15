@@ -2,6 +2,15 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import TitleBlock from '../components/TitleBlock.astro';
 import Greg from '../components/doodles/Greg.astro';
+import { readSingleton } from '../lib/reader';
+
+const about = await readSingleton('about');
+
+// chips render three per row, matching the original tag-rows layout
+const likeRows: string[][] = [];
+for (let i = 0; i < about.likes.length; i += 3) {
+  likeRows.push(about.likes.slice(i, i + 3));
+}
 ---
 
 <BaseLayout
@@ -16,34 +25,22 @@ import Greg from '../components/doodles/Greg.astro';
   </TitleBlock>
 
   <section class="panel bio">
-    <p>I study Computer Science and Mathematics at Grambling State University, and I'm working toward becoming a ... engineer, building intelligent systems that solve real problems and automate the boring stuff.</p>
-    <p>Before college I started a climate-focused nonprofit around UN Goals 11 &amp; 13, reaching 500+ people with tech-driven campaigns on sustainable cities and climate action.</p>
-    <p>These days I'm stuck on one question: how can technology drive sustainability, and how can sustainability shape the future of technology?</p>
+    {about.bio.map((paragraph) => <p>{paragraph}</p>)}
   </section>
 
   <div class="spread">
     <section class="panel list-items">
       <p class="panel-label">WHAT I'M UP TO —</p>
-      <p>→ SWE interning @ ServiceNow</p>
-      <p>→ Studying CS + Math @ Grambling</p>
-      <p>→ Building ML &amp; full-stack projects</p>
-      <p>→ Learning ML with Break Through Tech AI</p>
-      <p>→ Poking at ESG, AI policy &amp; venture</p>
-      <p>→ Reading tech trends on X (no, I have NOT forgotten my username)</p>
+      {about.whatImUpTo.map((item) => <p>→ {item}</p>)}
     </section>
     <section class="panel">
       <p class="panel-label">STUFF I LIKE —</p>
       <div class="tag-rows">
-        <div class="tag-row">
-          <span class="chip">AI / ML</span>
-          <span class="chip">Full Stack</span>
-          <span class="chip">ESG</span>
-        </div>
-        <div class="tag-row">
-          <span class="chip">Venture</span>
-          <span class="chip">Studio Ghibli</span>
-          <span class="chip">Chess</span>
-        </div>
+        {likeRows.map((row) => (
+          <div class="tag-row">
+            {row.map((chip) => <span class="chip">{chip}</span>)}
+          </div>
+        ))}
       </div>
     </section>
   </div>
