@@ -1,0 +1,128 @@
+---
+title: Finally Found a Way to Work Smart, Not Hard
+draft: true
+date: 2026-07-15
+readTime: 5
+tags:
+  - web development
+  - coding
+  - headless cms structures
+excerpt: >-
+  I felt like one of those movie characters who spends three hours pushing a
+  door that clearly says PULL. The worst part? Everyone else had been using the
+  door the right way this whole time.
+---
+# **Finally Found a Way to Work Smart, Not Hard <3**
+
+I think I might genuinely love technology.
+
+Not for the “I’m in tech ” vibes, but because you can wake up with a random idea at 2 a.m., build it, and somehow convince a computer to make it real.
+
+I work as a web developer for a nonprofit called [**Justice Through Literacy**](https://jtl-website-delta.vercel.app/) (go subscribe to their newsletter and give them a follow: not another fancy nonprofit, iykyk). My job involved maintaining our website, which was built with Wix.
+
+Now… no shade to Wix.
+
+Okay, maybe a tiny bit of shade.
+
+Maintaining that site sometimes felt like playing Jenga. You’d move one innocent-looking button and suddenly three sections on the homepage developed trust issues. Technology is supposed to let us experiment, not make us afraid to touch anything.
+
+To be fair, Wix has improved a lot. They even let developers add custom code now, which is pretty cool. But personally, it still felt limiting. And funny enough, I also don’t think it’s as beginner-friendly as people assume. Sometimes it’s restrictive for developers *and* confusing for non-technical users.
+
+One hot Louisiana afternoon, I asked myself:
+
+*“What if we just built the website ourselves with Next.js (best framework, don’t argue), and connected it to something that lets non-technical people edit content without ever touching the code?”*
+
+Surely someone had already solved this problem.
+
+Spoiler alert:
+
+They had.
+
+For years.
+
+Meanwhile, I had been working hard instead of SMART.
+
+After some investigating, I discovered **headless CMSs**. Some of the best ones were even open source (free!), and honestly, I liked the flexibility and developer experience much better for the type of sites I wanted to build.
+
+I pitched the idea to the founder of the nonprofit, who happens to be incredibly open-minded, and she was all in.
+
+So I got to work.
+
+Ladies and gentlemen…
+
+I genuinely didn’t expect making life easier for other people to be this satisfying. It’s one thing to build a nice-looking website. It’s another to build a system where the people who own the content can actually manage it themselves. At that point, you’ve solved a problem instead of just writing code.
+
+## **So… what’s a Headless CMS?**
+
+Imagine a restaurant.
+
+The kitchen cooks the food.
+
+The waiter delivers it.
+
+The customer only sees the nicely plated meal.
+
+That’s basically a headless CMS.
+
+- **The Backend (the kitchen):** A dashboard where you write articles, upload images, manage subscribers, and organize content.
+- **The API (the waiter):** Delivers that content wherever it’s needed.
+- **The Frontend (the restaurant table):** Your beautifully designed website or app that displays everything to visitors.
+
+The cool part is that the people managing content never have to touch the actual website code.
+
+## **Why I Like It**
+
+Traditional CMS platforms like WordPress and Wix combine the content management system with the website itself.
+
+A headless CMS lets me build the frontend exactly how I want: from scratch using modern frameworks like Next.js, while still giving non-technical users an easy interface to update content.
+
+That means I get:
+
+- complete design freedom,
+- a faster website,
+- happier content editors,
+- and fewer code edits.
+
+Most editors can even preview changes before publishing, which saves everyone a headache.
+
+## **The Tools I’ve Tried**
+
+### **Payload CMS**
+
+This one has quickly become one of my favorites.
+
+It’s open source, built for modern JavaScript applications, integrates beautifully with Next.js, and is ridiculously configurable. You decide exactly what your admin dashboard looks like, what fields people can edit, who has permissions, and how content is structured.
+
+There’s definitely some setup involved, but once it’s running… chef’s kiss.
+
+It’s a great choice for organizational websites.
+
+### **Keystatic (with Astro)**
+
+For my personal portfolio, I wanted something much lighter.
+
+I don’t update my portfolio often because, honestly, I don’t feel like opening VS Code every time I want to change one paragraph (also… Claude tokens aren’t free).
+
+So I rebuilt it with **Astro** (*Astro is a modern web framework for building fast websites with minimal JavaScript*) and integrated **Keystatic**. Keystatic is an open-source, Git-based headless CMS that works really well with Astro. Instead of storing content in a database, it manages Markdown, or JSON files directly in your GitHub repository through a clean admin dashboard. Every change is version-controlled like a normal Git commit, so you get the simplicity of editing content through a UI while still keeping everything in your repository. &nbsp;
+
+It’s less configurable than Payload, but it’s lightweight, easy to set up, and perfect for portfolios, blogs, and content-driven websites where you don’t need a full database-backed CMS.
+
+## **Final Thoughts**
+
+Some of you probably discovered these tools years ago.
+
+Congratulations.
+
+I, however, have been living under a very expensive rock.
+
+Now I can maintain websites much more frequently without editing code every single time, spend less time on repetitive updates, and focus on the more challenging projects I actually enjoy building.
+
+Moral of the story:
+
+Don’t just work hard.
+
+Google first.
+
+There’s a decent chance someone already solved your problem in 2019.
+
+Until next time. 👋🏽
