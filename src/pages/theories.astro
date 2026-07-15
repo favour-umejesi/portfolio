@@ -2,7 +2,11 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import TitleBlock from '../components/TitleBlock.astro';
+import Holly from '../components/doodles/Holly.astro';
 import { entryMeta, sourceName, showDrafts } from '../lib/entries';
+import { readSingleton } from '../lib/reader';
+
+const theoriesPage = await readSingleton('theoriesPage');
 
 // drafts render in dev and preview deploys (marked DRAFT), never in production
 const posts = (await getCollection('theories'))
@@ -21,12 +25,12 @@ const posts = (await getCollection('theories'))
     underlineWidth={620}
     viewBoxWidth={626}
     path="M2 7q24-6 48 0t48 0 48 0 48 0 48 0 48 0 48 0 48 0 48 0 48 0 48 0 48 0 48 0"
-  />
+  >
+    <Holly slot="doodle" />
+  </TitleBlock>
 
   <section class="panel bio">
-    <p>Here's the thing. I got SO bored of being a consumer of AI goods. Everybody else gets to build the shiny stuff, and I just get to click on it? Yeah, no. I want in.</p>
-    <p>So I'm switching teams, from consumer to contributor. Watch out for research work and findings landing on this very page.</p>
-    <p>Let's hope I make a good research scientist. (If this page stays empty for a while, mind your business... science takes time.)</p>
+    {theoriesPage.intro.map((paragraph) => <p>{paragraph}</p>)}
   </section>
 
   <div class="article-grid">

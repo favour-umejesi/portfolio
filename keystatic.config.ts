@@ -12,7 +12,7 @@ export default config({
     navigation: {
       'Diary entries': ['musings', 'theories'],
       'Portfolio': ['projects', 'experience', 'skills'],
-      'Pages': ['home', 'about', 'musingsPage', 'journey', 'patentLaw'],
+      'Pages': ['home', 'about', 'musingsPage', 'theoriesPage', 'journey', 'patentLaw'],
       'Site': ['settings'],
     },
   },
@@ -63,6 +63,17 @@ export default config({
         }),
       },
     }),
+    theoriesPage: singleton({
+      label: 'Theories page',
+      path: 'src/content/pages/theories',
+      format: { data: 'yaml' },
+      schema: {
+        intro: fields.array(fields.text({ label: 'Paragraph', multiline: true }), {
+          label: 'Intro paragraphs',
+          itemLabel: (props) => props.value.slice(0, 60) || 'paragraph',
+        }),
+      },
+    }),
     patentLaw: singleton({
       label: 'Patent law page',
       path: 'src/content/pages/patent-law',
@@ -70,7 +81,15 @@ export default config({
       format: { contentField: 'body' },
       schema: {
         signoff: fields.text({ label: 'Sign-off', description: 'e.g. "— the lucid dame, esq."' }),
-        body: fields.markdoc({ label: 'The law itself' }),
+        body: fields.markdoc({
+          label: 'The law itself',
+          options: {
+            image: {
+              directory: 'public/images/pages',
+              publicPath: '/images/pages/',
+            },
+          },
+        }),
       },
     }),
     journey: singleton({
@@ -222,6 +241,12 @@ export default config({
         body: fields.markdoc({
           label: 'Body',
           description: 'Write here for entries published on this site; leave empty for external posts',
+          options: {
+            image: {
+              directory: 'public/images/musings',
+              publicPath: '/images/musings/',
+            },
+          },
         }),
       },
     }),
@@ -257,6 +282,12 @@ export default config({
         body: fields.markdoc({
           label: 'Body',
           description: 'Write here for entries published on this site; leave empty for external posts',
+          options: {
+            image: {
+              directory: 'public/images/theories',
+              publicPath: '/images/theories/',
+            },
+          },
         }),
       },
     }),
