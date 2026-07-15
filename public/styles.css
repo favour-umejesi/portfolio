@@ -884,29 +884,95 @@ body.home .footer {
   font-size: 22px;
 }
 
-.article-body ul,
 .article-body ol {
   padding-left: 30px;
 }
 
+/* the diary's own bullet: an arrow, like everywhere else on the site */
+.article-body ul {
+  list-style: none;
+  padding-left: 4px;
+}
+
+.article-body ul li {
+  position: relative;
+  padding-left: 30px;
+}
+
+.article-body ul li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+}
+
+/* links in entries always get the wavy underline so they read as links */
+.article-body a {
+  text-decoration: underline wavy 1.5px;
+  text-underline-offset: 4px;
+}
+
+/* quotes are scrawled in cursive with a big hand-drawn quote mark */
 .article-body blockquote {
-  padding-left: 20px;
-  border-left: 3px solid var(--ink);
+  position: relative;
+  margin: 0 8px;
+  padding: 4px 16px 4px 54px;
+  font-family: "Caveat", var(--font-hand);
+  font-size: 27px;
+  line-height: 33px;
+  transform: rotate(-0.6deg);
+}
+
+.article-body blockquote::before {
+  content: "“";
+  position: absolute;
+  left: 2px;
+  top: 0;
+  font-family: var(--font-hand-sc);
+  font-size: 62px;
+  line-height: 1;
   opacity: 0.85;
 }
 
+/* inline code: a little typed pill so it pops out of the handwriting */
 .article-body code {
-  font-family: "Courier New", monospace;
-  font-size: 16px;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, "Courier New", monospace;
+  font-size: 15px;
+  background: rgba(17, 17, 17, 0.07);
+  border: 1px solid rgba(17, 17, 17, 0.22);
+  border-radius: 4px;
+  padding: 1px 7px;
 }
 
+/* code blocks: a computer printout taped into the diary */
 .article-body pre {
-  padding: 13px 16px;
+  position: relative;
+  padding: 44px 18px 16px;
   border: 2.5px solid var(--ink);
+  border-radius: 2px;
   background: #fff;
+  box-shadow: 5px 5px 0 0 var(--ink);
   overflow-x: auto;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.article-body pre::before {
+  content: "CODE —";
+  position: absolute;
+  top: 12px;
+  left: 18px;
+  font-family: var(--font-hand-sc);
   font-size: 15px;
-  line-height: 1.5;
+  letter-spacing: 2px;
+  opacity: 0.45;
+}
+
+.article-body pre code {
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  font-size: inherit;
 }
 
 .article-body img {
@@ -916,4 +982,102 @@ body.home .footer {
 
 .back-link {
   margin-bottom: var(--lh);
+}
+
+/* --------------------------------------------------------------------------
+   Entry cards (musings/theories) — notes taped into the diary, 2-3 per row
+   -------------------------------------------------------------------------- */
+
+.article-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 30px 24px;
+  margin-bottom: var(--lh);
+  padding-top: 10px; /* room for the tape to poke above the cards */
+}
+
+.article-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: #fff;
+  border: 2.5px solid var(--ink);
+  border-radius: 2px;
+  box-shadow: 5px 5px 0 0 var(--ink);
+  padding: 24px 20px 18px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* scrapbook scatter: every note taped down at its own angle */
+.article-grid .article-card:nth-child(3n + 1) { transform: rotate(-1.3deg); }
+.article-grid .article-card:nth-child(3n + 2) { transform: rotate(1deg); }
+.article-grid .article-card:nth-child(3n)     { transform: rotate(-0.4deg); }
+
+.article-card:hover {
+  transform: rotate(0deg) translateY(-3px);
+  box-shadow: 7px 7px 0 0 var(--ink);
+}
+
+/* the tape holding the note down */
+.article-card::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  width: 86px;
+  height: 22px;
+  transform: translateX(-50%) rotate(-2deg);
+  background: rgba(246, 241, 227, 0.82);
+  border: 1px solid rgba(17, 17, 17, 0.25);
+}
+
+.article-card .article-meta {
+  font-size: 13px;
+  letter-spacing: 1px;
+  line-height: 18px;
+  opacity: 0.5;
+}
+
+.article-card .article-title {
+  font-family: var(--font-hand-sc);
+  font-size: 23px;
+  line-height: 26px;
+  font-weight: 400;
+}
+
+.article-card .article-excerpt {
+  font-size: 16px;
+  line-height: 23px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.article-card .article-tags {
+  font-size: 13px;
+  line-height: 18px;
+  opacity: 0.55;
+}
+
+.article-card .article-link {
+  margin-top: auto;
+  font-size: 17px;
+  line-height: 22px;
+}
+
+@media (max-width: 860px) {
+  .article-grid {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+  .article-grid .article-card:nth-child(n) { transform: rotate(-0.6deg); }
+  .article-grid .article-card:nth-child(2n) { transform: rotate(0.7deg); }
+}
+
+/* links inside the editable patent-law body keep the wavy underline */
+.law-body a {
+  text-decoration: underline wavy 1.5px;
+  text-underline-offset: 4px;
 }

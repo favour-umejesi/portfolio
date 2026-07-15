@@ -29,22 +29,24 @@ const posts = (await getCollection('theories'))
     <p>Let's hope I make a good research scientist. (If this page stays empty for a while, mind your business... science takes time.)</p>
   </section>
 
-  {posts.map((post) => {
-    const external = post.data.externalUrl ?? undefined;
-    return (
-      <article class="panel article-panel">
-        <p class="article-meta">{post.data.draft && 'DRAFT · '}{entryMeta(post.data.date, post.data.readTime, external)}</p>
-        <h2 class="article-title">{post.data.title}</h2>
-        {post.data.excerpt && <p class="article-excerpt">{post.data.excerpt}</p>}
-        {post.data.tags.length > 0 && <p class="article-tags">{post.data.tags.join(' · ')}</p>}
-        {external ? (
-          <a class="article-link" href={external} target="_blank" rel="noopener">→ read it on {sourceName(external)}</a>
-        ) : (
-          <a class="article-link" href={`/theories/${post.id}`}>→ read the entry</a>
-        )}
-      </article>
-    );
-  })}
+  <div class="article-grid">
+    {posts.map((post) => {
+      const external = post.data.externalUrl ?? undefined;
+      return (
+        <article class="article-card">
+          <p class="article-meta">{post.data.draft && 'DRAFT · '}{entryMeta(post.data.date, post.data.readTime, external)}</p>
+          <h2 class="article-title">{post.data.title}</h2>
+          {post.data.excerpt && <p class="article-excerpt">{post.data.excerpt}</p>}
+          {post.data.tags.length > 0 && <p class="article-tags">{post.data.tags.join(' · ')}</p>}
+          {external ? (
+            <a class="article-link" href={external} target="_blank" rel="noopener">→ read it on {sourceName(external)}</a>
+          ) : (
+            <a class="article-link" href={`/theories/${post.id}`}>→ read the entry</a>
+          )}
+        </article>
+      );
+    })}
+  </div>
 
   <figure class="desk-doodle">
     <svg width="300" height="200" viewBox="0 0 360 240" aria-label="Doodle of me hunched over a table, writing intently under a desk lamp">

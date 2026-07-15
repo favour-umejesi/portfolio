@@ -26,7 +26,15 @@ Do that a few dozen times in a row and the model stops seeing words and starts s
 
 ## The part that humbled me
 
-I assumed the hard part would be the math. It wasn't — it's like three matrix multiplications wearing a trench coat. The `softmax(QK^T / sqrt(d))V` you keep seeing? Q asks, K answers, V delivers. The hard part is believing something so simple scales into something that writes poetry.
+I assumed the hard part would be the math. It wasn't — it's like three matrix multiplications wearing a trench coat. The `softmax(QK^T / sqrt(d))V` you keep seeing? Q asks, K answers, V delivers. In NumPy it's honestly just:
+
+```python
+scores = Q @ K.T / np.sqrt(d)   # every word asks every word
+weights = softmax(scores)       # who actually matters here?
+context = weights @ V           # blend the answers together
+```
+
+The hard part is believing something so simple scales into something that writes poetry.
 
 > Science takes time. Mind your business.
 > — me, on this very website

@@ -4,6 +4,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import TitleBlock from '../components/TitleBlock.astro';
 import Manny from '../components/doodles/Manny.astro';
 import { entryMeta, sourceName, showDrafts } from '../lib/entries';
+import { readSingleton } from '../lib/reader';
+
+const musingsPage = await readSingleton('musingsPage');
 
 // drafts render in dev and preview deploys (marked DRAFT), never in production
 const posts = (await getCollection('musings'))
@@ -22,22 +25,28 @@ const posts = (await getCollection('musings'))
     <Manny slot="doodle" />
   </TitleBlock>
 
-  {posts.map((post) => {
-    const external = post.data.externalUrl ?? undefined;
-    return (
-      <article class="panel article-panel">
-        <p class="article-meta">{post.data.draft && 'DRAFT · '}{entryMeta(post.data.date, post.data.readTime, external)}</p>
-        <h2 class="article-title">{post.data.title}</h2>
-        {post.data.excerpt && <p class="article-excerpt">{post.data.excerpt}</p>}
-        {post.data.tags.length > 0 && <p class="article-tags">{post.data.tags.join(' · ')}</p>}
-        {external ? (
-          <a class="article-link" href={external} target="_blank" rel="noopener">→ read it on {sourceName(external)}</a>
-        ) : (
-          <a class="article-link" href={`/musings/${post.id}`}>→ read the entry</a>
-        )}
-      </article>
-    );
-  })}
+  <section class="panel bio">
+    {musingsPage.intro.map((paragraph) => <p>{paragraph}</p>)}
+  </section>
+
+  <div class="article-grid">
+    {posts.map((post) => {
+      const external = post.data.externalUrl ?? undefined;
+      return (
+        <article class="article-card">
+          <p class="article-meta">{post.data.draft && 'DRAFT · '}{entryMeta(post.data.date, post.data.readTime, external)}</p>
+          <h2 class="article-title">{post.data.title}</h2>
+          {post.data.excerpt && <p class="article-excerpt">{post.data.excerpt}</p>}
+          {post.data.tags.length > 0 && <p class="article-tags">{post.data.tags.join(' · ')}</p>}
+          {external ? (
+            <a class="article-link" href={external} target="_blank" rel="noopener">→ read it on {sourceName(external)}</a>
+          ) : (
+            <a class="article-link" href={`/musings/${post.id}`}>→ read the entry</a>
+          )}
+        </article>
+      );
+    })}
+  </div>
 
   <p class="more-note">more diary entries coming soon...</p>
 </BaseLayout>

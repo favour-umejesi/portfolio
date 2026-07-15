@@ -12,7 +12,7 @@ export default config({
     navigation: {
       'Diary entries': ['musings', 'theories'],
       'Portfolio': ['projects', 'experience', 'skills'],
-      'Pages': ['home', 'about', 'journey'],
+      'Pages': ['home', 'about', 'musingsPage', 'journey', 'patentLaw'],
       'Site': ['settings'],
     },
   },
@@ -50,6 +50,27 @@ export default config({
           description: 'Shown as chips, three per row',
           itemLabel: (props) => props.value,
         }),
+      },
+    }),
+    musingsPage: singleton({
+      label: 'Musings page',
+      path: 'src/content/pages/musings',
+      format: { data: 'yaml' },
+      schema: {
+        intro: fields.array(fields.text({ label: 'Paragraph', multiline: true }), {
+          label: 'Intro paragraphs',
+          itemLabel: (props) => props.value.slice(0, 60) || 'paragraph',
+        }),
+      },
+    }),
+    patentLaw: singleton({
+      label: 'Patent law page',
+      path: 'src/content/pages/patent-law',
+      entryLayout: 'content',
+      format: { contentField: 'body' },
+      schema: {
+        signoff: fields.text({ label: 'Sign-off', description: 'e.g. "— the lucid dame, esq."' }),
+        body: fields.markdoc({ label: 'The law itself' }),
       },
     }),
     journey: singleton({

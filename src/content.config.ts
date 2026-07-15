@@ -56,4 +56,11 @@ const skills = defineCollection({
   }),
 });
 
-export const collections = { musings, theories, projects, experience, skills };
+// the patent-law essay is a Keystatic singleton, but Astro reads it as a
+// one-entry collection so the markdoc body renders through the normal pipeline
+const lawPage = defineCollection({
+  loader: glob({ pattern: 'patent-law.mdoc', base: './src/content/pages' }),
+  schema: z.object({ signoff: z.string().optional() }),
+});
+
+export const collections = { musings, theories, projects, experience, skills, lawPage };
