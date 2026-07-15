@@ -2,11 +2,11 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import TitleBlock from '../components/TitleBlock.astro';
-import { entryMeta, sourceName } from '../lib/entries';
+import { entryMeta, sourceName, showDrafts } from '../lib/entries';
 
-// drafts are visible in local dev (marked DRAFT) but never in the built site
+// drafts render in dev and preview deploys (marked DRAFT), never in production
 const posts = (await getCollection('theories'))
-  .filter((post) => import.meta.env.DEV || !post.data.draft)
+  .filter((post) => showDrafts || !post.data.draft)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 

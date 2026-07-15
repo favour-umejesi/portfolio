@@ -1,5 +1,10 @@
 // Helpers for musings/theories entries.
 
+// Draft entries render in local dev and on Vercel preview deployments, never
+// on the production site. (VERCEL_ENV is set by Vercel at build time.)
+export const showDrafts =
+  import.meta.env.DEV || process.env.VERCEL_ENV === 'preview';
+
 // "JUN 30, 2025 · 5 MIN READ · MEDIUM" — matches the hand-written meta line
 // the musings page shipped with.
 export function entryMeta(

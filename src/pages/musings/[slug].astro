@@ -2,13 +2,13 @@
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import TitleBlock from '../../components/TitleBlock.astro';
-import { entryMeta, underline } from '../../lib/entries';
+import { entryMeta, underline, showDrafts } from '../../lib/entries';
 
 export async function getStaticPaths() {
   const posts = await getCollection('musings');
   return posts
     .filter((post) => !post.data.externalUrl)
-    .filter((post) => import.meta.env.DEV || !post.data.draft)
+    .filter((post) => showDrafts || !post.data.draft)
     .map((post) => ({ params: { slug: post.id }, props: { post } }));
 }
 

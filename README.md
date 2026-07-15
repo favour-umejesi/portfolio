@@ -38,6 +38,15 @@ In dev, Keystatic runs in **local mode**: edits in the admin write straight to
 the files in `src/content/`. You can also just edit those files by hand — the
 admin is optional, the files are the source of truth.
 
+## Drafts and previews
+
+Musings/theories entries have a **Draft** toggle. Drafts never appear on the
+production site; they do render (marked "DRAFT") in local dev and on Vercel
+**preview deployments**. To preview an entry before publishing: keep it as a
+draft and view it locally, or save it from the admin onto a branch — Vercel
+builds a preview URL for every branch. Untick Draft (and merge, if on a
+branch) to publish.
+
 ## Editing from the browser (deployed site)
 
 In production, Keystatic uses **GitHub mode**: saves become commits to this

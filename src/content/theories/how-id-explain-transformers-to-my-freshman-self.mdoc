@@ -1,0 +1,40 @@
+---
+title: How I'd Explain Transformers to My Freshman Self
+draft: true
+date: 2026-07-15
+readTime: 4
+tags:
+  - AI
+  - transformers
+  - learning in public
+excerpt: >-
+  Dear freshman me: you know how you reread a sentence five times and only
+  understand it once you spot which words matter? Congratulations, you already
+  understand attention. Sort of.
+---
+Dear freshman me. You're going to spend a semester scared of the word "transformer" because everyone says it like it's a religion. Here's the thing nobody tells you: you already do the core trick every time you read.
+
+## The trick is called attention
+
+When you read "the bank was steep so we slid down to the river," you don't panic about whether "bank" means money. Your brain quietly checks the neighbors — *steep*, *slid*, *river* — and picks the right meaning. That check-the-neighbors move is attention. A transformer just does it with numbers:
+
+- every word gets turned into a vector (a long list of numbers)
+- each word "asks" every other word how relevant it is
+- the answers get blended into a new, context-aware vector
+
+Do that a few dozen times in a row and the model stops seeing words and starts seeing *meaning*. That's most of the magic. Really. The famous paper is literally called [Attention Is All You Need](https://arxiv.org/abs/1706.03762).
+
+## The part that humbled me
+
+I assumed the hard part would be the math. It wasn't — it's like three matrix multiplications wearing a trench coat. The `softmax(QK^T / sqrt(d))V` you keep seeing? Q asks, K answers, V delivers. The hard part is believing something so simple scales into something that writes poetry.
+
+> Science takes time. Mind your business.
+> — me, on this very website
+
+## What I'm doing about it
+
+1. Reimplementing attention from scratch in NumPy (no peeking at libraries)
+2. Breaking it, on purpose, to see which parts actually matter
+3. Writing the mess down here so future me can laugh at present me
+
+More findings soon. The lamp is on and the pencil is sharpened.
