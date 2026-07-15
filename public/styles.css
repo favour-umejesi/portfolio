@@ -17,22 +17,6 @@
   --font-hand-sc: "Patrick Hand SC", "Patrick Hand", cursive;
 }
 
-/* The real Wimpy Kid book fonts, self-hosted in assets/ but currently unused
-   (Patrick Hand reads better spaced). Unreferenced faces are never downloaded
-   by the browser. To try them again, put "Wimpy Kid" / "Wimpy Kid Dialogue"
-   first in --font-hand / --font-hand-sc above. */
-@font-face {
-  font-family: "Wimpy Kid";
-  src: url("assets/WimpyKid.woff") format("woff");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Wimpy Kid Dialogue";
-  src: url("assets/WimpyKidDialogue.woff") format("woff");
-  font-display: swap;
-}
-
 * {
   margin: 0;
   padding: 0;
