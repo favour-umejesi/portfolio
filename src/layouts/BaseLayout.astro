@@ -1,4 +1,6 @@
 ---
+import { readSingleton } from '../lib/reader';
+
 interface Props {
   title: string;
   description: string;
@@ -35,6 +37,8 @@ const nav = [
 const fontsHref = caveat
   ? 'https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Patrick+Hand&family=Patrick+Hand+SC&display=swap'
   : 'https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Patrick+Hand+SC&display=swap';
+
+const settings = await readSingleton('settings');
 ---
 
 <!DOCTYPE html>
@@ -75,10 +79,14 @@ const fontsHref = caveat
       <div class="footer-row">
         <p class="quote">“{quote}”{quoteBy && <> <span class="by">— {quoteBy}</span></>}</p>
         <div class="footer-right">
-          <p class="socials"><a href="mailto:umejesif@gmail.com">email</a> · <a href="https://github.com/favour-umejesi" target="_blank" rel="noopener">github</a> · <a href="https://linkedin.com/in/favour-umejesi" target="_blank" rel="noopener">linkedin</a> · <a href="https://medium.com/@umejesif" target="_blank" rel="noopener">medium</a> · <a href="https://x.com/Odalokoghene" target="_blank" rel="noopener">x</a></p>
+          <p class="socials">{settings.socials.map((link, i) => (
+            <>{i > 0 && ' · '}{link.url.startsWith('mailto:')
+              ? <a href={link.url}>{link.label}</a>
+              : <a href={link.url} target="_blank" rel="noopener">{link.label}</a>}</>
+          ))}</p>
         </div>
       </div>
-      <p class="copyright">© 2026 Favour Umejesi{patentLink && <> · <a href="/patent-law">the lucid dame patent law</a></>}</p>
+      <p class="copyright">{settings.copyright}{patentLink && <> · <a href="/patent-law">the lucid dame patent law</a></>}</p>
     </footer>
 
     <slot name="after-footer" />

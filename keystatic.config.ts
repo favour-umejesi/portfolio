@@ -1,4 +1,4 @@
-import { config, fields, collection } from '@keystatic/core';
+import { config, fields, collection, singleton } from '@keystatic/core';
 
 // Local mode while developing (edits files on disk directly); GitHub mode on
 // the deployed site (saves become commits, Vercel rebuilds). GitHub mode needs
@@ -9,6 +9,93 @@ export default config({
     : { kind: 'github', repo: 'favour-umejesi/portfolio' },
   ui: {
     brand: { name: 'The Diary of a Lucid Dame' },
+    navigation: {
+      'Diary entries': ['musings', 'theories'],
+      'Portfolio': ['projects', 'experience', 'skills'],
+      'Pages': ['home', 'about', 'journey'],
+      'Site': ['settings'],
+    },
+  },
+  singletons: {
+    home: singleton({
+      label: 'Home page',
+      path: 'src/content/pages/home',
+      format: { data: 'yaml' },
+      schema: {
+        byline: fields.text({ label: 'Byline', description: 'Under the big title' }),
+        tagline: fields.text({ label: 'Tagline', multiline: true }),
+        status: fields.text({
+          label: 'Status line',
+          description: 'e.g. "Currently: Software Engineering Intern @ ServiceNow."',
+        }),
+        photoCaption: fields.text({ label: 'Photo caption' }),
+      },
+    }),
+    about: singleton({
+      label: 'About page',
+      path: 'src/content/pages/about',
+      format: { data: 'yaml' },
+      schema: {
+        bio: fields.array(fields.text({ label: 'Paragraph', multiline: true }), {
+          label: 'Bio paragraphs',
+          itemLabel: (props) => props.value.slice(0, 60) || 'paragraph',
+        }),
+        whatImUpTo: fields.array(fields.text({ label: 'Item' }), {
+          label: "What I'm up to",
+          description: 'The "→" arrow is added automatically',
+          itemLabel: (props) => props.value,
+        }),
+        likes: fields.array(fields.text({ label: 'Chip' }), {
+          label: 'Stuff I like',
+          description: 'Shown as chips, three per row',
+          itemLabel: (props) => props.value,
+        }),
+      },
+    }),
+    journey: singleton({
+      label: 'Journey page',
+      path: 'src/content/pages/journey',
+      format: { data: 'yaml' },
+      schema: {
+        awards: fields.array(
+          fields.object({
+            name: fields.text({ label: 'Name' }),
+            description: fields.text({ label: 'Description', multiline: true }),
+          }),
+          { label: 'Gold stars & distinctions', itemLabel: (props) => props.fields.name.value }
+        ),
+        timeline: fields.array(
+          fields.object({
+            date: fields.text({ label: 'Date', description: 'Free text, e.g. "OCT 2024"' }),
+            title: fields.text({ label: 'Title' }),
+            description: fields.text({ label: 'Description', multiline: true }),
+          }),
+          { label: 'The timeline', itemLabel: (props) => `${props.fields.date.value} — ${props.fields.title.value}` }
+        ),
+      },
+    }),
+    settings: singleton({
+      label: 'Site settings',
+      path: 'src/content/pages/settings',
+      format: { data: 'yaml' },
+      schema: {
+        socials: fields.array(
+          fields.object({
+            label: fields.text({ label: 'Label', description: 'e.g. "github"' }),
+            url: fields.text({
+              label: 'URL',
+              description: 'https://... or mailto:you@example.com',
+            }),
+          }),
+          {
+            label: 'Social links',
+            description: 'Shown in the footer of every page and on the homepage contact row',
+            itemLabel: (props) => props.fields.label.value,
+          }
+        ),
+        copyright: fields.text({ label: 'Copyright line' }),
+      },
+    }),
   },
   collections: {
     projects: collection({

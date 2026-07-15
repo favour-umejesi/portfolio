@@ -1,5 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { readSingleton } from '../lib/reader';
+
+const home = await readSingleton('home');
+const settings = await readSingleton('settings');
 ---
 
 <BaseLayout
@@ -21,15 +25,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <svg class="hero-underline" viewBox="0 0 410 14" preserveAspectRatio="none" aria-hidden="true">
       <path d="M2 8q30-7 58 0t58 0 58 0 58 0 58 0 58 0 58 0" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
     </svg>
-    <p class="byline">kept by Favour Umejesi, aspiring relevant engineer</p>
-    <p class="tagline">I build AI + full-stack things, break a few of them, and write the whole mess down here. Mostly trying to work smart, not hard.</p>
-    <p class="status">Currently: Software Engineering Intern @ ServiceNow.</p>
+    <p class="byline">{home.byline}</p>
+    <p class="tagline">{home.tagline}</p>
+    <p class="status">{home.status}</p>
     <svg class="star-doodle" viewBox="0 0 48 48" aria-hidden="true">
       <path d="M24 2l6.2 15.3 15.8 1.2-12 10.5 4 16-14-9-14 9 4-16-12-10.5 15.8-1.2z" fill="#111"/>
     </svg>
     <figure class="hero-photo">
       <img src="/assets/notion_avatar.png" alt="Notion-style avatar of Favour Umejesi">
-      <figcaption>the dame in question</figcaption>
+      <figcaption>{home.photoCaption}</figcaption>
     </figure>
   </section>
 
@@ -76,7 +80,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   <p class="contact-row">
     <span>→ find me at:</span>
-    <span class="links"><a href="mailto:umejesif@gmail.com">email</a> · <a href="https://linkedin.com/in/favour-umejesi" target="_blank" rel="noopener">linkedin</a> · <a href="https://github.com/favour-umejesi" target="_blank" rel="noopener">github</a> · <a href="https://medium.com/@umejesif" target="_blank" rel="noopener">medium</a> · <a href="https://x.com/Odalokoghene" target="_blank" rel="noopener">x</a></span>
+    <span class="links">{settings.socials.map((link, i) => (
+      <>{i > 0 && ' · '}{link.url.startsWith('mailto:')
+        ? <a href={link.url}>{link.label}</a>
+        : <a href={link.url} target="_blank" rel="noopener">{link.label}</a>}</>
+    ))}</span>
   </p>
 
   <p slot="after-footer" class="psst"><a href="/journey">psst... the journey</a></p>

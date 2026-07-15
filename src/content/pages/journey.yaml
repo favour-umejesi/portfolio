@@ -1,0 +1,28 @@
+awards:
+  - name: 4.0 GPA
+    description: A perfect 4.0 GPA, every single point of it.
+  - name: President's List
+    description: Recognized for outstanding academic achievement.
+  - name: Break Through Tech AI
+    description: Picked for the ML program taught by faculty from schools like Cornell.
+  - name: Discover ServiceNow
+    description: One of 40+ students chosen from hundreds of applicants.
+timeline:
+  - date: OCT 2024
+    title: Started Computer Science at Grambling State
+    description: Where the whole coding journey officially kicked off.
+  - date: APR 2025
+    title: Data for Good Hackathon @ JP Morgan Chase
+    description: >-
+      Built a K-Means model for Concilio, a nonprofit helping Latino parents
+      get involved in their kids' education, and wired it into a web app for
+      smarter resource allocation. Plano, TX.
+  - date: JUN 2025
+    title: Arise & Shine × Apple SwiftUI Bootcamp
+    description: >-
+      Technical Lead. Built Nestly, a student-finance app with an expense
+      tracker, budget planner, and investment-literacy hub. Placed Top 3 with a
+      perfect score.
+  - date: SUMMER 2026
+    title: Software Engineering Intern @ ServiceNow
+    description: From "Discover ServiceNow" pick to the real thing. Full circle.
