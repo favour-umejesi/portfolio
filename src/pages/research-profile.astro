@@ -125,7 +125,9 @@ const social: Record<string, string> = {
       </p>
     </div>
     <div class="v-actions">
-      <a href={page.cvUrl || '/cv.pdf'} target="_blank" rel="noopener">Download CV <svg viewBox="0 0 24 24" set:html={icon.download} /></a>
+      {(page.cv || page.cvUrl) && (
+        <a href={page.cv || page.cvUrl} target="_blank" rel="noopener">Download CV <svg viewBox="0 0 24 24" set:html={icon.download} /></a>
+      )}
       {email && (
         <a href={email.url}>Contact me <svg viewBox="0 0 24 24" set:html={icon.arrow} /></a>
       )}

@@ -141,9 +141,15 @@ export default config({
           directory: 'public/images/research',
           publicPath: '/images/research/',
         }),
+        cv: fields.file({
+          label: 'CV (PDF)',
+          description: 'Upload your CV here. The "Download CV" button only appears once a file or link is set.',
+          directory: 'public/files',
+          publicPath: '/files/',
+        }),
         cvUrl: fields.text({
-          label: 'CV link',
-          description: 'A URL, or a path to a PDF placed in public/ (default /cv.pdf)',
+          label: 'CV link (optional)',
+          description: 'Use this instead of an upload if your CV lives elsewhere, e.g. a Google Drive link',
         }),
         bio: fields.array(fields.text({ label: 'Paragraph', multiline: true }), {
           label: 'Bio paragraphs',

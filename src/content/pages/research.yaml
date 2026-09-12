@@ -7,7 +7,8 @@ roles:
 affiliation: ''
 headline: ''
 headshot: /images/research/headshot.jpg
-cvUrl: /cv.pdf
+cv: null
+cvUrl: ''
 bio:
   - >-
     Hello, I’m Favour Umejesi, a third-year ==Computer Science== student at

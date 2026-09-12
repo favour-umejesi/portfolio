@@ -6,7 +6,7 @@ The site's "serious" face for research applications. It uses its own layout,
 linked from the diary nav and the home "stuff to click on" panel. Everything
 on it is editable from `/keystatic` under the **Research** group:
 
-- **Research page** (singleton): name, affiliation, headline, headshot, CV link,
+- **Research page** (singleton): name, titles, affiliation, headline, headshot, CV upload (or link),
   bio, research interests, education, coursework, honors, and a toggle for the
   Writing section (which auto-lists published theories and musings).
 - **Research & works** (collection): one entry per card. `kind` drives the
