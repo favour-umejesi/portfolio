@@ -23,13 +23,13 @@ const settings = await readSingleton('settings');
     <p class="kicker">THE DIARY OF A —</p>
     <h1 class="name">LUCID DAME</h1>
     <svg class="hero-underline" viewBox="0 0 410 14" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M2 8q30-7 58 0t58 0 58 0 58 0 58 0 58 0 58 0" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+      <path d="M2 8q30-7 58 0t58 0 58 0 58 0 58 0 58 0 58 0" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke" pathLength="1" style="--i:0"/>
     </svg>
     <p class="byline">{home.byline}</p>
     <p class="tagline">{home.tagline}</p>
     <p class="status">{home.status}</p>
     <svg class="star-doodle" viewBox="0 0 48 48" aria-hidden="true">
-      <path d="M24 2l6.2 15.3 15.8 1.2-12 10.5 4 16-14-9-14 9 4-16-12-10.5 15.8-1.2z" fill="#111"/>
+      <path d="M24 2l6.2 15.3 15.8 1.2-12 10.5 4 16-14-9-14 9 4-16-12-10.5 15.8-1.2z" fill="#111" class="ink-both" pathLength="1" style="--i:1"/>
     </svg>
     <figure class="hero-photo">
       <img src="/assets/notion_avatar.png" alt="Notion-style avatar of Favour Umejesi">
@@ -56,23 +56,23 @@ const settings = await readSingleton('settings');
         <!-- her name, plus a heart colored in with black crayon -->
         <text x="34" y="-13" font-size="18" fill="#111">sweetie</text>
         <g transform="translate(94,-34) rotate(-8) scale(1.15)">
-          <path d="M3 6 L18 3 M2 9 L20 6 M3.5 12 L19 9 M6 14.5 L17.5 12 M8.5 17 L15 15.5" stroke="#111" stroke-width="2.3" stroke-linecap="round" opacity="0.85"/>
-          <path d="M11 19 C6 14 0 11 0.5 5.5 C1 0.5 8 -0.5 11 5 C14 -0.5 21 0.5 21.5 5.5 C22 11 16 14 11 19 Z" fill="none" stroke="#111" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M3 6 L18 3 M2 9 L20 6 M3.5 12 L19 9 M6 14.5 L17.5 12 M8.5 17 L15 15.5" stroke="#111" stroke-width="2.3" stroke-linecap="round" opacity="0.85" pathLength="1" style="--i:2"/>
+          <path d="M11 19 C6 14 0 11 0.5 5.5 C1 0.5 8 -0.5 11 5 C14 -0.5 21 0.5 21.5 5.5 C22 11 16 14 11 19 Z" fill="none" stroke="#111" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" pathLength="1" style="--i:3"/>
         </g>
         <g fill="none" stroke="#111" stroke-linecap="round" stroke-linejoin="round">
-          <path transform="translate(100,48)" d="M0 10 Q10 2 18 8" stroke-width="2.6"/>
-          <ellipse cx="64" cy="54" rx="38" ry="26" fill="#f6f1e3" stroke-width="2.4"/>
-          <ellipse cx="38.5" cy="75" rx="8.5" ry="5" fill="#f6f1e3" stroke-width="2.2"/>
-          <ellipse cx="58.5" cy="77" rx="8.5" ry="5" fill="#f6f1e3" stroke-width="2.2"/>
-          <ellipse cx="85" cy="76" rx="9" ry="5" fill="#f6f1e3" stroke-width="2.2"/>
-          <path transform="translate(40,54)" d="M1 0 L1 14" stroke-width="2.2"/>
-          <path transform="translate(2,2)" d="M22 8 Q36 0 44 8 Q52 16 48 28 Q44 38 32 40 Q22 42 17 33 L4 19 Q1 16 4 12 L15 13 Q17 9 22 8 Z" fill="#f6f1e3" stroke-width="2.4"/>
+          <g class="tail"><path transform="translate(100,48)" d="M0 10 Q10 2 18 8" stroke-width="2.6" pathLength="1" style="--i:4"/></g>
+          <ellipse cx="64" cy="54" rx="38" ry="26" fill="#f6f1e3" stroke-width="2.4" pathLength="1" style="--i:5"/>
+          <ellipse cx="38.5" cy="75" rx="8.5" ry="5" fill="#f6f1e3" stroke-width="2.2" pathLength="1" style="--i:6"/>
+          <ellipse cx="58.5" cy="77" rx="8.5" ry="5" fill="#f6f1e3" stroke-width="2.2" pathLength="1" style="--i:7"/>
+          <ellipse cx="85" cy="76" rx="9" ry="5" fill="#f6f1e3" stroke-width="2.2" pathLength="1" style="--i:8"/>
+          <path transform="translate(40,54)" d="M1 0 L1 14" stroke-width="2.2" pathLength="1" style="--i:9"/>
+          <path transform="translate(2,2)" d="M22 8 Q36 0 44 8 Q52 16 48 28 Q44 38 32 40 Q22 42 17 33 L4 19 Q1 16 4 12 L15 13 Q17 9 22 8 Z" fill="#f6f1e3" stroke-width="2.4" pathLength="1" style="--i:10"/>
           <g transform="translate(36,2) rotate(12)">
-            <path d="M5 2 Q15 -2 17 8 Q19 21 11 27 Q3 30 2 19 Q1 8 5 2 Z" fill="#f6f1e3" stroke-width="2.2"/>
+            <path d="M5 2 Q15 -2 17 8 Q19 21 11 27 Q3 30 2 19 Q1 8 5 2 Z" fill="#f6f1e3" stroke-width="2.2" pathLength="1" style="--i:11"/>
           </g>
-          <ellipse cx="6" cy="13.5" rx="5" ry="4.5" fill="#111" stroke="none"/>
-          <ellipse cx="25.2" cy="19.8" rx="2.3" ry="2.8" fill="#111" stroke="none"/>
-          <ellipse cx="34.2" cy="17.8" rx="2.3" ry="2.8" fill="#111" stroke="none"/>
+          <ellipse cx="6" cy="13.5" rx="5" ry="4.5" fill="#111" stroke="none" class="ink-fill" style="--i:12"/>
+          <ellipse cx="25.2" cy="19.8" rx="2.3" ry="2.8" fill="#111" stroke="none" class="ink-fill" style="--i:13"/>
+          <ellipse cx="34.2" cy="17.8" rx="2.3" ry="2.8" fill="#111" stroke="none" class="ink-fill" style="--i:14"/>
         </g>
       </svg>
     </div>

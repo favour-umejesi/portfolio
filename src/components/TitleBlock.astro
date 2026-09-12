@@ -13,7 +13,7 @@ const viewBox = `0 0 ${viewBoxWidth ?? underlineWidth} 12`;
 <div class="title-block">
   <h1 class="page-title">{title}</h1>
   <svg class="title-underline" width={underlineWidth} viewBox={viewBox} preserveAspectRatio="none" aria-hidden="true">
-    <path d={path} fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+    <path d={path} fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" vector-effect="non-scaling-stroke" pathLength="1" style="--i:0"/>
   </svg>
   {Astro.slots.has('doodle') && (
     <div class="corner-doodle" aria-hidden="true">
