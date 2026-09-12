@@ -4,7 +4,24 @@ draft: false
 order: 3
 year: '2026'
 context: JPMorgan Chase
-summary: Details coming soon.
+thumbnail: /images/research/jpmorgan-hackathon-2026/thumbnail.png
+summary: >-
+  Collaborated with a team to develop a data-driven MVP for Rescuing Leftover
+  Cuisine, addressing inefficiencies in matching surplus food donations with
+  recipient organizations. We designed an intelligent matching system that
+  applied natural language processing to food descriptions to categorize
+  donations and improve donor-recipient matching, alongside geospatial routing
+  to identify nearby recipients and reduce inefficient cross-ZIP travel. The
+  broader solution incorporated simplified donor onboarding and verification,
+  automated food matching, and proximity-based routing to help increase food
+  rescue opportunities while reducing transportation inefficiencies and food
+  waste.
 tags:
-  - hackathon
-links: []
+  - Natural Language Processing
+  - Geospatial Analysis
+  - Social Impact
+  - Exploratory Data Analysis
+links:
+  - label: demo
+    url: >-
+      https://docs.google.com/presentation/d/1p7JEU0S1iowEFRM2WAAC7AwIBb-BVMlkORneK4Zj6kk/edit?usp=sharing

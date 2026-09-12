@@ -71,7 +71,7 @@ const research = defineCollection({
     summary: z.string(),
     tags: z.array(z.string()).default([]),
     links: z
-      .array(z.object({ label: z.string(), url: z.string() }))
+      .array(z.object({ label: z.string().default(''), url: z.string().nullable().default('') }))
       .default([]),
   }),
 });

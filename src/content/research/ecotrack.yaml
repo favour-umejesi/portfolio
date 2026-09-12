@@ -1,22 +1,25 @@
 title: EcoTrack
 kind: project
 draft: false
-order: 7
-year: '2025'
+order: 2
 context: Personal project
-role: ''
-thumbnail: null
+thumbnail: /images/research/ecotrack/thumbnail.jpg
 summary: >-
-  A web app that helps people track and shrink their carbon footprint. Users
-  log everyday activities, get emissions estimates from the Carbon Interface
-  API, and watch their footprint change over time in live Chart.js graphs.
-  Built with HTML, CSS, JavaScript and Node.js.
+  EcoTrack is an open-source climate platform that helps users calculate and
+  visualize their carbon footprint, track progress over time, and share
+  sustainable actions through a community feed. Beyond the application, EcoTrack
+  serves as a research testbed for exploring retrieval-augmented generation
+  (RAG), alternative retrieval approaches, and methods for improving semantic
+  search and information retrieval. Its Climate AI Assistant applies these
+  techniques to answer climate questions from authoritative research with
+  grounded, source-cited responses.
 tags:
   - sustainability
-  - full stack
-  - data visualisation
+  - Next.js
+  - RAG
+  - Qwen3
+  - Vector Search
 links:
   - label: github
-    url: https://github.com/KingOz-stack/EcoTrack-
+    url: https://github.com/favour-umejesi/EcoTrack-
   - label: live
-    url: https://eco-track-five.vercel.app/

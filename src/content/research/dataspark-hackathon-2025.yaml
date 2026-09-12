@@ -3,13 +3,24 @@ kind: project
 draft: false
 order: 5
 year: '2025'
-context: DataSpark
-role: ''
-thumbnail: null
+context: Kaggle (Organized by Breakthrough Tech AI)
+role: Team Captain
+thumbnail: /images/research/dataspark-hackathon-2025/thumbnail.png
 summary: >-
-  Built a classifier that predicts smoking status from biomedical signals, reaching 79% accuracy and 0.87 AUC. Placed in the top 4.
+  Led a four-person team investigating the use of biosignal data to predict
+  smoking status through binary classification. As team captain, coordinated the
+  project while contributing to feature engineering, model development, and
+  evaluation. We compared multiple machine learning approaches and optimized a
+  Random Forest classifier that achieved 79% accuracy and a 0.87 AUC-ROC,
+  approximately a 10% improvement over the Logistic Regression baseline. Our
+  solution placed 4th among 10 competing teams, demonstrating the effectiveness
+  of feature engineering and nonlinear models for classification on
+  physiological data.
 tags:
-  - hackathon
   - machine learning
-  - tabular data
+  - Biosignal Analysis
+  - Feature Engineeering
+  - Classification
+  - Random Forest
+  - Kaggle
 links: []

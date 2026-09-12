@@ -224,9 +224,9 @@ const social: Record<string, string> = {
             {meta && <p class="v-modal-meta">{meta}</p>}
             <div class="v-prose"><p>{w.data.summary}</p></div>
             {w.data.tags.length > 0 && <p class="v-modal-tags">{w.data.tags.join(' · ')}</p>}
-            {w.data.links.length > 0 && (
+            {w.data.links.some((l) => l.url) && (
               <p class="v-modal-links">
-                {w.data.links.map((l) =>
+                {w.data.links.filter((l) => l.url).map((l) =>
                   l.url.startsWith('/')
                     ? <a href={l.url}>{l.label} →</a>
                     : <a href={l.url} target="_blank" rel="noopener">{l.label} ↗</a>

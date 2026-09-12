@@ -5,13 +5,25 @@ order: 2
 year: Aug – Dec 2025
 context: Ursa Space Systems
 role: Machine Learning Engineering Intern
-thumbnail: null
+thumbnail: /images/research/ship-and-iceberg-detection-in-satellite-imagery/thumbnail.png
 summary: >-
-  Compared two approaches to classifying ships and icebergs in satellite
-  imagery: fine-tuning a model pretrained on natural images versus training a
-  model from scratch on the target data. The from-scratch model won.
+  As part of a research team, investigated machine learning and transfer
+  learning approaches for ship vs. iceberg classification using Synthetic
+  Aperture Radar (SAR) imagery. Evaluated a baseline MLP classifier trained on
+  1,604 labeled SAR images against models using pretrained ViT and ConvNeXT
+  embeddings, analyzing representation quality through PCA and t-SNE. The
+  baseline achieved 96% validation accuracy and 0.9855 ROC-AUC, outperforming
+  the embedding-based approaches, while ConvNeXT produced stronger class
+  separation among the pretrained representations. Our findings highlighted the
+  limitations of transferring representations learned from natural images to
+  specialized SAR imagery with limited labeled data.
 tags:
   - computer vision
-  - remote sensing
   - transfer learning
-links: []
+  - Computer Vision
+  - Representation Learning
+  - Deep Learning
+  - SAR Imagery
+links:
+  - label: Presentation
+    url: https://canva.link/ddvbnl0ekyz21s2

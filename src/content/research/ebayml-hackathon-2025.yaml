@@ -4,11 +4,23 @@ draft: false
 order: 6
 year: '2025'
 context: eBay
-role: ''
-thumbnail: null
+thumbnail: /images/research/ebayml-hackathon-2025/thumbnail.png
 summary: >-
-  Details coming soon.
+  As part of a five-person team, developed an end-to-end Named Entity
+  Recognition (NER) pipeline for extracting structured attributes such as make,
+  model, year, and part type from 2M+ unstructured German automotive listings.
+  Our solution combined XLM-RoBERTa and GELECTRA in a transformer ensemble,
+  using weighted cross-entropy to address class imbalance and temperature
+  scaling to calibrate model confidence. We optimized the pipeline for batched,
+  large-scale inference, achieving a 0.933 F1 score and 0.955 accuracy and
+  placing in the Top 10% of the eBay 2025 University Machine Learning Challenge.
 tags:
-  - hackathon
-  - machine learning
-links: []
+  - ml hackathon
+  - Natural Language Processing
+  - Named Entity Recognition
+  - Transformers
+  - Ensemble Learning
+  - Hugging Face
+links:
+  - label: github
+    url: https://github.com/nintang/EbayML-Hackathon

@@ -4,11 +4,22 @@ draft: false
 order: 4
 year: '2025'
 context: JPMorgan Data for Good Hackathon
+thumbnail: /images/research/jpmorgan-hackathon-2025/thumbnail.jpeg
 summary: >-
-  Applied K-Means clustering to segment the audience of Concilio, a nonprofit,
-  so outreach could be targeted by group rather than one message for everyone.
+  Collaborated with a team to analyze community data for The Concilio, a Dallas
+  nonprofit supporting Latino and other diverse families. We developed an
+  unsupervised K-Means clustering model to identify geographic areas with high
+  community needs and segment households within each ZIP code into three levels
+  of need based on demographic and socioeconomic factors such as age, household
+  size, income, insurance status, and benefits. We integrated the model into an
+  interactive web application for classifying new household data, helping The
+  Concilio visualize community needs and make more informed decisions about
+  resource allocation.
 tags:
-  - hackathon
-  - clustering
-  - data for good
-links: []
+  - Data science hackathon
+  - Unsupervised Learning
+  - K-Means Clustering
+  - Non-profit
+links:
+  - label: github
+    url: https://github.com/Ikaay1/JPMorgan-Chase-Data-for-Good

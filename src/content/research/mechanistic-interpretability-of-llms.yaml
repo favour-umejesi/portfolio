@@ -5,13 +5,23 @@ order: 1
 year: 2026 – present
 context: Grambling State University
 role: Undergraduate Researcher
-thumbnail: null
+thumbnail: /images/research/mechanistic-interpretability-of-llms/thumbnail.png
 summary: >-
-  Investigating how internal model components contribute to factual recall,
-  hallucinations, and biased outputs in large language models, using layer
-  ablation and game-theoretic methods. Supervised by Dr. Vivya Kalidindi.
+  Conducting ongoing undergraduate research under the guidance of Prof. Vivya
+  Kalidindi at Grambling State University, investigating how information is
+  represented and processed across layers of transformer-based language models.
+  Using GPT-2, I conduct layer-wise zero-ablation experiments on feed-forward
+  network (FFN) components to measure how individual layers affect model
+  predictions and help localize factual knowledge. I also use TransformerLens
+  and PyTorch to analyze logit attribution across the residual stream,
+  identifying potential “source” and “inhibitor” layers associated with model
+  predictions and latent hallucinations. This work explores how understanding
+  layer-level behavior can provide greater insight into the internal mechanisms
+  behind factual recall, hallucinations, and model confidence.
 tags:
-  - interpretability
+  - Mechanistic Interpretability
   - LLMs
   - AI safety
+  - Model Interpretability
+  - TransformerLens
 links: []

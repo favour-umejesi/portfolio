@@ -241,20 +241,20 @@ const { title, description } = Astro.props;
   #f-research:checked ~ .v-grid .v-work:not([data-kind="research"]),
   #f-project:checked ~ .v-grid .v-work:not([data-kind="project"]) { display: none; }
 
-  .v-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 24px; }
+  .v-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 24px; align-items: start; }
   .v-work { text-align: center; }
   .v-work > a { display: block; }
   .v-work > a:hover .v-work-title { color: var(--v-gold); }
   .v-thumb {
     display: block;
     width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
+    height: auto; /* the image keeps its own proportions: fills the card width, never cropped */
     border-radius: 6px;
-    background: var(--v-hover);
     border: 1px solid var(--v-line);
   }
   .v-thumb--empty {
+    aspect-ratio: 4 / 3;
+    background: var(--v-hover);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -303,7 +303,16 @@ const { title, description } = Astro.props;
     color: var(--v-muted);
   }
   .v-modal-close:hover { background: var(--v-hover); color: var(--v-text); }
-  .v-modal-box img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 6px; margin-bottom: 18px; }
+  .v-modal-box img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 62vh;
+    object-fit: contain; /* natural proportions, full image, capped to the viewport */
+    border-radius: 6px;
+    border: 1px solid var(--v-line);
+    margin-bottom: 18px;
+  }
   .v-modal-box h3 { font-size: 21px; font-weight: 700; line-height: 1.3; }
   .v-modal-meta { color: var(--v-muted); font-size: 13.5px; margin: 4px 0 14px; }
   .v-modal-box .v-prose { max-width: none; }
