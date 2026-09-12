@@ -1,0 +1,17 @@
+title: Mechanistic Interpretability of LLMs
+kind: research
+draft: false
+order: 1
+year: 2026 – present
+context: Grambling State University
+role: Undergraduate Researcher
+thumbnail: null
+summary: >-
+  Investigating how internal model components contribute to factual recall,
+  hallucinations, and biased outputs in large language models, using layer
+  ablation and game-theoretic methods. Supervised by Dr. Vivya Kalidindi.
+tags:
+  - interpretability
+  - LLMs
+  - AI safety
+links: []

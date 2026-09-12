@@ -1,0 +1,22 @@
+title: EcoTrack
+kind: project
+draft: false
+order: 7
+year: '2025'
+context: Personal project
+role: ''
+thumbnail: null
+summary: >-
+  A web app that helps people track and shrink their carbon footprint. Users
+  log everyday activities, get emissions estimates from the Carbon Interface
+  API, and watch their footprint change over time in live Chart.js graphs.
+  Built with HTML, CSS, JavaScript and Node.js.
+tags:
+  - sustainability
+  - full stack
+  - data visualisation
+links:
+  - label: github
+    url: https://github.com/KingOz-stack/EcoTrack-
+  - label: live
+    url: https://eco-track-five.vercel.app/

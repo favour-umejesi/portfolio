@@ -1,7 +1,8 @@
 bio:
   - >-
     I study Computer Science and Mathematics at Grambling State University, and
-    I'm working toward becoming a ... engineer, building intelligent systems
+    I'm working toward becoming a machine learning engineer (and one day a
+    research scientist), building intelligent systems
     that solve real problems and automate the boring stuff.
   - >-
     Before college I started a climate-focused nonprofit around UN Goals 11 &
@@ -11,7 +12,7 @@ bio:
     These days I'm stuck on one question: how can technology drive
     sustainability, and how can sustainability shape the future of technology?
 whatImUpTo:
-  - SWE interning @ ServiceNow
+  - Researching how LLMs hallucinate (mechanistic interpretability, junior year)
   - Studying CS + Math @ Grambling
   - Building ML & full-stack projects
   - Learning ML with Break Through Tech AI

@@ -5,6 +5,7 @@ import { z } from 'astro/zod';
 const entrySchema = z.object({
   title: z.string(),
   draft: z.boolean().default(false),
+  research: z.boolean().default(false),
   date: z.coerce.date(),
   readTime: z.number().optional().nullable(),
   tags: z.array(z.string()).default([]),
@@ -56,6 +57,25 @@ const skills = defineCollection({
   }),
 });
 
+const research = defineCollection({
+  loader: glob({ pattern: '**/*.yaml', base: './src/content/research' }),
+  schema: z.object({
+    title: z.string(),
+    kind: z.enum(['research', 'project']).default('project'),
+    draft: z.boolean().default(false),
+    order: z.number().default(1),
+    year: z.string().optional().nullable(),
+    context: z.string().optional().nullable(),
+    role: z.string().optional().nullable(),
+    thumbnail: z.string().optional().nullable(),
+    summary: z.string(),
+    tags: z.array(z.string()).default([]),
+    links: z
+      .array(z.object({ label: z.string(), url: z.string() }))
+      .default([]),
+  }),
+});
+
 // the patent-law essay is a Keystatic singleton, but Astro reads it as a
 // one-entry collection so the markdoc body renders through the normal pipeline
 const lawPage = defineCollection({
@@ -63,4 +83,4 @@ const lawPage = defineCollection({
   schema: z.object({ signoff: z.string().optional() }),
 });
 
-export const collections = { musings, theories, projects, experience, skills, lawPage };
+export const collections = { musings, theories, projects, experience, skills, research, lawPage };

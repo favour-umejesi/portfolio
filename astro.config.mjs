@@ -9,4 +9,5 @@ import vercel from '@astrojs/vercel';
 export default defineConfig({
   integrations: [react(), markdoc(), keystatic()],
   adapter: vercel(),
+  redirects: { '/research': '/research-profile' },
 });

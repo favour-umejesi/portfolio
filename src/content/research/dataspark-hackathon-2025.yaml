@@ -1,0 +1,15 @@
+title: DataSpark Hackathon 2025
+kind: project
+draft: false
+order: 5
+year: '2025'
+context: DataSpark
+role: ''
+thumbnail: null
+summary: >-
+  Built a classifier that predicts smoking status from biomedical signals, reaching 79% accuracy and 0.87 AUC. Placed in the top 4.
+tags:
+  - hackathon
+  - machine learning
+  - tabular data
+links: []

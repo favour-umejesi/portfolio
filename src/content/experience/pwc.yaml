@@ -1,7 +1,7 @@
 role: AI Extern
 company: PwC
 dates: Feb — Apr 2025
-order: 3
+order: 4
 logo: /assets/pwc.png
 description: >-
   Built NLP + OCR pipelines for finance-document automation, plus a RAG system

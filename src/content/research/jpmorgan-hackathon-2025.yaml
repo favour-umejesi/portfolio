@@ -1,0 +1,15 @@
+title: JPMorgan Hackathon 2025
+kind: project
+draft: false
+order: 4
+year: '2025'
+context: JPMorgan Data for Good Hackathon
+role: ''
+thumbnail: null
+summary: >-
+  Applied K-Means clustering to segment the audience of Concilio, a nonprofit, so outreach could be targeted by group rather than one message for everyone.
+tags:
+  - hackathon
+  - clustering
+  - data for good
+links: []

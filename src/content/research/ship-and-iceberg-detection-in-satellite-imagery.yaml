@@ -1,0 +1,17 @@
+title: Ship and Iceberg Detection in Satellite Imagery
+kind: research
+draft: false
+order: 2
+year: Aug – Dec 2025
+context: Ursa Space Systems
+role: Machine Learning Engineering Intern
+thumbnail: null
+summary: >-
+  Compared two approaches to classifying ships and icebergs in satellite
+  imagery: fine-tuning a model pretrained on natural images versus training a
+  model from scratch on the target data. The from-scratch model won.
+tags:
+  - computer vision
+  - remote sensing
+  - transfer learning
+links: []
