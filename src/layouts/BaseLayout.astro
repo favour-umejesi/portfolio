@@ -31,7 +31,7 @@ const nav = [
   { key: 'projects', href: '/projects' },
   { key: 'theories', href: '/theories' },
   { key: 'musings', href: '/musings' },
-  { key: 'research profile', href: '/research-profile' },
+  { key: 'research profile', href: '/' },
 ];
 
 const fontsHref = caveat
@@ -64,7 +64,7 @@ const settings = await readSingleton('settings');
     <slot name="before-header" />
 
     <header class="topbar">
-      <a class="diary-mark" href="/">The Diary of a Lucid Dame</a>
+      <a class="diary-mark" href="/diary">The Diary of a Lucid Dame</a>
       <nav class="nav">
         {nav.map((item) => (
           <a href={item.href} class={active === item.key ? 'active' : undefined}>{item.key}</a>

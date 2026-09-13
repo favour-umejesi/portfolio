@@ -1,91 +1,241 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import ResearchLayout from '../layouts/ResearchLayout.astro';
 import { readSingleton } from '../lib/reader';
+import { showDrafts } from '../lib/entries';
 
-const home = await readSingleton('home');
+const page = await readSingleton('researchPage');
 const settings = await readSingleton('settings');
+
+const works = (await getCollection('research'))
+  .filter((w) => showDrafts || !w.data.draft)
+  .sort((a, b) => a.data.order - b.data.order);
+
+const hasResearch = works.some((w) => w.data.kind === 'research');
+const hasProjects = works.some((w) => w.data.kind === 'project');
+
+const email = settings.socials.find((s) => s.url.startsWith('mailto:'));
+
+// writing: published theories + musings, newest first
+type Note = { title: string; date: Date; href: string; external: boolean; source: string };
+let notes: Note[] = [];
+if (page.showWriting) {
+  const theories = await getCollection('theories');
+  const musings = await getCollection('musings');
+  notes = [
+    ...theories.map((e) => ({ entry: e, base: '/theories/', source: 'theories' })),
+    ...musings.map((e) => ({ entry: e, base: '/musings/', source: 'musings' })),
+  ]
+    .filter(({ entry }) => !entry.data.draft && entry.data.research)
+    .map(({ entry, base, source }) => ({
+      title: entry.data.title,
+      date: entry.data.date,
+      href: entry.data.externalUrl ?? `${base}${entry.id}`,
+      external: Boolean(entry.data.externalUrl),
+      source,
+    }))
+    .sort((a, b) => b.date.valueOf() - a.date.valueOf());
+}
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' });
+const kindLabel = (k: string) => (k === 'research' ? 'Research' : 'Project');
+const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+
+// bio paragraphs: plain text, except ==phrase== becomes a highlight
+const esc = (t: string) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const rich = (t: string) => esc(t).replace(/==(.+?)==/g, '<mark>$1</mark>');
+
+// rotating titles under the name, CSS-only: each word gets the same
+// animation, offset by its index, so the keyframes depend on the count
+const roles = page.roles.filter(Boolean);
+const perWord = 2.6; // seconds each word stays
+const total = roles.length * perWord;
+const on = (100 / roles.length).toFixed(3);
+const fade = (4 / roles.length).toFixed(3);
+const rotatorCss = roles.length > 1
+  ? `.v-roles li { animation: v-rotate ${total}s infinite; }
+@keyframes v-rotate {
+  0% { opacity: 0; transform: translateY(6px); }
+  ${fade}% { opacity: 1; transform: none; }
+  ${(Number(on) - Number(fade)).toFixed(3)}% { opacity: 1; transform: none; }
+  ${on}% { opacity: 0; transform: translateY(-6px); }
+  100% { opacity: 0; }
+}`
+  : '';
+
+// one simple line-icon set, drawn for this page; social ones keyed by the
+// label used in site settings, anything unknown falls back to a letter
+const icon = {
+  about: '<circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.9 3.1-6 7-6s7 2.1 7 6"/>',
+  works: '<path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/><path d="M10 12h5M10 16h5"/>',
+  diary: '<rect x="6" y="3" width="13" height="18" rx="2"/><path d="M4 7h4M4 12h4M4 17h4"/>',
+  download: '<path d="M12 4v11"/><path d="M7 10l5 5 5-5"/><path d="M5 20h14"/>',
+  arrow: '<path d="M5 12h14"/><path d="M13 6l6 6-6 6"/>',
+};
+const social: Record<string, string> = {
+  email: '<rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3 8l9 6 9-6"/>',
+  github:
+    '<path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>',
+  linkedin: '<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10.5V17"/><path d="M8 7.5v.01"/><path d="M12 17v-3.5a2.25 2.25 0 0 1 4.5 0V17"/><path d="M12 10.5V17"/>',
+  x: '<path d="M5 4l14 16"/><path d="M19 4L5 20"/>',
+  medium: '<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 16V8l5 6 5-6v8"/>',
+};
 ---
 
-<BaseLayout
-  title="The Diary of a Lucid Dame — Favour Umejesi"
-  description="Favour Umejesi: CS + Math student at Grambling State, aspiring machine learning engineer. Projects, experience, and diary entries."
-  bodyClass="home"
-  caveat
-  quote="Work smart, not hard."
-  patentLink
+<ResearchLayout
+  title={`${page.name} — Research`}
+  description={[`${page.name}: research portfolio`, page.affiliation].filter(Boolean).join('. ') + '.'}
 >
-  <div slot="before-header" class="design-note">
-    <p class="note-line">~ design inspired by diary of a wimpy kid</p>
-    <p class="note-quote">“Be yourself and people will like you.” — Jeff Kinney</p>
-  </div>
+  <nav class="v-card v-sidenav" slot="sidenav" aria-label="Sections">
+    <a href="#about"><svg viewBox="0 0 24 24" set:html={icon.about} />About</a>
+    <a href="#works"><svg viewBox="0 0 24 24" set:html={icon.works} />Works</a>
+    <a href="/diary" title="Back to the diary"><svg viewBox="0 0 24 24" set:html={icon.diary} />Diary</a>
+  </nav>
 
-  <section class="panel hero">
-    <p class="kicker">THE DIARY OF A —</p>
-    <h1 class="name">LUCID DAME</h1>
-    <svg class="hero-underline" viewBox="0 0 410 14" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M2 8q30-7 58 0t58 0 58 0 58 0 58 0 58 0 58 0" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke" pathLength="1" style="--i:0"/>
-    </svg>
-    <p class="byline">{home.byline}</p>
-    <p class="tagline">{home.tagline}</p>
-    <p class="status">{home.status}</p>
-    <svg class="star-doodle" viewBox="0 0 48 48" aria-hidden="true">
-      <path d="M24 2l6.2 15.3 15.8 1.2-12 10.5 4 16-14-9-14 9 4-16-12-10.5 15.8-1.2z" fill="#111" class="ink-both" pathLength="1" style="--i:1"/>
-    </svg>
-    <figure class="hero-photo">
-      <img src="/assets/notion_avatar.png" alt="Notion-style avatar of Favour Umejesi">
-      <figcaption>{home.photoCaption}</figcaption>
-    </figure>
-  </section>
-
-  <section class="panel explore">
-    <p class="panel-label">STUFF TO CLICK ON —</p>
-    <div class="explore-cols">
-      <div class="explore-col">
-        <a href="/about">→ about</a>
-        <a href="/experience">→ experience</a>
-        <a href="/projects">→ projects</a>
-      </div>
-      <div class="explore-col">
-        <a href="/theories">→ theories</a>
-        <a href="/musings">→ musings</a>
-        <a href="/research-profile">→ research profile (the serious version)</a>
-      </div>
+  <aside class="v-card v-profile" slot="profile">
+    {page.headshot
+      ? <img class="v-photo" src={page.headshot} alt={page.name} />
+      : <div class="v-photo--empty" aria-hidden="true"></div>}
+    <div class="v-identity">
+      <h1>{page.name}</h1>
+      {roles.length > 0 && (
+        <div class="v-role">
+          <ul class="v-roles">
+            {roles.map((r, i) => <li style={`animation-delay: ${(i * perWord).toFixed(1)}s`}>{r}</li>)}
+          </ul>
+          <span class="v-roles-static">{roles.join(' · ')}</span>
+        </div>
+      )}
+      {page.affiliation && <p class="v-affiliation">{page.affiliation}</p>}
+      <p class="v-socials">
+        {settings.socials.map((s) => (
+          <a
+            href={s.url}
+            title={cap(s.label)}
+            aria-label={cap(s.label)}
+            target={s.url.startsWith('mailto:') ? undefined : '_blank'}
+            rel={s.url.startsWith('mailto:') ? undefined : 'noopener'}
+          >
+            {social[s.label]
+              ? <svg viewBox="0 0 24 24" set:html={social[s.label]} />
+              : <span>{s.label.charAt(0).toUpperCase()}</span>}
+          </a>
+        ))}
+      </p>
     </div>
-    <div class="dog-doodle" aria-hidden="true">
-      <svg width="126" height="120" viewBox="0 -36 126 120">
-        <!-- her name, plus a heart colored in with black crayon -->
-        <text x="34" y="-13" font-size="18" fill="#111">sweetie</text>
-        <g transform="translate(94,-34) rotate(-8) scale(1.15)">
-          <path d="M3 6 L18 3 M2 9 L20 6 M3.5 12 L19 9 M6 14.5 L17.5 12 M8.5 17 L15 15.5" stroke="#111" stroke-width="2.3" stroke-linecap="round" opacity="0.85" pathLength="1" style="--i:2"/>
-          <path d="M11 19 C6 14 0 11 0.5 5.5 C1 0.5 8 -0.5 11 5 C14 -0.5 21 0.5 21.5 5.5 C22 11 16 14 11 19 Z" fill="none" stroke="#111" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" pathLength="1" style="--i:3"/>
-        </g>
-        <g fill="none" stroke="#111" stroke-linecap="round" stroke-linejoin="round">
-          <g class="tail"><path transform="translate(100,48)" d="M0 10 Q10 2 18 8" stroke-width="2.6" pathLength="1" style="--i:4"/></g>
-          <ellipse cx="64" cy="54" rx="38" ry="26" fill="#f6f1e3" stroke-width="2.4" pathLength="1" style="--i:5"/>
-          <ellipse cx="38.5" cy="75" rx="8.5" ry="5" fill="#f6f1e3" stroke-width="2.2" pathLength="1" style="--i:6"/>
-          <ellipse cx="58.5" cy="77" rx="8.5" ry="5" fill="#f6f1e3" stroke-width="2.2" pathLength="1" style="--i:7"/>
-          <ellipse cx="85" cy="76" rx="9" ry="5" fill="#f6f1e3" stroke-width="2.2" pathLength="1" style="--i:8"/>
-          <path transform="translate(40,54)" d="M1 0 L1 14" stroke-width="2.2" pathLength="1" style="--i:9"/>
-          <path transform="translate(2,2)" d="M22 8 Q36 0 44 8 Q52 16 48 28 Q44 38 32 40 Q22 42 17 33 L4 19 Q1 16 4 12 L15 13 Q17 9 22 8 Z" fill="#f6f1e3" stroke-width="2.4" pathLength="1" style="--i:10"/>
-          <g transform="translate(36,2) rotate(12)">
-            <path d="M5 2 Q15 -2 17 8 Q19 21 11 27 Q3 30 2 19 Q1 8 5 2 Z" fill="#f6f1e3" stroke-width="2.2" pathLength="1" style="--i:11"/>
-          </g>
-          <ellipse cx="6" cy="13.5" rx="5" ry="4.5" fill="#111" stroke="none" class="ink-fill" style="--i:12"/>
-          <ellipse cx="25.2" cy="19.8" rx="2.3" ry="2.8" fill="#111" stroke="none" class="ink-fill" style="--i:13"/>
-          <ellipse cx="34.2" cy="17.8" rx="2.3" ry="2.8" fill="#111" stroke="none" class="ink-fill" style="--i:14"/>
-        </g>
-      </svg>
+    <div class="v-actions">
+      {(page.cv || page.cvUrl) && (
+        <a href={page.cv || page.cvUrl} target="_blank" rel="noopener">Download CV <svg viewBox="0 0 24 24" set:html={icon.download} /></a>
+      )}
+      {email && (
+        <a href={email.url}>Contact me <svg viewBox="0 0 24 24" set:html={icon.arrow} /></a>
+      )}
     </div>
-  </section>
+  </aside>
 
-  <p class="contact-row">
-    <span>→ find me at:</span>
-    <span class="links">{settings.socials.map((link, i) => (
-      <>{i > 0 && ' · '}{link.url.startsWith('mailto:')
-        ? <a href={link.url}>{link.label}</a>
-        : <a href={link.url} target="_blank" rel="noopener">{link.label}</a>}</>
-    ))}</span>
-  </p>
+  <main class="v-card v-content" slot="content">
+   <div class="v-panel" id="about">
+    <section class="v-section">
+      <div class="v-heading"><h2>about me.</h2></div>
+      <div class="v-prose">
+        {page.headline && <p>{page.headline}</p>}
+        {page.bio.map((p) => <p set:html={rich(p)} />)}
+      </div>
+    </section>
 
-  <p slot="after-footer" class="psst"><a href="/journey">psst... the journey</a></p>
-</BaseLayout>
+    {page.interests.length > 0 && (
+      <section class="v-section">
+        <div class="v-heading"><h2>research interests.</h2></div>
+        <ul class="v-interests">{page.interests.map((i) => <li>{i}</li>)}</ul>
+      </section>
+    )}
+
+   </div>
+
+   <div class="v-panel" id="works">
+    {works.length > 0 && (
+      <section class="v-section v-works">
+        <input type="radio" name="filter" id="f-all" checked />
+        <input type="radio" name="filter" id="f-research" />
+        <input type="radio" name="filter" id="f-project" />
+        <div class="v-heading">
+          <h2>recent works.</h2>
+          <div class="v-tabs">
+            <label for="f-all">All</label>
+            {hasResearch && <label for="f-research">Research</label>}
+            {hasProjects && <label for="f-project">Projects</label>}
+          </div>
+        </div>
+        <div class="v-grid">
+          {works.map((w) => (
+            <article class="v-work" data-kind={w.data.kind}>
+              <a href={`#work-${w.id}`}>
+                {w.data.thumbnail
+                  ? <img class="v-thumb" src={w.data.thumbnail} alt="" loading="lazy" />
+                  : <div class="v-thumb v-thumb--empty" aria-hidden="true">{kindLabel(w.data.kind)}</div>}
+                <h3 class="v-work-title">{w.data.title}</h3>
+                <p class="v-work-kind">{w.data.draft && 'Draft · '}{kindLabel(w.data.kind)}</p>
+              </a>
+            </article>
+          ))}
+        </div>
+      </section>
+    )}
+
+    {notes.length > 0 && (
+      <section class="v-section">
+        <div class="v-heading"><h2>writings.</h2></div>
+        <ul class="v-writing">
+          {notes.map((n) => (
+            <li>
+              <span class="v-when">{fmt(n.date)}</span>
+              <span>
+                {n.external
+                  ? <a href={n.href} target="_blank" rel="noopener">{n.title} ↗</a>
+                  : <a href={n.href}>{n.title}</a>}
+                <span class="v-src"> · {n.source}</span>
+              </span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    <p class="v-footer">
+      <span>{settings.copyright}</span>
+      <a href="/diary">back to the diary</a>
+    </p>
+   </div>
+  </main>
+
+  <Fragment slot="after">
+    {rotatorCss && <style is:inline set:html={rotatorCss} />}
+    {works.map((w) => {
+      const meta = [w.data.context, w.data.role, w.data.year].filter(Boolean).join(' · ');
+      return (
+        <div class="v-modal" id={`work-${w.id}`} role="dialog" aria-labelledby={`work-${w.id}-title`}>
+          <a class="v-modal-backdrop" href="#works" aria-label="Close"></a>
+          <div class="v-modal-box">
+            <a class="v-modal-close" href="#works" aria-label="Close">×</a>
+            {w.data.thumbnail && <img src={w.data.thumbnail} alt="" />}
+            <p class="v-work-kind">{kindLabel(w.data.kind)}</p>
+            <h3 id={`work-${w.id}-title`}>{w.data.title}</h3>
+            {meta && <p class="v-modal-meta">{meta}</p>}
+            <div class="v-prose"><p>{w.data.summary}</p></div>
+            {w.data.tags.length > 0 && <p class="v-modal-tags">{w.data.tags.join(' · ')}</p>}
+            {w.data.links.some((l) => l.url) && (
+              <p class="v-modal-links">
+                {w.data.links.filter((l) => l.url).map((l) =>
+                  l.url.startsWith('/')
+                    ? <a href={l.url}>{l.label} →</a>
+                    : <a href={l.url} target="_blank" rel="noopener">{l.label} ↗</a>
+                )}
+              </p>
+            )}
+          </div>
+        </div>
+      );
+    })}
+  </Fragment>
+</ResearchLayout>

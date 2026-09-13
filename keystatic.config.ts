@@ -333,7 +333,7 @@ export default config({
         }),
         research: fields.checkbox({
           label: 'Show on research profile',
-          description: 'Lists this entry under "writings." on /research-profile',
+          description: 'Lists this entry under "writings." on the research profile (the home page)',
           defaultValue: false,
         }),
         date: fields.date({ label: 'Date', validation: { isRequired: true } }),
@@ -379,7 +379,7 @@ export default config({
         }),
         research: fields.checkbox({
           label: 'Show on research profile',
-          description: 'Lists this entry under "writings." on /research-profile',
+          description: 'Lists this entry under "writings." on the research profile (the home page)',
           defaultValue: false,
         }),
         date: fields.date({ label: 'Date', validation: { isRequired: true } }),

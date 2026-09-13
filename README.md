@@ -1,5 +1,5 @@
 # The Diary of a Lucid Dame
-## The research page (`/research-profile`)
+## The research page (`/`, the front door; the diary home lives at `/diary`)
 
 The site's "serious" face for research applications. It uses its own layout,
 `src/layouts/ResearchLayout.astro` (white, plain, no diary styles), and is
