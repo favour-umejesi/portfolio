@@ -7,15 +7,15 @@ context: JPMorgan Chase
 thumbnail: /images/research/jpmorgan-hackathon-2026/thumbnail.png
 summary: >-
   Collaborated with a team to develop a data-driven MVP for Rescuing Leftover
-  Cuisine, addressing inefficiencies in matching surplus food donations with
-  recipient organizations. We designed an intelligent matching system that
-  applied natural language processing to food descriptions to categorize
-  donations and improve donor-recipient matching, alongside geospatial routing
-  to identify nearby recipients and reduce inefficient cross-ZIP travel. The
-  broader solution incorporated simplified donor onboarding and verification,
-  automated food matching, and proximity-based routing to help increase food
-  rescue opportunities while reducing transportation inefficiencies and food
-  waste.
+  Cuisine, a nonprofit that redirects excess food to communities in need. We
+  designed an intelligent matching system combining NLP-based food
+  categorization with geospatial analysis and proximity-based routing to better
+  connect surplus-food donors with nearby recipient organizations and reduce
+  inefficient cross-ZIP travel. Built with Next.js, PostgreSQL, and Google Maps,
+  the broader solution incorporated simplified donor onboarding, automated food
+  matching, and proximity-aware distribution. Our improvements received special
+  recognition from Rescuing Leftover Cuisine’s CEO for their potential to
+  improve food-rescue operations and reduce waste.
 tags:
   - Natural Language Processing
   - Geospatial Analysis
