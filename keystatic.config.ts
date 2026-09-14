@@ -10,10 +10,10 @@ export default config({
   ui: {
     brand: { name: 'The Diary of a Lucid Dame' },
     navigation: {
-      'Diary entries': ['musings', 'theories'],
+      'Diary entries': ['musings'],
       'Research': ['research', 'researchPage'],
-      'Portfolio': ['projects', 'experience', 'skills'],
-      'Pages': ['home', 'about', 'musingsPage', 'theoriesPage', 'journey', 'patentLaw'],
+      'Portfolio': ['experience'],
+      'Pages': ['home', 'about', 'musingsPage', 'journey', 'patentLaw'],
       'Site': ['settings'],
     },
   },
@@ -39,7 +39,7 @@ export default config({
       schema: {
         bio: fields.array(fields.text({ label: 'Paragraph', multiline: true }), {
           label: 'Bio paragraphs',
-          description: 'Wrap a phrase in == to highlight it, e.g. ==Grambling State University==',
+          description: 'Wrap a phrase in == to highlight it, or in ** to bold it, e.g. ==Grambling State University== or **mathematics**',
           itemLabel: (props) => props.value.slice(0, 60) || 'paragraph',
         }),
         whatImUpTo: fields.array(fields.text({ label: 'Item' }), {
@@ -57,17 +57,6 @@ export default config({
     musingsPage: singleton({
       label: 'Musings page',
       path: 'src/content/pages/musings',
-      format: { data: 'yaml' },
-      schema: {
-        intro: fields.array(fields.text({ label: 'Paragraph', multiline: true }), {
-          label: 'Intro paragraphs',
-          itemLabel: (props) => props.value.slice(0, 60) || 'paragraph',
-        }),
-      },
-    }),
-    theoriesPage: singleton({
-      label: 'Theories page',
-      path: 'src/content/pages/theories',
       format: { data: 'yaml' },
       schema: {
         intro: fields.array(fields.text({ label: 'Paragraph', multiline: true }), {
@@ -153,7 +142,7 @@ export default config({
         }),
         bio: fields.array(fields.text({ label: 'Paragraph', multiline: true }), {
           label: 'Bio paragraphs',
-          description: 'Wrap a phrase in == to highlight it, e.g. ==Grambling State University==',
+          description: 'Wrap a phrase in == to highlight it, or in ** to bold it, e.g. ==Grambling State University== or **mathematics**',
           itemLabel: (props) => props.value.slice(0, 60) || 'paragraph',
         }),
         interests: fields.array(fields.text({ label: 'Interest' }), {
@@ -162,7 +151,7 @@ export default config({
         }),
         showWriting: fields.checkbox({
           label: 'Show a Writing section',
-          description: 'Lists your published theories and musings at the bottom of the page',
+          description: 'Lists the musings you ticked "Show on research profile" at the bottom of the page',
           defaultValue: true,
         }),
       },
@@ -232,7 +221,7 @@ export default config({
         summary: fields.text({
           label: 'Summary',
           multiline: true,
-          description: 'Two to four sentences: the question, what you did, what came out',
+          description: 'Two to four sentences: the question, what you did, what came out. Wrap a phrase in ** to bold it or == to highlight it.',
         }),
         tags: fields.array(fields.text({ label: 'Tag' }), {
           label: 'Tags',
@@ -241,36 +230,7 @@ export default config({
         links: fields.array(
           fields.object({
             label: fields.text({ label: 'Label', description: 'e.g. "code", "poster", "report", "notes"' }),
-            url: fields.text({ label: 'URL', description: 'https://... or a path on this site like /theories/some-entry' }),
-          }),
-          { label: 'Links', itemLabel: (props) => props.fields.label.value || 'link' }
-        ),
-      },
-    }),
-    projects: collection({
-      label: 'Projects',
-      slugField: 'title',
-      path: 'src/content/projects/*',
-      format: { data: 'yaml' },
-      schema: {
-        title: fields.slug({ name: { label: 'Title' } }),
-        order: fields.integer({
-          label: 'Order',
-          description: 'Lower numbers appear first on the page',
-          defaultValue: 1,
-        }),
-        description: fields.text({ label: 'Description', multiline: true }),
-        tech: fields.text({
-          label: 'Tech stack',
-          description: 'One line, separated with " · " — e.g. Python · Pandas · NumPy',
-        }),
-        links: fields.array(
-          fields.object({
-            label: fields.text({
-              label: 'Label',
-              description: 'e.g. "github ↗", "live ↗", "colab ↗"',
-            }),
-            url: fields.url({ label: 'URL' }),
+            url: fields.text({ label: 'URL', description: 'https://... or a path on this site like /musings/some-entry' }),
           }),
           { label: 'Links', itemLabel: (props) => props.fields.label.value || 'link' }
         ),
@@ -302,20 +262,6 @@ export default config({
           publicPath: '/assets/',
         }),
         description: fields.text({ label: 'Description', multiline: true }),
-      },
-    }),
-    skills: collection({
-      label: 'Skill categories',
-      slugField: 'category',
-      path: 'src/content/skills/*',
-      format: { data: 'yaml' },
-      schema: {
-        category: fields.slug({ name: { label: 'Category' } }),
-        order: fields.integer({ label: 'Order', defaultValue: 1 }),
-        items: fields.array(fields.text({ label: 'Skill' }), {
-          label: 'Skills',
-          itemLabel: (props) => props.value,
-        }),
       },
     }),
     musings: collection({
@@ -359,52 +305,6 @@ export default config({
             image: {
               directory: 'public/images/musings',
               publicPath: '/images/musings/',
-            },
-          },
-        }),
-      },
-    }),
-    theories: collection({
-      label: 'Theories',
-      slugField: 'title',
-      path: 'src/content/theories/*',
-      entryLayout: 'content',
-      format: { contentField: 'body' },
-      schema: {
-        title: fields.slug({ name: { label: 'Title' } }),
-        draft: fields.checkbox({
-          label: 'Draft',
-          description: 'Drafts are hidden from the live site until you untick this',
-          defaultValue: false,
-        }),
-        research: fields.checkbox({
-          label: 'Show on research profile',
-          description: 'Lists this entry under "writings." on the research profile (the home page)',
-          defaultValue: false,
-        }),
-        date: fields.date({ label: 'Date', validation: { isRequired: true } }),
-        readTime: fields.integer({ label: 'Read time (minutes)', defaultValue: 5 }),
-        tags: fields.array(fields.text({ label: 'Tag' }), {
-          label: 'Tags',
-          itemLabel: (props) => props.value,
-        }),
-        excerpt: fields.text({
-          label: 'Excerpt',
-          multiline: true,
-          description: 'Shown on the theories page card',
-        }),
-        externalUrl: fields.url({
-          label: 'External URL (optional)',
-          description:
-            'If set, the card links out and no page is generated on this site',
-        }),
-        body: fields.markdoc({
-          label: 'Body',
-          description: 'Write here for entries published on this site; leave empty for external posts',
-          options: {
-            image: {
-              directory: 'public/images/theories',
-              publicPath: '/images/theories/',
             },
           },
         }),

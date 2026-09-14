@@ -16,16 +16,13 @@ const hasProjects = works.some((w) => w.data.kind === 'project');
 
 const email = settings.socials.find((s) => s.url.startsWith('mailto:'));
 
-// writing: published theories + musings, newest first
+// writing: published musings ticked for the research profile, newest first
 type Note = { title: string; date: Date; href: string; external: boolean; source: string };
 let notes: Note[] = [];
 if (page.showWriting) {
-  const theories = await getCollection('theories');
   const musings = await getCollection('musings');
-  notes = [
-    ...theories.map((e) => ({ entry: e, base: '/theories/', source: 'theories' })),
-    ...musings.map((e) => ({ entry: e, base: '/musings/', source: 'musings' })),
-  ]
+  notes = musings
+    .map((e) => ({ entry: e, base: '/musings/', source: 'musings' }))
     .filter(({ entry }) => !entry.data.draft && entry.data.research)
     .map(({ entry, base, source }) => ({
       title: entry.data.title,
@@ -42,9 +39,11 @@ const fmt = (d: Date) =>
 const kindLabel = (k: string) => (k === 'research' ? 'Research' : 'Project');
 const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
-// bio paragraphs: plain text, except ==phrase== becomes a highlight
+// bio and summaries are plain text with two shortcuts:
+// ==phrase== becomes a highlight, **phrase** becomes bold
 const esc = (t: string) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-const rich = (t: string) => esc(t).replace(/==(.+?)==/g, '<mark>$1</mark>');
+const rich = (t: string) =>
+  esc(t).replace(/==(.+?)==/g, '<mark>$1</mark>').replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
 
 // rotating titles under the name, CSS-only: each word gets the same
 // animation, offset by its index, so the keyframes depend on the count
@@ -222,7 +221,7 @@ const social: Record<string, string> = {
             <p class="v-work-kind">{kindLabel(w.data.kind)}</p>
             <h3 id={`work-${w.id}-title`}>{w.data.title}</h3>
             {meta && <p class="v-modal-meta">{meta}</p>}
-            <div class="v-prose"><p>{w.data.summary}</p></div>
+            <div class="v-prose"><p set:html={rich(w.data.summary)} /></div>
             {w.data.tags.length > 0 && <p class="v-modal-tags">{w.data.tags.join(' · ')}</p>}
             {w.data.links.some((l) => l.url) && (
               <p class="v-modal-links">

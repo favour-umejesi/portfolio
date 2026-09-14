@@ -8,17 +8,24 @@ summary: >-
   EcoTrack is an open-source climate platform that helps users calculate and
   visualize their carbon footprint, track progress over time, and share
   sustainable actions through a community feed. Beyond the application, EcoTrack
-  serves as a research testbed for exploring retrieval-augmented generation
-  (RAG), alternative retrieval approaches, and methods for improving semantic
-  search and information retrieval. Its Climate AI Assistant applies these
-  techniques to answer climate questions from authoritative research with
-  grounded, source-cited responses.
+  serves as a research testbed for retrieval-augmented generation (RAG),
+  alternative retrieval architectures, and methods for improving semantic search
+  and information retrieval. Its Climate AI Assistant uses Qwen3-8B, pgvector,
+  vector embeddings, and semantic similarity search to retrieve relevant content
+  from authoritative climate organizations, ground model generation in retrieved
+  context, produce source-cited responses, and reject queries unsupported by the
+  knowledge base. The platform is built with Next.js, TypeScript, and
+  PostgreSQL, connecting the retrieval pipeline with a full-stack climate
+  application.
 tags:
   - sustainability
   - Next.js
   - RAG
-  - Qwen3
+  - Qwen3-8B
   - Vector Search
+  - Next.js
+  - Information Retrieval
+  - Semantic Search
 links:
   - label: github
     url: https://github.com/favour-umejesi/EcoTrack-

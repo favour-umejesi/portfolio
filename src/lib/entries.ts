@@ -1,4 +1,4 @@
-// Helpers for musings/theories entries.
+// Helpers for musings entries.
 
 // Draft entries render in local dev and on Vercel preview deployments, never
 // on the production site. (VERCEL_ENV is set by Vercel at build time.)
