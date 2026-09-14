@@ -1,0 +1,30 @@
+title: AI Email Helper App
+kind: project
+draft: false
+order: 3
+year: '2026'
+context: ServiceNow AI Accelerate Bootcamp
+role: Participant
+thumbnail: /images/research/ai-email-helper-app/thumbnail.png
+summary: >-
+  Built an LLM-powered email editing and evaluation application during the
+  ServiceNow AI Accelerate Bootcamp. Developed datasets of email examples and
+  experimented with system prompts and prompt design to guide controlled
+  transformations, including shortening or expanding content, adjusting tone,
+  and selectively rewriting portions of a message while preserving the original
+  intent. Built an LLM-as-a-judge evaluation pipeline that assesses generated
+  responses across six criteria: faithfulness, completeness, conciseness,
+  grammar and clarity, tone consistency, and URL preservation. The application
+  supports multiple LLMs for both generation and evaluation, enabling comparison
+  of model behavior and output quality across different editing tasks.
+tags:
+  - Large Language Models
+  - LLM Evaluation
+  - Prompt Engineering
+  - Dataset Development
+  - Streamlit
+links:
+  - label: live
+    url: https://emailapp01.streamlit.app/
+  - label: github
+    url: https://github.com/favour-umejesi/email_app
