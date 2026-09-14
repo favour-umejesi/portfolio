@@ -13,9 +13,9 @@ summary: >-
   connect surplus-food donors with nearby recipient organizations and reduce
   inefficient cross-ZIP travel. Built with Next.js, PostgreSQL, and Google Maps,
   the broader solution incorporated simplified donor onboarding, automated food
-  matching, and proximity-aware distribution. Our improvements received special
-  recognition from Rescuing Leftover Cuisine’s CEO for their potential to
-  improve food-rescue operations and reduce waste.
+  matching, and proximity-aware distribution. Our solution received special
+  recognition from Rescuing Leftover Cuisine’s CEO for its potential to improve
+  food-rescue operations and reduce waste.
 tags:
   - Natural Language Processing
   - Geospatial Analysis
