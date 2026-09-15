@@ -386,11 +386,43 @@ const { title, description } = Astro.props;
       padding: 0 16px;
       gap: 16px;
     }
-    .v-photo, .v-photo--empty { max-height: 320px; }
+    /* profile card: the photo sits beside the identity, a fixed 200px
+       column, so it stays a whole square instead of a cropped band */
+    .v-profile {
+      display: grid;
+      grid-template-columns: 200px minmax(0, 1fr);
+      grid-template-rows: minmax(0, 1fr) auto;
+    }
+    .v-photo, .v-photo--empty {
+      align-self: stretch;
+      height: 100%;
+      min-height: 200px;
+      max-height: none;
+      aspect-ratio: auto;
+      object-position: center 20%;
+    }
+    .v-identity { justify-content: center; padding: 22px 20px 18px; }
+    .v-actions { grid-column: 1 / -1; }
     .v-content { overflow: visible; padding: 26px 22px 28px; }
-    .v-grid { grid-template-columns: 1fr; gap: 24px; }
-    .v-interests { grid-template-columns: 1fr; }
+    .v-grid { gap: 24px 18px; }
+    .v-grid[data-masonry] .v-work { margin-bottom: 24px; }
     .v-modal-box { padding: 22px 20px 24px; }
     .v-writing li { grid-template-columns: 1fr; gap: 0; }
+  }
+  @media (max-width: 560px) {
+    /* phones: photo on top as a full-width square, everything one column */
+    .v-profile { display: flex; }
+    .v-photo, .v-photo--empty {
+      height: auto;
+      min-height: 0;
+      aspect-ratio: 1 / 1;
+      object-position: center top;
+    }
+    .v-identity { padding: 20px 18px 16px; }
+    .v-grid { grid-template-columns: 1fr; }
+    .v-interests { grid-template-columns: 1fr; }
+    .v-modal { padding: 12px; }
+    .v-modal-box { max-height: calc(100vh - 24px); max-height: calc(100dvh - 24px); padding: 20px 16px 22px; }
+    .v-modal-close { top: 6px; right: 6px; }
   }
 </style>
