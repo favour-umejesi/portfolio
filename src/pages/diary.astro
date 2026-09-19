@@ -8,7 +8,7 @@ const settings = await readSingleton('settings');
 
 <BaseLayout
   title="The Diary of a Lucid Dame — Favour Umejesi"
-  description="Favour Umejesi: CS + Math student at Grambling State, aspiring machine learning engineer. Projects, experience, and diary entries."
+  description="Favour Umejesi: CS + Math student at Grambling State, aspiring machine learning engineer. Musings, learnings, and diary entries."
   bodyClass="home"
   caveat
   quote="Work smart, not hard."
@@ -42,9 +42,6 @@ const settings = await readSingleton('settings');
     <div class="explore-cols">
       <div class="explore-col">
         <a href="/about">→ about</a>
-        <a href="/experience">→ experience</a>
-      </div>
-      <div class="explore-col">
         <a href="/musings">→ musings</a>
         <a href="/">→ research profile (the serious version)</a>
       </div>
@@ -84,6 +81,4 @@ const settings = await readSingleton('settings');
         : <a href={link.url} target="_blank" rel="noopener">{link.label}</a>}</>
     ))}</span>
   </p>
-
-  <p slot="after-footer" class="psst"><a href="/journey">psst... the journey</a></p>
 </BaseLayout>

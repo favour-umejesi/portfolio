@@ -1,0 +1,17 @@
+---
+// Plain images from the editor's image button get taped in like everything
+// else. Spans (not figure) because Markdoc puts images inside a paragraph.
+// The image's "title" doubles as a handwritten caption.
+interface Props {
+  src: string;
+  alt?: string | null;
+  title?: string | null;
+}
+
+const { src, alt, title } = Astro.props;
+---
+
+<span class="taped-photo taped-inline">
+  <img src={src} alt={alt || title || ''} loading="lazy" />
+  {title && <span class="taped-caption">{title}</span>}
+</span>

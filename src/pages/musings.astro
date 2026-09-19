@@ -3,7 +3,9 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import TitleBlock from '../components/TitleBlock.astro';
 import Susan from '../components/doodles/Susan.astro';
-import { entryMeta, sourceName, showDrafts } from '../lib/entries';
+import EntryCard from '../components/EntryCard.astro';
+import PlaylistCard from '../components/PlaylistCard.astro';
+import { showDrafts, playlistParts } from '../lib/entries';
 import { readSingleton } from '../lib/reader';
 
 const musingsPage = await readSingleton('musingsPage');
@@ -12,6 +14,21 @@ const musingsPage = await readSingleton('musingsPage');
 const posts = (await getCollection('musings'))
   .filter((post) => showDrafts || !post.data.draft)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+// playlists: one mixtape card per series, freshest first; a playlist only
+// shows once it holds a visible entry
+const playlists = (await getCollection('series'))
+  .map((series) => ({ series, parts: playlistParts(posts, series.id) }))
+  .filter(({ parts }) => parts.length > 0)
+  .sort(
+    (a, b) =>
+      b.parts[b.parts.length - 1].data.date.valueOf() -
+      a.parts[a.parts.length - 1].data.date.valueOf()
+  );
+
+// entries filed in a playlist live on its page, not as loose cards here
+const filed = new Set(playlists.flatMap(({ parts }) => parts.map((post) => post.id)));
+const loose = posts.filter((post) => !filed.has(post.id));
 ---
 
 <BaseLayout
@@ -30,22 +47,16 @@ const posts = (await getCollection('musings'))
   </section>
 
   <div class="article-grid">
-    {posts.map((post) => {
-      const external = post.data.externalUrl ?? undefined;
-      return (
-        <article class="article-card">
-          <p class="article-meta">{post.data.draft && 'DRAFT · '}{entryMeta(post.data.date, post.data.readTime, external)}</p>
-          <h2 class="article-title">{post.data.title}</h2>
-          {post.data.excerpt && <p class="article-excerpt">{post.data.excerpt}</p>}
-          {post.data.tags.length > 0 && <p class="article-tags">{post.data.tags.join(' · ')}</p>}
-          {external ? (
-            <a class="article-link" href={external} target="_blank" rel="noopener">→ read it on {sourceName(external)}</a>
-          ) : (
-            <a class="article-link" href={`/musings/${post.id}`}>→ read the entry</a>
-          )}
-        </article>
-      );
-    })}
+    {playlists.map(({ series, parts }) => (
+      <PlaylistCard
+        id={series.id}
+        title={series.data.title}
+        description={series.data.description}
+        count={parts.length}
+        draft={parts.every((post) => post.data.draft)}
+      />
+    ))}
+    {loose.map((post) => <EntryCard post={post} />)}
   </div>
 
   <p class="more-note">more diary entries coming soon...</p>

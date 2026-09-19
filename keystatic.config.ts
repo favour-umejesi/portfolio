@@ -1,4 +1,60 @@
 import { config, fields, collection, singleton } from '@keystatic/core';
+import { block, repeating, wrapper } from '@keystatic/core/content-components';
+import { createElement } from 'react';
+
+// Photo blocks for article bodies (the "+" menu in the editor). Rendered by the
+// matching tags in markdoc.config.mjs.
+const articlePhoto = () =>
+  fields.image({
+    label: 'Photo',
+    directory: 'public/images/musings',
+    publicPath: '/images/musings/',
+    validation: { isRequired: true },
+  });
+const articleCaption = () =>
+  fields.text({ label: 'Caption (optional)', description: 'Handwritten under the photo; also used as alt text' });
+
+// one-line summary shown on the block inside the editor
+const photoSummary = (value: { image: { filename: string } | null; caption: string }, extra = '') =>
+  createElement(
+    'span',
+    { style: { opacity: 0.7, fontSize: 13 } },
+    [value.image?.filename ?? 'no photo yet — press Edit', value.caption, extra].filter(Boolean).join(' · ')
+  );
+
+const articleComponents = {
+  gallery: repeating({
+    label: 'Photo row',
+    description: 'Two or three photos taped in side by side',
+    children: 'photo',
+    validation: { children: { min: 1, max: 4 } },
+    schema: {},
+  }),
+  photo: block({
+    label: 'Photo',
+    forSpecificLocations: true,
+    schema: { image: articlePhoto(), caption: articleCaption() },
+    ContentView: ({ value }) => photoSummary(value),
+  }),
+  sidePhoto: wrapper({
+    label: 'Photo beside text',
+    description: 'A photo on one side with your writing wrapped around it',
+    schema: {
+      image: articlePhoto(),
+      caption: articleCaption(),
+      side: fields.select({
+        label: 'Photo goes on the',
+        options: [
+          { label: 'Right', value: 'right' },
+          { label: 'Left', value: 'left' },
+        ],
+        defaultValue: 'right',
+      }),
+    },
+    ContentView: ({ value, children }) =>
+      createElement('div', null, photoSummary(value, `on the ${value.side}`), children),
+  }),
+};
 
 // Local mode while developing (edits files on disk directly); GitHub mode on
 // the deployed site (saves become commits, Vercel rebuilds). GitHub mode needs
@@ -10,10 +66,9 @@ export default config({
   ui: {
     brand: { name: 'The Diary of a Lucid Dame' },
     navigation: {
-      'Diary entries': ['musings'],
+      'Diary entries': ['musings', 'series'],
       'Research': ['research', 'researchPage'],
-      'Portfolio': ['experience'],
-      'Pages': ['home', 'about', 'musingsPage', 'journey', 'patentLaw'],
+      'Pages': ['home', 'about', 'musingsPage', 'patentLaw'],
       'Site': ['settings'],
     },
   },
@@ -47,6 +102,21 @@ export default config({
           description: 'The "→" arrow is added automatically',
           itemLabel: (props) => props.value,
         }),
+        photos: fields.array(
+          fields.object({
+            image: fields.image({
+              label: 'Photo',
+              directory: 'public/images/about',
+              publicPath: '/images/about/',
+            }),
+            caption: fields.text({ label: 'Caption', description: 'Handwritten under the photo; also used as alt text' }),
+          }),
+          {
+            label: 'Snapshots',
+            description: 'Photos of what you are up to, taped in under the lists. Newest first reads best.',
+            itemLabel: (props) => props.fields.caption.value || 'photo',
+          }
+        ),
         likes: fields.array(fields.text({ label: 'Chip' }), {
           label: 'Stuff I like',
           description: 'Shown as chips, three per row',
@@ -81,28 +151,6 @@ export default config({
             },
           },
         }),
-      },
-    }),
-    journey: singleton({
-      label: 'Journey page',
-      path: 'src/content/pages/journey',
-      format: { data: 'yaml' },
-      schema: {
-        awards: fields.array(
-          fields.object({
-            name: fields.text({ label: 'Name' }),
-            description: fields.text({ label: 'Description', multiline: true }),
-          }),
-          { label: 'Gold stars & distinctions', itemLabel: (props) => props.fields.name.value }
-        ),
-        timeline: fields.array(
-          fields.object({
-            date: fields.text({ label: 'Date', description: 'Free text, e.g. "OCT 2024"' }),
-            title: fields.text({ label: 'Title' }),
-            description: fields.text({ label: 'Description', multiline: true }),
-          }),
-          { label: 'The timeline', itemLabel: (props) => `${props.fields.date.value} — ${props.fields.title.value}` }
-        ),
       },
     }),
     researchPage: singleton({
@@ -236,34 +284,6 @@ export default config({
         ),
       },
     }),
-    experience: collection({
-      label: 'Experience',
-      slugField: 'role',
-      path: 'src/content/experience/*',
-      format: { data: 'yaml' },
-      schema: {
-        role: fields.slug({ name: { label: 'Role / title' } }),
-        company: fields.text({
-          label: 'Company',
-          description: 'Shown under the role, e.g. "ServiceNow"',
-        }),
-        dates: fields.text({
-          label: 'Dates',
-          description: 'Free text, e.g. "June 2025 - September 2025"',
-        }),
-        order: fields.integer({
-          label: 'Order',
-          description: 'Lower numbers appear first (put the newest at 1)',
-          defaultValue: 1,
-        }),
-        logo: fields.image({
-          label: 'Logo',
-          directory: 'public/assets',
-          publicPath: '/assets/',
-        }),
-        description: fields.text({ label: 'Description', multiline: true }),
-      },
-    }),
     musings: collection({
       label: 'Musings',
       slugField: 'title',
@@ -281,6 +301,12 @@ export default config({
           label: 'Show on research profile',
           description: 'Lists this entry under "writings." on the research profile (the home page)',
           defaultValue: false,
+        }),
+        series: fields.relationship({
+          label: 'Playlist (optional)',
+          description:
+            'Files this entry into a playlist: it shows on the playlist page instead of as its own card on the musings page. Parts are numbered by date, oldest first.',
+          collection: 'series',
         }),
         date: fields.date({ label: 'Date', validation: { isRequired: true } }),
         readTime: fields.integer({ label: 'Read time (minutes)', defaultValue: 5 }),
@@ -301,12 +327,27 @@ export default config({
         body: fields.markdoc({
           label: 'Body',
           description: 'Write here for entries published on this site; leave empty for external posts',
+          components: articleComponents,
           options: {
             image: {
               directory: 'public/images/musings',
               publicPath: '/images/musings/',
             },
           },
+        }),
+      },
+    }),
+    series: collection({
+      label: 'Playlists',
+      slugField: 'title',
+      path: 'src/content/series/*',
+      format: { data: 'yaml' },
+      schema: {
+        title: fields.slug({ name: { label: 'Title', description: 'e.g. "My learnings on deep learning"' } }),
+        description: fields.text({
+          label: 'Description',
+          multiline: true,
+          description: 'A line or two shown on the playlist card and its page. A playlist only appears once it has a published entry.',
         }),
       },
     }),

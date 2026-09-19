@@ -6,6 +6,7 @@ const entrySchema = z.object({
   title: z.string(),
   draft: z.boolean().default(false),
   research: z.boolean().default(false),
+  series: z.string().optional().nullable(),
   date: z.coerce.date(),
   readTime: z.number().optional().nullable(),
   tags: z.array(z.string()).default([]),
@@ -18,15 +19,12 @@ const musings = defineCollection({
   schema: entrySchema,
 });
 
-const experience = defineCollection({
-  loader: glob({ pattern: '**/*.yaml', base: './src/content/experience' }),
+// playlists: a series of musings, picked per entry via the `series` field
+const series = defineCollection({
+  loader: glob({ pattern: '**/*.yaml', base: './src/content/series' }),
   schema: z.object({
-    role: z.string(),
-    company: z.string(),
-    dates: z.string(),
-    order: z.number().default(1),
-    logo: z.string().optional().nullable(),
-    description: z.string(),
+    title: z.string(),
+    description: z.string().optional().nullable(),
   }),
 });
 
@@ -56,4 +54,4 @@ const lawPage = defineCollection({
   schema: z.object({ signoff: z.string().optional() }),
 });
 
-export const collections = { musings, experience, research, lawPage };
+export const collections = { musings, series, research, lawPage };

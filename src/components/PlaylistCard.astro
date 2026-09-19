@@ -1,0 +1,65 @@
+---
+// A playlist on the musings page: a mixtape taped in with the other notes.
+// Links through to /musings/playlists/<id>, where the entries live.
+interface Props {
+  id: string;
+  title: string;
+  description?: string | null;
+  count: number;
+  /** every entry is still a draft, so the card only exists in dev/preview */
+  draft?: boolean;
+}
+
+const { id, title, description, count, draft = false } = Astro.props;
+const href = `/musings/playlists/${id}`;
+---
+
+<article class="article-card playlist-card">
+  <p class="article-meta">{draft && 'DRAFT · '}PLAYLIST · {count} {count === 1 ? 'ENTRY' : 'ENTRIES'}</p>
+  <a class="mixtape" href={href} tabindex="-1" aria-hidden="true">
+    <svg viewBox="0 0 270 130">
+      <g fill="none" stroke="#111" stroke-linecap="round" stroke-linejoin="round">
+        <!-- cassette shell, a bit wonky on purpose -->
+        <path d="M8 10 Q110 5 212 9 Q216 60 213 120 Q110 125 9 121 Q4 64 8 10 Z" fill="#f6f1e3" stroke-width="2.5"/>
+        <!-- label with a scribbled title -->
+        <path d="M24 23 Q110 19 196 22 Q198 54 196 85 Q110 88 24 85 Q22 54 24 23 Z" fill="#fff" stroke-width="2.2"/>
+        <path d="M36 35 Q60 31 84 35 T132 34" stroke-width="2"/>
+        <text x="186" y="39" text-anchor="end" font-size="13" fill="#111" stroke="none">side A</text>
+        <!-- tape window: full spool on the left, nearly empty on the right -->
+        <rect x="62" y="46" width="96" height="30" rx="15" fill="#f6f1e3" stroke-width="2.2"/>
+        <circle cx="82" cy="61" r="12.5" fill="#111" stroke="none"/>
+        <circle cx="138" cy="61" r="9" fill="#111" stroke="none"/>
+        <g class="reel">
+          <circle cx="82" cy="61" r="6.5" fill="#fff" stroke-width="1.8"/>
+          <path d="M82 56 L82 58.5 M86.3 63.5 L84.2 62.3 M77.7 63.5 L79.8 62.3" stroke-width="1.8"/>
+        </g>
+        <g class="reel">
+          <circle cx="138" cy="61" r="6.5" fill="#fff" stroke-width="1.8"/>
+          <path d="M138 56 L138 58.5 M142.3 63.5 L140.2 62.3 M133.7 63.5 L135.8 62.3" stroke-width="1.8"/>
+        </g>
+        <!-- bottom notch and screws -->
+        <path d="M56 121 L67 97 L153 97 L164 121" stroke-width="2.2"/>
+        <circle cx="86" cy="109" r="3" stroke-width="1.8"/>
+        <circle cx="134" cy="109" r="3" stroke-width="1.8"/>
+        <circle cx="17" cy="18" r="1.6" fill="#111" stroke="none"/>
+        <circle cx="203" cy="17" r="1.6" fill="#111" stroke="none"/>
+        <circle cx="17" cy="113" r="1.6" fill="#111" stroke="none"/>
+        <circle cx="204" cy="112" r="1.6" fill="#111" stroke="none"/>
+        <!-- notes drifting off the tape -->
+        <g class="note note-a">
+          <ellipse cx="236" cy="52" rx="5.5" ry="4.2" transform="rotate(-20 236 52)" fill="#111" stroke="none"/>
+          <path d="M241 50 L241 22 Q251 25 253 36" stroke-width="2.4"/>
+        </g>
+        <g class="note note-b">
+          <ellipse cx="240" cy="108" rx="4.8" ry="3.7" transform="rotate(-20 240 108)" fill="#111" stroke="none"/>
+          <ellipse cx="258" cy="103" rx="4.8" ry="3.7" transform="rotate(-20 258 103)" fill="#111" stroke="none"/>
+          <path d="M244.5 106 L244.5 82 M262.5 101 L262.5 77" stroke-width="2.2"/>
+          <path d="M244.5 82 L262.5 77" stroke-width="4"/>
+        </g>
+      </g>
+    </svg>
+  </a>
+  <h2 class="article-title">{title}</h2>
+  {description && <p class="article-excerpt">{description}</p>}
+  <a class="article-link" href={href}>→ press play</a>
+</article>

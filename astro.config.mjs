@@ -10,5 +10,12 @@ export default defineConfig({
   integrations: [react(), markdoc(), keystatic()],
   adapter: vercel(),
   // the research profile is the front door; old addresses land there too
-  redirects: { '/research': '/', '/research-profile': '/', '/projects': '/', '/theories': '/musings' },
+  redirects: {
+    '/research': '/',
+    '/research-profile': '/',
+    '/projects': '/',
+    '/experience': '/',
+    '/journey': '/about',
+    '/theories': '/musings',
+  },
 });

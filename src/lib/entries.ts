@@ -51,3 +51,18 @@ export function underline(title: string): { width: number; path: string } {
     'M2 7q24-6 48 0t' + Array.from({ length: pairs }, () => '48 0').join(' ');
   return { width, path };
 }
+
+// Playlists: musings filed under a series show up as one mixtape card on the
+// musings page and get their own page of entries. Parts run oldest-first, so
+// the part number is just the position.
+type Dated = { data: { date: Date; title: string; series?: string | null } };
+
+export function playlistParts<T extends Dated>(posts: T[], seriesId: string): T[] {
+  return posts
+    .filter((post) => post.data.series === seriesId)
+    .sort(
+      (a, b) =>
+        a.data.date.valueOf() - b.data.date.valueOf() ||
+        a.data.title.localeCompare(b.data.title)
+    );
+}

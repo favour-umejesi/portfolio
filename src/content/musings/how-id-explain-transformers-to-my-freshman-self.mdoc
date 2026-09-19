@@ -1,6 +1,7 @@
 ---
 title: How I'd Explain Transformers to My Freshman Self
 draft: true
+series: my-learnings-on-deep-learning
 date: 2026-07-15
 readTime: 4
 tags:
@@ -22,11 +23,22 @@ When you read "the bank was steep so we slid down to the river," you don't panic
 - each word "asks" every other word how relevant it is
 - the answers get blended into a new, context-aware vector
 
+{% gallery %}
+{% photo image="/images/musings/how-id-explain-transformers-to-my-freshman-self/attention-arrows.svg" caption="bank checking its neighbors" /%}
+{% photo image="/images/musings/how-id-explain-transformers-to-my-freshman-self/attention-grid.svg" caption="same thing, as a grid of weights" /%}
+{% /gallery %}
+
 Do that a few dozen times in a row and the model stops seeing words and starts seeing *meaning*. That's most of the magic. Really. The famous paper is literally called [Attention Is All You Need](https://arxiv.org/abs/1706.03762).
 
 ## The part that humbled me
 
-I assumed the hard part would be the math. It wasn't — it's like three matrix multiplications wearing a trench coat. The `softmax(QK^T / sqrt(d))V` you keep seeing? Q asks, K answers, V delivers. In NumPy it's honestly just:
+{% sidePhoto image="/images/musings/how-id-explain-transformers-to-my-freshman-self/trench-coat.svg" caption="Q, K and V trying to get into the movies" side="right" %}
+I assumed the hard part would be the math. It wasn't — it's like three matrix multiplications wearing a trench coat. The `softmax(QK^T / sqrt(d))V` you keep seeing? Q asks, K answers, V delivers.
+
+Q is every word raising its hand with a question. K is every word holding up a name tag. V is what each word actually has to say once it gets called on. Multiply, squash, multiply again, and that's the whole act.
+
+In NumPy it's honestly just:
+{% /sidePhoto %}
 
 ```python
 scores = Q @ K.T / np.sqrt(d)   # every word asks every word

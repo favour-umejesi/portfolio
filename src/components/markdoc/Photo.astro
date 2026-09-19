@@ -1,0 +1,15 @@
+---
+interface Props {
+  image?: string | null;
+  caption?: string | null;
+}
+
+const { image, caption } = Astro.props;
+---
+
+{image && (
+  <figure class="taped-photo">
+    <img src={image} alt={caption || ''} loading="lazy" />
+    {caption && <figcaption>{caption}</figcaption>}
+  </figure>
+)}

@@ -1,0 +1,23 @@
+---
+// One photo stuck to the left or right of the page, with the writing wrapped
+// around it the way you'd write around a photo glued into a diary.
+interface Props {
+  image?: string | null;
+  caption?: string | null;
+  side?: 'left' | 'right';
+}
+
+const { image, caption, side = 'right' } = Astro.props;
+---
+
+<div class={`side-photo side-photo-${side}`}>
+  {image && (
+    <figure class="taped-photo">
+      <img src={image} alt={caption || ''} loading="lazy" />
+      {caption && <figcaption>{caption}</figcaption>}
+    </figure>
+  )}
+  <div class="side-photo-text">
+    <slot />
+  </div>
+</div>

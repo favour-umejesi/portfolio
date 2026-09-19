@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+<rect width="800" height="600" fill="#fffdf6"/>
+<g fill="none" stroke="#111" stroke-linecap="round" stroke-linejoin="round" font-family="Bradley Hand, Patrick Hand, Comic Sans MS, cursive">
+<text x="400" y="80" text-anchor="middle" font-size="40" fill="#111" stroke="none">who does "bank" listen to?</text>
+<text x="70" y="430" text-anchor="middle" font-size="38" fill="#111" stroke="none" >the</text>
+<text x="170" y="430" text-anchor="middle" font-size="38" fill="#111" stroke="none" font-weight="bold">bank</text>
+<text x="275" y="430" text-anchor="middle" font-size="38" fill="#111" stroke="none" >was</text>
+<text x="385" y="430" text-anchor="middle" font-size="38" fill="#111" stroke="none" >steep</text>
+<text x="480" y="430" text-anchor="middle" font-size="38" fill="#111" stroke="none" >so</text>
+<text x="550" y="430" text-anchor="middle" font-size="38" fill="#111" stroke="none" >we</text>
+<text x="635" y="430" text-anchor="middle" font-size="38" fill="#111" stroke="none" >slid</text>
+<text x="715" y="430" text-anchor="middle" font-size="38" fill="#111" stroke="none" >...</text>
+<text x="760" y="430" text-anchor="middle" font-size="38" fill="#111" stroke="none" >river</text>
+<path d="M128 444 q42 -8 84 0" stroke-width="4"/>
+<path d="M170 386 Q277.5 239.7 385 384" stroke-width="7" opacity="0.9"/>
+<path d="M371 364 L385 384 L363 380" stroke-width="5"/>
+<text x="287.5" y="288.4" text-anchor="middle" font-size="26" fill="#111" stroke="none">0.41</text>
+<path d="M170 386 Q402.5 134.70000000000002 635 384" stroke-width="4.5" opacity="0.9"/>
+<path d="M621 364 L635 384 L613 380" stroke-width="3"/>
+<text x="412.5" y="235.9" text-anchor="middle" font-size="26" fill="#111" stroke="none">0.22</text>
+<path d="M170 386 Q465.0 82.20000000000002 760 384" stroke-width="8" opacity="0.9"/>
+<path d="M746 364 L760 384 L738 380" stroke-width="6"/>
+<text x="475.0" y="209.6" text-anchor="middle" font-size="26" fill="#111" stroke="none">0.30</text>
+<path d="M170 386 Q120.0 288.0 70 384" stroke-width="1.5" opacity="0.45"/>
+<path d="M170 386 Q222.5 285.9 275 384" stroke-width="1.5" opacity="0.45"/>
+<text x="400" y="530" text-anchor="middle" font-size="28" fill="#111" stroke="none" opacity="0.65">thicker line = pays more attention</text>
+</g></svg>

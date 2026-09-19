@@ -1,0 +1,45 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TitleBlock from '../../../components/TitleBlock.astro';
+import EntryCard from '../../../components/EntryCard.astro';
+import { underline, showDrafts, playlistParts } from '../../../lib/entries';
+
+export async function getStaticPaths() {
+  const posts = (await getCollection('musings')).filter(
+    (post) => showDrafts || !post.data.draft
+  );
+  // a playlist only gets a page once it holds a visible entry
+  return (await getCollection('series'))
+    .map((series) => ({ series, parts: playlistParts(posts, series.id) }))
+    .filter(({ parts }) => parts.length > 0)
+    .map(({ series, parts }) => ({
+      params: { playlist: series.id },
+      props: { series, parts },
+    }));
+}
+
+const { series, parts } = Astro.props;
+const u = underline(series.data.title);
+---
+
+<BaseLayout
+  title={`${series.data.title} — The Diary of a Lucid Dame`}
+  description={series.data.description ?? `A playlist of diary entries by Favour Umejesi: ${series.data.title}`}
+  active="musings"
+  quote="Don't expect me to be all ‘Dear Diary’ this and ‘Dear Diary’ that."
+  quoteBy="Greg Heffley"
+>
+  <TitleBlock title={series.data.title} underlineWidth={u.width} path={u.path} />
+
+  <section class="panel">
+    <p class="article-meta">PLAYLIST · {parts.length} {parts.length === 1 ? 'ENTRY' : 'ENTRIES'} · START AT PART 01</p>
+    {series.data.description && <p>{series.data.description}</p>}
+  </section>
+
+  <div class="article-grid">
+    {parts.map((post, i) => <EntryCard post={post} part={i + 1} />)}
+  </div>
+
+  <p class="back-link"><a href="/musings">← back to musings</a></p>
+</BaseLayout>

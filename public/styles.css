@@ -353,159 +353,64 @@ a:hover {
   white-space: nowrap;
 }
 
-/* --------------------------------------------------------------------------
-   Experience / Projects cards
-   -------------------------------------------------------------------------- */
 
-.card-head {
-  display: flex;
-  align-items: flex-start;
-  gap: 18px;
+/* snapshots: photos taped in under the lists, like the home page polaroid */
+.snapshots {
+  margin-top: var(--lh);
 }
 
-.card-logo {
-  flex: 0 0 auto;
-  width: 100px;
-  height: 66px;
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.card-logo img {
-  /* Fill the fixed box no matter the uploaded file's dimensions; multiply
-     melts white JPEG backgrounds into the paper like the alpha PNGs. */
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  mix-blend-mode: multiply;
-  filter: grayscale(1);
-}
-
-.card-head-main {
-  flex: 1;
-  min-width: 0;
-}
-
-.card-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 16px;
-}
-
-.card-title {
-  font-weight: 400;
-  font-size: 26px;
-  line-height: var(--lh);
-}
-
-.card-meta {
-  font-size: 16px;
-  opacity: 0.5;
-  white-space: nowrap;
-}
-
-.card-meta a {
-  opacity: 1;
-}
-
-.card-sub {
-  font-size: 18px;
-  opacity: 0.6;
-}
-
-.card-desc {
-  font-size: 18px;
-}
-
-.card-tech {
-  font-size: 15px;
-  opacity: 0.6;
-}
-
-/* --------------------------------------------------------------------------
-   Skills
-   -------------------------------------------------------------------------- */
-
-.skills-grid {
+.snapshot-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--lh) 22px;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: var(--lh) 26px;
+  margin: var(--lh) 0;
+  align-items: start;
 }
 
-.skills-grid .panel {
-  padding: 30.5px 32px;
-  margin-bottom: 0;
+.snapshot {
+  padding: 8px 8px 0;
+  background: #fff;
+  border: 2.5px solid var(--ink);
+  border-radius: 2px;
+  box-shadow: 5px 5px 0 0 var(--ink);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
-.skill-cat {
-  font-weight: 400;
-  font-size: 23px;
+.snapshot:nth-child(3n + 1) { transform: rotate(-1.6deg); }
+.snapshot:nth-child(3n + 2) { transform: rotate(1.2deg); }
+.snapshot:nth-child(3n)     { transform: rotate(-0.5deg); }
+
+.snapshot:hover {
+  transform: rotate(0deg) translateY(-4px);
+  box-shadow: 7px 7px 0 0 var(--ink);
 }
 
-.skill-items {
-  font-size: 18px;
+.snapshot img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
 }
 
-/* --------------------------------------------------------------------------
-   Journey
-   -------------------------------------------------------------------------- */
+.snapshot figcaption {
+  text-align: center;
+  font-size: 16px;
+  opacity: 0.6;
+}
 
+.snapshot:not(:has(figcaption)) {
+  padding-bottom: 8px;
+}
+
+/* small caps-style label above a section */
 .section-label {
   font-size: 19px;
   opacity: 0.6;
 }
 
-.awards {
-  padding: 30.5px 32px;
-  margin-bottom: var(--lh);
-}
-
-.award {
-  display: flex;
-  gap: 22px;
-}
-
-.award-name {
-  flex: 0 0 250px;
-  font-size: 20px;
-}
-
-.award-desc {
-  flex: 1;
-  font-size: 18px;
-}
-
-.timeline .panel {
-  padding: 30.5px 32px;
-  margin-bottom: var(--lh);
-}
-
-.event-date {
-  font-size: 16px;
-  letter-spacing: 1px;
-  opacity: 0.5;
-}
-
-.event-title {
-  font-weight: 400;
-  font-size: 22px;
-}
-
-.event-desc {
-  font-size: 18px;
-}
-
 /* --------------------------------------------------------------------------
    Writings
    -------------------------------------------------------------------------- */
-
-.article-panel {
-  padding: 30.5px 36px;
-}
 
 .article-meta {
   font-size: 16px;
@@ -544,19 +449,6 @@ a:hover {
 
 .footer {
   margin-top: var(--lh);
-}
-
-/* the hidden journey link — bottom corner of home, for observant peeps only */
-.psst {
-  text-align: right;
-  margin-top: 40px;
-  font-size: 15px;
-  opacity: 0.3;
-  transform: rotate(-2deg);
-}
-
-.psst:hover {
-  opacity: 1;
 }
 
 /* sign-off on the patent law page */
@@ -598,12 +490,6 @@ a:hover {
   font-size: 15px;
   opacity: 0.4;
   text-align: center;
-}
-
-/* always-on wavy underline for links that should pop (e.g. kiddo's blog) */
-.wavy-link {
-  text-decoration: underline wavy 1.5px;
-  text-underline-offset: 4px;
 }
 
 /* --------------------------------------------------------------------------
@@ -755,19 +641,6 @@ body.home .footer {
     display: none;
   }
 
-  .card-head {
-    gap: 12px;
-  }
-
-  .card-logo {
-    width: 66px;
-    height: 44px;
-  }
-
-  .card-row {
-    flex-wrap: wrap;
-  }
-
   .spread {
     flex-direction: column;
     gap: var(--lh);
@@ -776,33 +649,6 @@ body.home .footer {
   .spread .panel {
     width: 100%;
     flex: none;
-  }
-
-  .skills-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .award {
-    flex-direction: column;
-    gap: 0;
-  }
-
-  /* stacked awards blur together — skip a ruled line between entries,
-     star the names, and mute the descriptions so headers stand out */
-  .award + .award {
-    margin-top: var(--lh);
-  }
-
-  .award-name {
-    flex: none;
-  }
-
-  .award-name::before {
-    content: "★ ";
-  }
-
-  .award-desc {
-    opacity: 0.7;
   }
 
   .footer-row {
@@ -973,6 +819,153 @@ body.home .footer {
   margin-bottom: var(--lh);
 }
 
+/* photos taped into an entry: a row side by side, or one photo with the
+   writing wrapped around it */
+.taped-photo {
+  position: relative;
+  padding: 8px 8px 0;
+  background: #fff;
+  border: 2.5px solid var(--ink);
+  border-radius: 2px;
+  box-shadow: 5px 5px 0 0 var(--ink);
+  transform: rotate(-1.4deg);
+}
+
+.taped-photo::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  width: 78px;
+  height: 22px;
+  transform: translateX(-50%) rotate(-3deg);
+  background: rgba(246, 241, 227, 0.82);
+  border: 1px solid rgba(17, 17, 17, 0.25);
+}
+
+.article-body .taped-photo img {
+  display: block;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  border: none;
+  box-shadow: none;
+}
+
+.taped-photo figcaption,
+.taped-caption {
+  display: block;
+  text-align: center;
+  font-size: 16px;
+  opacity: 0.6;
+}
+
+.taped-photo:not(:has(figcaption, .taped-caption)) {
+  padding-bottom: 8px;
+}
+
+/* a plain image from the editor: framed to the picture's own size, centred */
+.taped-inline {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  margin: 12px auto 14px;
+}
+
+.article-body .taped-inline img,
+.taped-inline img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+}
+
+.photo-row {
+  display: flex;
+  gap: 26px;
+  align-items: flex-start;
+  padding-top: 12px; /* room for the tape */
+}
+
+.photo-row .taped-photo {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.photo-row .taped-photo img {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.photo-row .taped-photo:nth-child(2n) { transform: rotate(1.2deg); }
+.photo-row .taped-photo:nth-child(3n) { transform: rotate(-0.5deg); }
+
+.side-photo {
+  display: flow-root; /* contains the float so the next paragraph starts below */
+}
+
+.side-photo .taped-photo {
+  width: min(42%, 300px);
+  margin-top: 12px;
+  margin-bottom: 14px;
+}
+
+.side-photo-right .taped-photo {
+  float: right;
+  margin-left: 30px;
+  transform: rotate(1.6deg);
+}
+
+.side-photo-left .taped-photo {
+  float: left;
+  margin-right: 30px;
+}
+
+.side-photo-text > * + * {
+  margin-top: var(--lh);
+}
+
+@media (max-width: 860px) {
+  .photo-row {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--lh);
+  }
+
+  .photo-row .taped-photo {
+    flex: none;
+    width: min(100%, 340px);
+  }
+
+  .side-photo .taped-photo {
+    float: none;
+    width: min(100%, 340px);
+    margin: 12px auto var(--lh);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Playlists — a series of musings; the card is a mixtape among the notes
+   -------------------------------------------------------------------------- */
+
+/* on an entry: which playlist it belongs to, and the parts either side */
+.playlist-crumb a {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.playlist-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px 28px;
+  flex-wrap: wrap;
+  margin-bottom: var(--lh);
+}
+
+.playlist-nav .playlist-next {
+  margin-left: auto;
+  text-align: right;
+}
+
 /* --------------------------------------------------------------------------
    Entry cards (musings/theories) — notes taped into the diary, 2-3 per row
    -------------------------------------------------------------------------- */
@@ -1055,6 +1048,54 @@ body.home .footer {
   margin-top: auto;
   font-size: 17px;
   line-height: 22px;
+}
+
+/* playlist card: same taped note, with a second sheet peeking out behind it
+   (drawn with stacked shadows) and a doodled cassette up top */
+.playlist-card,
+.playlist-card:hover {
+  box-shadow:
+    7px -7px 0 -2.5px #fff,
+    7px -7px 0 0 var(--ink),
+    5px 5px 0 0 var(--ink);
+}
+
+.playlist-card .mixtape {
+  display: block;
+  margin: 2px 0 4px;
+}
+
+.playlist-card .mixtape svg {
+  display: block;
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  font-family: var(--font-hand);
+}
+
+.playlist-card .reel {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .playlist-card:hover .reel {
+    animation: reel-spin 1.8s linear infinite;
+  }
+  .playlist-card:hover .note-a {
+    animation: note-bob 0.9s ease-in-out infinite alternate;
+  }
+  .playlist-card:hover .note-b {
+    animation: note-bob 0.9s ease-in-out 0.3s infinite alternate;
+  }
+}
+
+@keyframes reel-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes note-bob {
+  to { transform: translateY(-4px); }
 }
 
 @media (max-width: 860px) {

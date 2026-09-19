@@ -1,4 +1,4 @@
-// Build-time reader for Keystatic singletons (home, about, journey, settings).
+// Build-time reader for Keystatic singletons (home, about, settings).
 // Collections are read through Astro's own content layer; singletons don't fit
 // that model, so they come straight from the Keystatic config schema instead.
 import { createReader } from '@keystatic/core/reader';

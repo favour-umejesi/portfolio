@@ -11,6 +11,9 @@ const likeRows: string[][] = [];
 for (let i = 0; i < about.likes.length; i += 3) {
   likeRows.push(about.likes.slice(i, i + 3));
 }
+
+// snapshots only count once a photo is actually uploaded
+const photos = about.photos.filter((photo) => photo.image);
 ---
 
 <BaseLayout
@@ -44,4 +47,18 @@ for (let i = 0; i < about.likes.length; i += 3) {
       </div>
     </section>
   </div>
+
+  {photos.length > 0 && (
+    <section class="snapshots">
+      <p class="section-label">LATELY, IN PICTURES —</p>
+      <div class="snapshot-grid">
+        {photos.map((photo) => (
+          <figure class="snapshot">
+            <img src={photo.image} alt={photo.caption || 'A snapshot of what I have been up to'} loading="lazy" />
+            {photo.caption && <figcaption>{photo.caption}</figcaption>}
+          </figure>
+        ))}
+      </div>
+    </section>
+  )}
 </BaseLayout>

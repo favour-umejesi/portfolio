@@ -1,0 +1,26 @@
+---
+// One musing as a taped-in note. Used on the musings page and inside a
+// playlist, where `part` adds the track number to the meta line.
+import type { CollectionEntry } from 'astro:content';
+import { entryMeta, sourceName } from '../lib/entries';
+
+interface Props {
+  post: CollectionEntry<'musings'>;
+  part?: number;
+}
+
+const { post, part } = Astro.props;
+const external = post.data.externalUrl ?? undefined;
+---
+
+<article class="article-card">
+  <p class="article-meta">{part && `PART ${String(part).padStart(2, '0')} · `}{post.data.draft && 'DRAFT · '}{entryMeta(post.data.date, post.data.readTime, external)}</p>
+  <h2 class="article-title">{post.data.title}</h2>
+  {post.data.excerpt && <p class="article-excerpt">{post.data.excerpt}</p>}
+  {post.data.tags.length > 0 && <p class="article-tags">{post.data.tags.join(' · ')}</p>}
+  {external ? (
+    <a class="article-link" href={external} target="_blank" rel="noopener">→ read it on {sourceName(external)}</a>
+  ) : (
+    <a class="article-link" href={`/musings/${post.id}`}>→ read the entry</a>
+  )}
+</article>

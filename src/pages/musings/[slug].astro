@@ -2,17 +2,36 @@
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import TitleBlock from '../../components/TitleBlock.astro';
-import { entryMeta, underline, showDrafts } from '../../lib/entries';
+import { entryMeta, underline, showDrafts, playlistParts } from '../../lib/entries';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('musings');
+  const posts = (await getCollection('musings')).filter(
+    (post) => showDrafts || !post.data.draft
+  );
+  const allSeries = await getCollection('series');
   return posts
     .filter((post) => !post.data.externalUrl)
-    .filter((post) => showDrafts || !post.data.draft)
-    .map((post) => ({ params: { slug: post.id }, props: { post } }));
+    .map((post) => {
+      // entries filed in a playlist know their part number and neighbours
+      const series = allSeries.find((s) => s.id === post.data.series);
+      const parts = series ? playlistParts(posts, series.id) : [];
+      const at = parts.findIndex((p) => p.id === post.id);
+      const playlist = series && {
+        id: series.id,
+        title: series.data.title,
+        part: at + 1,
+        total: parts.length,
+        prev: parts[at - 1],
+        next: parts[at + 1],
+      };
+      return { params: { slug: post.id }, props: { post, playlist } };
+    });
 }
 
-const { post } = Astro.props;
+const { post, playlist } = Astro.props;
+const partHref = (p: typeof post) => p.data.externalUrl ?? `/musings/${p.id}`;
+// neighbouring parts published elsewhere (e.g. Medium) open in a new tab
+const outbound = (p: typeof post) => (p.data.externalUrl ? { target: '_blank', rel: 'noopener' } : {});
 const { Content } = await render(post);
 const u = underline(post.data.title);
 ---
@@ -28,6 +47,11 @@ const u = underline(post.data.title);
   <TitleBlock title={post.data.title} underlineWidth={u.width} path={u.path} />
 
   <article class="panel article-page">
+    {playlist && (
+      <p class="article-meta playlist-crumb">
+        PART {playlist.part} OF {playlist.total} · <a href={`/musings/playlists/${playlist.id}`}>{playlist.title.toUpperCase()}</a>
+      </p>
+    )}
     <p class="article-meta">{post.data.draft && 'DRAFT · '}{entryMeta(post.data.date, post.data.readTime)}</p>
     {post.data.tags.length > 0 && <p class="article-tags">{post.data.tags.join(' · ')}</p>}
     <div class="article-body">
@@ -35,5 +59,17 @@ const u = underline(post.data.title);
     </div>
   </article>
 
-  <p class="back-link"><a href="/musings">← back to musings</a></p>
+  {playlist && (playlist.prev || playlist.next) && (
+    <nav class="playlist-nav" aria-label={`More from ${playlist.title}`}>
+      {playlist.prev
+        ? <a href={partHref(playlist.prev)} {...outbound(playlist.prev)}>← part {playlist.part - 1}: {playlist.prev.data.title}</a>
+        : <span></span>}
+      {playlist.next && <a class="playlist-next" href={partHref(playlist.next)} {...outbound(playlist.next)}>part {playlist.part + 1}: {playlist.next.data.title} →</a>}
+    </nav>
+  )}
+
+  <p class="back-link">
+    {playlist && <><a href={`/musings/playlists/${playlist.id}`}>← back to the playlist</a> · </>}
+    <a href="/musings">{playlist ? 'all musings' : '← back to musings'}</a>
+  </p>
 </BaseLayout>
