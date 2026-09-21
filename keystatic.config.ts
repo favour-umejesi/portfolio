@@ -269,7 +269,26 @@ export default config({
         summary: fields.text({
           label: 'Summary',
           multiline: true,
-          description: 'Two to four sentences: the question, what you did, what came out. Wrap a phrase in ** to bold it or == to highlight it.',
+          description: 'A short overview. Use the fields below for research details. Wrap a phrase in ** or == for emphasis.',
+        }),
+        question: fields.text({
+          label: 'Research question',
+          multiline: true,
+          description: 'Optional. What question are you investigating?',
+        }),
+        contribution: fields.text({
+          label: 'My contribution',
+          multiline: true,
+          description: 'Optional. Describe your own contribution, especially for team work.',
+        }),
+        findings: fields.text({
+          label: 'Findings',
+          multiline: true,
+          description: 'Optional. Results, limitations, or open questions. Label preliminary findings clearly.',
+        }),
+        status: fields.text({
+          label: 'Status',
+          description: 'Optional. For example: Ongoing, Completed, or Preliminary results.',
         }),
         tags: fields.array(fields.text({ label: 'Tag' }), {
           label: 'Tags',

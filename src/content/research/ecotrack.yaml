@@ -19,7 +19,6 @@ summary: >-
   application.
 tags:
   - sustainability
-  - Next.js
   - RAG
   - Qwen3-8B
   - Vector Search

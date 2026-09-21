@@ -211,7 +211,7 @@ const social: Record<string, string> = {
   <Fragment slot="after">
     {rotatorCss && <style is:inline set:html={rotatorCss} />}
     {works.map((w) => {
-      const meta = [w.data.context, w.data.role, w.data.year].filter(Boolean).join(' · ');
+      const meta = [w.data.context, w.data.role, w.data.year, w.data.status].filter(Boolean).join(' · ');
       return (
         <div class="v-modal" id={`work-${w.id}`} role="dialog" aria-labelledby={`work-${w.id}-title`}>
           <a class="v-modal-backdrop" href="#works" aria-label="Close"></a>
@@ -222,6 +222,20 @@ const social: Record<string, string> = {
             <h3 id={`work-${w.id}-title`}>{w.data.title}</h3>
             {meta && <p class="v-modal-meta">{meta}</p>}
             <div class="v-prose"><p set:html={rich(w.data.summary)} /></div>
+            {(w.data.question || w.data.contribution || w.data.findings) && (
+              <dl class="v-research-details v-prose">
+                {[
+                  { label: 'Research question', value: w.data.question },
+                  { label: 'My contribution', value: w.data.contribution },
+                  { label: 'Findings', value: w.data.findings },
+                ].filter((detail) => detail.value).map((detail) => (
+                  <div>
+                    <dt><strong>{detail.label}</strong></dt>
+                    <dd set:html={rich(detail.value!)} />
+                  </div>
+                ))}
+              </dl>
+            )}
             {w.data.tags.length > 0 && <p class="v-modal-tags">{w.data.tags.join(' · ')}</p>}
             {w.data.links.some((l) => l.url) && (
               <p class="v-modal-links">

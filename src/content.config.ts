@@ -40,6 +40,10 @@ const research = defineCollection({
     role: z.string().optional().nullable(),
     thumbnail: z.string().optional().nullable(),
     summary: z.string(),
+    question: z.string().optional().nullable(),
+    contribution: z.string().optional().nullable(),
+    findings: z.string().optional().nullable(),
+    status: z.string().optional().nullable(),
     tags: z.array(z.string()).default([]),
     links: z
       .array(z.object({ label: z.string().default(''), url: z.string().nullable().default('') }))

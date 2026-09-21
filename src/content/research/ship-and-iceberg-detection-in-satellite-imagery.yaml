@@ -18,7 +18,6 @@ summary: >-
   limitations of transferring representations learned from natural images to
   specialized SAR imagery with limited labeled data.
 tags:
-  - computer vision
   - transfer learning
   - Computer Vision
   - Representation Learning

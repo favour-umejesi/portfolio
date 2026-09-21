@@ -13,7 +13,7 @@ bio:
     My current research focuses on the mechanistic interpretability of large
     language models, where I investigate how internal model components
     contribute to factual recall, hallucinations, and biased outputs. Under the
-    supervision of my Deep Learning professor, ==Dr. Vivya Kalindindi==, I am
+    supervision of my Deep Learning professor, ==Dr. Vivya Kalidindi==, I am
     exploring techniques such as layer ablation and game-theoretic methods to
     better understand how information is represented and processed within LLMs.
 interests:
@@ -21,6 +21,4 @@ interests:
   - AI Safety
   - LLM Architecture
   - AI Evaluation
-  - Natural Language Processing
-  - Computer Vision
 showWriting: true
