@@ -328,29 +328,35 @@ a:hover {
 .spread {
   display: flex;
   gap: 22px;
-  align-items: flex-start;
+  align-items: stretch; /* the two notes end on the same line */
 }
 
 .spread .panel {
   flex: 1 1 0;
+  min-width: 0; /* a long chip never pushes the other panel into a sliver */
   margin-bottom: 0;
 }
 
 .tag-row {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px 10px;
   flex-wrap: wrap;
-  height: var(--lh);
+  min-height: var(--lh);
 }
 
+.tag-row + .tag-row {
+  margin-top: 8px;
+}
+
+/* a chip is a tag when it is short and a wrapped note when it is a sentence */
 .chip {
+  max-width: 100%;
   border: 2px solid var(--ink);
   border-radius: 2px;
-  padding: 0 11px;
+  padding: 2px 11px;
   font-size: 17px;
   line-height: 25px;
-  white-space: nowrap;
 }
 
 
@@ -388,8 +394,7 @@ a:hover {
 .snapshot img {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+  height: auto; /* whole photo, no cropping */
 }
 
 .snapshot figcaption {
