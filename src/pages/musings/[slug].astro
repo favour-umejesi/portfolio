@@ -52,10 +52,27 @@ const mood = (post.data.moodPhotos ?? []).filter((photo) => photo.image);
     <div class="mood">
       {post.data.moodNote && <p class="mood-note">{post.data.moodNote}</p>}
       <div class="mood-strip">
-        {mood.map((photo) => (
-          <figure class="taped-photo">
-            <img src={photo.image} alt={photo.caption || ''} loading="lazy" />
-            {photo.caption && <figcaption>{photo.caption}</figcaption>}
+        {mood.map((photo) => photo.note ? (
+          <figure class="mood-card has-back">
+            <button class="mood-flip" type="button" aria-pressed="false" aria-label={`Flip the photo: ${photo.caption || 'photo'}`}>
+              <span class="mood-3d">
+              <span class="taped-photo mood-face mood-front">
+                <img src={photo.image} alt={photo.caption || ''} loading="lazy" />
+                {photo.caption && <span class="taped-caption">{photo.caption}</span>}
+                <span class="mood-hint" aria-hidden="true">↻ flip</span>
+              </span>
+              <span class="taped-photo mood-face mood-back">
+                <span class="mood-back-text">{photo.note}</span>
+              </span>
+              </span>
+            </button>
+          </figure>
+        ) : (
+          <figure class="mood-card">
+            <span class="taped-photo mood-face">
+              <img src={photo.image} alt={photo.caption || ''} loading="lazy" />
+              {photo.caption && <span class="taped-caption">{photo.caption}</span>}
+            </span>
           </figure>
         ))}
       </div>
@@ -85,6 +102,17 @@ const mood = (post.data.moodPhotos ?? []).filter((photo) => photo.image);
       {playlist.next && <a class="playlist-next" href={partHref(playlist.next)} {...outbound(playlist.next)}>part {playlist.part + 1}: {playlist.next.data.title} →</a>}
     </nav>
   )}
+
+  <script>
+    // a mood photo with a note on the back turns over when clicked
+    document.querySelectorAll<HTMLButtonElement>('.mood-flip').forEach((card) => {
+      card.addEventListener('click', () => {
+        const flipped = card.getAttribute('aria-pressed') === 'true';
+        card.setAttribute('aria-pressed', String(!flipped));
+        card.closest('.mood-card')?.classList.toggle('is-flipped', !flipped);
+      });
+    });
+  </script>
 
   <p class="back-link">
     {playlist && <><a href={`/musings/playlists/${playlist.id}`}>← back to the playlist</a> · </>}

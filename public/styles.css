@@ -993,7 +993,8 @@ body.home .footer {
 }
 
 /* mood photos: a strip of small polaroids under the title, for pictures that
-   set the tone of the whole entry rather than illustrate one paragraph */
+   set the tone of the whole entry rather than illustrate one paragraph. A photo
+   with a note turns over when clicked, like writing on the back of a print. */
 .mood {
   margin: calc(-1 * var(--lh)) 0 var(--lh);
 }
@@ -1011,27 +1012,124 @@ body.home .footer {
   padding: 14px 6px 24px;
 }
 
-.mood-strip .taped-photo {
+.mood-card {
   width: 190px;
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  margin: 0;
+  transition: transform 0.18s ease;
 }
 
-.mood-strip .taped-photo img {
+.mood-card:nth-child(2n) { transform: rotate(1.6deg); }
+.mood-card:nth-child(3n) { transform: rotate(-0.6deg); }
+.mood-card:nth-child(3n + 1) { transform: rotate(-1.4deg); }
+
+.mood-card:hover {
+  transform: rotate(0deg) translateY(-4px);
+}
+
+.mood-card .taped-photo {
+  transform: none; /* the tilt lives on the card so flipping stays flat */
+}
+
+.mood-card:hover .taped-photo {
+  box-shadow: 7px 7px 0 0 var(--ink);
+}
+
+.mood-face {
+  display: block;
+  width: 100%;
+}
+
+.mood-face img {
   display: block;
   width: 100%;
   height: auto;
 }
 
-.mood-strip .taped-photo figcaption {
+.mood-face .taped-caption {
   font-size: 15px;
 }
 
-.mood-strip .taped-photo:nth-child(2n) { transform: rotate(1.6deg); }
-.mood-strip .taped-photo:nth-child(3n) { transform: rotate(-0.6deg); }
+/* the flip: a button (for the keyboard) around a 3D wrapper (buttons can't
+   be 3D containers themselves) holding the two faces */
+.mood-flip {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  cursor: pointer;
+  perspective: 900px;
+}
 
-.mood-strip .taped-photo:hover {
-  transform: rotate(0deg) translateY(-4px);
-  box-shadow: 7px 7px 0 0 var(--ink);
+.mood-flip:focus-visible {
+  outline: 2px dashed var(--ink);
+  outline-offset: 6px;
+}
+
+.mood-3d {
+  position: relative;
+  display: block;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  transition: transform 0.55s cubic-bezier(0.3, 0.9, 0.4, 1);
+}
+
+/* each face hides its own back; and because Safari ignores that in some
+   cases, the hidden face is also switched off halfway through the turn */
+.mood-flip .mood-face {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transition: visibility 0s linear 0.275s;
+}
+
+.mood-card:not(.is-flipped) .mood-back,
+.mood-card.is-flipped .mood-front {
+  visibility: hidden;
+}
+
+.mood-hint {
+  display: block;
+  margin-top: 2px;
+  font-size: 13px;
+  opacity: 0.45;
+  text-align: right;
+}
+
+/* the back of the print: same card size as the front (it sits over it), a
+   handwritten note on faint lines instead of a picture; long notes scroll */
+.mood-card .mood-back {
+  --bl: 24px;
+  position: absolute;
+  inset: 0;
+  transform: rotateY(180deg); /* beats the no-tilt rule on faces */
+  padding: 12px 12px 10px;
+  background:
+    linear-gradient(to bottom, transparent calc(var(--bl) - 1px), var(--rule-line) calc(var(--bl) - 1px), var(--rule-line) var(--bl)) 0 6px / 100% var(--bl) #fff;
+}
+
+/* the note scrolls inside the face (a scrolling face itself breaks the 3D
+   flip in Safari) */
+.mood-back-text {
+  display: block;
+  height: 100%;
+  overflow-y: auto;
+  font-size: 15px;
+  line-height: var(--bl);
+  white-space: pre-line;
+}
+
+.mood-card.is-flipped .mood-3d {
+  transform: rotateY(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mood-3d,
+  .mood-flip .mood-face {
+    transition: none;
+  }
 }
 
 @media (max-width: 860px) {
@@ -1040,8 +1138,18 @@ body.home .footer {
     padding: 14px 4px 20px;
   }
 
-  .mood-strip .taped-photo {
+  .mood-card {
     width: calc(50% - 9px);
+  }
+
+  /* narrower cards: smaller writing on the back so less of it scrolls */
+  .mood-card .mood-back {
+    --bl: 22px;
+    padding: 10px 10px 8px;
+  }
+
+  .mood-back-text {
+    font-size: 14px;
   }
 }
 

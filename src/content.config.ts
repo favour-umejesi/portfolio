@@ -14,7 +14,13 @@ const entrySchema = z.object({
   externalUrl: z.string().optional().nullable(),
   moodNote: z.string().optional().nullable(),
   moodPhotos: z
-    .array(z.object({ image: z.string().nullable().default(null), caption: z.string().nullable().default('') }))
+    .array(
+      z.object({
+        image: z.string().nullable().default(null),
+        caption: z.string().nullable().default(''),
+        note: z.string().nullable().default(''),
+      })
+    )
     .default([]),
 });
 

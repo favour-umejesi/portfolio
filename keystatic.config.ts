@@ -366,7 +366,15 @@ export default config({
               directory: 'public/images/musings',
               publicPath: '/images/musings/',
             }),
-            caption: fields.text({ label: 'Caption (optional)', description: 'One short line; also used as alt text' }),
+            caption: fields.text({
+              label: 'Front: one short line',
+              description: 'e.g. the title and artist. Written under the photo; also used as alt text',
+            }),
+            note: fields.text({
+              label: 'Back: the longer note (optional)',
+              multiline: true,
+              description: 'Shown when a reader clicks the photo and it flips over, like writing on the back of a print',
+            }),
           }),
           {
             label: 'Mood photos',
