@@ -360,6 +360,24 @@ a:hover {
 }
 
 
+/* a sentence-length like: written out on its own line with a heart */
+.like-note {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.tag-rows + .like-note {
+  margin-top: 8px;
+}
+
+.like-heart {
+  flex: none;
+  width: 18px;
+  height: 17px;
+  margin-top: 8px;
+}
+
 /* snapshots: photos taped in under the lists, like the home page polaroid */
 .snapshots {
   margin-top: var(--lh);
@@ -934,6 +952,61 @@ body.home .footer {
 
 .side-photo-text > * + * {
   margin-top: var(--lh);
+}
+
+/* On a wide page the photos live in a margin rail down the right-hand side,
+   beside the paragraph they were taped in after, and the writing keeps going
+   in a narrower column. Photo rows stack down the rail; a plain editor image
+   stays in the flow for when one picture deserves the full width. */
+@media (min-width: 960px) {
+  .article-body {
+    --rail: 260px;
+    --rail-gap: 40px;
+    display: flow-root; /* the column never ends above the last rail photo */
+    padding-right: calc(var(--rail) + var(--rail-gap));
+  }
+
+  .article-body > .photo-row,
+  .article-body > article > .photo-row,
+  .article-body > .taped-photo,
+  .article-body > article > .taped-photo,
+  .side-photo .taped-photo {
+    float: right;
+    clear: right;
+    width: var(--rail);
+    margin-right: calc(-1 * (var(--rail) + var(--rail-gap)));
+    margin-left: 0;
+  }
+
+  .article-body .photo-row {
+    flex-direction: column;
+    gap: var(--lh);
+  }
+
+  .article-body .photo-row .taped-photo {
+    flex: none;
+    width: 100%;
+  }
+
+  /* beside-text photos sit in the rail too, so the writing is never squeezed;
+     the wrapper stops containing its float so it queues under earlier rail photos */
+  .side-photo {
+    display: block;
+  }
+
+  .side-photo .taped-photo {
+    margin-top: 12px;
+    margin-bottom: 0;
+  }
+
+  .side-photo-left .taped-photo {
+    float: right;
+    margin-right: calc(-1 * (var(--rail) + var(--rail-gap)));
+  }
+
+  /* the rail is 260px: keep the tape centred and the tilt gentle */
+  .article-body .photo-row .taped-photo:nth-child(2n) { transform: rotate(1.2deg); }
+  .article-body .photo-row .taped-photo:nth-child(2n + 1) { transform: rotate(-1.2deg); }
 }
 
 @media (max-width: 860px) {

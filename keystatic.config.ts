@@ -25,7 +25,7 @@ const photoSummary = (value: { image: { filename: string } | null; caption: stri
 const articleComponents = {
   gallery: repeating({
     label: 'Photo row',
-    description: 'Two or three photos taped in side by side',
+    description: 'Photos taped into the margin beside this part of the writing (side by side on a phone)',
     children: 'photo',
     validation: { children: { min: 1, max: 4 } },
     schema: {},
@@ -38,7 +38,7 @@ const articleComponents = {
   }),
   sidePhoto: wrapper({
     label: 'Photo beside text',
-    description: 'A photo on one side with your writing wrapped around it',
+    description: 'One photo taped into the margin beside this paragraph',
     schema: {
       image: articlePhoto(),
       caption: articleCaption(),
@@ -119,7 +119,7 @@ export default config({
         ),
         likes: fields.array(fields.text({ label: 'Chip' }), {
           label: 'Stuff I like',
-          description: 'Shown as chips, three per row',
+          description: 'Short ones (a word or two) show as chips; longer ones are written out as lines with a heart',
           itemLabel: (props) => props.value,
         }),
       },

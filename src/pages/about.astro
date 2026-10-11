@@ -6,10 +6,14 @@ import { readSingleton } from '../lib/reader';
 
 const about = await readSingleton('about');
 
-// chips render three per row, matching the original tag-rows layout
+// short likes are chips (three per row); anything sentence-length is written
+// out as its own line with a little heart, the way you'd list favourites
+const isTag = (like: string) => like.length <= 28;
+const tags = about.likes.filter(isTag);
+const notes = about.likes.filter((like) => !isTag(like));
 const likeRows: string[][] = [];
-for (let i = 0; i < about.likes.length; i += 3) {
-  likeRows.push(about.likes.slice(i, i + 3));
+for (let i = 0; i < tags.length; i += 3) {
+  likeRows.push(tags.slice(i, i + 3));
 }
 
 // snapshots only count once a photo is actually uploaded
@@ -36,15 +40,25 @@ const photos = about.photos.filter((photo) => photo.image);
       <p class="panel-label">WHAT I'M UP TO —</p>
       {about.whatImUpTo.map((item) => <p>→ {item}</p>)}
     </section>
-    <section class="panel">
+    <section class="panel likes">
       <p class="panel-label">STUFF I LIKE —</p>
-      <div class="tag-rows">
-        {likeRows.map((row) => (
-          <div class="tag-row">
-            {row.map((chip) => <span class="chip">{chip}</span>)}
-          </div>
-        ))}
-      </div>
+      {likeRows.length > 0 && (
+        <div class="tag-rows">
+          {likeRows.map((row) => (
+            <div class="tag-row">
+              {row.map((chip) => <span class="chip">{chip}</span>)}
+            </div>
+          ))}
+        </div>
+      )}
+      {notes.map((note) => (
+        <p class="like-note">
+          <svg class="like-heart" viewBox="0 0 24 22" aria-hidden="true">
+            <path d="M12 20.5C7.5 16.8 2.6 13.2 2.4 8.4 2.3 5.3 4.6 3 7.3 3.1c2 .1 3.5 1.4 4.6 3.1 1.1-1.7 2.7-3.1 4.7-3.1 2.7-.1 4.9 2.3 4.9 5.3 0 4.8-5.1 8.4-9.5 12.1z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+          </svg>
+          <span>{note}</span>
+        </p>
+      ))}
     </section>
   </div>
 
