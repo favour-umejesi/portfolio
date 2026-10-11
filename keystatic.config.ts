@@ -1,5 +1,5 @@
 import { config, fields, collection, singleton } from '@keystatic/core';
-import { block, repeating, wrapper } from '@keystatic/core/content-components';
+import { block, mark, repeating, wrapper } from '@keystatic/core/content-components';
 import { createElement } from 'react';
 
 // Photo blocks for article bodies (the "+" menu in the editor). Rendered by the
@@ -22,7 +22,23 @@ const photoSummary = (value: { image: { filename: string } | null; caption: stri
     [value.image?.filename ?? 'no photo yet — press Edit', value.caption, extra].filter(Boolean).join(' · ')
   );
 
+// a highlighter pen for the toolbar: {% highlight %}phrase{% /highlight %} in the
+// file, a yellow marker stroke on the page (same as ==phrase== on the profile)
+const highlighterIcon = createElement(
+  'svg',
+  { viewBox: '0 0 24 24', width: 16, height: 16, fill: 'none', stroke: 'currentColor', strokeWidth: 2, strokeLinecap: 'round', strokeLinejoin: 'round' },
+  createElement('path', { d: 'm9 11-6 6v3h9l3-3' }),
+  createElement('path', { d: 'm22 12-4.6 4.6a2 2 0 0 1-2.8 0l-5.2-5.2a2 2 0 0 1 0-2.8L14 4' })
+);
+
 const articleComponents = {
+  highlight: mark({
+    label: 'Highlight',
+    icon: highlighterIcon,
+    schema: {},
+    tag: 'mark',
+    style: { backgroundColor: '#ffe978', color: 'inherit' },
+  }),
   gallery: repeating({
     label: 'Photo row',
     description: 'Photos taped into the margin beside this part of the writing (side by side on a phone)',
@@ -342,6 +358,26 @@ export default config({
           label: 'External URL (optional)',
           description:
             'If set (e.g. a Medium link), the card links out and no page is generated on this site',
+        }),
+        moodPhotos: fields.array(
+          fields.object({
+            image: fields.image({
+              label: 'Photo',
+              directory: 'public/images/musings',
+              publicPath: '/images/musings/',
+            }),
+            caption: fields.text({ label: 'Caption (optional)', description: 'One short line; also used as alt text' }),
+          }),
+          {
+            label: 'Mood photos',
+            description:
+              'Small photos taped in under the title: the ones that set the mood for the whole entry. For a photo that belongs to one paragraph, use the + menu inside the body instead.',
+            itemLabel: (props) => props.fields.caption.value || 'photo',
+          }
+        ),
+        moodNote: fields.text({
+          label: 'Line above the mood photos (optional)',
+          description: 'e.g. "pictures: things I was looking at while writing this"',
         }),
         body: fields.markdoc({
           label: 'Body',

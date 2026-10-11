@@ -796,6 +796,44 @@ body.home .footer {
   background-size: 48px 8px, 48px 8px;
 }
 
+/* the toolbar's pen marks, in the diary hand: bold presses harder, italics
+   lean, crossed-out words get a real scribble, highlights are a marker stroke */
+.article-body strong,
+.bio strong,
+.list-items strong {
+  font-weight: 700;
+  -webkit-text-stroke: 0.45px var(--ink);
+  letter-spacing: 0.01em;
+}
+
+.article-body em {
+  font-style: italic;
+}
+
+.article-body s,
+.article-body del {
+  text-decoration: line-through 2px var(--ink);
+  opacity: 0.75;
+}
+
+.article-body mark,
+.bio mark,
+.list-items mark {
+  color: inherit;
+  background: linear-gradient(
+    to bottom,
+    transparent 14%,
+    rgba(255, 233, 120, 0.85) 14%,
+    rgba(255, 233, 120, 0.85) 88%,
+    transparent 88%
+  );
+  padding: 0 4px;
+  margin: 0 -2px;
+  border-radius: 2px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
 /* inline code: a little typed pill so it pops out of the handwriting */
 .article-body code {
   font-family: ui-monospace, "SF Mono", Menlo, Consolas, "Courier New", monospace;
@@ -954,15 +992,79 @@ body.home .footer {
   margin-top: var(--lh);
 }
 
+/* mood photos: a strip of small polaroids under the title, for pictures that
+   set the tone of the whole entry rather than illustrate one paragraph */
+.mood {
+  margin: calc(-1 * var(--lh)) 0 var(--lh);
+}
+
+.mood-note {
+  font-size: 15px;
+  opacity: 0.6;
+}
+
+.mood-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 34px;
+  align-items: flex-start;
+  padding: 14px 6px 24px;
+}
+
+.mood-strip .taped-photo {
+  width: 190px;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.mood-strip .taped-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.mood-strip .taped-photo figcaption {
+  font-size: 15px;
+}
+
+.mood-strip .taped-photo:nth-child(2n) { transform: rotate(1.6deg); }
+.mood-strip .taped-photo:nth-child(3n) { transform: rotate(-0.6deg); }
+
+.mood-strip .taped-photo:hover {
+  transform: rotate(0deg) translateY(-4px);
+  box-shadow: 7px 7px 0 0 var(--ink);
+}
+
+@media (max-width: 860px) {
+  .mood-strip {
+    gap: 22px 18px;
+    padding: 14px 4px 20px;
+  }
+
+  .mood-strip .taped-photo {
+    width: calc(50% - 9px);
+  }
+}
+
 /* On a wide page the photos live in a margin rail down the right-hand side,
    beside the paragraph they were taped in after, and the writing keeps going
    in a narrower column. Photo rows stack down the rail; a plain editor image
    stays in the flow for when one picture deserves the full width. */
 @media (min-width: 960px) {
-  .article-body {
+  /* the writing sits in a reading column of about seventy characters,
+     centred in the panel, instead of running the full width */
+  .article-column {
+    display: flow-root; /* the column never ends above the last rail photo */
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  /* an entry that tapes photos into the margin hugs the left instead, and
+     the rail takes the rest of the panel; photo-free entries stay centred */
+  .article-column:has(.photo-row, .side-photo, .taped-photo:not(.taped-inline)) {
     --rail: 260px;
     --rail-gap: 40px;
-    display: flow-root; /* the column never ends above the last rail photo */
+    max-width: none;
+    margin: 0;
     padding-right: calc(var(--rail) + var(--rail-gap));
   }
 

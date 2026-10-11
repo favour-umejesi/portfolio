@@ -12,6 +12,10 @@ const entrySchema = z.object({
   tags: z.array(z.string()).default([]),
   excerpt: z.string().optional().nullable(),
   externalUrl: z.string().optional().nullable(),
+  moodNote: z.string().optional().nullable(),
+  moodPhotos: z
+    .array(z.object({ image: z.string().nullable().default(null), caption: z.string().nullable().default('') }))
+    .default([]),
 });
 
 const musings = defineCollection({

@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import TitleBlock from '../components/TitleBlock.astro';
 import Greg from '../components/doodles/Greg.astro';
 import { readSingleton } from '../lib/reader';
+import { rich } from '../lib/rich';
 
 const about = await readSingleton('about');
 
@@ -32,13 +33,13 @@ const photos = about.photos.filter((photo) => photo.image);
   </TitleBlock>
 
   <section class="panel bio">
-    {about.bio.map((paragraph) => <p>{paragraph}</p>)}
+    {about.bio.map((paragraph) => <p set:html={rich(paragraph)} />)}
   </section>
 
   <div class="spread">
     <section class="panel list-items">
       <p class="panel-label">WHAT I'M UP TO —</p>
-      {about.whatImUpTo.map((item) => <p>→ {item}</p>)}
+      {about.whatImUpTo.map((item) => <p set:html={'→ ' + rich(item)} />)}
     </section>
     <section class="panel likes">
       <p class="panel-label">STUFF I LIKE —</p>

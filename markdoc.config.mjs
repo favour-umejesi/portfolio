@@ -15,6 +15,10 @@ export default defineMarkdocConfig({
     },
   },
   tags: {
+    // the toolbar's highlighter pen
+    highlight: {
+      render: component('./src/components/markdoc/Highlight.astro'),
+    },
     // photos taped in side by side
     gallery: {
       render: component('./src/components/markdoc/Gallery.astro'),

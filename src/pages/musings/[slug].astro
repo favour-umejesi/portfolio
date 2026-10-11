@@ -34,6 +34,8 @@ const partHref = (p: typeof post) => p.data.externalUrl ?? `/musings/${p.id}`;
 const outbound = (p: typeof post) => (p.data.externalUrl ? { target: '_blank', rel: 'noopener' } : {});
 const { Content } = await render(post);
 const u = underline(post.data.title);
+// mood photos set the tone for the whole entry, so they hang under the title
+const mood = (post.data.moodPhotos ?? []).filter((photo) => photo.image);
 ---
 
 <BaseLayout
@@ -46,7 +48,22 @@ const u = underline(post.data.title);
 >
   <TitleBlock title={post.data.title} underlineWidth={u.width} path={u.path} />
 
+  {mood.length > 0 && (
+    <div class="mood">
+      {post.data.moodNote && <p class="mood-note">{post.data.moodNote}</p>}
+      <div class="mood-strip">
+        {mood.map((photo) => (
+          <figure class="taped-photo">
+            <img src={photo.image} alt={photo.caption || ''} loading="lazy" />
+            {photo.caption && <figcaption>{photo.caption}</figcaption>}
+          </figure>
+        ))}
+      </div>
+    </div>
+  )}
+
   <article class="panel article-page">
+    <div class="article-column">
     {playlist && (
       <p class="article-meta playlist-crumb">
         PART {playlist.part} OF {playlist.total} · <a href={`/musings/playlists/${playlist.id}`}>{playlist.title.toUpperCase()}</a>
@@ -56,6 +73,7 @@ const u = underline(post.data.title);
     {post.data.tags.length > 0 && <p class="article-tags">{post.data.tags.join(' · ')}</p>}
     <div class="article-body">
       <Content />
+    </div>
     </div>
   </article>
 

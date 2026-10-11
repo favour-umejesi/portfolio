@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import ResearchLayout from '../layouts/ResearchLayout.astro';
 import { readSingleton } from '../lib/reader';
+import { rich } from '../lib/rich';
 import { showDrafts } from '../lib/entries';
 
 const page = await readSingleton('researchPage');
@@ -41,9 +42,6 @@ const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 // bio and summaries are plain text with two shortcuts:
 // ==phrase== becomes a highlight, **phrase** becomes bold
-const esc = (t: string) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-const rich = (t: string) =>
-  esc(t).replace(/==(.+?)==/g, '<mark>$1</mark>').replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
 
 // rotating titles under the name, CSS-only: each word gets the same
 // animation, offset by its index, so the keyframes depend on the count
