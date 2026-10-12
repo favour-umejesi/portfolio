@@ -379,7 +379,7 @@ export default config({
           {
             label: 'Mood photos',
             description:
-              'Small photos taped in under the title: the ones that set the mood for the whole entry. For a photo that belongs to one paragraph, use the + menu inside the body instead.',
+              'Small photos pinned at the end of the entry, after the writing: the ones that set the mood for the whole piece. For a photo that belongs to one paragraph, use the + menu inside the body instead.',
             itemLabel: (props) => props.fields.caption.value || 'photo',
           }
         ),

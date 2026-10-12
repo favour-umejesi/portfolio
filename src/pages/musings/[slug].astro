@@ -34,7 +34,7 @@ const partHref = (p: typeof post) => p.data.externalUrl ?? `/musings/${p.id}`;
 const outbound = (p: typeof post) => (p.data.externalUrl ? { target: '_blank', rel: 'noopener' } : {});
 const { Content } = await render(post);
 const u = underline(post.data.title);
-// mood photos set the tone for the whole entry, so they hang under the title
+// mood photos close the entry: a strip of prints pinned under the writing
 const mood = (post.data.moodPhotos ?? []).filter((photo) => photo.image);
 ---
 
@@ -47,6 +47,21 @@ const mood = (post.data.moodPhotos ?? []).filter((photo) => photo.image);
   quoteBy="Greg Heffley"
 >
   <TitleBlock title={post.data.title} underlineWidth={u.width} path={u.path} />
+
+  <article class="panel article-page">
+    <div class="article-column">
+    {playlist && (
+      <p class="article-meta playlist-crumb">
+        PART {playlist.part} OF {playlist.total} · <a href={`/musings/playlists/${playlist.id}`}>{playlist.title.toUpperCase()}</a>
+      </p>
+    )}
+    <p class="article-meta">{post.data.draft && 'DRAFT · '}{entryMeta(post.data.date, post.data.readTime)}</p>
+    {post.data.tags.length > 0 && <p class="article-tags">{post.data.tags.join(' · ')}</p>}
+    <div class="article-body">
+      <Content />
+    </div>
+    </div>
+  </article>
 
   {mood.length > 0 && (
     <div class="mood">
@@ -78,21 +93,6 @@ const mood = (post.data.moodPhotos ?? []).filter((photo) => photo.image);
       </div>
     </div>
   )}
-
-  <article class="panel article-page">
-    <div class="article-column">
-    {playlist && (
-      <p class="article-meta playlist-crumb">
-        PART {playlist.part} OF {playlist.total} · <a href={`/musings/playlists/${playlist.id}`}>{playlist.title.toUpperCase()}</a>
-      </p>
-    )}
-    <p class="article-meta">{post.data.draft && 'DRAFT · '}{entryMeta(post.data.date, post.data.readTime)}</p>
-    {post.data.tags.length > 0 && <p class="article-tags">{post.data.tags.join(' · ')}</p>}
-    <div class="article-body">
-      <Content />
-    </div>
-    </div>
-  </article>
 
   {playlist && (playlist.prev || playlist.next) && (
     <nav class="playlist-nav" aria-label={`More from ${playlist.title}`}>

@@ -992,11 +992,11 @@ body.home .footer {
   margin-top: var(--lh);
 }
 
-/* mood photos: a strip of small polaroids under the title, for pictures that
-   set the tone of the whole entry rather than illustrate one paragraph. A photo
-   with a note turns over when clicked, like writing on the back of a print. */
+/* mood photos: a strip of small polaroids pinned under the entry, for pictures
+   that belong to the whole piece rather than one paragraph. A photo with a
+   note turns over when clicked, like writing on the back of a print. */
 .mood {
-  margin: calc(-1 * var(--lh)) 0 var(--lh);
+  margin: 0 0 var(--lh);
 }
 
 .mood-note {
@@ -1158,21 +1158,16 @@ body.home .footer {
    in a narrower column. Photo rows stack down the rail; a plain editor image
    stays in the flow for when one picture deserves the full width. */
 @media (min-width: 960px) {
-  /* the writing sits in a reading column of about seventy characters,
-     centred in the panel, instead of running the full width */
+  /* the writing runs the full width of the panel, edge to edge like a page */
   .article-column {
     display: flow-root; /* the column never ends above the last rail photo */
-    max-width: 720px;
-    margin: 0 auto;
   }
 
-  /* an entry that tapes photos into the margin hugs the left instead, and
-     the rail takes the rest of the panel; photo-free entries stay centred */
+  /* an entry that tapes photos into the margin keeps a rail free down the
+     right-hand side for them */
   .article-column:has(.photo-row, .side-photo, .taped-photo:not(.taped-inline)) {
     --rail: 260px;
     --rail-gap: 40px;
-    max-width: none;
-    margin: 0;
     padding-right: calc(var(--rail) + var(--rail-gap));
   }
 
