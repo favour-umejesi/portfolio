@@ -38,6 +38,7 @@ const cap = (s: string) => properName[s] ?? s.charAt(0).toUpperCase() + s.slice(
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v10h4.5v-6h4v6h4.5V10"/></svg>
       <span>back to homepage</span>
     </a>
+    <slot name="top-right" />
   </header>
 
   <main class="w-main">

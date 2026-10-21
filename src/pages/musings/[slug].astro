@@ -40,6 +40,9 @@ const mood = (post.data.moodPhotos ?? []).filter((photo) => photo.image);
   title={post.data.title}
   description={post.data.excerpt ?? `A musing by Favour Umejesi: ${post.data.title}`}
 >
+  <a slot="top-right" class="w-top-back" href={playlist ? `/musings/playlists/${playlist.id}` : '/musings'}>
+    ← {playlist ? 'back to the playlist' : 'all musings'}
+  </a>
   <article class="article-page">
     <div class="article-column">
       <header>

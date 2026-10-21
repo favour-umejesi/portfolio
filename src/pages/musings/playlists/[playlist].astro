@@ -25,6 +25,7 @@ const { series, parts } = Astro.props;
   title={series.data.title}
   description={series.data.description ?? `A series of musings by Favour Umejesi: ${series.data.title}`}
 >
+  <a slot="top-right" class="w-top-back" href="/musings">← all musings</a>
   <p class="w-meta">Playlist · {parts.length} {parts.length === 1 ? 'part' : 'parts'} · start at part 01</p>
   <h1 class="w-title">{series.data.title}</h1>
   {series.data.description && <div class="w-intro"><p>{series.data.description}</p></div>}

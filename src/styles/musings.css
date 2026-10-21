@@ -13,7 +13,12 @@ body.writing { padding: 36px 0 56px; --w-serif: "Source Serif 4", "Iowan Old Sty
   margin: 0 auto 48px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 16px;
 }
+/* on an entry: the way back out, up top as well as at the bottom */
+.w-top-back { font-size: 13.5px; font-weight: 500; color: var(--v-muted); }
+.w-top-back:hover { color: var(--v-gold); }
 /* the only way up: a bare home icon, no box behind it */
 .w-home { display: inline-flex; align-items: center; gap: 8px; padding: 6px; margin-left: -6px; border-radius: 6px; color: var(--v-muted); font-size: 13.5px; font-weight: 500; }
 .w-home svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
