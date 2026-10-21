@@ -58,6 +58,9 @@ experience:
   - role: Student Researcher
     org: AUC Data Science Initiative
     when: July 2024
+  - role: SwiftUI Bootcamp Pariticipant
+    org: Arise and Shine Foundation
+    when: May - June 2025
 honors:
   - title: 2x President's List
     detail: Grambling State University
@@ -65,10 +68,8 @@ honors:
     when: May 2025 – May 2026
   - title: Discover ServiceNow
     detail: 1 out of 30 selected engineering fellows
-  - title: AI4ALL
+    when: August 2025
+  - title: AI4ALL Fellow
     detail: worked on LSTMs and GRUs for time series data
     when: May 2025 - August 2025
-  - title: Arise and Shine Foundation (SwiftUI Bootcamp Participant)
-    detail: Led Student Finance App Development
-    when: 'June 2025 - August 2025 '
 showWriting: true
