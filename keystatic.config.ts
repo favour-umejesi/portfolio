@@ -15,7 +15,7 @@ const articleCaption = () =>
   fields.text({ label: 'Caption (optional)', description: 'Handwritten under the photo; also used as alt text' });
 
 // one-line summary shown on the block inside the editor
-const photoSummary = (value: { image: { filename: string } | null; caption: string }, extra = '') =>
+const photoSummary = (value: { image: { filename: string } | null; caption: string }, extra: string = '') =>
   createElement(
     'span',
     { style: { opacity: 0.7, fontSize: 13 } },
@@ -41,7 +41,7 @@ const articleComponents = {
   }),
   gallery: repeating({
     label: 'Photo row',
-    description: 'Photos taped into the margin beside this part of the writing (side by side on a phone)',
+    description: 'Photos taped in beside this part of the writing: down the right margin on a wide screen, stacked on a phone. Each photo has a Size.',
     children: 'photo',
     validation: { children: { min: 1, max: 4 } },
     schema: {},
@@ -49,8 +49,21 @@ const articleComponents = {
   photo: block({
     label: 'Photo',
     forSpecificLocations: true,
-    schema: { image: articlePhoto(), caption: articleCaption() },
-    ContentView: ({ value }) => photoSummary(value),
+    schema: {
+      image: articlePhoto(),
+      caption: articleCaption(),
+      size: fields.select({
+        label: 'Size',
+        description: 'How wide the print is on the page',
+        options: [
+          { label: 'Small', value: 'small' },
+          { label: 'Medium', value: 'medium' },
+          { label: 'Large', value: 'large' },
+        ],
+        defaultValue: 'medium',
+      }),
+    },
+    ContentView: ({ value }) => photoSummary(value, value.size),
   }),
   sidePhoto: wrapper({
     label: 'Photo beside text',
@@ -80,66 +93,14 @@ export default config({
     ? { kind: 'local' }
     : { kind: 'github', repo: 'favour-umejesi/portfolio' },
   ui: {
-    brand: { name: 'The Diary of a Lucid Dame' },
+    brand: { name: 'Favour Umejesi' },
     navigation: {
-      'Diary entries': ['musings', 'series'],
-      'Research': ['research', 'researchPage'],
-      'Pages': ['home', 'about', 'musingsPage', 'patentLaw'],
+      'Research': ['research', 'news', 'researchPage'],
+      'Musings': ['musings', 'series', 'musingsPage'],
       'Site': ['settings'],
     },
   },
   singletons: {
-    home: singleton({
-      label: 'Home page',
-      path: 'src/content/pages/home',
-      format: { data: 'yaml' },
-      schema: {
-        byline: fields.text({ label: 'Byline', description: 'Under the big title' }),
-        tagline: fields.text({ label: 'Tagline', multiline: true }),
-        status: fields.text({
-          label: 'Status line',
-          description: 'e.g. "Currently: Software Engineering Intern @ ServiceNow."',
-        }),
-        photoCaption: fields.text({ label: 'Photo caption' }),
-      },
-    }),
-    about: singleton({
-      label: 'About page',
-      path: 'src/content/pages/about',
-      format: { data: 'yaml' },
-      schema: {
-        bio: fields.array(fields.text({ label: 'Paragraph', multiline: true }), {
-          label: 'Bio paragraphs',
-          description: 'Wrap a phrase in == to highlight it, or in ** to bold it, e.g. ==Grambling State University== or **mathematics**',
-          itemLabel: (props) => props.value.slice(0, 60) || 'paragraph',
-        }),
-        whatImUpTo: fields.array(fields.text({ label: 'Item' }), {
-          label: "What I'm up to",
-          description: 'The "→" arrow is added automatically',
-          itemLabel: (props) => props.value,
-        }),
-        photos: fields.array(
-          fields.object({
-            image: fields.image({
-              label: 'Photo',
-              directory: 'public/images/about',
-              publicPath: '/images/about/',
-            }),
-            caption: fields.text({ label: 'Caption', description: 'Handwritten under the photo; also used as alt text' }),
-          }),
-          {
-            label: 'Snapshots',
-            description: 'Photos of what you are up to, taped in under the lists. Newest first reads best.',
-            itemLabel: (props) => props.fields.caption.value || 'photo',
-          }
-        ),
-        likes: fields.array(fields.text({ label: 'Chip' }), {
-          label: 'Stuff I like',
-          description: 'Short ones (a word or two) show as chips; longer ones are written out as lines with a heart',
-          itemLabel: (props) => props.value,
-        }),
-      },
-    }),
     musingsPage: singleton({
       label: 'Musings page',
       path: 'src/content/pages/musings',
@@ -147,25 +108,8 @@ export default config({
       schema: {
         intro: fields.array(fields.text({ label: 'Paragraph', multiline: true }), {
           label: 'Intro paragraphs',
+          description: 'Shown under the "musings." heading. Keep it short; the list is the point.',
           itemLabel: (props) => props.value.slice(0, 60) || 'paragraph',
-        }),
-      },
-    }),
-    patentLaw: singleton({
-      label: 'Patent law page',
-      path: 'src/content/pages/patent-law',
-      entryLayout: 'content',
-      format: { contentField: 'body' },
-      schema: {
-        signoff: fields.text({ label: 'Sign-off', description: 'e.g. "— the lucid dame, esq."' }),
-        body: fields.markdoc({
-          label: 'The law itself',
-          options: {
-            image: {
-              directory: 'public/images/pages',
-              publicPath: '/images/pages/',
-            },
-          },
         }),
       },
     }),
@@ -177,26 +121,27 @@ export default config({
         name: fields.text({ label: 'Name' }),
         roles: fields.array(fields.text({ label: 'Word' }), {
           label: 'Titles under your name',
-          description: 'Shown one at a time, rotating. e.g. Student, Developer, Researcher',
+          description: 'Shown one at a time, rotating, in gold small caps under your name. e.g. Student, Developer, Researcher',
           itemLabel: (props) => props.value,
         }),
         affiliation: fields.text({
           label: 'Affiliation',
-          description: 'e.g. "Computer Science and Mathematics, Grambling State University"',
+          description: 'Shown under the role, and used in the page description for search engines. e.g. "Computer Science and Mathematics, Grambling State University"',
         }),
         headline: fields.text({
           label: 'Headline',
           multiline: true,
-          description: 'One or two sentences under your name, academic voice',
+          description: 'Optional opening line at the top of "about me.", before the bio paragraphs',
         }),
         headshot: fields.image({
-          label: 'Headshot (optional)',
+          label: 'Photo (optional)',
+          description: 'Shown upright at 220×264 with square corners at the top of the left column; an upright or square photo crops best.',
           directory: 'public/images/research',
           publicPath: '/images/research/',
         }),
         cv: fields.file({
           label: 'CV (PDF)',
-          description: 'Upload your CV here. The "Download CV" button only appears once a file or link is set.',
+          description: 'Upload your CV here. The "Download CV" link under the icons only appears once a file or link is set.',
           directory: 'public/files',
           publicPath: '/files/',
         }),
@@ -206,16 +151,46 @@ export default config({
         }),
         bio: fields.array(fields.text({ label: 'Paragraph', multiline: true }), {
           label: 'Bio paragraphs',
-          description: 'Wrap a phrase in == to highlight it, or in ** to bold it, e.g. ==Grambling State University== or **mathematics**',
+          description: 'Wrap a phrase in == to highlight it, in ** to bold it, or in * for italics, e.g. ==Grambling State University==, **mathematics**, *Whisper of the Heart*. :guitar: drops in a small guitar icon.',
           itemLabel: (props) => props.value.slice(0, 60) || 'paragraph',
         }),
         interests: fields.array(fields.text({ label: 'Interest' }), {
           label: 'Research interests',
+          description: 'The list under the "research interests." heading',
           itemLabel: (props) => props.value,
         }),
+        papersNote: fields.text({
+          label: 'Papers: placeholder line',
+          description: 'Shown in italics under the "papers." heading until there are papers to list. Leave empty to hide the section.',
+        }),
+        experience: fields.array(
+          fields.object({
+            role: fields.text({ label: 'Role', description: 'e.g. "Machine Learning Engineering Intern"' }),
+            org: fields.text({ label: 'Where', description: 'e.g. "Ursa Space Systems"' }),
+            when: fields.text({ label: 'When', description: 'e.g. "Aug – Dec 2025"' }),
+          }),
+          {
+            label: 'Experience',
+            description: 'Listed in the order you put them here; newest first reads best',
+            itemLabel: (props) =>
+              [props.fields.role.value, props.fields.org.value].filter(Boolean).join(' · ') || 'role',
+          }
+        ),
+        honors: fields.array(
+          fields.object({
+            title: fields.text({ label: 'Honor', description: 'e.g. "Break Through Tech AI Fellow"' }),
+            detail: fields.text({ label: 'Detail (optional)', description: 'e.g. "1 out of 30 selected engineering fellows"' }),
+            when: fields.text({ label: 'When (optional)', description: 'e.g. "May 2025 – May 2026"' }),
+          }),
+          {
+            label: 'Honors',
+            description: 'Listed right after Experience, in the same style',
+            itemLabel: (props) => props.fields.title.value || 'honor',
+          }
+        ),
         showWriting: fields.checkbox({
           label: 'Show a Writing section',
-          description: 'Lists the musings you ticked "Show on research profile" at the bottom of the page',
+          description: 'Lists the musings you ticked "Show on research profile" under "writing." (scrolls once there are more than five)',
           defaultValue: true,
         }),
       },
@@ -235,7 +210,7 @@ export default config({
           }),
           {
             label: 'Social links',
-            description: 'Shown in the footer of every page and on the homepage contact row',
+            description: 'Shown on the profile card and in the musings footer',
             itemLabel: (props) => props.fields.label.value,
           }
         ),
@@ -253,7 +228,7 @@ export default config({
         title: fields.slug({ name: { label: 'Title' } }),
         kind: fields.select({
           label: 'Kind',
-          description: 'Drives the All / Research / Projects filter on the page',
+          description: 'Research shows as a full row under "research." with its status; Project goes in the "selected projects." box with a details popup',
           options: [
             { label: 'Research', value: 'research' },
             { label: 'Project', value: 'project' },
@@ -270,7 +245,7 @@ export default config({
           description: 'Lower numbers appear first',
           defaultValue: 1,
         }),
-        year: fields.text({ label: 'Year', description: 'Free text, e.g. "2025" or "Aug – Dec 2025"' }),
+        year: fields.text({ label: 'Year', description: 'Free text, e.g. "2025" or "Aug – Dec 2025". A research year ending in "present" counts as ongoing.' }),
         context: fields.text({
           label: 'Context',
           description: 'Where it happened, e.g. "Ursa Space Systems" or "JP Morgan Data for Good Hackathon"',
@@ -278,36 +253,41 @@ export default config({
         role: fields.text({ label: 'Role (optional)', description: 'e.g. "ML Engineering Intern", "Team lead"' }),
         thumbnail: fields.image({
           label: 'Thumbnail',
-          description: 'Landscape works best (about 16:10). A plot, a screenshot, a poster crop.',
+          description: 'Research: shown beside the row at its own proportions (a plot or figure reads best). Project: shown at the top of the details popup.',
           directory: 'public/images/research',
           publicPath: '/images/research/',
         }),
         summary: fields.text({
           label: 'Summary',
           multiline: true,
-          description: 'A short overview. Use the fields below for research details. Wrap a phrase in ** or == for emphasis.',
+          description: 'Project: three lines show in the box and the full text in the popup. Research: only a fallback for the Excerpt (its first sentence), so keep the long version here if you like but write the Excerpt. Wrap a phrase in ** or == for emphasis.',
+        }),
+        excerpt: fields.text({
+          label: 'Excerpt (optional)',
+          description: 'Research only: the two or three sentences shown on the row. Write it to stand alone; the sections below wait under "more". Left empty, the first sentence of the summary is used.',
         }),
         question: fields.text({
-          label: 'Research question',
+          label: 'Question or problem',
           multiline: true,
-          description: 'Optional. What question are you investigating?',
+          description: 'Optional, one or two sentences. Research: the question you are investigating, shown under "more" as "Research question". Project: the problem it set out to solve, shown in the popup as "The problem".',
         }),
         contribution: fields.text({
           label: 'My contribution',
           multiline: true,
-          description: 'Optional. Describe your own contribution, especially for team work.',
+          description: 'Optional, one or two sentences. Your own part, especially in team work. Shown under "more" as "My contribution" for research, in the popup as "What I did" for a project.',
         }),
         findings: fields.text({
-          label: 'Findings',
+          label: 'Findings or outcome',
           multiline: true,
-          description: 'Optional. Results, limitations, or open questions. Label preliminary findings clearly.',
+          description: 'Optional, one or two sentences. Research: results, limitations, open questions (label preliminary findings clearly), shown under "more" as "Findings". Project: what came of it, e.g. placement, recognition, users, shown in the popup as "Outcome".',
         }),
         status: fields.text({
           label: 'Status',
-          description: 'Optional. For example: Ongoing, Completed, or Preliminary results.',
+          description: 'Research only. "Ongoing" marks the row with a gold dot and lists it first; anything else, or empty, reads as Completed.',
         }),
         tags: fields.array(fields.text({ label: 'Tag' }), {
           label: 'Tags',
+          description: 'Shown under "more" on a research row, and in the popup for a project',
           itemLabel: (props) => props.value,
         }),
         links: fields.array(
@@ -315,8 +295,44 @@ export default config({
             label: fields.text({ label: 'Label', description: 'e.g. "code", "poster", "report", "notes"' }),
             url: fields.text({ label: 'URL', description: 'https://... or a path on this site like /musings/some-entry' }),
           }),
-          { label: 'Links', itemLabel: (props) => props.fields.label.value || 'link' }
+          {
+            label: 'Links',
+            description: 'Shown under "more" on a research row, and at the bottom of a project popup. Labels print in lowercase.',
+            itemLabel: (props) => props.fields.label.value || 'link',
+          }
         ),
+      },
+    }),
+    news: collection({
+      label: 'News',
+      slugField: 'title',
+      path: 'src/content/news/*',
+      format: { data: 'yaml' },
+      schema: {
+        title: fields.slug({
+          name: {
+            label: 'The line',
+            description: 'One sentence, e.g. "Started as an ML Engineering Intern at Ursa Space Systems."',
+          },
+        }),
+        date: fields.date({
+          label: 'Date',
+          description: 'Orders the list, newest first. Shown as month and year.',
+          validation: { isRequired: true },
+        }),
+        when: fields.text({
+          label: 'Shown date (optional)',
+          description: 'Replaces the month and year, e.g. "Spring 2026" or just "2025"',
+        }),
+        url: fields.text({
+          label: 'Link (optional)',
+          description: 'https://... or a path on this site like /musings/some-entry',
+        }),
+        draft: fields.checkbox({
+          label: 'Draft',
+          description: 'Drafts are hidden from the live site until you untick this',
+          defaultValue: false,
+        }),
       },
     }),
     musings: collection({
@@ -334,25 +350,26 @@ export default config({
         }),
         research: fields.checkbox({
           label: 'Show on research profile',
-          description: 'Lists this entry under "writings." on the research profile (the home page)',
+          description: 'Lists this entry under "writing." on the research profile',
           defaultValue: false,
         }),
         series: fields.relationship({
           label: 'Playlist (optional)',
           description:
-            'Files this entry into a playlist: it shows on the playlist page instead of as its own card on the musings page. Parts are numbered by date, oldest first.',
+            'Files this entry into a playlist: it shows on the playlist page instead of as its own row on the musings page. Parts are numbered by date, oldest first.',
           collection: 'series',
         }),
         date: fields.date({ label: 'Date', validation: { isRequired: true } }),
-        readTime: fields.integer({ label: 'Read time (minutes)', defaultValue: 5 }),
+        readTime: fields.integer({ label: 'Read time (minutes)', description: 'Shown in the meta line, e.g. "5 MIN READ"', defaultValue: 5 }),
         tags: fields.array(fields.text({ label: 'Tag' }), {
           label: 'Tags',
+          description: 'Shown under the title on the entry page, not in the list',
           itemLabel: (props) => props.value,
         }),
         excerpt: fields.text({
           label: 'Excerpt',
           multiline: true,
-          description: 'Shown on the musings page card',
+          description: 'Shown under the title in the musings list, cut to one line. Also the page description for search engines.',
         }),
         externalUrl: fields.url({
           label: 'External URL (optional)',
@@ -410,7 +427,7 @@ export default config({
         description: fields.text({
           label: 'Description',
           multiline: true,
-          description: 'A line or two shown on the playlist card and its page. A playlist only appears once it has a published entry.',
+          description: 'A line or two shown on the playlist row (one line) and its page. A playlist only appears once it has a published entry.',
         }),
       },
     }),

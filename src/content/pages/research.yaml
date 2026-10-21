@@ -8,18 +8,61 @@ headshot: /images/research/headshot.jpg
 cv: /files/cv.pdf
 bio:
   - >-
-    Hello, I’m Favour Umejesi, a third-year ==Computer Science== student at
-    ==Grambling State University== with a minor in ==Mathematics==.
+    Hello! I'm Favour Umejesi, a third-year ==Computer Science== student at
+    ==Grambling State University==, minoring in ==Mathematics==.
   - >-
-    My current research focuses on the mechanistic interpretability of large
-    language models, where I investigate how internal model components
-    contribute to factual recall, hallucinations, and biased outputs. Under the
-    supervision of my Deep Learning professor, ==Dr. Vivya Kalidindi==, I am
-    exploring techniques such as layer ablation and game-theoretic methods to
-    better understand how information is represented and processed within LLMs.
+    I'm curious about how intelligent systems work, why they behave the way
+    they do, and what it takes to make them ==more reliable for the people who
+    use them==. I enjoy both understanding the science behind these systems and
+    building software that solves real problems.
+  - >-
+    Currently, under the guidance of ==Dr. Vivya Kalidindi==, I'm exploring
+    ==mechanistic interpretability== in large language models. My work began
+    with investigating the effects of layer ablation on GPT-2 and has since led
+    me to broader questions about factual recall, hallucinations, and how
+    knowledge is represented within neural networks. I'm particularly
+    interested in ==AI safety== and ==human-AI collaboration==, though I'm
+    still discovering the questions I want to pursue.
+  - >-
+    The more I learn, the more I realize how much there is to understand. I've
+    come to appreciate research not just for the answers it might provide, but
+    for ==the questions it teaches me to ask==. I'm learning, building, and
+    figuring things out along the way.
+  - >-
+    Outside of computer science, you'll probably find me reading classic
+    literature, watching a Studio Ghibli film (my favorites are *Whisper of the
+    Heart* and *From Up on Poppy Hill* ♡), or attempting to teach myself to
+    play the guitar :guitar:. The guitar is very much a work in progress! :)
 interests:
   - Mechanistic Interpretability
   - AI Safety
   - LLM Architecture
   - Human-Agent Collaboration
 showWriting: true
+papersNote: coming soon ♡...
+experience:
+  - role: Software Engineering Intern
+    org: ServiceNow
+    when: May – Aug 2026
+  - role: Undergraduate Researcher
+    org: Grambling State University
+    when: 2026 – present
+  - role: Machine Learning Fellow
+    org: Ursa Space Systems
+    when: Aug – Dec 2025
+  - role: Platform Engineering Intern
+    org: Netskope
+    when: Jun – Sep 2025
+  - role: AI Extern
+    org: PwC
+    when: Feb – Apr 2025
+honors:
+  - title: 2x President's List
+    detail: Grambling State University
+    when: ''
+  - title: Break Through Tech AI Fellow
+    detail: ''
+    when: May 2025 – May 2026
+  - title: Discover ServiceNow
+    detail: 1 out of 30 selected engineering fellows
+    when: ''

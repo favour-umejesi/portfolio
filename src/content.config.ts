@@ -50,6 +50,7 @@ const research = defineCollection({
     role: z.string().optional().nullable(),
     thumbnail: z.string().optional().nullable(),
     summary: z.string(),
+    excerpt: z.string().optional().nullable(),
     question: z.string().optional().nullable(),
     contribution: z.string().optional().nullable(),
     findings: z.string().optional().nullable(),
@@ -61,11 +62,16 @@ const research = defineCollection({
   }),
 });
 
-// the patent-law essay is a Keystatic singleton, but Astro reads it as a
-// one-entry collection so the markdoc body renders through the normal pipeline
-const lawPage = defineCollection({
-  loader: glob({ pattern: 'patent-law.mdoc', base: './src/content/pages' }),
-  schema: z.object({ signoff: z.string().optional() }),
+// news: short dated lines on the research profile, newest first
+const news = defineCollection({
+  loader: glob({ pattern: '**/*.yaml', base: './src/content/news' }),
+  schema: z.object({
+    title: z.string(),
+    date: z.coerce.date(),
+    when: z.string().optional().nullable(),
+    url: z.string().optional().nullable(),
+    draft: z.boolean().default(false),
+  }),
 });
 
-export const collections = { musings, series, research, lawPage };
+export const collections = { musings, series, research, news };

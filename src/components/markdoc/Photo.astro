@@ -2,13 +2,14 @@
 interface Props {
   image?: string | null;
   caption?: string | null;
+  size?: 'small' | 'medium' | 'large';
 }
 
-const { image, caption } = Astro.props;
+const { image, caption, size = 'medium' } = Astro.props;
 ---
 
 {image && (
-  <figure class="taped-photo">
+  <figure class={`taped-photo taped-${size}`}>
     <img src={image} alt={caption || ''} loading="lazy" />
     {caption && <figcaption>{caption}</figcaption>}
   </figure>

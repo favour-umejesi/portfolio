@@ -4,8 +4,9 @@ draft: false
 order: 2
 year: Aug – Dec 2025
 context: Ursa Space Systems
-role: Machine Learning Engineering Intern
+role: Machine Learning Fellow
 thumbnail: /images/research/ship-and-iceberg-detection-in-satellite-imagery/thumbnail.png
+status: Completed
 summary: >-
   As part of a research team, investigated machine learning and transfer
   learning approaches for ship vs. iceberg classification using Synthetic
@@ -17,6 +18,22 @@ summary: >-
   separation among the pretrained representations. Our findings highlighted the
   limitations of transferring representations learned from natural images to
   specialized SAR imagery with limited labeled data.
+excerpt: >-
+  A transfer-learning study at Ursa Space Systems on ship vs. iceberg
+  classification in SAR imagery, comparing a baseline MLP trained on 1,604
+  labeled images with pretrained ViT and ConvNeXT embeddings.
+question: >-
+  Do representations learned from natural images transfer to ship vs. iceberg
+  classification in SAR imagery when labeled data is scarce?
+contribution: >-
+  Evaluated a baseline MLP trained on 1,604 labeled SAR images against models
+  built on pretrained ViT and ConvNeXT embeddings, and compared the
+  representations with PCA and t-SNE.
+findings: >-
+  The baseline reached 96% validation accuracy and 0.9855 ROC-AUC and beat the
+  embedding-based models; ConvNeXT gave the clearest class separation among the
+  pretrained features. Natural-image representations transfer poorly to
+  specialized SAR data with few labels.
 tags:
   - transfer learning
   - Computer Vision

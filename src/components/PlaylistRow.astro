@@ -1,0 +1,20 @@
+---
+// A playlist (a series of musings) in the list, linking to its own page.
+interface Props {
+  id: string;
+  title: string;
+  description?: string | null;
+  count: number;
+  /** every entry is still a draft, so the row only exists in dev/preview */
+  draft?: boolean;
+}
+
+const { id, title, description, count, draft = false } = Astro.props;
+const href = `/musings/playlists/${id}`;
+---
+
+<li class="w-item">
+  <p class="w-meta">{draft && <span class="w-draft">Draft · </span>}Playlist · {count} {count === 1 ? 'part' : 'parts'}</p>
+  <h2><a href={href}>{title}</a></h2>
+  {description && <p class="w-excerpt">{description}</p>}
+</li>

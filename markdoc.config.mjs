@@ -29,6 +29,7 @@ export default defineMarkdocConfig({
       attributes: {
         image: { type: String },
         caption: { type: String },
+        size: { type: String, default: 'medium', matches: ['small', 'medium', 'large'] },
       },
     },
     // one photo with the writing wrapped around it

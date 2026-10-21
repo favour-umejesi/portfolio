@@ -11,11 +11,33 @@ const settings = await readSingleton('settings');
 const works = (await getCollection('research'))
   .filter((w) => showDrafts || !w.data.draft)
   .sort((a, b) => a.data.order - b.data.order);
+// research: ongoing work first (a status of "Ongoing", or a year ending in
+// "present"), then completed; projects keep their order
+const isOngoing = (w: (typeof works)[number]) =>
+  /ongoing|in progress|present/i.test(w.data.status ?? '') || /present/i.test(w.data.year ?? '');
+const research = works
+  .filter((w) => w.data.kind === 'research')
+  .sort((a, b) => Number(isOngoing(b)) - Number(isOngoing(a)));
+const projects = works.filter((w) => w.data.kind === 'project');
 
-const hasResearch = works.some((w) => w.data.kind === 'research');
-const hasProjects = works.some((w) => w.data.kind === 'project');
+// what a research row says on the page: the excerpt field, or else the first
+// sentence of the summary (abbreviations like "Dr." and "vs." don't end one);
+// the labelled sections, tags and links wait under "more"
+const firstSentence = (text: string) => {
+  const m = text.match(/^([\s\S]+?(?<!\b(?:Prof|Dr|Mr|Ms|Mrs|vs|Fig|No|St|e\.g|i\.e))[.!?])\s+(?=[A-Z"“(])/);
+  return m ? { head: m[1], rest: text.slice(m[0].length) } : { head: text, rest: '' };
+};
+const teaser = (w: (typeof works)[number]) =>
+  w.data.excerpt ? { head: w.data.excerpt, rest: '' } : firstSentence(w.data.summary);
 
-const email = settings.socials.find((s) => s.url.startsWith('mailto:'));
+// news: short dated lines, newest first; drafts only in dev and previews
+const news = (await getCollection('news'))
+  .filter((n) => showDrafts || !n.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const experience = (page.experience ?? []).filter((e) => e.role || e.org);
+const honors = (page.honors ?? []).filter((h) => h.title);
+
 
 // writing: published musings ticked for the research profile, newest first
 type Note = { title: string; date: Date; href: string; external: boolean; source: string };
@@ -37,8 +59,24 @@ if (page.showWriting) {
 
 const fmt = (d: Date) =>
   d.toLocaleDateString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' });
-const kindLabel = (k: string) => (k === 'research' ? 'Research' : 'Project');
 const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+const meta = (w: (typeof works)[number]) =>
+  [w.data.context, w.data.role, w.data.year].filter(Boolean).join(' · ');
+const isExternal = (url: string) => !url.startsWith('/') && !url.startsWith('#');
+
+// the three detail fields read differently for a study and for a project
+const detailLabels = (kind: string) =>
+  kind === 'research'
+    ? { question: 'Research question', contribution: 'My contribution', findings: 'Findings' }
+    : { question: 'The problem', contribution: 'What I did', findings: 'Outcome' };
+const details = (w: (typeof works)[number]) => {
+  const l = detailLabels(w.data.kind);
+  return [
+    { label: l.question, value: w.data.question },
+    { label: l.contribution, value: w.data.contribution },
+    { label: l.findings, value: w.data.findings },
+  ].filter((d) => d.value);
+};
 
 // bio and summaries are plain text with two shortcuts:
 // ==phrase== becomes a highlight, **phrase** becomes bold
@@ -64,11 +102,7 @@ const rotatorCss = roles.length > 1
 // one simple line-icon set, drawn for this page; social ones keyed by the
 // label used in site settings, anything unknown falls back to a letter
 const icon = {
-  about: '<circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.9 3.1-6 7-6s7 2.1 7 6"/>',
-  works: '<path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/><path d="M10 12h5M10 16h5"/>',
-  diary: '<rect x="6" y="3" width="13" height="18" rx="2"/><path d="M4 7h4M4 12h4M4 17h4"/>',
   download: '<path d="M12 4v11"/><path d="M7 10l5 5 5-5"/><path d="M5 20h14"/>',
-  arrow: '<path d="M5 12h14"/><path d="M13 6l6 6-6 6"/>',
 };
 const social: Record<string, string> = {
   email: '<rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3 8l9 6 9-6"/>',
@@ -82,19 +116,12 @@ const social: Record<string, string> = {
 
 <ResearchLayout
   title={`${page.name} — Research`}
-  description={[`${page.name}: research portfolio`, page.affiliation].filter(Boolean).join('. ') + '.'}
+  description={[`${page.name}: research profile`, page.affiliation].filter(Boolean).join('. ') + '.'}
 >
-  <nav class="v-card v-sidenav" slot="sidenav" aria-label="Sections">
-    <a href="#about"><svg viewBox="0 0 24 24" set:html={icon.about} />About</a>
-    <a href="#works"><svg viewBox="0 0 24 24" set:html={icon.works} />Works</a>
-    <a href="/diary" title="Back to the diary"><svg viewBox="0 0 24 24" set:html={icon.diary} />Diary</a>
-  </nav>
-
-  <aside class="v-card v-profile" slot="profile">
-    {page.headshot
-      ? <img class="v-photo" src={page.headshot} alt={page.name} />
-      : <div class="v-photo--empty" aria-hidden="true"></div>}
+  <aside class="v-profile" slot="profile">
     <div class="v-identity">
+      {page.headshot && <img class="v-photo" src={page.headshot} alt={page.name} />}
+      <div class="v-identity-text">
       <h1>{page.name}</h1>
       {roles.length > 0 && (
         <div class="v-role">
@@ -120,20 +147,17 @@ const social: Record<string, string> = {
           </a>
         ))}
       </p>
+      </div>
     </div>
     <div class="v-actions">
       {(page.cv || page.cvUrl) && (
         <a href={page.cv || page.cvUrl} target="_blank" rel="noopener">Download CV <svg viewBox="0 0 24 24" set:html={icon.download} /></a>
       )}
-      {email && (
-        <a href={email.url}>Contact me <svg viewBox="0 0 24 24" set:html={icon.arrow} /></a>
-      )}
     </div>
   </aside>
 
-  <main class="v-card v-content" slot="content">
-   <div class="v-panel" id="about">
-    <section class="v-section">
+  <main class="v-content" slot="content">
+    <section class="v-section" id="about">
       <div class="v-heading"><h2>about me.</h2></div>
       <div class="v-prose">
         {page.headline && <p>{page.headline}</p>}
@@ -142,47 +166,120 @@ const social: Record<string, string> = {
     </section>
 
     {page.interests.length > 0 && (
-      <section class="v-section">
+      <section class="v-section" id="interests">
         <div class="v-heading"><h2>research interests.</h2></div>
         <ul class="v-interests">{page.interests.map((i) => <li>{i}</li>)}</ul>
       </section>
     )}
 
-   </div>
-
-   <div class="v-panel" id="works">
-    {works.length > 0 && (
-      <section class="v-section v-works">
-        <input type="radio" name="filter" id="f-all" checked />
-        <input type="radio" name="filter" id="f-research" />
-        <input type="radio" name="filter" id="f-project" />
-        <div class="v-heading">
-          <h2>recent works.</h2>
-          <div class="v-tabs">
-            <label for="f-all">All</label>
-            {hasResearch && <label for="f-research">Research</label>}
-            {hasProjects && <label for="f-project">Projects</label>}
-          </div>
+    {news.length > 0 && (
+      <section class="v-section" id="news">
+        <div class="v-heading"><h2>news.</h2></div>
+        <div class="v-scroll v-news" tabindex="0" aria-label="News, newest first">
+          <ul>
+            {news.map((n) => (
+              <li>
+                <span class="v-when">{n.data.when || fmt(n.data.date)}</span>
+                <span>
+                  {n.data.draft && <span class="v-draft">Draft · </span>}
+                  {n.data.url
+                    ? isExternal(n.data.url)
+                      ? <a href={n.data.url} target="_blank" rel="noopener">{n.data.title}</a>
+                      : <a href={n.data.url}>{n.data.title}</a>
+                    : n.data.title}
+                </span>
+              </li>
+            ))}
+          </ul>
         </div>
-        <div class="v-grid">
-          {works.map((w) => (
-            <article class="v-work" data-kind={w.data.kind}>
+      </section>
+    )}
+
+    {research.length > 0 && (
+      <section class="v-section" id="research">
+        <div class="v-heading"><h2>research.</h2></div>
+        {research.map((w) => {
+          const t = teaser(w);
+          const ongoing = isOngoing(w);
+          const hasMore = Boolean(details(w).length || w.data.tags.length || w.data.links.some((l) => l.url));
+          return (
+          <article class={`v-research${ongoing ? ' is-ongoing' : ''}`} id={`work-${w.id}`}>
+            {w.data.thumbnail && (
+              <a class="v-figure" href={w.data.thumbnail} target="_blank" rel="noopener" title="Open the figure at full size">
+                <img src={w.data.thumbnail} alt={`Figure from ${w.data.title}`} loading="lazy" />
+              </a>
+            )}
+            <div class="v-research-body">
+              <p class="v-status">
+                <span class="v-status-dot" aria-hidden="true"></span>
+                {ongoing ? 'Ongoing' : 'Completed'}{w.data.draft && <span class="v-draft"> · Draft</span>}
+              </p>
+              <h3>{w.data.title}</h3>
+              {meta(w) && <p class="v-meta">{meta(w)}</p>}
+              <p class="v-excerpt" set:html={rich(t.head)} />
+              {hasMore && (
+                <details class="v-more">
+                  <summary><span class="v-more-open">more</span><span class="v-more-close">less</span></summary>
+                  {details(w).length > 0 && (
+                    <dl class="v-details v-prose">
+                      {details(w).map((d) => (
+                        <div>
+                          <dt>{d.label}</dt>
+                          <dd set:html={rich(d.value!)} />
+                        </div>
+                      ))}
+                    </dl>
+                  )}
+                  {w.data.tags.length > 0 && <p class="v-tags">{w.data.tags.join(' · ')}</p>}
+                  {w.data.links.some((l) => l.url) && (
+                    <p class="v-links v-links--text">
+                      {w.data.links.filter((l) => l.url).map((l) =>
+                        isExternal(l.url!)
+                          ? <a href={l.url!} target="_blank" rel="noopener">{l.label.toLowerCase()} ↗</a>
+                          : <a href={l.url!}>{l.label.toLowerCase()} →</a>
+                      )}
+                    </p>
+                  )}
+                </details>
+              )}
+            </div>
+          </article>
+          );
+        })}
+      </section>
+    )}
+
+    {page.papersNote && (
+      <section class="v-section" id="papers">
+        <div class="v-heading"><h2>papers.</h2></div>
+        <p class="v-placeholder">{page.papersNote}</p>
+      </section>
+    )}
+
+    {projects.length > 0 && (
+      <section class="v-section" id="projects">
+        <div class="v-heading"><h2>selected projects.</h2></div>
+        <div class="v-scroll v-projects-scroll" tabindex="0" aria-label="Selected projects">
+        <div class="v-projects">
+          {projects.map((w) => (
+            <article class="v-project">
               <a href={`#work-${w.id}`}>
-                {w.data.thumbnail
-                  ? <img class="v-thumb" src={w.data.thumbnail} alt="" loading="lazy" />
-                  : <div class="v-thumb v-thumb--empty" aria-hidden="true">{kindLabel(w.data.kind)}</div>}
-                <h3 class="v-work-title">{w.data.title}</h3>
-                <p class="v-work-kind">{w.data.draft && 'Draft · '}{kindLabel(w.data.kind)}</p>
+                <h3>{w.data.draft && <span class="v-draft">Draft · </span>}{w.data.title}</h3>
+                {meta(w) && <p class="v-meta">{meta(w)}</p>}
+                <p class="v-clamp" set:html={rich(w.data.summary)} />
+                <span class="v-more">details →</span>
               </a>
             </article>
           ))}
+        </div>
         </div>
       </section>
     )}
 
     {notes.length > 0 && (
-      <section class="v-section">
-        <div class="v-heading"><h2>writings.</h2></div>
+      <section class="v-section" id="writing">
+        <div class="v-heading"><h2>writing.</h2><a class="v-heading-link" href="/musings">all musings →</a></div>
+        <div class={notes.length > 5 ? 'v-scroll v-writing-scroll' : undefined} tabindex={notes.length > 5 ? 0 : undefined} aria-label={notes.length > 5 ? 'Writings' : undefined}>
         <ul class="v-writing">
           {notes.map((n) => (
             <li>
@@ -191,62 +288,75 @@ const social: Record<string, string> = {
                 {n.external
                   ? <a href={n.href} target="_blank" rel="noopener">{n.title} ↗</a>
                   : <a href={n.href}>{n.title}</a>}
-                <span class="v-src"> · {n.source}</span>
               </span>
             </li>
           ))}
         </ul>
+        </div>
+      </section>
+    )}
+
+    {(experience.length > 0 || honors.length > 0) && (
+      <section class="v-section" id="experience">
+        <div class="v-heading"><h2>{honors.length > 0 ? 'experience and honors.' : 'experience.'}</h2></div>
+        <div class="v-scroll v-exp-scroll" tabindex="0" aria-label="Experience and honors">
+          <ul class="v-exp">
+            {experience.map((e) => (
+              <li>
+                <span><span class="v-exp-role">{e.role}</span>{e.org && <span class="v-exp-org"> · {e.org}</span>}</span>
+                {e.when && <span class="v-when">{e.when}</span>}
+              </li>
+            ))}
+            {honors.map((h) => (
+              <li>
+                <span><span class="v-exp-role">{h.title}</span>{h.detail && <span class="v-exp-org"> · {h.detail}</span>}</span>
+                {h.when && <span class="v-when">{h.when}</span>}
+              </li>
+            ))}
+          </ul>
+        </div>
       </section>
     )}
 
     <p class="v-footer">
       <span>{settings.copyright}</span>
-      <a href="/diary">back to the diary</a>
     </p>
-   </div>
   </main>
 
   <Fragment slot="after">
     {rotatorCss && <style is:inline set:html={rotatorCss} />}
-    {works.map((w) => {
-      const meta = [w.data.context, w.data.role, w.data.year, w.data.status].filter(Boolean).join(' · ');
-      return (
-        <div class="v-modal" id={`work-${w.id}`} role="dialog" aria-labelledby={`work-${w.id}-title`}>
-          <a class="v-modal-backdrop" href="#works" aria-label="Close"></a>
-          <div class="v-modal-box">
-            <a class="v-modal-close" href="#works" aria-label="Close">×</a>
-            {w.data.thumbnail && <img src={w.data.thumbnail} alt="" />}
-            <p class="v-work-kind">{kindLabel(w.data.kind)}</p>
-            <h3 id={`work-${w.id}-title`}>{w.data.title}</h3>
-            {meta && <p class="v-modal-meta">{meta}</p>}
-            <div class="v-prose"><p set:html={rich(w.data.summary)} /></div>
-            {(w.data.question || w.data.contribution || w.data.findings) && (
-              <dl class="v-research-details v-prose">
-                {[
-                  { label: 'Research question', value: w.data.question },
-                  { label: 'My contribution', value: w.data.contribution },
-                  { label: 'Findings', value: w.data.findings },
-                ].filter((detail) => detail.value).map((detail) => (
-                  <div>
-                    <dt><strong>{detail.label}</strong></dt>
-                    <dd set:html={rich(detail.value!)} />
-                  </div>
-                ))}
-              </dl>
-            )}
-            {w.data.tags.length > 0 && <p class="v-modal-tags">{w.data.tags.join(' · ')}</p>}
-            {w.data.links.some((l) => l.url) && (
-              <p class="v-modal-links">
-                {w.data.links.filter((l) => l.url).map((l) =>
-                  l.url.startsWith('/')
-                    ? <a href={l.url}>{l.label} →</a>
-                    : <a href={l.url} target="_blank" rel="noopener">{l.label} ↗</a>
-                )}
-              </p>
-            )}
-          </div>
+    {projects.map((w) => (
+      <div class="v-modal" id={`work-${w.id}`} role="dialog" aria-labelledby={`work-${w.id}-title`}>
+        <a class="v-modal-backdrop" href="#projects" aria-label="Close"></a>
+        <div class="v-modal-box">
+          <a class="v-modal-close" href="#projects" aria-label="Close">×</a>
+          {w.data.thumbnail && <img src={w.data.thumbnail} alt="" />}
+          <p class="v-work-kind">Project</p>
+          <h3 id={`work-${w.id}-title`}>{w.data.title}</h3>
+          {meta(w) && <p class="v-modal-meta">{meta(w)}</p>}
+          <div class="v-prose"><p set:html={rich(w.data.summary)} /></div>
+          {(w.data.question || w.data.contribution || w.data.findings) && (
+            <dl class="v-details v-prose">
+              {details(w).map((d) => (
+                <div>
+                  <dt>{d.label}</dt>
+                  <dd set:html={rich(d.value!)} />
+                </div>
+              ))}
+            </dl>
+          )}
+          {w.data.tags.length > 0 && <p class="v-tags">{w.data.tags.join(' · ')}</p>}
+          {w.data.links.some((l) => l.url) && (
+            <p class="v-links">
+              {w.data.links.filter((l) => l.url).map((l) =>
+                isExternal(l.url!)
+                  ? <a href={l.url!} target="_blank" rel="noopener">{l.label} ↗</a>
+                  : <a href={l.url!}>{l.label} →</a>
+              )}
+            </p>
+          )}
         </div>
-      );
-    })}
+      </div>
+    ))}
   </Fragment>
 </ResearchLayout>

@@ -6,6 +6,7 @@ year: 2026 – present
 context: Grambling State University
 role: Undergraduate Researcher
 thumbnail: /images/research/mechanistic-interpretability-of-llms/thumbnail.png
+status: Ongoing
 summary: >-
   Conducting ongoing undergraduate research under the guidance of Prof. Vivya
   Kalidindi at Grambling State University, investigating how information is
@@ -18,6 +19,21 @@ summary: >-
   predictions and latent hallucinations. This work explores how understanding
   layer-level behavior can provide greater insight into the internal mechanisms
   behind factual recall, hallucinations, and model confidence.
+excerpt: >-
+  Ongoing work with Prof. Vivya Kalidindi on how GPT-2 represents and
+  processes information across its layers, using layer-wise ablation and logit
+  attribution to trace factual recall, hallucinations, and model confidence.
+question: >-
+  Which layers of a transformer carry a fact to the output, and which ones
+  suppress it, when a model recalls, hallucinates, or hedges?
+contribution: >-
+  Layer-wise zero-ablation of GPT-2's feed-forward layers to measure each
+  layer's effect on predictions, and logit attribution across the residual
+  stream with TransformerLens and PyTorch.
+findings: >-
+  Preliminary: a small set of candidate "source" layers that raise the right
+  answer and "inhibitor" layers that hold it back, which together may help
+  localize factual knowledge and latent hallucinations.
 tags:
   - Mechanistic Interpretability
   - LLMs

@@ -1,8 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import TitleBlock from '../../components/TitleBlock.astro';
-import { entryMeta, underline, showDrafts, playlistParts } from '../../lib/entries';
+import MusingsLayout from '../../layouts/MusingsLayout.astro';
+import { entryMeta, showDrafts, playlistParts } from '../../lib/entries';
 
 export async function getStaticPaths() {
   const posts = (await getCollection('musings')).filter(
@@ -33,33 +32,29 @@ const partHref = (p: typeof post) => p.data.externalUrl ?? `/musings/${p.id}`;
 // neighbouring parts published elsewhere (e.g. Medium) open in a new tab
 const outbound = (p: typeof post) => (p.data.externalUrl ? { target: '_blank', rel: 'noopener' } : {});
 const { Content } = await render(post);
-const u = underline(post.data.title);
-// mood photos close the entry: a strip of prints pinned under the writing
+// mood photos close the entry: a strip of prints under the writing
 const mood = (post.data.moodPhotos ?? []).filter((photo) => photo.image);
 ---
 
-<BaseLayout
-  title={`${post.data.title} — The Diary of a Lucid Dame`}
-  description={post.data.excerpt ?? `A diary entry by Favour Umejesi: ${post.data.title}`}
-  active="musings"
-  caveat
-  quote="Don't expect me to be all ‘Dear Diary’ this and ‘Dear Diary’ that."
-  quoteBy="Greg Heffley"
+<MusingsLayout
+  title={`${post.data.title} — Favour Umejesi`}
+  description={post.data.excerpt ?? `A musing by Favour Umejesi: ${post.data.title}`}
 >
-  <TitleBlock title={post.data.title} underlineWidth={u.width} path={u.path} />
-
-  <article class="panel article-page">
+  <article class="article-page">
     <div class="article-column">
-    {playlist && (
-      <p class="article-meta playlist-crumb">
-        PART {playlist.part} OF {playlist.total} · <a href={`/musings/playlists/${playlist.id}`}>{playlist.title.toUpperCase()}</a>
-      </p>
-    )}
-    <p class="article-meta">{post.data.draft && 'DRAFT · '}{entryMeta(post.data.date, post.data.readTime)}</p>
-    {post.data.tags.length > 0 && <p class="article-tags">{post.data.tags.join(' · ')}</p>}
-    <div class="article-body">
-      <Content />
-    </div>
+      <header>
+        {playlist && (
+          <p class="w-meta playlist-crumb">
+            Part {playlist.part} of {playlist.total} · <a href={`/musings/playlists/${playlist.id}`}>{playlist.title}</a>
+          </p>
+        )}
+        <h1 class="w-title">{post.data.title}</h1>
+        <p class="w-meta">{post.data.draft && <span class="w-draft">Draft · </span>}{entryMeta(post.data.date, post.data.readTime)}</p>
+        {post.data.tags.length > 0 && <p class="w-tags">{post.data.tags.join(' · ')}</p>}
+      </header>
+      <div class="article-body">
+        <Content />
+      </div>
     </div>
   </article>
 
@@ -116,6 +111,6 @@ const mood = (post.data.moodPhotos ?? []).filter((photo) => photo.image);
 
   <p class="back-link">
     {playlist && <><a href={`/musings/playlists/${playlist.id}`}>← back to the playlist</a> · </>}
-    <a href="/musings">{playlist ? 'all musings' : '← back to musings'}</a>
+    <a href="/musings">{playlist ? 'all musings' : '← all musings'}</a>
   </p>
-</BaseLayout>
+</MusingsLayout>

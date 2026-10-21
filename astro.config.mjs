@@ -15,7 +15,11 @@ export default defineConfig({
     '/research-profile': '/',
     '/projects': '/',
     '/experience': '/',
-    '/journey': '/about',
+    '/journey': '/',
     '/theories': '/musings',
+    // the diary pages are gone; the writing lives on at /musings
+    '/diary': '/',
+    '/about': '/',
+    '/patent-law': '/',
   },
 });

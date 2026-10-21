@@ -42,16 +42,6 @@ export function sourceName(url: string): string {
   return label.charAt(0) + label.slice(1).toLowerCase();
 }
 
-// Generates a squiggly title underline in the same hand-drawn style as the
-// fixed pages (repeating 48px humps), sized roughly to the title length.
-export function underline(title: string): { width: number; path: string } {
-  const width = Math.min(620, Math.max(180, Math.round(title.length * 21)));
-  const pairs = Math.max(3, Math.round((width - 50) / 48));
-  const path =
-    'M2 7q24-6 48 0t' + Array.from({ length: pairs }, () => '48 0').join(' ');
-  return { width, path };
-}
-
 // Playlists: musings filed under a series show up as one mixtape card on the
 // musings page and get their own page of entries. Parts run oldest-first, so
 // the part number is just the position.

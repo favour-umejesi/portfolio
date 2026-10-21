@@ -1,0 +1,22 @@
+---
+// One musing in the list: meta line, title, one line of the excerpt.
+import type { CollectionEntry } from 'astro:content';
+import { entryMeta } from '../lib/entries';
+
+interface Props {
+  post: CollectionEntry<'musings'>;
+  part?: number;
+}
+
+const { post, part } = Astro.props;
+const external = post.data.externalUrl ?? undefined;
+const href = external ?? `/musings/${post.id}`;
+---
+
+<li class="w-item">
+  <p class="w-meta">{part && `Part ${String(part).padStart(2, '0')} · `}{post.data.draft && <span class="w-draft">Draft · </span>}{entryMeta(post.data.date, post.data.readTime, external)}</p>
+  <h2>{external
+    ? <a href={href} target="_blank" rel="noopener">{post.data.title} ↗</a>
+    : <a href={href}>{post.data.title}</a>}</h2>
+  {post.data.excerpt && <p class="w-excerpt">{post.data.excerpt}</p>}
+</li>
