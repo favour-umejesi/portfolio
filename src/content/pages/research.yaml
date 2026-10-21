@@ -45,7 +45,7 @@ experience:
     when: May – Aug 2026
   - role: Undergraduate Researcher
     org: Grambling State University
-    when: 2026 – present
+    when: February 2026 – present
   - role: Machine Learning Fellow
     org: Ursa Space Systems
     when: Aug – Dec 2025
@@ -64,6 +64,7 @@ experience:
 honors:
   - title: 2x President's List
     detail: Grambling State University
+    when: Spring 2026
   - title: Break Through Tech AI Fellow
     when: May 2025 – May 2026
   - title: Discover ServiceNow Participant

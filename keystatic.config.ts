@@ -203,7 +203,7 @@ export default config({
           }),
           {
             label: 'Experience',
-            description: 'Listed in the order you put them here; newest first reads best',
+            description: 'Sorted by the date in "When", newest first, mixed with the honors; items without a date go last',
             itemLabel: (props) =>
               [props.fields.role.value, props.fields.org.value].filter(Boolean).join(' · ') || 'role',
           }
@@ -216,7 +216,7 @@ export default config({
           }),
           {
             label: 'Honors',
-            description: 'Listed right after Experience, in the same style',
+            description: 'Listed with the experience in one list, sorted by the date in "When", newest first; an honor without a date goes last',
             itemLabel: (props) => props.fields.title.value || 'honor',
           }
         ),

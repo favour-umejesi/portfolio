@@ -307,9 +307,11 @@ body.writing { padding: 36px 0 56px; --w-serif: "Source Serif 4", "Iowan Old Sty
 .d-grid .d-item:nth-child(3n + 1) { transform: rotate(-2deg); }
 .d-grid .d-item:nth-child(3n + 2) { transform: rotate(1.6deg); }
 .d-grid .d-item:nth-child(3n) { transform: rotate(-0.8deg); }
-.d-pic { display: block; position: relative; overflow: hidden; }
+.d-pic { display: block; position: relative; overflow: hidden; width: fit-content; max-width: 100%; }
 .d-item img { display: block; height: 200px; width: auto; max-width: 100%; }
-.d-item figcaption { font-size: 12px; padding: 5px 2px 6px; max-width: 220px; }
+/* the caption takes the print's width without widening it, so the frame (and
+   the candle glow) hug the picture exactly */
+.d-item figcaption { font-size: 12px; padding: 5px 2px 6px; width: 0; min-width: 100%; }
 
 /* a candle in the picture: the room dims towards the edges and a warm light
    pools where the flame is, breathing a little */
