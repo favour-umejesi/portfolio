@@ -12,16 +12,18 @@ body.writing { padding: 36px 0 56px; --w-serif: "Source Serif 4", "Iowan Old Sty
   width: min(var(--w, 720px), 100% - 48px);
   margin: 0 auto 48px;
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 16px 24px;
-  flex-wrap: wrap;
+  align-items: center;
 }
-.w-name { font-weight: 600; font-size: 15px; }
-.w-name:hover { color: var(--v-gold); }
-.w-nav { display: flex; gap: 20px; font-size: 13.5px; color: var(--v-muted); }
-.w-nav a:hover { color: var(--v-text); }
-.w-nav a.is-active { color: var(--v-text); font-weight: 500; }
+/* the only way up: a bare home icon, no box behind it */
+.w-home { display: inline-flex; align-items: center; gap: 8px; padding: 6px; margin-left: -6px; border-radius: 6px; color: var(--v-muted); font-size: 13.5px; font-weight: 500; }
+.w-home svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+.w-home:hover { color: var(--v-gold); }
+.w-home:focus-visible { outline: 2px solid var(--v-gold); outline-offset: 2px; }
+
+/* a page heading with a quiet link on the right (musings ↔ drawings) */
+.w-title-row { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.w-title-link { font-size: 13px; font-weight: 500; color: var(--v-muted); }
+.w-title-link:hover { color: var(--v-gold); }
 
 .w-footer {
   width: min(var(--w, 720px), 100% - 48px);
@@ -270,33 +272,39 @@ body.writing { padding: 36px 0 56px; --w-serif: "Source Serif 4", "Iowan Old Sty
   .mood-back-text { font-size: 13.5px; }
 }
 
-/* drawings: small prints pinned to a board, a gold pin through the top of each */
+/* drawings: prints pinned straight to the wall. Every print is the same
+   height, so a tall drawing comes out narrow and a wide one comes out wide,
+   the way a row of prints on a wall reads. Each pin is a different colour. */
 .d-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 168px);
-  justify-content: start;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
   gap: 40px 30px;
   margin-top: 48px;
-  padding-top: 10px;
-  align-items: start;
+  padding-top: 8px; /* room for the pin heads */
 }
-.d-item { margin: 0; padding: 6px 6px 0; box-shadow: 4px 4px 0 0 var(--ink); }
+.d-item { margin: 0; padding: 6px 6px 0; max-width: 100%; box-shadow: 3px 4px 0 0 var(--ink); }
 .d-item::before {
   top: -7px;
   left: 50%;
-  width: 13px;
-  height: 13px;
+  width: 14px;
+  height: 14px;
   transform: translateX(-50%);
   border-radius: 50%;
   border: 0;
-  background: radial-gradient(circle at 35% 35%, #e3b84a, var(--v-gold) 60%, #8a6508);
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
 }
+.d-grid .d-item:nth-child(5n + 1)::before { background: radial-gradient(circle at 35% 35%, #ff7b7b, #c0392b 55%, #7d1f16); }
+.d-grid .d-item:nth-child(5n + 2)::before { background: radial-gradient(circle at 35% 35%, #7cb6ff, #2b6cb0 55%, #163a63); }
+.d-grid .d-item:nth-child(5n + 3)::before { background: radial-gradient(circle at 35% 35%, #ffe27a, #d4a017 55%, #7a5a08); }
+.d-grid .d-item:nth-child(5n + 4)::before { background: radial-gradient(circle at 35% 35%, #8fe0a0, #2e8b57 55%, #184a2e); }
+.d-grid .d-item:nth-child(5n + 5)::before { background: radial-gradient(circle at 35% 35%, #ffffff, #cfcfcf 55%, #7a7a7a); }
 .d-grid .d-item:nth-child(3n + 1) { transform: rotate(-2deg); }
 .d-grid .d-item:nth-child(3n + 2) { transform: rotate(1.6deg); }
 .d-grid .d-item:nth-child(3n) { transform: rotate(-0.8deg); }
 .d-pic { display: block; position: relative; overflow: hidden; }
-.d-item img { display: block; width: 100%; height: auto; }
+.d-item img { display: block; height: 200px; width: auto; max-width: 100%; }
+.d-item figcaption { font-size: 12px; padding: 5px 2px 6px; max-width: 220px; }
 
 /* a candle in the picture: the room dims towards the edges and a warm light
    pools where the flame is, breathing a little */
@@ -322,7 +330,8 @@ body.writing { padding: 36px 0 56px; --w-serif: "Source Serif 4", "Iowan Old Sty
   70% { opacity: 0.84; }
 }
 @media (prefers-reduced-motion: reduce) { .has-glow .d-pic::after { animation: none; } }
-.d-item figcaption { font-size: 12px; padding: 5px 2px 6px; }
+
 @media (max-width: 560px) {
-  .d-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 32px 22px; }
+  .d-grid { gap: 30px 20px; }
+  .d-item img { height: 150px; }
 }

@@ -8,11 +8,9 @@ import { readSingleton } from '../lib/reader';
 interface Props {
   title: string;
   description: string;
-  /** which top-bar link is the current page */
-  active?: 'musings' | 'drawings';
   noindex?: boolean;
 }
-const { title, description, active = 'musings', noindex = false } = Astro.props;
+const { title, description, noindex = false } = Astro.props;
 const settings = await readSingleton('settings');
 const properName: Record<string, string> = { email: 'Email', github: 'GitHub', linkedin: 'LinkedIn', medium: 'Medium', x: 'X' };
 const cap = (s: string) => properName[s] ?? s.charAt(0).toUpperCase() + s.slice(1);
@@ -36,12 +34,10 @@ const cap = (s: string) => properName[s] ?? s.charAt(0).toUpperCase() + s.slice(
 </head>
 <body class="writing">
   <header class="w-top">
-    <a class="w-name" href="/">Favour Umejesi</a>
-    <nav class="w-nav" aria-label="Site">
-      <a href="/">research profile</a>
-      <a href="/musings" class={active === 'musings' ? 'is-active' : undefined}>musings</a>
-      <a href="/drawings" class={active === 'drawings' ? 'is-active' : undefined}>drawings</a>
-    </nav>
+    <a class="w-home" href="/">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v10h4.5v-6h4v6h4.5V10"/></svg>
+      <span>back to homepage</span>
+    </a>
   </header>
 
   <main class="w-main">

@@ -33,7 +33,10 @@ const loose = posts.filter((post) => !filed.has(post.id));
   title="Musings"
   description="Musings by Favour Umejesi: notes on research, machine learning, and figuring things out."
 >
-  <h1 class="w-title">musings.</h1>
+  <div class="w-title-row">
+    <h1 class="w-title">musings.</h1>
+    <a class="w-title-link" href="/drawings">explore drawings →</a>
+  </div>
   {musingsPage.intro.length > 0 && (
     <div class="w-intro">
       {musingsPage.intro.map((paragraph) => <p>{paragraph}</p>)}

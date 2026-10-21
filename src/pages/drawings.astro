@@ -10,9 +10,11 @@ const drawings = page.drawings.filter((d) => d.image);
 <MusingsLayout
   title="Drawings"
   description="Drawings by Favour Umejesi: learning to draw again, one sketch at a time."
-  active="drawings"
 >
-  <h1 class="w-title">drawings.</h1>
+  <div class="w-title-row">
+    <h1 class="w-title">drawings.</h1>
+    <a class="w-title-link" href="/musings">explore musings →</a>
+  </div>
   {page.intro.length > 0 && (
     <div class="w-intro">
       {page.intro.map((paragraph) => <p>{paragraph}</p>)}
