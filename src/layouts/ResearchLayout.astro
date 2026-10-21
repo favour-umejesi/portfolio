@@ -240,8 +240,11 @@ import '../styles/plain.css';
   .v-authors a:hover { color: var(--v-gold); border-color: currentColor; }
   .v-paper .v-meta { font-style: italic; }
   .v-paper-status { font-style: normal; margin-left: 10px; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--v-gold); }
-  .v-paper .v-excerpt { margin-top: 8px; font-size: 14.5px; }
-  .v-paper .v-links--text { margin-top: 8px; }
+  /* "pdf / code / bibtex" under the venue, the summary set off below it */
+  .v-paper .v-links--text { margin-top: 4px; font-weight: 500; }
+  .v-paper .v-links--text a { color: var(--v-text); }
+  .v-paper .v-links--text a:hover { color: var(--v-gold); }
+  .v-paper .v-excerpt { margin-top: 14px; font-size: 14.5px; }
   .v-bibtex {
     margin-top: 10px;
     padding: 12px 14px;
@@ -281,7 +284,7 @@ import '../styles/plain.css';
   .v-links--text { margin-top: 12px; font-size: 13.5px; font-weight: 500; }
   .v-links--text a { color: var(--v-muted); }
   .v-links--text a:hover { color: var(--v-gold); }
-  .v-links--text a + a::before { content: "·"; margin: 0 10px; color: var(--v-muted); }
+  .v-links--text a + a::before { content: "/"; margin: 0 8px; color: var(--v-gold); }
   .v-details { margin-top: 14px; display: grid; gap: 10px; }
   .v-details dt { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--v-gold); }
   .v-details dd { margin: 0; white-space: pre-line; }

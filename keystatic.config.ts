@@ -96,23 +96,11 @@ export default config({
     brand: { name: 'Favour Umejesi' },
     navigation: {
       'Research': ['research', 'papers', 'news', 'researchPage'],
-      'Musings': ['musings', 'series', 'musingsPage', 'drawingsPage'],
+      'Musings': ['musings', 'series', 'drawingsPage'],
       'Site': ['settings'],
     },
   },
   singletons: {
-    musingsPage: singleton({
-      label: 'Musings page',
-      path: 'src/content/pages/musings',
-      format: { data: 'yaml' },
-      schema: {
-        intro: fields.array(fields.text({ label: 'Paragraph', multiline: true }), {
-          label: 'Intro paragraphs',
-          description: 'Shown under the "musings." heading. Keep it short; the list is the point.',
-          itemLabel: (props) => props.value.slice(0, 60) || 'paragraph',
-        }),
-      },
-    }),
     drawingsPage: singleton({
       label: 'Drawings page',
       path: 'src/content/pages/drawings',
@@ -247,12 +235,17 @@ export default config({
           }
         ),
         copyright: fields.text({ label: 'Copyright line' }),
+        musingsIntro: fields.array(fields.text({ label: 'Paragraph', multiline: true }), {
+          label: 'Musings page: intro paragraphs',
+          description: 'Shown under the "musings." heading on /musings. Keep it short; the list is the point.',
+          itemLabel: (props) => props.value.slice(0, 60) || 'paragraph',
+        }),
       },
     }),
   },
   collections: {
     research: collection({
-      label: 'Research & works',
+      label: 'Research & projects',
       slugField: 'title',
       path: 'src/content/research/*',
       format: { data: 'yaml' },

@@ -6,7 +6,7 @@ import PlaylistRow from '../components/PlaylistRow.astro';
 import { showDrafts, playlistParts } from '../lib/entries';
 import { readSingleton } from '../lib/reader';
 
-const musingsPage = await readSingleton('musingsPage');
+const settings = await readSingleton('settings');
 
 // drafts render in dev and preview deploys (marked Draft), never in production
 const posts = (await getCollection('musings'))
@@ -37,9 +37,9 @@ const loose = posts.filter((post) => !filed.has(post.id));
     <h1 class="w-title">musings.</h1>
     <a class="w-title-link" href="/drawings">explore drawings →</a>
   </div>
-  {musingsPage.intro.length > 0 && (
+  {settings.musingsIntro.length > 0 && (
     <div class="w-intro">
-      {musingsPage.intro.map((paragraph) => <p>{paragraph}</p>)}
+      {settings.musingsIntro.map((paragraph) => <p>{paragraph}</p>)}
     </div>
   )}
 

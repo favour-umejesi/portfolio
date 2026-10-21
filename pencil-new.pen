@@ -1,5 +1,5 @@
 {
-  "version": "2.14",
+  "version": "2.21",
   "children": [
     {
       "type": "frame",
@@ -23,6 +23,7 @@
             "bottom": 1
           },
           "strokeAlignment": "inner",
+          "strokeLinejoin": "round",
           "padding": [
             26,
             120
@@ -348,6 +349,7 @@
             "top": 1
           },
           "strokeAlignment": "inner",
+          "strokeLinejoin": "round",
           "layout": "vertical",
           "gap": 26,
           "padding": [
@@ -461,6 +463,7 @@
             "bottom": 1
           },
           "strokeAlignment": "inner",
+          "strokeLinejoin": "round",
           "padding": [
             26,
             120
@@ -854,6 +857,7 @@
             "top": 1
           },
           "strokeAlignment": "inner",
+          "strokeLinejoin": "round",
           "layout": "vertical",
           "gap": 26,
           "padding": [
@@ -967,6 +971,7 @@
             "bottom": 1
           },
           "strokeAlignment": "inner",
+          "strokeLinejoin": "round",
           "padding": [
             26,
             120
@@ -1422,6 +1427,7 @@
             "top": 1
           },
           "strokeAlignment": "inner",
+          "strokeLinejoin": "round",
           "layout": "vertical",
           "gap": 26,
           "padding": [
@@ -1535,6 +1541,7 @@
             "bottom": 1
           },
           "strokeAlignment": "inner",
+          "strokeLinejoin": "round",
           "padding": [
             26,
             120
@@ -1937,6 +1944,7 @@
             "top": 1
           },
           "strokeAlignment": "inner",
+          "strokeLinejoin": "round",
           "layout": "vertical",
           "gap": 26,
           "padding": [
@@ -2050,6 +2058,7 @@
             "bottom": 1
           },
           "strokeAlignment": "inner",
+          "strokeLinejoin": "round",
           "padding": [
             26,
             120
@@ -2428,6 +2437,7 @@
             "top": 1
           },
           "strokeAlignment": "inner",
+          "strokeLinejoin": "round",
           "layout": "vertical",
           "gap": 26,
           "padding": [
@@ -2541,6 +2551,7 @@
             "bottom": 1
           },
           "strokeAlignment": "inner",
+          "strokeLinejoin": "round",
           "padding": [
             26,
             120
@@ -3195,6 +3206,7 @@
             "top": 1
           },
           "strokeAlignment": "inner",
+          "strokeLinejoin": "round",
           "layout": "vertical",
           "gap": 26,
           "padding": [
@@ -3308,6 +3320,7 @@
             "bottom": 1
           },
           "strokeAlignment": "inner",
+          "strokeLinejoin": "round",
           "padding": [
             26,
             120
@@ -3558,6 +3571,7 @@
             "top": 1
           },
           "strokeAlignment": "inner",
+          "strokeLinejoin": "round",
           "layout": "vertical",
           "gap": 26,
           "padding": [
@@ -7607,6 +7621,7 @@
                             "bottom": 1.5
                           },
                           "strokeAlignment": "inner",
+                          "strokeLinejoin": "round",
                           "padding": [
                             8,
                             10
@@ -8877,6 +8892,7 @@
                         "bottom": 1.5
                       },
                       "strokeAlignment": "inner",
+                      "strokeLinejoin": "round",
                       "padding": [
                         8,
                         10
@@ -8986,6 +9002,7 @@
                         "bottom": 1.5
                       },
                       "strokeAlignment": "inner",
+                      "strokeLinejoin": "round",
                       "padding": [
                         8,
                         10
@@ -13981,6 +13998,4909 @@
           "stroke": "$ink",
           "strokeWidth": 2,
           "strokeLinecap": "round"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "ZUWqU",
+      "x": 0,
+      "y": 4800,
+      "name": "Sketch v2 — Home (loose-leaf)",
+      "clip": true,
+      "width": 1160,
+      "fill": "$paper",
+      "layout": "vertical",
+      "padding": [
+        52,
+        72,
+        64,
+        72
+      ],
+      "children": [
+        {
+          "id": "Ff6Ou",
+          "type": "ref",
+          "ref": "alsx8",
+          "name": "Lined Paper",
+          "layoutPosition": "absolute",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "type": "frame",
+          "id": "g1emT",
+          "name": "Top Bar",
+          "width": "fill_container",
+          "height": 33,
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "FCAos",
+              "name": "Diary Mark",
+              "fill": "$ink",
+              "content": "The Diary of a Lucid Dame",
+              "fontFamily": "$font-hand",
+              "fontSize": 21,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "rLvBh",
+              "name": "Nav",
+              "gap": 22,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "gGXVF",
+                  "name": "nav-about",
+                  "fill": "$ink",
+                  "content": "about",
+                  "fontFamily": "$font-hand",
+                  "fontSize": 17,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "slfmt",
+                  "name": "nav-musings",
+                  "fill": "$ink",
+                  "content": "musings",
+                  "fontFamily": "$font-hand",
+                  "fontSize": 17,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "r3K7Z",
+                  "name": "nav-research profile",
+                  "fill": "$ink",
+                  "content": "research profile",
+                  "fontFamily": "$font-hand",
+                  "fontSize": 17,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Gsp8r",
+          "name": "Line Gap",
+          "width": "fill_container",
+          "height": 66
+        },
+        {
+          "type": "frame",
+          "id": "rE4Sf",
+          "name": "Hero",
+          "width": "fill_container",
+          "gap": 60,
+          "children": [
+            {
+              "type": "frame",
+              "id": "YBRKc",
+              "name": "Hero Text",
+              "width": 620,
+              "layout": "vertical",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "vQdvI",
+                  "name": "Kicker",
+                  "fill": "$ink",
+                  "content": "THE DIARY OF A —",
+                  "fontFamily": "$font-hand",
+                  "fontSize": 17,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "qUx00",
+                  "name": "Name",
+                  "fill": "$ink",
+                  "content": "LUCID DAME",
+                  "lineHeight": 1.4142857142857144,
+                  "fontFamily": "$font-hand-sc",
+                  "fontSize": 70,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "g4HGKY",
+                  "name": "Underline Slot",
+                  "width": "fill_container",
+                  "height": 14,
+                  "children": [
+                    {
+                      "type": "path",
+                      "id": "LprIB",
+                      "layoutPosition": "absolute",
+                      "x": 2,
+                      "y": 0,
+                      "name": "Wavy Underline",
+                      "geometry": "M2 8q30-7 58 0t58 0 58 0 58 0 58 0 58 0 58 0",
+                      "viewBox": [
+                        0,
+                        0,
+                        410,
+                        14
+                      ],
+                      "fill": "#00000000",
+                      "width": 470,
+                      "height": 14,
+                      "stroke": "$ink",
+                      "strokeWidth": 3,
+                      "strokeLinejoin": "round",
+                      "strokeLinecap": "round"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "sLunA",
+                  "name": "Line Gap",
+                  "width": "fill_container",
+                  "height": 19
+                },
+                {
+                  "type": "text",
+                  "id": "zqk88",
+                  "name": "Byline",
+                  "fill": "$ink",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "kept by Favour Umejesi, aspiring relevant engineer",
+                  "lineHeight": 1.5,
+                  "fontFamily": "$font-hand",
+                  "fontSize": 22,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "he88r",
+                  "name": "Tagline",
+                  "fill": "$ink",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "I build AI + full-stack things, break a few of them, and write the whole mess down here. Mostly trying to work smart, not hard.",
+                  "lineHeight": 1.5714285714285714,
+                  "fontFamily": "$font-hand",
+                  "fontSize": 21,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "xLw56",
+                  "name": "Line Gap",
+                  "width": "fill_container",
+                  "height": 33
+                },
+                {
+                  "type": "text",
+                  "id": "sSi3B",
+                  "name": "Status",
+                  "fill": "$gray",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Currently: back at Grambling for junior year.",
+                  "lineHeight": 1.8333333333333333,
+                  "fontFamily": "$font-hand",
+                  "fontSize": 18,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "f9B1yb",
+              "layoutPosition": "absolute",
+              "x": 730,
+              "y": 8,
+              "name": "Taped Photo",
+              "rotation": -2.5,
+              "fill": "#FFFFFF",
+              "cornerRadius": 2,
+              "stroke": "$ink",
+              "strokeWidth": 2.5,
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "$ink",
+                "offset": {
+                  "x": 5,
+                  "y": 5
+                }
+              },
+              "layout": "vertical",
+              "gap": 2,
+              "padding": [
+                8,
+                8,
+                4,
+                8
+              ],
+              "children": [
+                {
+                  "type": "rectangle",
+                  "id": "VFZJN",
+                  "name": "Photo",
+                  "fill": {
+                    "type": "image",
+                    "enabled": true,
+                    "url": "public/images/research/headshot.jpg",
+                    "mode": "cover"
+                  },
+                  "width": 250,
+                  "height": 250
+                },
+                {
+                  "type": "text",
+                  "id": "tiz8b",
+                  "name": "Caption",
+                  "fill": "$gray",
+                  "textGrowth": "fixed-width",
+                  "width": 250,
+                  "content": "the dame in question",
+                  "textAlign": "center",
+                  "fontFamily": "$font-hand",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "rectangle",
+                  "id": "c5ci5w",
+                  "layoutPosition": "absolute",
+                  "x": 95,
+                  "y": -12,
+                  "name": "Tape",
+                  "rotation": -3.0000000000000004,
+                  "fill": "#F6F1E3D0",
+                  "width": 78,
+                  "height": 22,
+                  "stroke": "#11111140",
+                  "strokeWidth": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "jX0VC",
+          "name": "Line Gap",
+          "width": "fill_container",
+          "height": 66
+        },
+        {
+          "type": "frame",
+          "id": "IYsJe",
+          "name": "Table of Contents",
+          "width": "fill_container",
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "text",
+              "id": "D3v5N",
+              "name": "Label",
+              "fill": "$ink",
+              "content": "CONTENTS —",
+              "fontFamily": "$font-hand",
+              "fontSize": 18,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "ZkAUi",
+              "name": "TOC about",
+              "width": "fill_container",
+              "height": 33,
+              "gap": 14,
+              "alignItems": "end",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "geZcP",
+                  "name": "Link",
+                  "fill": "$ink",
+                  "content": "→  about",
+                  "fontFamily": "$font-hand",
+                  "fontSize": 23,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "mtAYl",
+                  "name": "Leader",
+                  "width": "fill_container",
+                  "height": 8,
+                  "stroke": "$rule-line",
+                  "strokeWidth": {
+                    "bottom": 2
+                  }
+                },
+                {
+                  "type": "text",
+                  "id": "gMaPv",
+                  "name": "Note",
+                  "fill": "$gray",
+                  "content": "who's writing this",
+                  "fontFamily": "$font-hand",
+                  "fontSize": 16,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "LGBFc",
+                  "name": "Page",
+                  "fill": "$ink",
+                  "content": "p.01",
+                  "fontFamily": "$font-hand",
+                  "fontSize": 18,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "z3DoId",
+              "name": "TOC musings",
+              "width": "fill_container",
+              "height": 33,
+              "gap": 14,
+              "alignItems": "end",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "pTYzZ",
+                  "name": "Link",
+                  "fill": "$ink",
+                  "content": "→  musings",
+                  "fontFamily": "$font-hand",
+                  "fontSize": 23,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "aVEUq",
+                  "name": "Leader",
+                  "width": "fill_container",
+                  "height": 8,
+                  "stroke": "$rule-line",
+                  "strokeWidth": {
+                    "bottom": 2
+                  }
+                },
+                {
+                  "type": "text",
+                  "id": "P43V1",
+                  "name": "Note",
+                  "fill": "$gray",
+                  "content": "the research + the rambling",
+                  "fontFamily": "$font-hand",
+                  "fontSize": 16,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "MBzvh",
+                  "name": "Page",
+                  "fill": "$ink",
+                  "content": "p.02",
+                  "fontFamily": "$font-hand",
+                  "fontSize": 18,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "F7W7h4",
+              "name": "TOC research profile",
+              "width": "fill_container",
+              "height": 33,
+              "gap": 14,
+              "alignItems": "end",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "ggCIX",
+                  "name": "Link",
+                  "fill": "$ink",
+                  "content": "→  research profile",
+                  "fontFamily": "$font-hand",
+                  "fontSize": 23,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "z4pjWD",
+                  "name": "Leader",
+                  "width": "fill_container",
+                  "height": 8,
+                  "stroke": "$rule-line",
+                  "strokeWidth": {
+                    "bottom": 2
+                  }
+                },
+                {
+                  "type": "text",
+                  "id": "FbMWR",
+                  "name": "Note",
+                  "fill": "$gray",
+                  "content": "the serious version",
+                  "fontFamily": "$font-hand",
+                  "fontSize": 16,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "n4uYaH",
+                  "name": "Page",
+                  "fill": "$ink",
+                  "content": "p.03",
+                  "fontFamily": "$font-hand",
+                  "fontSize": 18,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "i7AIv",
+              "name": "TOC patent law",
+              "width": "fill_container",
+              "height": 33,
+              "gap": 14,
+              "alignItems": "end",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "fwbkT",
+                  "name": "Link",
+                  "fill": "$ink",
+                  "content": "→  patent law",
+                  "fontFamily": "$font-hand",
+                  "fontSize": 23,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "Lz7CX",
+                  "name": "Leader",
+                  "width": "fill_container",
+                  "height": 8,
+                  "stroke": "$rule-line",
+                  "strokeWidth": {
+                    "bottom": 2
+                  }
+                },
+                {
+                  "type": "text",
+                  "id": "xtL6F",
+                  "name": "Note",
+                  "fill": "$gray",
+                  "content": "read before copying",
+                  "fontFamily": "$font-hand",
+                  "fontSize": 16,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "otyXT",
+                  "name": "Page",
+                  "fill": "$ink",
+                  "content": "p.04",
+                  "fontFamily": "$font-hand",
+                  "fontSize": 18,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "AHasD",
+          "name": "Line Gap",
+          "width": "fill_container",
+          "height": 66
+        },
+        {
+          "type": "frame",
+          "id": "ro7JQ",
+          "name": "Contact",
+          "width": "fill_container",
+          "height": 33,
+          "gap": 12,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "sJZt6",
+              "name": "C1",
+              "fill": "$ink",
+              "content": "→  find me at:",
+              "fontFamily": "$font-hand",
+              "fontSize": 20,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "sO0wk",
+              "name": "C2",
+              "fill": "$ink",
+              "content": "email · github · linkedin · medium · x",
+              "fontFamily": "$font-hand",
+              "fontSize": 20,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "hYjBg",
+          "name": "Line Gap",
+          "width": "fill_container",
+          "height": 33
+        },
+        {
+          "type": "frame",
+          "id": "O8sdC",
+          "name": "Footer",
+          "width": "fill_container",
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "rwPz9",
+              "name": "Footer Row",
+              "width": "fill_container",
+              "height": 66,
+              "justifyContent": "space_between",
+              "alignItems": "end",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "NiQ2X",
+                  "name": "Quote Block",
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Q6fru",
+                      "name": "Quote",
+                      "fill": "$ink",
+                      "content": "“Work smart, not hard.”",
+                      "fontFamily": "$font-hand",
+                      "fontSize": 21,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "y97SK",
+                      "name": "By",
+                      "fill": "$gray",
+                      "content": "— Lucid Dame",
+                      "fontFamily": "$font-hand",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "VTGhM",
+                  "name": "Footer Right",
+                  "layout": "vertical",
+                  "alignItems": "end",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "CpmQf",
+                      "name": "Socials",
+                      "fill": "$ink",
+                      "content": "email · github · linkedin · medium · x",
+                      "fontFamily": "$font-hand",
+                      "fontSize": 18,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "uWS8s",
+                      "name": "Copyright",
+                      "fill": "$gray",
+                      "content": "© 2026 Favour Umejesi",
+                      "fontFamily": "$font-hand",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "py1Zi",
+          "type": "ref",
+          "ref": "K757C",
+          "name": "Dog Doodle",
+          "layoutPosition": "absolute",
+          "x": 900,
+          "y": 700
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "jFZJq",
+      "x": 1280,
+      "y": 4800,
+      "name": "Sketch v2 — About (loose-leaf)",
+      "clip": true,
+      "width": 1160,
+      "fill": "$paper",
+      "layout": "vertical",
+      "padding": [
+        52,
+        72,
+        64,
+        72
+      ],
+      "children": [
+        {
+          "id": "zlT2j",
+          "type": "ref",
+          "ref": "alsx8",
+          "name": "Lined Paper",
+          "layoutPosition": "absolute",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "type": "frame",
+          "id": "TsE2x",
+          "name": "Top Bar",
+          "width": "fill_container",
+          "height": 33,
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "VsDyr",
+              "name": "Diary Mark",
+              "fill": "$ink",
+              "content": "The Diary of a Lucid Dame",
+              "fontFamily": "$font-hand",
+              "fontSize": 21,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "S5SJNg",
+              "name": "Nav",
+              "gap": 22,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Z9zEcC",
+                  "name": "nav-about",
+                  "fill": "$ink",
+                  "content": "about",
+                  "fontFamily": "$font-hand",
+                  "fontSize": 17,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "QOGge",
+                  "name": "nav-musings",
+                  "fill": "$ink",
+                  "content": "musings",
+                  "fontFamily": "$font-hand",
+                  "fontSize": 17,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "P0hys",
+                  "name": "nav-research profile",
+                  "fill": "$ink",
+                  "content": "research profile",
+                  "fontFamily": "$font-hand",
+                  "fontSize": 17,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "h7ojqc",
+          "name": "Line Gap",
+          "width": "fill_container",
+          "height": 66
+        },
+        {
+          "type": "frame",
+          "id": "kzomm",
+          "name": "Title Block",
+          "width": "fill_container",
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "text",
+              "id": "xXXY5",
+              "name": "Title",
+              "fill": "$ink",
+              "content": "ABOUT",
+              "lineHeight": 1.2,
+              "fontFamily": "$font-hand-sc",
+              "fontSize": 55,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "YSzGE",
+              "name": "Underline Slot",
+              "width": "fill_container",
+              "height": 14,
+              "children": [
+                {
+                  "type": "path",
+                  "id": "f6Std7",
+                  "layoutPosition": "absolute",
+                  "x": 2,
+                  "y": 0,
+                  "name": "Wavy Underline",
+                  "geometry": "M2 8q30-7 58 0t58 0 58 0 58 0 58 0 58 0 58 0",
+                  "viewBox": [
+                    0,
+                    0,
+                    410,
+                    14
+                  ],
+                  "fill": "#00000000",
+                  "width": 190,
+                  "height": 14,
+                  "stroke": "$ink",
+                  "strokeWidth": 3,
+                  "strokeLinejoin": "round",
+                  "strokeLinecap": "round"
+                }
+              ]
+            },
+            {
+              "id": "sSsEY",
+              "type": "ref",
+              "ref": "X6mARm",
+              "name": "Corner Doodle",
+              "layoutPosition": "absolute",
+              "x": 930,
+              "y": -14
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "oXWS2",
+          "name": "Line Gap",
+          "width": "fill_container",
+          "height": 52
+        },
+        {
+          "type": "frame",
+          "id": "E4VMk",
+          "name": "Bio (written on the lines)",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 33,
+          "children": [
+            {
+              "type": "text",
+              "id": "omCZz",
+              "name": "Para 1",
+              "fill": "$ink",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "I study Computer Science and Mathematics at Grambling State University, and I'm still figuring out exactly what I want to become (currently under construction).",
+              "lineHeight": 1.5714285714285714,
+              "fontFamily": "$font-hand",
+              "fontSize": 21,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "dPZIK",
+              "name": "Para 2",
+              "fill": "$ink",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Before college I started a climate-focused nonprofit around UN Goals 11 & 13, reaching 500+ people with tech-driven campaigns on sustainable cities and climate action.",
+              "lineHeight": 1.5714285714285714,
+              "fontFamily": "$font-hand",
+              "fontSize": 21,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "pftkT",
+              "name": "Para 3",
+              "fill": "$ink",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "These days, I ask myself and those around me: how do we make sense of the intelligence we're building, and how do we make sure it makes sense for humanity?",
+              "lineHeight": 1.5714285714285714,
+              "fontFamily": "$font-hand",
+              "fontSize": 21,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "finEN",
+          "name": "Line Gap",
+          "width": "fill_container",
+          "height": 66
+        },
+        {
+          "type": "frame",
+          "id": "ZHKEH",
+          "name": "Two Columns",
+          "width": "fill_container",
+          "gap": 56,
+          "children": [
+            {
+              "type": "frame",
+              "id": "GO7NA",
+              "name": "What I'm up to",
+              "width": "fill_container",
+              "layout": "vertical",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "JNnra",
+                  "name": "Label",
+                  "fill": "$ink",
+                  "content": "WHAT I'M UP TO —",
+                  "fontFamily": "$font-hand",
+                  "fontSize": 18,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "Vgv2C",
+                  "name": "Item",
+                  "width": "fill_container",
+                  "gap": 10,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "EwIkh",
+                      "name": "Arrow",
+                      "fill": "$ink",
+                      "content": "→",
+                      "lineHeight": 1.5714285714285714,
+                      "fontFamily": "$font-hand",
+                      "fontSize": 21,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "pTFER",
+                      "name": "Text",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Researching how LLMs hallucinate (mechanistic interpretability, junior year)",
+                      "lineHeight": 1.5714285714285714,
+                      "fontFamily": "$font-hand",
+                      "fontSize": 21,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "C3R2hO",
+                  "name": "Item",
+                  "width": "fill_container",
+                  "gap": 10,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "p9wls",
+                      "name": "Arrow",
+                      "fill": "$ink",
+                      "content": "→",
+                      "lineHeight": 1.5714285714285714,
+                      "fontFamily": "$font-hand",
+                      "fontSize": 21,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "izTPD",
+                      "name": "Text",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Studying CS + Math @ Grambling",
+                      "lineHeight": 1.5714285714285714,
+                      "fontFamily": "$font-hand",
+                      "fontSize": 21,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "DaxJ7",
+                  "name": "Item",
+                  "width": "fill_container",
+                  "gap": 10,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "l8QOw",
+                      "name": "Arrow",
+                      "fill": "$ink",
+                      "content": "→",
+                      "lineHeight": 1.5714285714285714,
+                      "fontFamily": "$font-hand",
+                      "fontSize": 21,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Dj2LS",
+                      "name": "Text",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Reading tech trends on X (no, I have NOT forgotten my username)",
+                      "lineHeight": 1.5714285714285714,
+                      "fontFamily": "$font-hand",
+                      "fontSize": 21,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "ZId7I",
+                  "name": "Item",
+                  "width": "fill_container",
+                  "gap": 10,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "i9XK7e",
+                      "name": "Arrow",
+                      "fill": "$ink",
+                      "content": "→",
+                      "lineHeight": 1.5714285714285714,
+                      "fontFamily": "$font-hand",
+                      "fontSize": 21,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "q1bB3i",
+                      "name": "Text",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "On a goal to becoming ... educated! (guess the missing word)",
+                      "lineHeight": 1.5714285714285714,
+                      "fontFamily": "$font-hand",
+                      "fontSize": 21,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "hhF2d",
+              "name": "Stuff I like",
+              "width": 400,
+              "layout": "vertical",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "ehnUj",
+                  "name": "Label",
+                  "fill": "$ink",
+                  "content": "STUFF I LIKE —",
+                  "fontFamily": "$font-hand",
+                  "fontSize": 18,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "HZcQN",
+                  "name": "Rank",
+                  "width": "fill_container",
+                  "gap": 10,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "xRfC3",
+                      "name": "No",
+                      "fill": "$ink",
+                      "content": "1.",
+                      "lineHeight": 1.5714285714285714,
+                      "fontFamily": "$font-hand",
+                      "fontSize": 21,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "MjCzy",
+                      "name": "Text",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Studio Ghibli (Whisper of the Heart, From Up on Poppy Hill, Arrietty…)",
+                      "lineHeight": 1.5714285714285714,
+                      "fontFamily": "$font-hand",
+                      "fontSize": 21,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Z906i",
+                  "name": "Rank",
+                  "width": "fill_container",
+                  "gap": 10,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "q5T4V",
+                      "name": "No",
+                      "fill": "$ink",
+                      "content": "2.",
+                      "lineHeight": 1.5714285714285714,
+                      "fontFamily": "$font-hand",
+                      "fontSize": 21,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "TrhfU",
+                      "name": "Text",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "A good classic literature",
+                      "lineHeight": 1.5714285714285714,
+                      "fontFamily": "$font-hand",
+                      "fontSize": 21,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "TrqF8",
+                  "name": "Rank",
+                  "width": "fill_container",
+                  "gap": 10,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "YkO3q",
+                      "name": "No",
+                      "fill": "$ink",
+                      "content": "3.",
+                      "lineHeight": 1.5714285714285714,
+                      "fontFamily": "$font-hand",
+                      "fontSize": 21,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "HiNkA",
+                      "name": "Text",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Chess, badly",
+                      "lineHeight": 1.5714285714285714,
+                      "fontFamily": "$font-hand",
+                      "fontSize": 21,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "JUUn6",
+                  "name": "Rank",
+                  "width": "fill_container",
+                  "gap": 10,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "wFaL2",
+                      "name": "No",
+                      "fill": "$ink",
+                      "content": "4.",
+                      "lineHeight": 1.5714285714285714,
+                      "fontFamily": "$font-hand",
+                      "fontSize": 21,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "RimIi",
+                      "name": "Text",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Full-stack tinkering",
+                      "lineHeight": 1.5714285714285714,
+                      "fontFamily": "$font-hand",
+                      "fontSize": 21,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "HxdSc",
+                  "name": "Line Gap",
+                  "width": "fill_container",
+                  "height": 33
+                },
+                {
+                  "type": "frame",
+                  "id": "Z1l0jC",
+                  "name": "Snapshot",
+                  "rotation": 1.8,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 2,
+                  "stroke": "$ink",
+                  "strokeWidth": 2.5,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "$ink",
+                    "offset": {
+                      "x": 5,
+                      "y": 5
+                    }
+                  },
+                  "layout": "vertical",
+                  "gap": 2,
+                  "padding": [
+                    8,
+                    8,
+                    4,
+                    8
+                  ],
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "id": "N7ZTcj",
+                      "name": "Photo",
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "public/images/about/photos/0/image.jpg",
+                        "mode": "cover"
+                      },
+                      "width": 220,
+                      "height": 260
+                    },
+                    {
+                      "type": "text",
+                      "id": "r5sE2i",
+                      "name": "Caption",
+                      "fill": "$gray",
+                      "textGrowth": "fixed-width",
+                      "width": 220,
+                      "content": "I am learning how to draw again :(",
+                      "textAlign": "center",
+                      "fontFamily": "$font-hand",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "s1mCn4",
+                      "layoutPosition": "absolute",
+                      "x": 80,
+                      "y": -12,
+                      "name": "Tape",
+                      "rotation": -3.0000000000000004,
+                      "fill": "#F6F1E3D0",
+                      "width": 78,
+                      "height": 22,
+                      "stroke": "#11111140",
+                      "strokeWidth": 1
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "wmXTR",
+          "name": "Line Gap",
+          "width": "fill_container",
+          "height": 66
+        },
+        {
+          "type": "frame",
+          "id": "ipWvv",
+          "name": "Footer",
+          "width": "fill_container",
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "zQJbu",
+              "name": "Footer Row",
+              "width": "fill_container",
+              "height": 66,
+              "justifyContent": "space_between",
+              "alignItems": "end",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "e5rkrP",
+                  "name": "Quote Block",
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "X3IaxB",
+                      "name": "Quote",
+                      "fill": "$ink",
+                      "content": "“Let me get something straight: this is a PORTFOLIO, not a diary.”",
+                      "fontFamily": "$font-hand",
+                      "fontSize": 21,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "zj107",
+                      "name": "By",
+                      "fill": "$gray",
+                      "content": "— Lucid Dame",
+                      "fontFamily": "$font-hand",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "gXalO",
+                  "name": "Footer Right",
+                  "layout": "vertical",
+                  "alignItems": "end",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "s8LSZ",
+                      "name": "Socials",
+                      "fill": "$ink",
+                      "content": "email · github · linkedin · medium · x",
+                      "fontFamily": "$font-hand",
+                      "fontSize": 18,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "jFd44",
+                      "name": "Copyright",
+                      "fill": "$gray",
+                      "content": "© 2026 Favour Umejesi",
+                      "fontFamily": "$font-hand",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "H33osa",
+      "x": 2560,
+      "y": 4800,
+      "name": "Sketch v2 — Musings (diary index)",
+      "clip": true,
+      "width": 1160,
+      "fill": "$paper",
+      "layout": "vertical",
+      "padding": [
+        52,
+        72,
+        64,
+        72
+      ],
+      "children": [
+        {
+          "id": "Qjva7",
+          "type": "ref",
+          "ref": "alsx8",
+          "name": "Lined Paper",
+          "layoutPosition": "absolute",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "type": "frame",
+          "id": "x6mNhq",
+          "name": "Top Bar",
+          "width": "fill_container",
+          "height": 33,
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "a1D2ze",
+              "name": "Diary Mark",
+              "fill": "$ink",
+              "content": "The Diary of a Lucid Dame",
+              "fontFamily": "$font-hand",
+              "fontSize": 21,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "xB5X6",
+              "name": "Nav",
+              "gap": 22,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "InCUn",
+                  "name": "nav-about",
+                  "fill": "$ink",
+                  "content": "about",
+                  "fontFamily": "$font-hand",
+                  "fontSize": 17,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "Z2qgW",
+                  "name": "nav-musings",
+                  "fill": "$ink",
+                  "content": "musings",
+                  "fontFamily": "$font-hand",
+                  "fontSize": 17,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "fTPk5",
+                  "name": "nav-research profile",
+                  "fill": "$ink",
+                  "content": "research profile",
+                  "fontFamily": "$font-hand",
+                  "fontSize": 17,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "t0RlS4",
+          "name": "Line Gap",
+          "width": "fill_container",
+          "height": 66
+        },
+        {
+          "type": "frame",
+          "id": "ZBlXf",
+          "name": "Title Block",
+          "width": "fill_container",
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "text",
+              "id": "x6AMUo",
+              "name": "Title",
+              "fill": "$ink",
+              "content": "MUSINGS",
+              "lineHeight": 1.2,
+              "fontFamily": "$font-hand-sc",
+              "fontSize": 55,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "StVB5",
+              "name": "Underline Slot",
+              "width": "fill_container",
+              "height": 14,
+              "children": [
+                {
+                  "type": "path",
+                  "id": "Oe2gn",
+                  "layoutPosition": "absolute",
+                  "x": 2,
+                  "y": 0,
+                  "name": "Wavy Underline",
+                  "geometry": "M2 8q30-7 58 0t58 0 58 0 58 0 58 0 58 0 58 0",
+                  "viewBox": [
+                    0,
+                    0,
+                    410,
+                    14
+                  ],
+                  "fill": "#00000000",
+                  "width": 260,
+                  "height": 14,
+                  "stroke": "$ink",
+                  "strokeWidth": 3,
+                  "strokeLinejoin": "round",
+                  "strokeLinecap": "round"
+                }
+              ]
+            },
+            {
+              "id": "MjGSZ",
+              "type": "ref",
+              "ref": "W9zeM",
+              "name": "Corner Doodle",
+              "layoutPosition": "absolute",
+              "x": 930,
+              "y": -14
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "hYbNk",
+          "name": "Line Gap",
+          "width": "fill_container",
+          "height": 52
+        },
+        {
+          "type": "text",
+          "id": "lS17d",
+          "name": "Intro",
+          "fill": "$ink",
+          "textGrowth": "fixed-width",
+          "width": "fill_container",
+          "content": "Whenever the itch to write shows up, I dump it here: a glimpse of whatever's firing through the hidden layers of this brain. Raw activations, zero fine-tuning.",
+          "lineHeight": 1.5714285714285714,
+          "fontFamily": "$font-hand",
+          "fontSize": 21,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "zKSz9",
+          "name": "Line Gap",
+          "width": "fill_container",
+          "height": 66
+        },
+        {
+          "type": "frame",
+          "id": "ovg8q",
+          "name": "Entry Index",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 33,
+          "children": [
+            {
+              "type": "frame",
+              "id": "uFJK7",
+              "name": "Entry Perhaps Clarity Is Overrated",
+              "width": "fill_container",
+              "gap": 28,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "C3WnT",
+                  "name": "Meta",
+                  "width": 150,
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "FtTkM",
+                      "name": "Date",
+                      "fill": "$gray",
+                      "content": "OCT 11, 2026",
+                      "lineHeight": 2.2,
+                      "fontFamily": "$font-hand",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "V7Xyy",
+                      "name": "Read",
+                      "fill": "$gray",
+                      "content": "5 MIN",
+                      "lineHeight": 2.2,
+                      "fontFamily": "$font-hand",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "iZEvq",
+                  "name": "Body",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "pQ714",
+                      "name": "Title",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Perhaps Clarity Is Overrated",
+                      "lineHeight": 1.1785714285714286,
+                      "fontFamily": "$font-hand-sc",
+                      "fontSize": 28,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "CbZbA",
+                      "name": "Excerpt",
+                      "fill": "$gray",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Impressionism, or as I like to think of it, the art of seeing the world without seeing everything.",
+                      "lineHeight": 1.736842105263158,
+                      "fontFamily": "$font-hand",
+                      "fontSize": 19,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "D7GqLp",
+                      "name": "Read link",
+                      "fill": "$ink",
+                      "content": "→  read the entry",
+                      "lineHeight": 1.736842105263158,
+                      "fontFamily": "$font-hand",
+                      "fontSize": 19,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "SmFK7",
+              "name": "Entry The New Currency",
+              "width": "fill_container",
+              "gap": 28,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "p5N4WB",
+                  "name": "Meta",
+                  "width": 150,
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Fcoa4",
+                      "name": "Date",
+                      "fill": "$gray",
+                      "content": "JUL 25, 2026",
+                      "lineHeight": 2.2,
+                      "fontFamily": "$font-hand",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "M4DTKS",
+                      "name": "Read",
+                      "fill": "$gray",
+                      "content": "3 MIN",
+                      "lineHeight": 2.2,
+                      "fontFamily": "$font-hand",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "m2Kcb",
+                  "name": "Body",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "ouVhu",
+                      "name": "Title",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "The New Currency",
+                      "lineHeight": 1.1785714285714286,
+                      "fontFamily": "$font-hand-sc",
+                      "fontSize": 28,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "opnxD",
+                      "name": "Excerpt",
+                      "fill": "$gray",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "As a developer, I was first drawn to technology because of the superpower it gave me.",
+                      "lineHeight": 1.736842105263158,
+                      "fontFamily": "$font-hand",
+                      "fontSize": 19,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "gtEKD",
+                      "name": "Read link",
+                      "fill": "$ink",
+                      "content": "→  read the entry",
+                      "lineHeight": 1.736842105263158,
+                      "fontFamily": "$font-hand",
+                      "fontSize": 19,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "q4TEao",
+              "name": "Entry Finally Found a Way to Work Smart, Not Hard",
+              "width": "fill_container",
+              "gap": 28,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "IX4hN",
+                  "name": "Meta",
+                  "width": 150,
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "lLTvc",
+                      "name": "Date",
+                      "fill": "$gray",
+                      "content": "JUL 15, 2026",
+                      "lineHeight": 2.2,
+                      "fontFamily": "$font-hand",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "PuTH5",
+                      "name": "Read",
+                      "fill": "$gray",
+                      "content": "4 MIN",
+                      "lineHeight": 2.2,
+                      "fontFamily": "$font-hand",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "szyu3",
+                  "name": "Body",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "JJMXo",
+                      "name": "Title",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Finally Found a Way to Work Smart, Not Hard",
+                      "lineHeight": 1.1785714285714286,
+                      "fontFamily": "$font-hand-sc",
+                      "fontSize": 28,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "rBGWL",
+                      "name": "Excerpt",
+                      "fill": "$gray",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "I felt like one of those movie characters who spends three hours pushing a door that clearly says PULL.",
+                      "lineHeight": 1.736842105263158,
+                      "fontFamily": "$font-hand",
+                      "fontSize": 19,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "rMTXd",
+                      "name": "Read link",
+                      "fill": "$ink",
+                      "content": "→  read the entry",
+                      "lineHeight": 1.736842105263158,
+                      "fontFamily": "$font-hand",
+                      "fontSize": 19,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "xfG13",
+              "name": "Entry Using AI to Read Documents: Automating Boring Tasks, Part I",
+              "width": "fill_container",
+              "gap": 28,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "ZUDVE",
+                  "name": "Meta",
+                  "width": 150,
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "WSU33",
+                      "name": "Date",
+                      "fill": "$gray",
+                      "content": "JUN 30, 2025",
+                      "lineHeight": 2.2,
+                      "fontFamily": "$font-hand",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "m58IZi",
+                      "name": "Read",
+                      "fill": "$gray",
+                      "content": "3 MIN · MEDIUM",
+                      "lineHeight": 2.2,
+                      "fontFamily": "$font-hand",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "fvR5A",
+                  "name": "Body",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "SCHQM",
+                      "name": "Title",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Using AI to Read Documents: Automating Boring Tasks, Part I",
+                      "lineHeight": 1.1785714285714286,
+                      "fontFamily": "$font-hand-sc",
+                      "fontSize": 28,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "BFq4b",
+                      "name": "Excerpt",
+                      "fill": "$gray",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Naomi thought it would be just another dull Tuesday at the office…",
+                      "lineHeight": 1.736842105263158,
+                      "fontFamily": "$font-hand",
+                      "fontSize": 19,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "us6Di",
+                      "name": "Read link",
+                      "fill": "$ink",
+                      "content": "→  read the entry",
+                      "lineHeight": 1.736842105263158,
+                      "fontFamily": "$font-hand",
+                      "fontSize": 19,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "c9Wpw",
+          "name": "Line Gap",
+          "width": "fill_container",
+          "height": 66
+        },
+        {
+          "type": "frame",
+          "id": "dp0d2",
+          "name": "Playlist Row",
+          "width": "fill_container",
+          "height": 33,
+          "gap": 16,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "icon",
+              "id": "w2KeT",
+              "name": "Cassette",
+              "width": 26,
+              "height": 26,
+              "icon": "cassette-tape",
+              "library": "lucide",
+              "fill": "$ink"
+            },
+            {
+              "type": "text",
+              "id": "VKIli",
+              "name": "Playlist",
+              "fill": "$ink",
+              "content": "PLAYLIST · My learnings on deep learning · 1 entry",
+              "fontFamily": "$font-hand",
+              "fontSize": 19,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "xIX5k",
+              "name": "Leader",
+              "width": "fill_container",
+              "height": 8,
+              "stroke": "$rule-line",
+              "strokeWidth": {
+                "bottom": 2
+              }
+            },
+            {
+              "type": "text",
+              "id": "rAQnX",
+              "name": "Play",
+              "fill": "$ink",
+              "content": "→  press play",
+              "fontFamily": "$font-hand",
+              "fontSize": 19,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "xGqBJ",
+          "name": "Line Gap",
+          "width": "fill_container",
+          "height": 33
+        },
+        {
+          "type": "frame",
+          "id": "gUPvE",
+          "name": "Footer",
+          "width": "fill_container",
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "Hh7wX",
+              "name": "Footer Row",
+              "width": "fill_container",
+              "height": 66,
+              "justifyContent": "space_between",
+              "alignItems": "end",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "M92ctj",
+                  "name": "Quote Block",
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "fnlHV",
+                      "name": "Quote",
+                      "fill": "$ink",
+                      "content": "“Don't expect me to be all ‘Dear Diary’ this and ‘Dear Diary’ that.”",
+                      "fontFamily": "$font-hand",
+                      "fontSize": 21,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "CFkfM",
+                      "name": "By",
+                      "fill": "$gray",
+                      "content": "— Greg Heffley",
+                      "fontFamily": "$font-hand",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "XbV6j",
+                  "name": "Footer Right",
+                  "layout": "vertical",
+                  "alignItems": "end",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "JpOOF",
+                      "name": "Socials",
+                      "fill": "$ink",
+                      "content": "email · github · linkedin · medium · x",
+                      "fontFamily": "$font-hand",
+                      "fontSize": 18,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "rjdDs",
+                      "name": "Copyright",
+                      "fill": "$gray",
+                      "content": "© 2026 Favour Umejesi",
+                      "fontFamily": "$font-hand",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "dS6iv",
+      "x": 3840,
+      "y": 4800,
+      "name": "Sketch v2 — Entry (margin photos)",
+      "clip": true,
+      "width": 1160,
+      "fill": "$paper",
+      "layout": "vertical",
+      "padding": [
+        52,
+        72,
+        64,
+        72
+      ],
+      "children": [
+        {
+          "id": "fPWRD",
+          "type": "ref",
+          "ref": "alsx8",
+          "name": "Lined Paper",
+          "layoutPosition": "absolute",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "type": "frame",
+          "id": "p6mld",
+          "name": "Top Bar",
+          "width": "fill_container",
+          "height": 33,
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "XefI2",
+              "name": "Diary Mark",
+              "fill": "$ink",
+              "content": "The Diary of a Lucid Dame",
+              "fontFamily": "$font-hand",
+              "fontSize": 21,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "h1Tgp0",
+              "name": "Nav",
+              "gap": 22,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "DQrRt",
+                  "name": "nav-about",
+                  "fill": "$ink",
+                  "content": "about",
+                  "fontFamily": "$font-hand",
+                  "fontSize": 17,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "fsRhc",
+                  "name": "nav-musings",
+                  "fill": "$ink",
+                  "content": "musings",
+                  "fontFamily": "$font-hand",
+                  "fontSize": 17,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "J5rwcy",
+                  "name": "nav-research profile",
+                  "fill": "$ink",
+                  "content": "research profile",
+                  "fontFamily": "$font-hand",
+                  "fontSize": 17,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Y0EJm7",
+          "name": "Line Gap",
+          "width": "fill_container",
+          "height": 66
+        },
+        {
+          "type": "frame",
+          "id": "Sc6RE",
+          "name": "Title Block",
+          "width": "fill_container",
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "text",
+              "id": "K9ZGF",
+              "name": "Title",
+              "fill": "$ink",
+              "content": "PERHAPS CLARITY IS OVERRATED",
+              "lineHeight": 1.2,
+              "fontFamily": "$font-hand-sc",
+              "fontSize": 55,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "QxJ0j",
+              "name": "Underline Slot",
+              "width": "fill_container",
+              "height": 14,
+              "children": [
+                {
+                  "type": "path",
+                  "id": "m1TwX",
+                  "layoutPosition": "absolute",
+                  "x": 2,
+                  "y": 0,
+                  "name": "Wavy Underline",
+                  "geometry": "M2 8q30-7 58 0t58 0 58 0 58 0 58 0 58 0 58 0",
+                  "viewBox": [
+                    0,
+                    0,
+                    410,
+                    14
+                  ],
+                  "fill": "#00000000",
+                  "width": 700,
+                  "height": 14,
+                  "stroke": "$ink",
+                  "strokeWidth": 3,
+                  "strokeLinejoin": "round",
+                  "strokeLinecap": "round"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "TPLbN",
+          "name": "Meta Row",
+          "width": "fill_container",
+          "height": 33,
+          "gap": 14,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "Md9jK",
+              "name": "Meta",
+              "fill": "$gray",
+              "content": "OCT 11, 2026 · 5 MIN READ",
+              "fontFamily": "$font-hand",
+              "fontSize": 15,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "HQSzl",
+          "name": "Line Gap",
+          "width": "fill_container",
+          "height": 33
+        },
+        {
+          "type": "frame",
+          "id": "IXre2",
+          "name": "Body + Margin",
+          "width": "fill_container",
+          "gap": 48,
+          "children": [
+            {
+              "type": "frame",
+              "id": "AKi56",
+              "name": "Writing",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 33,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "sIwPL",
+                  "name": "P1",
+                  "fill": "$ink",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Brain dump alert, just a heads up, you might get bored and I know half of you reading this won't even finish reading this write up :(",
+                  "lineHeight": 1.5714285714285714,
+                  "fontFamily": "$font-hand",
+                  "fontSize": 21,
+                  "fontWeight": "normal",
+                  "fontStyle": "italic"
+                },
+                {
+                  "type": "text",
+                  "id": "A9lh0V",
+                  "name": "P2",
+                  "fill": "$ink",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Recently, I have been reflecting on why I want to pursue a PhD, especially at a time when artificial intelligence is advancing at an unprecedented pace.",
+                  "lineHeight": 1.5714285714285714,
+                  "fontFamily": "$font-hand",
+                  "fontSize": 21,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "r9BFJ",
+                  "name": "P3",
+                  "fill": "$ink",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "After my first internship at a big tech company, I began telling a few friends that I was considering pursuing a PhD. One of the most common responses I received was whether a PhD would remain relevant given the rapid development of artificial intelligence.",
+                  "lineHeight": 1.5714285714285714,
+                  "fontFamily": "$font-hand",
+                  "fontSize": 21,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "yKWWE",
+                  "name": "P4",
+                  "fill": "$ink",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "It made me wonder: what is becoming of learning?",
+                  "lineHeight": 1.5714285714285714,
+                  "fontFamily": "$font-hand",
+                  "fontSize": 21,
+                  "fontWeight": "bold"
+                },
+                {
+                  "type": "text",
+                  "id": "utPWV",
+                  "name": "P5",
+                  "fill": "$ink",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Does learning certain concepts still matter when machines can already perform the tasks we are learning to do? What will education look like in a world where artificial intelligence continues to outperform humans in increasingly complex intellectual tasks?",
+                  "lineHeight": 1.5714285714285714,
+                  "fontFamily": "$font-hand",
+                  "fontSize": 21,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "zXNoM",
+                  "name": "Pull Quote",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "padding": [
+                    12,
+                    40
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Y2zc6",
+                      "name": "Quote",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": 560,
+                      "content": "Perhaps pursuing a PhD, for me, is not about having all the answers. It is about being willing to spend years asking questions that matter.",
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fontFamily": "Caveat",
+                      "fontSize": 30,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "oVNQn",
+                  "name": "P6",
+                  "fill": "$ink",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Hmmm, if you got this far, there is hope for the Generation Z after all :)",
+                  "lineHeight": 1.5714285714285714,
+                  "fontFamily": "$font-hand",
+                  "fontSize": 21,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "sAeRh",
+              "name": "Margin",
+              "width": 260,
+              "layout": "vertical",
+              "gap": 40,
+              "padding": [
+                12,
+                0,
+                0,
+                0
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "u7xt6i",
+                  "name": "Photo 1",
+                  "rotation": -2,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 2,
+                  "stroke": "$ink",
+                  "strokeWidth": 2.5,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "$ink",
+                    "offset": {
+                      "x": 5,
+                      "y": 5
+                    }
+                  },
+                  "layout": "vertical",
+                  "gap": 2,
+                  "padding": [
+                    8,
+                    8,
+                    4,
+                    8
+                  ],
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "id": "jPAnj",
+                      "name": "Photo",
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "public/images/musings/perhaps-clarity-is-overrated/post_impressionism_6.jpg",
+                        "mode": "cover"
+                      },
+                      "width": 230,
+                      "height": 290
+                    },
+                    {
+                      "type": "text",
+                      "id": "A416Z",
+                      "name": "Caption",
+                      "fill": "$gray",
+                      "textGrowth": "fixed-width",
+                      "width": 230,
+                      "content": "The Scream, a study of oneself",
+                      "textAlign": "center",
+                      "fontFamily": "$font-hand",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "q5JXzG",
+                      "layoutPosition": "absolute",
+                      "x": 85,
+                      "y": -12,
+                      "name": "Tape",
+                      "rotation": -3.0000000000000004,
+                      "fill": "#F6F1E3D0",
+                      "width": 78,
+                      "height": 22,
+                      "stroke": "#11111140",
+                      "strokeWidth": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Q87Ya",
+                  "name": "Photo 2",
+                  "rotation": 1.6,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 2,
+                  "stroke": "$ink",
+                  "strokeWidth": 2.5,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "$ink",
+                    "offset": {
+                      "x": 5,
+                      "y": 5
+                    }
+                  },
+                  "layout": "vertical",
+                  "gap": 2,
+                  "padding": [
+                    8,
+                    8,
+                    4,
+                    8
+                  ],
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "id": "nxC1t",
+                      "name": "Photo",
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "public/images/musings/perhaps-clarity-is-overrated/impress10.jpg",
+                        "mode": "cover"
+                      },
+                      "width": 230,
+                      "height": 330
+                    },
+                    {
+                      "type": "text",
+                      "id": "vSNWr",
+                      "name": "Caption",
+                      "fill": "$gray",
+                      "textGrowth": "fixed-width",
+                      "width": 230,
+                      "content": "a little blur keeps the heart from breaking",
+                      "textAlign": "center",
+                      "fontFamily": "$font-hand",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "TjgTH",
+                      "layoutPosition": "absolute",
+                      "x": 85,
+                      "y": -12,
+                      "name": "Tape",
+                      "rotation": -3.0000000000000004,
+                      "fill": "#F6F1E3D0",
+                      "width": 78,
+                      "height": 22,
+                      "stroke": "#11111140",
+                      "strokeWidth": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "FKBLY",
+                  "name": "Photo 3",
+                  "rotation": -1,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 2,
+                  "stroke": "$ink",
+                  "strokeWidth": 2.5,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "$ink",
+                    "offset": {
+                      "x": 5,
+                      "y": 5
+                    }
+                  },
+                  "layout": "vertical",
+                  "gap": 2,
+                  "padding": [
+                    8,
+                    8,
+                    4,
+                    8
+                  ],
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "id": "ozHJX",
+                      "name": "Photo",
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "public/images/musings/perhaps-clarity-is-overrated/il_570xN.3149168771_swi2.webp",
+                        "mode": "cover"
+                      },
+                      "width": 230,
+                      "height": 230
+                    },
+                    {
+                      "type": "text",
+                      "id": "POGW6",
+                      "name": "Caption",
+                      "fill": "$gray",
+                      "textGrowth": "fixed-width",
+                      "width": 230,
+                      "content": "Credit: Etsy",
+                      "textAlign": "center",
+                      "fontFamily": "$font-hand",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "NE8kz",
+                      "layoutPosition": "absolute",
+                      "x": 85,
+                      "y": -12,
+                      "name": "Tape",
+                      "rotation": -3.0000000000000004,
+                      "fill": "#F6F1E3D0",
+                      "width": 78,
+                      "height": 22,
+                      "stroke": "#11111140",
+                      "strokeWidth": 1
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "D52Ab",
+          "name": "Line Gap",
+          "width": "fill_container",
+          "height": 66
+        },
+        {
+          "type": "text",
+          "id": "Tm7Q6",
+          "name": "Back",
+          "fill": "$ink",
+          "content": "←  back to musings",
+          "lineHeight": 1.65,
+          "fontFamily": "$font-hand",
+          "fontSize": 20,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "qNBH9",
+          "name": "Line Gap",
+          "width": "fill_container",
+          "height": 33
+        },
+        {
+          "type": "frame",
+          "id": "ArwRI",
+          "name": "Footer",
+          "width": "fill_container",
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "Lj5jj",
+              "name": "Footer Row",
+              "width": "fill_container",
+              "height": 66,
+              "justifyContent": "space_between",
+              "alignItems": "end",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "v6OEgI",
+                  "name": "Quote Block",
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "j40wNq",
+                      "name": "Quote",
+                      "fill": "$ink",
+                      "content": "“Don't expect me to be all ‘Dear Diary’ this and ‘Dear Diary’ that.”",
+                      "fontFamily": "$font-hand",
+                      "fontSize": 21,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "ueWu8",
+                      "name": "By",
+                      "fill": "$gray",
+                      "content": "— Greg Heffley",
+                      "fontFamily": "$font-hand",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "ywxMO",
+                  "name": "Footer Right",
+                  "layout": "vertical",
+                  "alignItems": "end",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "T0oIx",
+                      "name": "Socials",
+                      "fill": "$ink",
+                      "content": "email · github · linkedin · medium · x",
+                      "fontFamily": "$font-hand",
+                      "fontSize": 18,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "ptmiI",
+                      "name": "Copyright",
+                      "fill": "$gray",
+                      "content": "© 2026 Favour Umejesi",
+                      "fontFamily": "$font-hand",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "rzrxO",
+      "x": 0,
+      "y": 6500,
+      "name": "Article A — Mood strip under the title",
+      "clip": true,
+      "width": 1160,
+      "fill": "$paper",
+      "layout": "vertical",
+      "padding": [
+        52,
+        72,
+        64,
+        72
+      ],
+      "children": [
+        {
+          "id": "IZJgq",
+          "type": "ref",
+          "ref": "alsx8",
+          "name": "Lined Paper",
+          "layoutPosition": "absolute",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "type": "frame",
+          "id": "UNkkI",
+          "name": "Top Bar",
+          "width": "fill_container",
+          "height": 33,
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "FVni6",
+              "name": "Diary Mark",
+              "fill": "$ink",
+              "content": "The Diary of a Lucid Dame",
+              "fontFamily": "$font-hand",
+              "fontSize": 21,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "bhntJ",
+              "name": "Nav",
+              "gap": 22,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "XQBPm",
+                  "name": "nav-about",
+                  "fill": "$ink",
+                  "content": "about",
+                  "fontFamily": "$font-hand",
+                  "fontSize": 17,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "HU8bQ",
+                  "name": "nav-musings",
+                  "fill": "$ink",
+                  "content": "musings",
+                  "fontFamily": "$font-hand",
+                  "fontSize": 17,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "A9gv3",
+                  "name": "nav-research profile",
+                  "fill": "$ink",
+                  "content": "research profile",
+                  "fontFamily": "$font-hand",
+                  "fontSize": 17,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "k5BFD",
+          "name": "Line Gap",
+          "width": "fill_container",
+          "height": 66
+        },
+        {
+          "type": "frame",
+          "id": "beGXX",
+          "name": "Title Block",
+          "width": "fill_container",
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "text",
+              "id": "NFF73",
+              "name": "Title",
+              "fill": "$ink",
+              "content": "PERHAPS CLARITY IS OVERRATED",
+              "lineHeight": 1.2,
+              "fontFamily": "$font-hand-sc",
+              "fontSize": 55,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "Za57P",
+              "name": "Underline Slot",
+              "width": "fill_container",
+              "height": 14,
+              "children": [
+                {
+                  "type": "path",
+                  "id": "A3g8b5",
+                  "layoutPosition": "absolute",
+                  "x": 2,
+                  "y": 0,
+                  "name": "Wavy Underline",
+                  "geometry": "M2 8q30-7 58 0t58 0 58 0 58 0 58 0 58 0 58 0",
+                  "viewBox": [
+                    0,
+                    0,
+                    410,
+                    14
+                  ],
+                  "fill": "#00000000",
+                  "width": 700,
+                  "height": 14,
+                  "stroke": "$ink",
+                  "strokeWidth": 3,
+                  "strokeLinejoin": "round",
+                  "strokeLinecap": "round"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "qLcnD",
+          "name": "Meta",
+          "fill": "$gray",
+          "content": "OCT 11, 2026 · 5 MIN READ · pictures: things I was looking at while writing this",
+          "lineHeight": 2.2,
+          "fontFamily": "$font-hand",
+          "fontSize": 15,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "fM5uk",
+          "name": "Mood Strip",
+          "width": "fill_container",
+          "gap": 34,
+          "padding": [
+            18,
+            0,
+            22,
+            6
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "A4hRhR",
+              "name": "Mood 1",
+              "rotation": -2.5,
+              "fill": "#FFFFFF",
+              "cornerRadius": 2,
+              "stroke": "$ink",
+              "strokeWidth": 2.5,
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "$ink",
+                "offset": {
+                  "x": 5,
+                  "y": 5
+                }
+              },
+              "layout": "vertical",
+              "gap": 2,
+              "padding": [
+                8,
+                8,
+                4,
+                8
+              ],
+              "children": [
+                {
+                  "type": "rectangle",
+                  "id": "QE3BD",
+                  "name": "Photo",
+                  "fill": {
+                    "type": "image",
+                    "enabled": true,
+                    "url": "public/images/musings/perhaps-clarity-is-overrated/post_impressionism_6.jpg",
+                    "mode": "cover"
+                  },
+                  "width": 190,
+                  "height": 230
+                },
+                {
+                  "type": "text",
+                  "id": "g3aMj3",
+                  "name": "Caption",
+                  "fill": "$gray",
+                  "textGrowth": "fixed-width",
+                  "width": 190,
+                  "content": "The Scream, a study of oneself",
+                  "textAlign": "center",
+                  "fontFamily": "$font-hand",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "rectangle",
+                  "id": "e6eaJq",
+                  "layoutPosition": "absolute",
+                  "x": 65,
+                  "y": -12,
+                  "name": "Tape",
+                  "rotation": -3.0000000000000004,
+                  "fill": "#F6F1E3D0",
+                  "width": 78,
+                  "height": 22,
+                  "stroke": "#11111140",
+                  "strokeWidth": 1
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "p8Jchl",
+              "name": "Mood 2",
+              "rotation": 1.8,
+              "fill": "#FFFFFF",
+              "cornerRadius": 2,
+              "stroke": "$ink",
+              "strokeWidth": 2.5,
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "$ink",
+                "offset": {
+                  "x": 5,
+                  "y": 5
+                }
+              },
+              "layout": "vertical",
+              "gap": 2,
+              "padding": [
+                8,
+                8,
+                4,
+                8
+              ],
+              "children": [
+                {
+                  "type": "rectangle",
+                  "id": "z2DiC",
+                  "name": "Photo",
+                  "fill": {
+                    "type": "image",
+                    "enabled": true,
+                    "url": "public/images/musings/perhaps-clarity-is-overrated/impress10.jpg",
+                    "mode": "cover"
+                  },
+                  "width": 190,
+                  "height": 230
+                },
+                {
+                  "type": "text",
+                  "id": "xqh1b",
+                  "name": "Caption",
+                  "fill": "$gray",
+                  "textGrowth": "fixed-width",
+                  "width": 190,
+                  "content": "a little blur keeps the heart from breaking",
+                  "textAlign": "center",
+                  "fontFamily": "$font-hand",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "rectangle",
+                  "id": "m1vvK",
+                  "layoutPosition": "absolute",
+                  "x": 65,
+                  "y": -12,
+                  "name": "Tape",
+                  "rotation": -3.0000000000000004,
+                  "fill": "#F6F1E3D0",
+                  "width": 78,
+                  "height": 22,
+                  "stroke": "#11111140",
+                  "strokeWidth": 1
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "HrUWg",
+              "name": "Mood 3",
+              "rotation": -1.2,
+              "fill": "#FFFFFF",
+              "cornerRadius": 2,
+              "stroke": "$ink",
+              "strokeWidth": 2.5,
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "$ink",
+                "offset": {
+                  "x": 5,
+                  "y": 5
+                }
+              },
+              "layout": "vertical",
+              "gap": 2,
+              "padding": [
+                8,
+                8,
+                4,
+                8
+              ],
+              "children": [
+                {
+                  "type": "rectangle",
+                  "id": "Vynoi",
+                  "name": "Photo",
+                  "fill": {
+                    "type": "image",
+                    "enabled": true,
+                    "url": "public/images/musings/perhaps-clarity-is-overrated/il_570xN.3149168771_swi2.webp",
+                    "mode": "cover"
+                  },
+                  "width": 190,
+                  "height": 190
+                },
+                {
+                  "type": "text",
+                  "id": "uBqkp",
+                  "name": "Caption",
+                  "fill": "$gray",
+                  "textGrowth": "fixed-width",
+                  "width": 190,
+                  "content": "Credit: Etsy",
+                  "textAlign": "center",
+                  "fontFamily": "$font-hand",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "rectangle",
+                  "id": "WZUJB",
+                  "layoutPosition": "absolute",
+                  "x": 65,
+                  "y": -12,
+                  "name": "Tape",
+                  "rotation": -3.0000000000000004,
+                  "fill": "#F6F1E3D0",
+                  "width": 78,
+                  "height": 22,
+                  "stroke": "#11111140",
+                  "strokeWidth": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "rWbhX",
+          "name": "Line Gap",
+          "width": "fill_container",
+          "height": 33
+        },
+        {
+          "type": "frame",
+          "id": "HtOtj",
+          "name": "Panel",
+          "width": "fill_container",
+          "cornerRadius": 2,
+          "stroke": "$ink",
+          "strokeWidth": 2.5,
+          "effect": {
+            "type": "shadow",
+            "shadowType": "outer",
+            "color": "$ink",
+            "offset": {
+              "x": 6,
+              "y": 6
+            }
+          },
+          "layout": "vertical",
+          "gap": 33,
+          "padding": [
+            30,
+            36
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "l8MuVl",
+              "name": "P1",
+              "fill": "$ink",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Brain dump alert, just a heads up, you might get bored and I know half of you reading this won't even finish reading this write up :(",
+              "lineHeight": 1.5714285714285714,
+              "fontFamily": "$font-hand",
+              "fontSize": 21,
+              "fontWeight": "normal",
+              "fontStyle": "italic"
+            },
+            {
+              "type": "text",
+              "id": "gLAjc",
+              "name": "P2",
+              "fill": "$ink",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Recently, I have been reflecting on why I want to pursue a PhD, especially at a time when artificial intelligence is advancing at an unprecedented pace.",
+              "lineHeight": 1.5714285714285714,
+              "fontFamily": "$font-hand",
+              "fontSize": 21,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "Y5zFO",
+              "name": "P3",
+              "fill": "$ink",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "After my first internship at a big tech company, I began telling a few friends that I was considering pursuing a PhD. One of the most common responses I received was whether a PhD would remain relevant given the rapid development of AI.",
+              "lineHeight": 1.5714285714285714,
+              "fontFamily": "$font-hand",
+              "fontSize": 21,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "figoQ",
+              "name": "P4",
+              "fill": "$ink",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "It made me wonder: what is becoming of learning?",
+              "lineHeight": 1.5714285714285714,
+              "fontFamily": "$font-hand",
+              "fontSize": 21,
+              "fontWeight": "bold"
+            },
+            {
+              "type": "text",
+              "id": "TjKxY",
+              "name": "P5",
+              "fill": "$ink",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Does learning certain concepts still matter when machines can already perform the tasks we are learning to do? What will education look like in a world where AI continues to outperform humans in increasingly complex intellectual tasks?",
+              "lineHeight": 1.5714285714285714,
+              "fontFamily": "$font-hand",
+              "fontSize": 21,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "uIQul",
+              "name": "P6",
+              "fill": "$ink",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "I do not think the answer is to stop learning. In fact, I believe these advancements make it even more important to understand fundamental concepts rather than simply rely on the outputs of intelligent systems.",
+              "lineHeight": 1.5714285714285714,
+              "fontFamily": "$font-hand",
+              "fontSize": 21,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "lPwyP",
+          "name": "Line Gap",
+          "width": "fill_container",
+          "height": 33
+        },
+        {
+          "type": "text",
+          "id": "AvUHA",
+          "name": "Back",
+          "fill": "$ink",
+          "content": "←  back to musings",
+          "lineHeight": 1.65,
+          "fontFamily": "$font-hand",
+          "fontSize": 20,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "cDskr",
+          "name": "Line Gap",
+          "width": "fill_container",
+          "height": 33
+        },
+        {
+          "type": "frame",
+          "id": "FHcti",
+          "name": "Footer",
+          "width": "fill_container",
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "B5KPOo",
+              "name": "Footer Row",
+              "width": "fill_container",
+              "height": 66,
+              "justifyContent": "space_between",
+              "alignItems": "end",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "U4pA6L",
+                  "name": "Quote Block",
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "vIiYD",
+                      "name": "Quote",
+                      "fill": "$ink",
+                      "content": "“Don't expect me to be all ‘Dear Diary’ this and ‘Dear Diary’ that.”",
+                      "fontFamily": "$font-hand",
+                      "fontSize": 21,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "p0lXVL",
+                      "name": "By",
+                      "fill": "$gray",
+                      "content": "— Greg Heffley",
+                      "fontFamily": "$font-hand",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "dKRnG",
+                  "name": "Footer Right",
+                  "layout": "vertical",
+                  "alignItems": "end",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Jmc4V",
+                      "name": "Socials",
+                      "fill": "$ink",
+                      "content": "email · github · linkedin · medium · x",
+                      "fontFamily": "$font-hand",
+                      "fontSize": 18,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "N1zjP",
+                      "name": "Copyright",
+                      "fill": "$gray",
+                      "content": "© 2026 Favour Umejesi",
+                      "fontFamily": "$font-hand",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "wSWKt",
+      "x": 1280,
+      "y": 6500,
+      "name": "Article B — Scrapbook: photos outside the panel",
+      "clip": true,
+      "width": 1160,
+      "fill": "$paper",
+      "layout": "vertical",
+      "padding": [
+        52,
+        72,
+        64,
+        72
+      ],
+      "children": [
+        {
+          "id": "WyLxk",
+          "type": "ref",
+          "ref": "alsx8",
+          "name": "Lined Paper",
+          "layoutPosition": "absolute",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "type": "frame",
+          "id": "NX1oJ",
+          "name": "Top Bar",
+          "width": "fill_container",
+          "height": 33,
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "jRN1X",
+              "name": "Diary Mark",
+              "fill": "$ink",
+              "content": "The Diary of a Lucid Dame",
+              "fontFamily": "$font-hand",
+              "fontSize": 21,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "rCOWN",
+              "name": "Nav",
+              "gap": 22,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "uTT07",
+                  "name": "nav-about",
+                  "fill": "$ink",
+                  "content": "about",
+                  "fontFamily": "$font-hand",
+                  "fontSize": 17,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "BNN4j",
+                  "name": "nav-musings",
+                  "fill": "$ink",
+                  "content": "musings",
+                  "fontFamily": "$font-hand",
+                  "fontSize": 17,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "cJofs",
+                  "name": "nav-research profile",
+                  "fill": "$ink",
+                  "content": "research profile",
+                  "fontFamily": "$font-hand",
+                  "fontSize": 17,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "J2fvz",
+          "name": "Line Gap",
+          "width": "fill_container",
+          "height": 66
+        },
+        {
+          "type": "frame",
+          "id": "fMhOe",
+          "name": "Title Block",
+          "width": "fill_container",
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "text",
+              "id": "gLYf3",
+              "name": "Title",
+              "fill": "$ink",
+              "content": "PERHAPS CLARITY IS OVERRATED",
+              "lineHeight": 1.2,
+              "fontFamily": "$font-hand-sc",
+              "fontSize": 55,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "HtNK3",
+              "name": "Underline Slot",
+              "width": "fill_container",
+              "height": 14,
+              "children": [
+                {
+                  "type": "path",
+                  "id": "FPpfT",
+                  "layoutPosition": "absolute",
+                  "x": 2,
+                  "y": 0,
+                  "name": "Wavy Underline",
+                  "geometry": "M2 8q30-7 58 0t58 0 58 0 58 0 58 0 58 0 58 0",
+                  "viewBox": [
+                    0,
+                    0,
+                    410,
+                    14
+                  ],
+                  "fill": "#00000000",
+                  "width": 700,
+                  "height": 14,
+                  "stroke": "$ink",
+                  "strokeWidth": 3,
+                  "strokeLinejoin": "round",
+                  "strokeLinecap": "round"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "bmH5W",
+          "name": "Meta",
+          "fill": "$gray",
+          "content": "OCT 11, 2026 · 5 MIN READ",
+          "lineHeight": 2.2,
+          "fontFamily": "$font-hand",
+          "fontSize": 15,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "d8oI9",
+          "name": "Line Gap",
+          "width": "fill_container",
+          "height": 33
+        },
+        {
+          "type": "frame",
+          "id": "XpYpB",
+          "name": "Panel + Gutter",
+          "width": "fill_container",
+          "children": [
+            {
+              "type": "frame",
+              "id": "J9xPDE",
+              "name": "Panel",
+              "width": 720,
+              "cornerRadius": 2,
+              "stroke": "$ink",
+              "strokeWidth": 2.5,
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "$ink",
+                "offset": {
+                  "x": 6,
+                  "y": 6
+                }
+              },
+              "layout": "vertical",
+              "gap": 33,
+              "padding": [
+                30,
+                36
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "MMLSJ",
+                  "name": "P1",
+                  "fill": "$ink",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Brain dump alert, just a heads up, you might get bored and I know half of you reading this won't even finish reading this write up :(",
+                  "lineHeight": 1.5714285714285714,
+                  "fontFamily": "$font-hand",
+                  "fontSize": 21,
+                  "fontWeight": "normal",
+                  "fontStyle": "italic"
+                },
+                {
+                  "type": "text",
+                  "id": "EjJ3e",
+                  "name": "P2",
+                  "fill": "$ink",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Recently, I have been reflecting on why I want to pursue a PhD, especially at a time when artificial intelligence is advancing at an unprecedented pace.",
+                  "lineHeight": 1.5714285714285714,
+                  "fontFamily": "$font-hand",
+                  "fontSize": 21,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "ik6Uk",
+                  "name": "P3",
+                  "fill": "$ink",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "After my first internship at a big tech company, I began telling a few friends that I was considering pursuing a PhD. One of the most common responses I received was whether a PhD would remain relevant given the rapid development of AI.",
+                  "lineHeight": 1.5714285714285714,
+                  "fontFamily": "$font-hand",
+                  "fontSize": 21,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "ZbxWh",
+                  "name": "P4",
+                  "fill": "$ink",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "It made me wonder: what is becoming of learning?",
+                  "lineHeight": 1.5714285714285714,
+                  "fontFamily": "$font-hand",
+                  "fontSize": 21,
+                  "fontWeight": "bold"
+                },
+                {
+                  "type": "text",
+                  "id": "AVuwd",
+                  "name": "P5",
+                  "fill": "$ink",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Does learning certain concepts still matter when machines can already perform the tasks we are learning to do? What will education look like in a world where AI continues to outperform humans in increasingly complex intellectual tasks?",
+                  "lineHeight": 1.5714285714285714,
+                  "fontFamily": "$font-hand",
+                  "fontSize": 21,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "Vk741",
+                  "name": "P6",
+                  "fill": "$ink",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "I do not think the answer is to stop learning. In fact, I believe these advancements make it even more important to understand fundamental concepts rather than simply rely on the outputs of intelligent systems.",
+                  "lineHeight": 1.5714285714285714,
+                  "fontFamily": "$font-hand",
+                  "fontSize": 21,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "iQjIX",
+              "name": "Gutter",
+              "width": "fill_container",
+              "height": 860,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "yHySK",
+                  "x": 40,
+                  "y": 10,
+                  "name": "Stuck 1",
+                  "rotation": 4,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 2,
+                  "stroke": "$ink",
+                  "strokeWidth": 2.5,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "$ink",
+                    "offset": {
+                      "x": 5,
+                      "y": 5
+                    }
+                  },
+                  "layout": "vertical",
+                  "gap": 2,
+                  "padding": [
+                    8,
+                    8,
+                    4,
+                    8
+                  ],
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "id": "yPKck",
+                      "name": "Photo",
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "public/images/musings/perhaps-clarity-is-overrated/post_impressionism_6.jpg",
+                        "mode": "cover"
+                      },
+                      "width": 210,
+                      "height": 250
+                    },
+                    {
+                      "type": "text",
+                      "id": "XfVbC",
+                      "name": "Caption",
+                      "fill": "$gray",
+                      "textGrowth": "fixed-width",
+                      "width": 210,
+                      "content": "The Scream, a study of oneself",
+                      "textAlign": "center",
+                      "fontFamily": "$font-hand",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "vTpPZ",
+                      "layoutPosition": "absolute",
+                      "x": 75,
+                      "y": -12,
+                      "name": "Tape",
+                      "rotation": -3.0000000000000004,
+                      "fill": "#F6F1E3D0",
+                      "width": 78,
+                      "height": 22,
+                      "stroke": "#11111140",
+                      "strokeWidth": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "KWkn0",
+                  "x": 70,
+                  "y": 300,
+                  "name": "Stuck 2",
+                  "rotation": -5,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 2,
+                  "stroke": "$ink",
+                  "strokeWidth": 2.5,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "$ink",
+                    "offset": {
+                      "x": 5,
+                      "y": 5
+                    }
+                  },
+                  "layout": "vertical",
+                  "gap": 2,
+                  "padding": [
+                    8,
+                    8,
+                    4,
+                    8
+                  ],
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "id": "H1zUKz",
+                      "name": "Photo",
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "public/images/musings/perhaps-clarity-is-overrated/impress10.jpg",
+                        "mode": "cover"
+                      },
+                      "width": 200,
+                      "height": 280
+                    },
+                    {
+                      "type": "text",
+                      "id": "o3JV8",
+                      "name": "Caption",
+                      "fill": "$gray",
+                      "textGrowth": "fixed-width",
+                      "width": 200,
+                      "content": "a little blur keeps the heart from breaking",
+                      "textAlign": "center",
+                      "fontFamily": "$font-hand",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "cSVUH",
+                      "layoutPosition": "absolute",
+                      "x": 70,
+                      "y": -12,
+                      "name": "Tape",
+                      "rotation": -3.0000000000000004,
+                      "fill": "#F6F1E3D0",
+                      "width": 78,
+                      "height": 22,
+                      "stroke": "#11111140",
+                      "strokeWidth": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "vsXvN",
+                  "x": 20,
+                  "y": 620,
+                  "name": "Stuck 3",
+                  "rotation": 3.0000000000000004,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 2,
+                  "stroke": "$ink",
+                  "strokeWidth": 2.5,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "$ink",
+                    "offset": {
+                      "x": 5,
+                      "y": 5
+                    }
+                  },
+                  "layout": "vertical",
+                  "gap": 2,
+                  "padding": [
+                    8,
+                    8,
+                    4,
+                    8
+                  ],
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "id": "B6zJR",
+                      "name": "Photo",
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "public/images/musings/perhaps-clarity-is-overrated/il_570xN.3149168771_swi2.webp",
+                        "mode": "cover"
+                      },
+                      "width": 170,
+                      "height": 170
+                    },
+                    {
+                      "type": "text",
+                      "id": "yRtg2",
+                      "name": "Caption",
+                      "fill": "$gray",
+                      "textGrowth": "fixed-width",
+                      "width": 170,
+                      "content": "Credit: Etsy",
+                      "textAlign": "center",
+                      "fontFamily": "$font-hand",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "wxpls",
+                      "layoutPosition": "absolute",
+                      "x": 55,
+                      "y": -12,
+                      "name": "Tape",
+                      "rotation": -3.0000000000000004,
+                      "fill": "#F6F1E3D0",
+                      "width": 78,
+                      "height": 22,
+                      "stroke": "#11111140",
+                      "strokeWidth": 1
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "xz6te",
+          "name": "Line Gap",
+          "width": "fill_container",
+          "height": 33
+        },
+        {
+          "type": "text",
+          "id": "S5de5T",
+          "name": "Back",
+          "fill": "$ink",
+          "content": "←  back to musings",
+          "lineHeight": 1.65,
+          "fontFamily": "$font-hand",
+          "fontSize": 20,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "LsglC",
+          "name": "Line Gap",
+          "width": "fill_container",
+          "height": 33
+        },
+        {
+          "type": "frame",
+          "id": "N4fVHe",
+          "name": "Footer",
+          "width": "fill_container",
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "hFSC6",
+              "name": "Footer Row",
+              "width": "fill_container",
+              "height": 66,
+              "justifyContent": "space_between",
+              "alignItems": "end",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "j4Jm65",
+                  "name": "Quote Block",
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "a1NFhn",
+                      "name": "Quote",
+                      "fill": "$ink",
+                      "content": "“Don't expect me to be all ‘Dear Diary’ this and ‘Dear Diary’ that.”",
+                      "fontFamily": "$font-hand",
+                      "fontSize": 21,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "G2q8rc",
+                      "name": "By",
+                      "fill": "$gray",
+                      "content": "— Greg Heffley",
+                      "fontFamily": "$font-hand",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "bqncH",
+                  "name": "Footer Right",
+                  "layout": "vertical",
+                  "alignItems": "end",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Qgb8w",
+                      "name": "Socials",
+                      "fill": "$ink",
+                      "content": "email · github · linkedin · medium · x",
+                      "fontFamily": "$font-hand",
+                      "fontSize": 18,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Mjhwr",
+                      "name": "Copyright",
+                      "fill": "$gray",
+                      "content": "© 2026 Favour Umejesi",
+                      "fontFamily": "$font-hand",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "U4XNdU",
+      "x": 2560,
+      "y": 6500,
+      "name": "Article C — Reading column + photo spread at the end",
+      "clip": true,
+      "width": 1160,
+      "fill": "$paper",
+      "layout": "vertical",
+      "padding": [
+        52,
+        72,
+        64,
+        72
+      ],
+      "children": [
+        {
+          "id": "J4ArV",
+          "type": "ref",
+          "ref": "alsx8",
+          "name": "Lined Paper",
+          "layoutPosition": "absolute",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "type": "frame",
+          "id": "bHMg2",
+          "name": "Top Bar",
+          "width": "fill_container",
+          "height": 33,
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "z8Oc5",
+              "name": "Diary Mark",
+              "fill": "$ink",
+              "content": "The Diary of a Lucid Dame",
+              "fontFamily": "$font-hand",
+              "fontSize": 21,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "NZkMq",
+              "name": "Nav",
+              "gap": 22,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "EOHmI",
+                  "name": "nav-about",
+                  "fill": "$ink",
+                  "content": "about",
+                  "fontFamily": "$font-hand",
+                  "fontSize": 17,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "vuV7p",
+                  "name": "nav-musings",
+                  "fill": "$ink",
+                  "content": "musings",
+                  "fontFamily": "$font-hand",
+                  "fontSize": 17,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "cwaO2",
+                  "name": "nav-research profile",
+                  "fill": "$ink",
+                  "content": "research profile",
+                  "fontFamily": "$font-hand",
+                  "fontSize": 17,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "c3MkM",
+          "name": "Line Gap",
+          "width": "fill_container",
+          "height": 66
+        },
+        {
+          "type": "frame",
+          "id": "SOxUZ",
+          "name": "Title Block",
+          "width": "fill_container",
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "text",
+              "id": "C1qb0",
+              "name": "Title",
+              "fill": "$ink",
+              "content": "PERHAPS CLARITY IS OVERRATED",
+              "lineHeight": 1.2,
+              "fontFamily": "$font-hand-sc",
+              "fontSize": 55,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "bJUez",
+              "name": "Underline Slot",
+              "width": "fill_container",
+              "height": 14,
+              "children": [
+                {
+                  "type": "path",
+                  "id": "BnSco",
+                  "layoutPosition": "absolute",
+                  "x": 2,
+                  "y": 0,
+                  "name": "Wavy Underline",
+                  "geometry": "M2 8q30-7 58 0t58 0 58 0 58 0 58 0 58 0 58 0",
+                  "viewBox": [
+                    0,
+                    0,
+                    410,
+                    14
+                  ],
+                  "fill": "#00000000",
+                  "width": 700,
+                  "height": 14,
+                  "stroke": "$ink",
+                  "strokeWidth": 3,
+                  "strokeLinejoin": "round",
+                  "strokeLinecap": "round"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "TDeRp",
+          "name": "Meta",
+          "fill": "$gray",
+          "content": "OCT 11, 2026 · 5 MIN READ",
+          "lineHeight": 2.2,
+          "fontFamily": "$font-hand",
+          "fontSize": 15,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "hrB6u",
+          "name": "Line Gap",
+          "width": "fill_container",
+          "height": 33
+        },
+        {
+          "type": "frame",
+          "id": "ppHBl",
+          "name": "Panel",
+          "width": "fill_container",
+          "cornerRadius": 2,
+          "stroke": "$ink",
+          "strokeWidth": 2.5,
+          "effect": {
+            "type": "shadow",
+            "shadowType": "outer",
+            "color": "$ink",
+            "offset": {
+              "x": 6,
+              "y": 6
+            }
+          },
+          "layout": "vertical",
+          "gap": 33,
+          "padding": [
+            30,
+            150
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "EXaLT",
+              "name": "P1",
+              "fill": "$ink",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Brain dump alert, just a heads up, you might get bored and I know half of you reading this won't even finish reading this write up :(",
+              "lineHeight": 1.5714285714285714,
+              "fontFamily": "$font-hand",
+              "fontSize": 21,
+              "fontWeight": "normal",
+              "fontStyle": "italic"
+            },
+            {
+              "type": "text",
+              "id": "nVuU1",
+              "name": "P2",
+              "fill": "$ink",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Recently, I have been reflecting on why I want to pursue a PhD, especially at a time when artificial intelligence is advancing at an unprecedented pace.",
+              "lineHeight": 1.5714285714285714,
+              "fontFamily": "$font-hand",
+              "fontSize": 21,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "kawG9",
+              "name": "P3",
+              "fill": "$ink",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "After my first internship at a big tech company, I began telling a few friends that I was considering pursuing a PhD. One of the most common responses I received was whether a PhD would remain relevant given the rapid development of AI.",
+              "lineHeight": 1.5714285714285714,
+              "fontFamily": "$font-hand",
+              "fontSize": 21,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "EarHW",
+              "name": "P4",
+              "fill": "$ink",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "It made me wonder: what is becoming of learning?",
+              "lineHeight": 1.5714285714285714,
+              "fontFamily": "$font-hand",
+              "fontSize": 21,
+              "fontWeight": "bold"
+            },
+            {
+              "type": "text",
+              "id": "wqDl6",
+              "name": "P5",
+              "fill": "$ink",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Does learning certain concepts still matter when machines can already perform the tasks we are learning to do? What will education look like in a world where AI continues to outperform humans in increasingly complex intellectual tasks?",
+              "lineHeight": 1.5714285714285714,
+              "fontFamily": "$font-hand",
+              "fontSize": 21,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "jhAYB",
+              "name": "P6",
+              "fill": "$ink",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "I do not think the answer is to stop learning. In fact, I believe these advancements make it even more important to understand fundamental concepts rather than simply rely on the outputs of intelligent systems.",
+              "lineHeight": 1.5714285714285714,
+              "fontFamily": "$font-hand",
+              "fontSize": 21,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "SnqpE",
+          "name": "Line Gap",
+          "width": "fill_container",
+          "height": 66
+        },
+        {
+          "type": "text",
+          "id": "R7DMbJ",
+          "name": "Spread Label",
+          "fill": "$ink",
+          "content": "PICTURES FROM THIS ENTRY —",
+          "lineHeight": 1.8333333333333333,
+          "fontFamily": "$font-hand",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "D0BhNA",
+          "name": "Photo Spread",
+          "width": "fill_container",
+          "gap": 30,
+          "padding": [
+            20,
+            0,
+            0,
+            0
+          ],
+          "alignItems": "end",
+          "children": [
+            {
+              "type": "frame",
+              "id": "fw4EU",
+              "name": "Spread 1",
+              "rotation": -2,
+              "fill": "#FFFFFF",
+              "cornerRadius": 2,
+              "stroke": "$ink",
+              "strokeWidth": 2.5,
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "$ink",
+                "offset": {
+                  "x": 5,
+                  "y": 5
+                }
+              },
+              "layout": "vertical",
+              "gap": 2,
+              "padding": [
+                8,
+                8,
+                4,
+                8
+              ],
+              "children": [
+                {
+                  "type": "rectangle",
+                  "id": "Pe5lF",
+                  "name": "Photo",
+                  "fill": {
+                    "type": "image",
+                    "enabled": true,
+                    "url": "public/images/musings/perhaps-clarity-is-overrated/post_impressionism_6.jpg",
+                    "mode": "cover"
+                  },
+                  "width": 290,
+                  "height": 330
+                },
+                {
+                  "type": "text",
+                  "id": "SpKVD",
+                  "name": "Caption",
+                  "fill": "$gray",
+                  "textGrowth": "fixed-width",
+                  "width": 290,
+                  "content": "The Scream, a study of oneself",
+                  "textAlign": "center",
+                  "fontFamily": "$font-hand",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "rectangle",
+                  "id": "lfOfN",
+                  "layoutPosition": "absolute",
+                  "x": 115,
+                  "y": -12,
+                  "name": "Tape",
+                  "rotation": -3.0000000000000004,
+                  "fill": "#F6F1E3D0",
+                  "width": 78,
+                  "height": 22,
+                  "stroke": "#11111140",
+                  "strokeWidth": 1
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "lzbqV",
+              "name": "Spread 2",
+              "rotation": 1.6,
+              "fill": "#FFFFFF",
+              "cornerRadius": 2,
+              "stroke": "$ink",
+              "strokeWidth": 2.5,
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "$ink",
+                "offset": {
+                  "x": 5,
+                  "y": 5
+                }
+              },
+              "layout": "vertical",
+              "gap": 2,
+              "padding": [
+                8,
+                8,
+                4,
+                8
+              ],
+              "children": [
+                {
+                  "type": "rectangle",
+                  "id": "FzxmT",
+                  "name": "Photo",
+                  "fill": {
+                    "type": "image",
+                    "enabled": true,
+                    "url": "public/images/musings/perhaps-clarity-is-overrated/impress10.jpg",
+                    "mode": "cover"
+                  },
+                  "width": 250,
+                  "height": 330
+                },
+                {
+                  "type": "text",
+                  "id": "QDuVp",
+                  "name": "Caption",
+                  "fill": "$gray",
+                  "textGrowth": "fixed-width",
+                  "width": 250,
+                  "content": "a little blur keeps the heart from breaking",
+                  "textAlign": "center",
+                  "fontFamily": "$font-hand",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "rectangle",
+                  "id": "k8eRNO",
+                  "layoutPosition": "absolute",
+                  "x": 95,
+                  "y": -12,
+                  "name": "Tape",
+                  "rotation": -3.0000000000000004,
+                  "fill": "#F6F1E3D0",
+                  "width": 78,
+                  "height": 22,
+                  "stroke": "#11111140",
+                  "strokeWidth": 1
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "O7EJFb",
+              "name": "Spread 3",
+              "rotation": -1,
+              "fill": "#FFFFFF",
+              "cornerRadius": 2,
+              "stroke": "$ink",
+              "strokeWidth": 2.5,
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "$ink",
+                "offset": {
+                  "x": 5,
+                  "y": 5
+                }
+              },
+              "layout": "vertical",
+              "gap": 2,
+              "padding": [
+                8,
+                8,
+                4,
+                8
+              ],
+              "children": [
+                {
+                  "type": "rectangle",
+                  "id": "BKBQr",
+                  "name": "Photo",
+                  "fill": {
+                    "type": "image",
+                    "enabled": true,
+                    "url": "public/images/musings/perhaps-clarity-is-overrated/il_570xN.3149168771_swi2.webp",
+                    "mode": "cover"
+                  },
+                  "width": 300,
+                  "height": 250
+                },
+                {
+                  "type": "text",
+                  "id": "pHxfD",
+                  "name": "Caption",
+                  "fill": "$gray",
+                  "textGrowth": "fixed-width",
+                  "width": 300,
+                  "content": "Credit: Etsy",
+                  "textAlign": "center",
+                  "fontFamily": "$font-hand",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "rectangle",
+                  "id": "L5Wvhl",
+                  "layoutPosition": "absolute",
+                  "x": 120,
+                  "y": -12,
+                  "name": "Tape",
+                  "rotation": -3.0000000000000004,
+                  "fill": "#F6F1E3D0",
+                  "width": 78,
+                  "height": 22,
+                  "stroke": "#11111140",
+                  "strokeWidth": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "s5I3Jl",
+          "name": "Line Gap",
+          "width": "fill_container",
+          "height": 33
+        },
+        {
+          "type": "text",
+          "id": "cBYrx",
+          "name": "Back",
+          "fill": "$ink",
+          "content": "←  back to musings",
+          "lineHeight": 1.65,
+          "fontFamily": "$font-hand",
+          "fontSize": 20,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "bz0pN",
+          "name": "Line Gap",
+          "width": "fill_container",
+          "height": 33
+        },
+        {
+          "type": "frame",
+          "id": "dTAKs",
+          "name": "Footer",
+          "width": "fill_container",
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "bU6k7",
+              "name": "Footer Row",
+              "width": "fill_container",
+              "height": 66,
+              "justifyContent": "space_between",
+              "alignItems": "end",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "bKXRn",
+                  "name": "Quote Block",
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "zfPs2",
+                      "name": "Quote",
+                      "fill": "$ink",
+                      "content": "“Don't expect me to be all ‘Dear Diary’ this and ‘Dear Diary’ that.”",
+                      "fontFamily": "$font-hand",
+                      "fontSize": 21,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "OTEfT",
+                      "name": "By",
+                      "fill": "$gray",
+                      "content": "— Greg Heffley",
+                      "fontFamily": "$font-hand",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "T27m8",
+                  "name": "Footer Right",
+                  "layout": "vertical",
+                  "alignItems": "end",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "f3Ms2c",
+                      "name": "Socials",
+                      "fill": "$ink",
+                      "content": "email · github · linkedin · medium · x",
+                      "fontFamily": "$font-hand",
+                      "fontSize": 18,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "DhFhw",
+                      "name": "Copyright",
+                      "fill": "$gray",
+                      "content": "© 2026 Favour Umejesi",
+                      "fontFamily": "$font-hand",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "y0FdZ",
+      "x": 3840,
+      "y": 6500,
+      "name": "Article D — No pictures: margin notes",
+      "clip": true,
+      "width": 1160,
+      "fill": "$paper",
+      "layout": "vertical",
+      "padding": [
+        52,
+        72,
+        64,
+        72
+      ],
+      "children": [
+        {
+          "id": "NQwdR",
+          "type": "ref",
+          "ref": "alsx8",
+          "name": "Lined Paper",
+          "layoutPosition": "absolute",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "type": "frame",
+          "id": "Q7gAD",
+          "name": "Top Bar",
+          "width": "fill_container",
+          "height": 33,
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "MGIL9",
+              "name": "Diary Mark",
+              "fill": "$ink",
+              "content": "The Diary of a Lucid Dame",
+              "fontFamily": "$font-hand",
+              "fontSize": 21,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "dnhTY",
+              "name": "Nav",
+              "gap": 22,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "EScOI",
+                  "name": "nav-about",
+                  "fill": "$ink",
+                  "content": "about",
+                  "fontFamily": "$font-hand",
+                  "fontSize": 17,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "YQzWS",
+                  "name": "nav-musings",
+                  "fill": "$ink",
+                  "content": "musings",
+                  "fontFamily": "$font-hand",
+                  "fontSize": 17,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "K7ZpR",
+                  "name": "nav-research profile",
+                  "fill": "$ink",
+                  "content": "research profile",
+                  "fontFamily": "$font-hand",
+                  "fontSize": 17,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "UKrdW",
+          "name": "Line Gap",
+          "width": "fill_container",
+          "height": 66
+        },
+        {
+          "type": "frame",
+          "id": "edJ42",
+          "name": "Title Block",
+          "width": "fill_container",
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "text",
+              "id": "q3d31h",
+              "name": "Title",
+              "fill": "$ink",
+              "content": "THE NEW CURRENCY",
+              "lineHeight": 1.2,
+              "fontFamily": "$font-hand-sc",
+              "fontSize": 55,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "v0CUM",
+              "name": "Underline Slot",
+              "width": "fill_container",
+              "height": 14,
+              "children": [
+                {
+                  "type": "path",
+                  "id": "LYgjY",
+                  "layoutPosition": "absolute",
+                  "x": 2,
+                  "y": 0,
+                  "name": "Wavy Underline",
+                  "geometry": "M2 8q30-7 58 0t58 0 58 0 58 0 58 0 58 0 58 0",
+                  "viewBox": [
+                    0,
+                    0,
+                    410,
+                    14
+                  ],
+                  "fill": "#00000000",
+                  "width": 430,
+                  "height": 14,
+                  "stroke": "$ink",
+                  "strokeWidth": 3,
+                  "strokeLinejoin": "round",
+                  "strokeLinecap": "round"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "z0he3e",
+          "name": "Line Gap",
+          "width": "fill_container",
+          "height": 33
+        },
+        {
+          "type": "frame",
+          "id": "n1U2x9",
+          "name": "Notes + Panel",
+          "width": "fill_container",
+          "gap": 36,
+          "children": [
+            {
+              "type": "frame",
+              "id": "g2N1Ij",
+              "name": "Margin Notes",
+              "width": 170,
+              "layout": "vertical",
+              "gap": 33,
+              "padding": [
+                36,
+                0,
+                0,
+                0
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "teHHx",
+                  "name": "Date",
+                  "fill": "$gray",
+                  "content": "JUL 25, 2026",
+                  "lineHeight": 2.2,
+                  "fontFamily": "$font-hand",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "ixnfn",
+                  "name": "Read",
+                  "fill": "$gray",
+                  "content": "3 MIN READ",
+                  "lineHeight": 2.2,
+                  "fontFamily": "$font-hand",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "KBmEd",
+                  "name": "Note 1",
+                  "fill": "$gray",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "(written at 2am, forgive the typos)",
+                  "lineHeight": 1.9411764705882353,
+                  "fontFamily": "$font-hand",
+                  "fontSize": 17,
+                  "fontWeight": "normal",
+                  "fontStyle": "italic"
+                },
+                {
+                  "type": "frame",
+                  "id": "NVnyl",
+                  "name": "Line Gap",
+                  "width": "fill_container",
+                  "height": 99
+                },
+                {
+                  "type": "text",
+                  "id": "IYfe9",
+                  "name": "Note 2",
+                  "fill": "$gray",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "^ this is the part I actually mean",
+                  "lineHeight": 1.9411764705882353,
+                  "fontFamily": "$font-hand",
+                  "fontSize": 17,
+                  "fontWeight": "normal",
+                  "fontStyle": "italic"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "z8GID",
+              "name": "Panel",
+              "width": "fill_container",
+              "cornerRadius": 2,
+              "stroke": "$ink",
+              "strokeWidth": 2.5,
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "$ink",
+                "offset": {
+                  "x": 6,
+                  "y": 6
+                }
+              },
+              "layout": "vertical",
+              "gap": 33,
+              "padding": [
+                30,
+                36
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "K3DJ54",
+                  "name": "P1",
+                  "fill": "$ink",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "As a developer, I was first drawn to technology because of the superpower it gave me: the ability to bring wild, imaginative ideas to life through lines of code.",
+                  "lineHeight": 1.5714285714285714,
+                  "fontFamily": "$font-hand",
+                  "fontSize": 21,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "oP2FJ",
+                  "name": "P2",
+                  "fill": "$ink",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Then the currency changed. It stopped being about who could write the code and started being about who could ask the right question.",
+                  "lineHeight": 1.5714285714285714,
+                  "fontFamily": "$font-hand",
+                  "fontSize": 21,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "z7HgaU",
+                  "name": "P3",
+                  "fill": "$ink",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "I keep a list of questions now. Most are bad. A few are the reason this diary exists.",
+                  "lineHeight": 1.5714285714285714,
+                  "fontFamily": "$font-hand",
+                  "fontSize": 21,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "kaZiG",
+                  "name": "P4",
+                  "fill": "$ink",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Attention is the new currency, and I am trying very hard not to spend mine on things that don't compound.",
+                  "lineHeight": 1.5714285714285714,
+                  "fontFamily": "$font-hand",
+                  "fontSize": 21,
+                  "fontWeight": "bold"
+                },
+                {
+                  "type": "frame",
+                  "id": "c3pNvq",
+                  "name": "Pull Quote",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "padding": [
+                    12,
+                    40
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "G1Od7",
+                      "name": "Quote",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": 520,
+                      "content": "Spend attention like money. Mostly save it.",
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fontFamily": "Caveat",
+                      "fontSize": 30,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "lDEG3",
+                  "name": "P5",
+                  "fill": "$ink",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Hmmm, if you got this far, there is hope for Generation Z after all :)",
+                  "lineHeight": 1.5714285714285714,
+                  "fontFamily": "$font-hand",
+                  "fontSize": 21,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "q5SJU",
+          "name": "Line Gap",
+          "width": "fill_container",
+          "height": 33
+        },
+        {
+          "type": "text",
+          "id": "w85b6",
+          "name": "Back",
+          "fill": "$ink",
+          "content": "←  back to musings",
+          "lineHeight": 1.65,
+          "fontFamily": "$font-hand",
+          "fontSize": 20,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "TobJr",
+          "name": "Line Gap",
+          "width": "fill_container",
+          "height": 33
+        },
+        {
+          "type": "frame",
+          "id": "zpTcp",
+          "name": "Footer",
+          "width": "fill_container",
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "ohu9X",
+              "name": "Footer Row",
+              "width": "fill_container",
+              "height": 66,
+              "justifyContent": "space_between",
+              "alignItems": "end",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Z20rop",
+                  "name": "Quote Block",
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "M3yESq",
+                      "name": "Quote",
+                      "fill": "$ink",
+                      "content": "“Don't expect me to be all ‘Dear Diary’ this and ‘Dear Diary’ that.”",
+                      "fontFamily": "$font-hand",
+                      "fontSize": 21,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "xWdDW",
+                      "name": "By",
+                      "fill": "$gray",
+                      "content": "— Greg Heffley",
+                      "fontFamily": "$font-hand",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "dDXUV",
+                  "name": "Footer Right",
+                  "layout": "vertical",
+                  "alignItems": "end",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "dTr4s",
+                      "name": "Socials",
+                      "fill": "$ink",
+                      "content": "email · github · linkedin · medium · x",
+                      "fontFamily": "$font-hand",
+                      "fontSize": 18,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "j0G55",
+                      "name": "Copyright",
+                      "fill": "$gray",
+                      "content": "© 2026 Favour Umejesi",
+                      "fontFamily": "$font-hand",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ]
     }

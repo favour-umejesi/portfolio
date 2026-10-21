@@ -301,10 +301,9 @@ const social: Record<string, string> = {
                 </p>
               )}
               <p class="v-meta">
-                {[p.data.venue, year(p.data.date)].filter(Boolean).join(' · ')}
+                {[p.data.venue, year(p.data.date)].filter(Boolean).join(', ')}
                 {statusLabel[p.data.status] && <span class="v-paper-status">{statusLabel[p.data.status]}</span>}
               </p>
-              {p.data.summary && <p class="v-excerpt" set:html={rich(p.data.summary)} />}
               {(p.data.links.some((l) => l.url) || p.data.bibtex) && (
                 <p class="v-links v-links--text">
                   {p.data.links.filter((l) => l.url).map((l) =>
@@ -315,6 +314,7 @@ const social: Record<string, string> = {
                   {p.data.bibtex && <a href={`#bib-${p.id}`} class="v-bib-toggle" data-bib={`bib-${p.id}`}>bibtex</a>}
                 </p>
               )}
+              {p.data.summary && <p class="v-excerpt" set:html={rich(p.data.summary)} />}
               {p.data.bibtex && <pre class="v-bibtex" id={`bib-${p.id}`} hidden>{p.data.bibtex}</pre>}
             </div>
           </article>
