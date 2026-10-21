@@ -55,11 +55,21 @@ experience:
   - role: AI Extern
     org: PwC
     when: Feb – Apr 2025
+  - role: Student Researcher
+    org: AUC Data Science Initiative
+    when: July 2024
 honors:
   - title: 2x President's List
     detail: Grambling State University
   - title: Break Through Tech AI Fellow
+    detail: developed foundational ml skills
     when: May 2025 – May 2026
   - title: Discover ServiceNow
     detail: 1 out of 30 selected engineering fellows
+  - title: AI4ALL
+    detail: worked on LSTMs and GRUs for time series data
+    when: May 2025 - August 2025
+  - title: Arise and Shine Foundation (SwiftUI Bootcamp Participant)
+    detail: Led Student Finance App Development
+    when: 'June 2025 - August 2025 '
 showWriting: true
