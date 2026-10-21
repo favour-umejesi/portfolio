@@ -5,7 +5,6 @@ intro:
     lost touch with that part of myself. Talent versus consistency, clearly. So,
     I'm learning to draw again. Hold me accountable! :)
 drawings:
-  - image: /images/drawings/girl-with-a-candle.jpg
-    caption: girl studying under candlelight
-    when: ''
-    glow: 63% 63%
+  - image: /images/drawings/drawings/0/image.jpg
+    caption: A girl studying under the candlelight
+    glow: 65% 65%
