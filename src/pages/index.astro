@@ -30,6 +30,13 @@ const firstSentence = (text: string) => {
 const teaser = (w: (typeof works)[number]) =>
   w.data.excerpt ? { head: w.data.excerpt, rest: '' } : firstSentence(w.data.summary);
 
+// papers: newest first; drafts only in dev and previews
+const papers = (await getCollection('papers'))
+  .filter((p) => showDrafts || !p.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const statusLabel: Record<string, string> = { preprint: 'Preprint', 'under-review': 'Under review', 'in-preparation': 'In preparation' };
+const year = (d: Date) => d.toLocaleDateString('en-US', { year: 'numeric', timeZone: 'UTC' });
+
 // news: short dated lines, newest first; drafts only in dev and previews
 const news = (await getCollection('news'))
   .filter((n) => showDrafts || !n.data.draft)
@@ -252,10 +259,48 @@ const social: Record<string, string> = {
       </section>
     )}
 
-    {page.papersNote && (
+    {(papers.length > 0 || page.papersNote) && (
       <section class="v-section" id="papers">
         <div class="v-heading"><h2>papers.</h2></div>
-        <p class="v-placeholder">{page.papersNote}</p>
+        {papers.length > 0 ? papers.map((p) => (
+          <article class="v-paper" id={`paper-${p.id}`}>
+            {p.data.thumbnail && (
+              <a class="v-figure" href={p.data.thumbnail} target="_blank" rel="noopener" title="Open the figure at full size">
+                <img src={p.data.thumbnail} alt={`Figure from ${p.data.title}`} loading="lazy" />
+              </a>
+            )}
+            <div>
+              <h3>{p.data.draft && <span class="v-draft">Draft · </span>}{p.data.title}</h3>
+              {p.data.authors.length > 0 && (
+                <p class="v-authors">
+                  {p.data.authors.filter((a) => a.name).map((a, i, all) => {
+                    const me = a.name.replace(/\*$/, '') === page.name;
+                    const name = me ? <strong>{a.name}</strong> : a.url ? <a href={a.url} target="_blank" rel="noopener">{a.name}</a> : a.name;
+                    return <>{name}{i < all.length - 1 && ', '}</>;
+                  })}
+                </p>
+              )}
+              <p class="v-meta">
+                {[p.data.venue, year(p.data.date)].filter(Boolean).join(' · ')}
+                {statusLabel[p.data.status] && <span class="v-paper-status">{statusLabel[p.data.status]}</span>}
+              </p>
+              {p.data.summary && <p class="v-excerpt" set:html={rich(p.data.summary)} />}
+              {(p.data.links.some((l) => l.url) || p.data.bibtex) && (
+                <p class="v-links v-links--text">
+                  {p.data.links.filter((l) => l.url).map((l) =>
+                    isExternal(l.url!)
+                      ? <a href={l.url!} target="_blank" rel="noopener">{l.label.toLowerCase()}</a>
+                      : <a href={l.url!}>{l.label.toLowerCase()}</a>
+                  )}
+                  {p.data.bibtex && <a href={`#bib-${p.id}`} class="v-bib-toggle" data-bib={`bib-${p.id}`}>bibtex</a>}
+                </p>
+              )}
+              {p.data.bibtex && <pre class="v-bibtex" id={`bib-${p.id}`} hidden>{p.data.bibtex}</pre>}
+            </div>
+          </article>
+        )) : (
+          <p class="v-placeholder">{page.papersNote}</p>
+        )}
       </section>
     )}
 

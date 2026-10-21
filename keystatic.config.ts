@@ -95,7 +95,7 @@ export default config({
   ui: {
     brand: { name: 'Favour Umejesi' },
     navigation: {
-      'Research': ['research', 'news', 'researchPage'],
+      'Research': ['research', 'papers', 'news', 'researchPage'],
       'Musings': ['musings', 'series', 'musingsPage', 'drawingsPage'],
       'Site': ['settings'],
     },
@@ -193,7 +193,7 @@ export default config({
         }),
         papersNote: fields.text({
           label: 'Papers: placeholder line',
-          description: 'Shown in italics under the "papers." heading until there are papers to list. Leave empty to hide the section.',
+          description: 'Shown in italics under "papers." only while the Papers collection is empty. Leave empty to hide the section until then.',
         }),
         experience: fields.array(
           fields.object({
@@ -333,6 +333,78 @@ export default config({
             itemLabel: (props) => props.fields.label.value || 'link',
           }
         ),
+      },
+    }),
+    papers: collection({
+      label: 'Papers',
+      slugField: 'title',
+      path: 'src/content/papers/*',
+      format: { data: 'yaml' },
+      schema: {
+        title: fields.slug({ name: { label: 'Title', description: 'The paper\'s title as it appears on the paper' } }),
+        draft: fields.checkbox({
+          label: 'Draft',
+          description: 'Drafts are hidden from the live site until you untick this',
+          defaultValue: false,
+        }),
+        authors: fields.array(
+          fields.object({
+            name: fields.text({ label: 'Name', description: 'Write your own name exactly as it is on the Research page; it is shown in bold' }),
+            url: fields.text({ label: 'Link (optional)', description: 'A co-author\'s homepage or Scholar page' }),
+          }),
+          {
+            label: 'Authors',
+            description: 'In the order they appear on the paper. Add an asterisk to a name for equal contribution, e.g. "Jane Doe*"',
+            itemLabel: (props) => props.fields.name.value || 'author',
+          }
+        ),
+        venue: fields.text({
+          label: 'Venue',
+          description: 'Where it appeared or is headed, e.g. "NeurIPS 2027", "ICLR 2027 Workshop on Mechanistic Interpretability", "arXiv"',
+        }),
+        date: fields.date({
+          label: 'Date',
+          description: 'Orders the list, newest first; the year is shown next to the venue',
+          validation: { isRequired: true },
+        }),
+        status: fields.select({
+          label: 'Status',
+          description: 'Anything other than Published is shown as a small label next to the venue',
+          options: [
+            { label: 'Published', value: 'published' },
+            { label: 'Preprint', value: 'preprint' },
+            { label: 'Under review', value: 'under-review' },
+            { label: 'In preparation', value: 'in-preparation' },
+          ],
+          defaultValue: 'published',
+        }),
+        summary: fields.text({
+          label: 'One-line summary',
+          multiline: true,
+          description: 'One or two plain sentences on what the paper shows, under the venue line. Wrap a phrase in ** or == for emphasis.',
+        }),
+        thumbnail: fields.image({
+          label: 'Figure (optional)',
+          description: 'A teaser figure, shown beside the entry at its own proportions',
+          directory: 'public/images/papers',
+          publicPath: '/images/papers/',
+        }),
+        links: fields.array(
+          fields.object({
+            label: fields.text({ label: 'Label', description: 'e.g. "pdf", "arXiv", "code", "project page", "poster", "slides"' }),
+            url: fields.text({ label: 'URL' }),
+          }),
+          {
+            label: 'Links',
+            description: 'Shown as a row of small text links under the summary',
+            itemLabel: (props) => props.fields.label.value || 'link',
+          }
+        ),
+        bibtex: fields.text({
+          label: 'BibTeX (optional)',
+          multiline: true,
+          description: 'Paste the citation; readers get a small "bibtex" toggle that reveals it',
+        }),
       },
     }),
     news: collection({

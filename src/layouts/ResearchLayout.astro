@@ -25,7 +25,7 @@ import '../styles/plain.css';
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,500,100&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,500,100&family=Inter:wght@600&display=swap" rel="stylesheet" />
 </head>
 <body class="research">
   <div class="v-frame">
@@ -57,6 +57,14 @@ import '../styles/plain.css';
       // arriving with a shared project link: open it, then clean the URL
       const h = location.hash.slice(1);
       if (h.startsWith('work-') && open(h)) history.replaceState(null, '', location.pathname);
+
+      // "bibtex" under a paper shows and hides the citation
+      document.querySelectorAll('.v-bib-toggle').forEach((a) =>
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
+          const pre = document.getElementById(a.dataset.bib);
+          if (pre) pre.hidden = !pre.hidden;
+        }));
 
       const boxes = document.querySelectorAll('.v-scroll');
       const fit = () => boxes.forEach((b) => b.classList.toggle('is-scrollable', b.scrollHeight > b.clientHeight + 1));
@@ -97,17 +105,17 @@ import '../styles/plain.css';
     margin-bottom: 22px;
   }
   .v-identity-text { display: contents; }
-  /* the name is set on one line, justified to the width of the photo */
+  /* the name: Inter semibold, set on one line and justified to the width of
+     the photo */
   .v-identity h1 {
     width: 220px;
-    font-family: var(--v-heading);
-    font-size: 30px;
-    font-weight: 500;
-    line-height: 1.1;
+    font-family: "Inter", var(--v-font);
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1.15;
     white-space: nowrap;
     text-justify: inter-character; /* the slack goes between letters, not into one wide word gap */
     letter-spacing: -0.01em;
-    font-variation-settings: "SOFT" 100;
     text-align: justify;
     text-align-last: justify;
   }
@@ -223,6 +231,31 @@ import '../styles/plain.css';
     height: auto; /* the figure keeps its own proportions and fills the frame */
   }
   .v-research:not(:has(.v-figure)) { grid-template-columns: minmax(0, 1fr); }
+
+  /* papers: the publication-list shape (figure, title, authors, venue, links) */
+  .v-paper { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 24px; align-items: start; }
+  .v-paper:not(:has(.v-figure)) { grid-template-columns: minmax(0, 1fr); }
+  .v-paper + .v-paper { margin-top: 32px; }
+  .v-paper h3 { font-size: 16.5px; font-weight: 600; line-height: 1.35; }
+  .v-authors { margin-top: 3px; font-size: 14px; }
+  .v-authors strong { font-weight: 600; }
+  .v-authors a { border-bottom: 1px solid var(--v-line); }
+  .v-authors a:hover { color: var(--v-gold); border-color: currentColor; }
+  .v-paper .v-meta { font-style: italic; }
+  .v-paper-status { font-style: normal; margin-left: 10px; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--v-gold); }
+  .v-paper .v-excerpt { margin-top: 8px; font-size: 14.5px; }
+  .v-paper .v-links--text { margin-top: 8px; }
+  .v-bibtex {
+    margin-top: 10px;
+    padding: 12px 14px;
+    background: var(--v-hover);
+    border-radius: 6px;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    line-height: 1.55;
+    overflow-x: auto;
+    white-space: pre;
+  }
   .v-status { display: inline-flex; align-items: center; gap: 7px; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--v-muted); }
   .v-status-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(55, 53, 47, 0.3); }
   .is-ongoing .v-status { color: var(--v-gold); }
@@ -374,11 +407,11 @@ import '../styles/plain.css';
     /* photo beside the identity on a tablet */
     .v-identity { flex-direction: row; align-items: center; gap: 22px; }
     .v-photo { margin-bottom: 0; flex: none; width: 150px; height: 180px; }
-    .v-identity h1 { width: auto; font-size: 26px; text-align: left; text-align-last: left; }
+    .v-identity h1 { width: auto; font-size: 24px; text-align: left; text-align-last: left; }
     .v-identity-text { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; }
     .v-role { width: auto; }
     .v-section + .v-section { margin-top: 40px; }
-    .v-research { grid-template-columns: 1fr; gap: 14px; }
+    .v-research, .v-paper { grid-template-columns: 1fr; gap: 14px; }
     .v-figure { max-width: 260px; }
     .v-modal-box { padding: 22px 20px 24px; }
     .v-writing li, .v-news li { grid-template-columns: 1fr; gap: 0; }

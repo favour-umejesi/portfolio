@@ -1,0 +1,26 @@
+title: 'Example: how a paper will look (delete me)'
+draft: true
+authors:
+  - name: Favour Umejesi
+    url: ''
+  - name: Vivya Kalidindi
+    url: ''
+venue: arXiv
+date: 2027-01-15
+status: preprint
+summary: >-
+  One or two sentences on what the paper shows. This entry is a draft, so it
+  only appears in local development and previews, never on the live site.
+thumbnail: ''
+links:
+  - label: pdf
+    url: https://example.com/paper.pdf
+  - label: code
+    url: https://github.com/favour-umejesi
+bibtex: |-
+  @article{umejesi2027example,
+    title   = {Example: how a paper will look},
+    author  = {Umejesi, Favour and Kalidindi, Vivya},
+    journal = {arXiv preprint},
+    year    = {2027}
+  }

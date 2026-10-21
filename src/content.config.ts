@@ -62,6 +62,25 @@ const research = defineCollection({
   }),
 });
 
+// papers: publications and preprints, listed the way researchers list them
+const papers = defineCollection({
+  loader: glob({ pattern: '**/*.yaml', base: './src/content/papers' }),
+  schema: z.object({
+    title: z.string(),
+    draft: z.boolean().default(false),
+    authors: z.array(z.object({ name: z.string().default(''), url: z.string().nullable().default('') })).default([]),
+    venue: z.string().optional().nullable(),
+    date: z.coerce.date(),
+    status: z.enum(['published', 'preprint', 'under-review', 'in-preparation']).default('published'),
+    summary: z.string().optional().nullable(),
+    thumbnail: z.string().optional().nullable(),
+    links: z
+      .array(z.object({ label: z.string().default(''), url: z.string().nullable().default('') }))
+      .default([]),
+    bibtex: z.string().optional().nullable(),
+  }),
+});
+
 // news: short dated lines on the research profile, newest first
 const news = defineCollection({
   loader: glob({ pattern: '**/*.yaml', base: './src/content/news' }),
@@ -74,4 +93,4 @@ const news = defineCollection({
   }),
 });
 
-export const collections = { musings, series, research, news };
+export const collections = { musings, series, research, papers, news };
