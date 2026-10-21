@@ -1,0 +1,38 @@
+---
+import MusingsLayout from '../layouts/MusingsLayout.astro';
+import { readSingleton } from '../lib/reader';
+
+const page = await readSingleton('drawingsPage');
+// a drawing only counts once a picture is uploaded
+const drawings = page.drawings.filter((d) => d.image);
+---
+
+<MusingsLayout
+  title="Drawings"
+  description="Drawings by Favour Umejesi: learning to draw again, one sketch at a time."
+  active="drawings"
+>
+  <h1 class="w-title">drawings.</h1>
+  {page.intro.length > 0 && (
+    <div class="w-intro">
+      {page.intro.map((paragraph) => <p>{paragraph}</p>)}
+    </div>
+  )}
+
+  {drawings.length > 0 ? (
+    <div class="d-grid">
+      {drawings.map((d) => (
+        <figure class={`taped-photo d-item${d.glow ? ' has-glow' : ''}`} style={d.glow ? `--glow: ${d.glow}` : undefined}>
+          <span class="d-pic">
+            <img src={d.image} alt={d.caption || 'A drawing'} loading="lazy" />
+          </span>
+          {(d.caption || d.when) && (
+            <figcaption>{[d.caption, d.when].filter(Boolean).join(' · ')}</figcaption>
+          )}
+        </figure>
+      ))}
+    </div>
+  ) : (
+    <p class="w-empty">Nothing on the wall yet.</p>
+  )}
+</MusingsLayout>

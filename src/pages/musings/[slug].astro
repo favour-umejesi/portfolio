@@ -37,7 +37,7 @@ const mood = (post.data.moodPhotos ?? []).filter((photo) => photo.image);
 ---
 
 <MusingsLayout
-  title={`${post.data.title} — Favour Umejesi`}
+  title={post.data.title}
   description={post.data.excerpt ?? `A musing by Favour Umejesi: ${post.data.title}`}
 >
   <article class="article-page">

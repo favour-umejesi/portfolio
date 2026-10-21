@@ -84,12 +84,6 @@ import '../styles/plain.css';
     margin: 0 auto;
   }
   .v-side { position: sticky; top: 40px; }
-  .v-card {
-    background: var(--v-bg);
-    border: 1px solid var(--v-line);
-    border-radius: var(--v-radius);
-  }
-
   /* profile: a photo resting on the page, then the identity and two links,
      no box around any of it */
   .v-profile { display: flex; flex-direction: column; }
@@ -253,24 +247,16 @@ import '../styles/plain.css';
   .v-more[open] .v-more-close { display: inline; }
   .v-more .v-prose, .v-more .v-details { margin-top: 10px; }
   .v-more .v-tags { margin-top: 12px; }
-  /* links under a research row: plain text, separated by dots */
-  .v-links.v-links--text { gap: 0; margin-top: 12px; font-size: 13.5px; font-weight: 500; }
-  .v-links.v-links--text a { padding: 0; border: 0; color: var(--v-muted); }
-  .v-links.v-links--text a:hover { color: var(--v-gold); background: none; }
-  .v-links.v-links--text a + a::before { content: "·"; margin: 0 10px; color: var(--v-muted); }
+  /* links under a study or in a project popup: plain text, separated by dots */
+  .v-links--text { margin-top: 12px; font-size: 13.5px; font-weight: 500; }
+  .v-links--text a { color: var(--v-muted); }
+  .v-links--text a:hover { color: var(--v-gold); }
+  .v-links--text a + a::before { content: "·"; margin: 0 10px; color: var(--v-muted); }
   .v-details { margin-top: 14px; display: grid; gap: 10px; }
   .v-details dt { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--v-gold); }
   .v-details dd { margin: 0; white-space: pre-line; }
   .v-tags { margin-top: 12px; color: var(--v-muted); font-size: 13px; }
-  .v-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
-  .v-links a {
-    padding: 5px 13px;
-    border: 1px solid var(--v-line);
-    border-radius: 6px;
-    font-size: 13px;
-    font-weight: 500;
-  }
-  .v-links a:hover { background: var(--v-hover); }
+  .v-links { display: flex; flex-wrap: wrap; }
 
   /* selected projects: compact, two to a row, inside a scrolling box; the
      full write-up opens in a popup */

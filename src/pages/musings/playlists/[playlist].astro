@@ -22,7 +22,7 @@ const { series, parts } = Astro.props;
 ---
 
 <MusingsLayout
-  title={`${series.data.title} — Favour Umejesi`}
+  title={series.data.title}
   description={series.data.description ?? `A series of musings by Favour Umejesi: ${series.data.title}`}
 >
   <p class="w-meta">Playlist · {parts.length} {parts.length === 1 ? 'part' : 'parts'} · start at part 01</p>

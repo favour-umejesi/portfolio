@@ -59,7 +59,10 @@ if (page.showWriting) {
 
 const fmt = (d: Date) =>
   d.toLocaleDateString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' });
-const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+// proper names for the social links, keyed by the label in site settings
+const properName: Record<string, string> = { email: 'Email', github: 'GitHub', linkedin: 'LinkedIn', medium: 'Medium', x: 'X' };
+const cap = (s: string) => properName[s] ?? s.charAt(0).toUpperCase() + s.slice(1);
+
 const meta = (w: (typeof works)[number]) =>
   [w.data.context, w.data.role, w.data.year].filter(Boolean).join(' · ');
 const isExternal = (url: string) => !url.startsWith('/') && !url.startsWith('#');
@@ -115,12 +118,12 @@ const social: Record<string, string> = {
 ---
 
 <ResearchLayout
-  title={`${page.name} — Research`}
-  description={[`${page.name}: research profile`, page.affiliation].filter(Boolean).join('. ') + '.'}
+  title={page.name}
+  description={page.name}
 >
   <aside class="v-profile" slot="profile">
     <div class="v-identity">
-      {page.headshot && <img class="v-photo" src={page.headshot} alt={page.name} />}
+      {page.headshot && <img class="v-photo" src={page.headshot} alt={page.name} width="220" height="264" />}
       <div class="v-identity-text">
       <h1>{page.name}</h1>
       {roles.length > 0 && (
@@ -347,11 +350,11 @@ const social: Record<string, string> = {
           )}
           {w.data.tags.length > 0 && <p class="v-tags">{w.data.tags.join(' · ')}</p>}
           {w.data.links.some((l) => l.url) && (
-            <p class="v-links">
+            <p class="v-links v-links--text">
               {w.data.links.filter((l) => l.url).map((l) =>
                 isExternal(l.url!)
-                  ? <a href={l.url!} target="_blank" rel="noopener">{l.label} ↗</a>
-                  : <a href={l.url!}>{l.label} →</a>
+                  ? <a href={l.url!} target="_blank" rel="noopener">{l.label.toLowerCase()} ↗</a>
+                  : <a href={l.url!}>{l.label.toLowerCase()} →</a>
               )}
             </p>
           )}

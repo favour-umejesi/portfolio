@@ -36,12 +36,6 @@ export function sourceLabel(url: string): string {
   }
 }
 
-// Pretty-cased variant for link text: "→ read it on Medium"
-export function sourceName(url: string): string {
-  const label = sourceLabel(url);
-  return label.charAt(0) + label.slice(1).toLowerCase();
-}
-
 // Playlists: musings filed under a series show up as one mixtape card on the
 // musings page and get their own page of entries. Parts run oldest-first, so
 // the part number is just the position.

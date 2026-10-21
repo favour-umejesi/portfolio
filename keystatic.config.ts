@@ -96,7 +96,7 @@ export default config({
     brand: { name: 'Favour Umejesi' },
     navigation: {
       'Research': ['research', 'news', 'researchPage'],
-      'Musings': ['musings', 'series', 'musingsPage'],
+      'Musings': ['musings', 'series', 'musingsPage', 'drawingsPage'],
       'Site': ['settings'],
     },
   },
@@ -111,6 +111,38 @@ export default config({
           description: 'Shown under the "musings." heading. Keep it short; the list is the point.',
           itemLabel: (props) => props.value.slice(0, 60) || 'paragraph',
         }),
+      },
+    }),
+    drawingsPage: singleton({
+      label: 'Drawings page',
+      path: 'src/content/pages/drawings',
+      format: { data: 'yaml' },
+      schema: {
+        intro: fields.array(fields.text({ label: 'Paragraph', multiline: true }), {
+          label: 'Intro paragraphs',
+          description: 'Shown under the "drawings." heading',
+          itemLabel: (props) => props.value.slice(0, 60) || 'paragraph',
+        }),
+        drawings: fields.array(
+          fields.object({
+            image: fields.image({
+              label: 'Drawing',
+              directory: 'public/images/drawings',
+              publicPath: '/images/drawings/',
+            }),
+            caption: fields.text({ label: 'Caption', description: 'Written under the print; also used as alt text' }),
+            when: fields.text({ label: 'When (optional)', description: 'e.g. "Oct 2026"; shown after the caption' }),
+            glow: fields.text({
+              label: 'Candle glow (optional)',
+              description: 'Dims the picture towards its edges and pools warm light at this spot, written as left% top%, e.g. "63% 63%". Leave empty for no glow.',
+            }),
+          }),
+          {
+            label: 'Drawings',
+            description: 'Taped to the wall in this order. Newest first reads best.',
+            itemLabel: (props) => props.fields.caption.value || 'drawing',
+          }
+        ),
       },
     }),
     researchPage: singleton({

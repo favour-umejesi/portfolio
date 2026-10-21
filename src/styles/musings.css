@@ -269,3 +269,60 @@ body.writing { padding: 36px 0 56px; --w-serif: "Source Serif 4", "Iowan Old Sty
   .mood-card .mood-back { --bl: 22px; padding: 10px 10px 8px; }
   .mood-back-text { font-size: 13.5px; }
 }
+
+/* drawings: small prints pinned to a board, a gold pin through the top of each */
+.d-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 168px);
+  justify-content: start;
+  gap: 40px 30px;
+  margin-top: 48px;
+  padding-top: 10px;
+  align-items: start;
+}
+.d-item { margin: 0; padding: 6px 6px 0; box-shadow: 4px 4px 0 0 var(--ink); }
+.d-item::before {
+  top: -7px;
+  left: 50%;
+  width: 13px;
+  height: 13px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  border: 0;
+  background: radial-gradient(circle at 35% 35%, #e3b84a, var(--v-gold) 60%, #8a6508);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+}
+.d-grid .d-item:nth-child(3n + 1) { transform: rotate(-2deg); }
+.d-grid .d-item:nth-child(3n + 2) { transform: rotate(1.6deg); }
+.d-grid .d-item:nth-child(3n) { transform: rotate(-0.8deg); }
+.d-pic { display: block; position: relative; overflow: hidden; }
+.d-item img { display: block; width: 100%; height: auto; }
+
+/* a candle in the picture: the room dims towards the edges and a warm light
+   pools where the flame is, breathing a little */
+.has-glow img { filter: brightness(0.9) saturate(0.95); }
+.has-glow .d-pic::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at var(--glow, 50% 50%),
+      rgba(255, 205, 120, 0.55) 0,
+      rgba(255, 185, 90, 0.28) 12%,
+      rgba(255, 170, 70, 0.08) 26%,
+      rgba(0, 0, 0, 0) 40%,
+      rgba(25, 15, 5, 0.38) 100%);
+  animation: candle 3.2s ease-in-out infinite;
+}
+@keyframes candle {
+  0%, 100% { opacity: 1; }
+  40% { opacity: 0.86; }
+  55% { opacity: 0.95; }
+  70% { opacity: 0.84; }
+}
+@media (prefers-reduced-motion: reduce) { .has-glow .d-pic::after { animation: none; } }
+.d-item figcaption { font-size: 12px; padding: 5px 2px 6px; }
+@media (max-width: 560px) {
+  .d-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 32px 22px; }
+}
