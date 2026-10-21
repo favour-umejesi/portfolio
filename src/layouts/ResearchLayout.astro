@@ -25,7 +25,7 @@ import '../styles/plain.css';
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,500,100&family=Inter:wght@600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,500,100&family=Kalam:wght@700&display=swap" rel="stylesheet" />
 </head>
 <body class="research">
   <div class="v-frame">
@@ -105,19 +105,16 @@ import '../styles/plain.css';
     margin-bottom: 22px;
   }
   .v-identity-text { display: contents; }
-  /* the name: Inter semibold, set on one line and justified to the width of
-     the photo */
+  /* the name: handwritten but upright (Kalam), like a name printed by hand
+     under the photo */
   .v-identity h1 {
-    width: 220px;
-    font-family: "Inter", var(--v-font);
-    font-size: 28px;
-    font-weight: 600;
-    line-height: 1.15;
+    max-width: 220px;
+    font-family: "Kalam", "Segoe Print", "Chalkboard", cursive;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.1;
     white-space: nowrap;
-    text-justify: inter-character; /* the slack goes between letters, not into one wide word gap */
-    letter-spacing: -0.01em;
-    text-align: justify;
-    text-align-last: justify;
+    letter-spacing: 0;
   }
   .v-role { color: var(--v-gold); font-weight: 600; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; margin-top: 14px; width: 100%; }
   .v-roles { list-style: none; position: relative; height: 1.6em; }
@@ -390,7 +387,7 @@ import '../styles/plain.css';
   @media (max-width: 1000px) {
     .v-frame { grid-template-columns: 260px minmax(0, 1fr); gap: 36px; }
     .v-photo { width: 200px; height: 240px; }
-    .v-identity h1 { width: 200px; font-size: 26px; }
+    .v-identity h1 { font-size: 30px; }
   }
   @media (max-width: 800px) {
     body.research { padding: 24px 0 40px; }
@@ -408,7 +405,7 @@ import '../styles/plain.css';
     .v-profile { display: grid; grid-template-columns: 150px minmax(0, 1fr); column-gap: 22px; align-items: center; }
     .v-identity { display: contents; }
     .v-photo { grid-row: 1 / span 2; margin-bottom: 0; width: 150px; height: 180px; }
-    .v-identity h1 { width: auto; font-size: 24px; text-align: left; text-align-last: left; }
+    .v-identity h1 { font-size: 28px; }
     .v-identity-text { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; width: 100%; align-self: end; }
     .v-actions { grid-column: 2; align-self: start; margin-top: 8px; }
     .v-role { width: 100%; }
@@ -424,7 +421,7 @@ import '../styles/plain.css';
     .v-profile { display: flex; flex-direction: column; align-items: center; text-align: center; }
     .v-photo { grid-row: auto; }
     .v-identity-text { align-items: center; align-self: center; }
-    .v-identity h1 { text-align: center; text-align-last: center; }
+    .v-identity h1 { text-align: center; }
     .v-roles li { text-align: center; }
     .v-socials { margin-left: 0; justify-content: center; }
     .v-actions { justify-content: center; align-self: center; margin-top: 12px; }
