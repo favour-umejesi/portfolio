@@ -42,30 +42,6 @@ const news = (await getCollection('news'))
   .filter((n) => showDrafts || !n.data.draft)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
-// experience and honors share one list, newest first by the date written in
-// "when" ("Aug – Dec 2025", "2026 – present", "May 2025 – May 2026"); the
-// latest year and month mentioned count, "present" sorts to the top, and
-// items with no date go last in the order they were entered
-const MONTHS = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
-const whenKey = (when?: string | null) => {
-  const t = (when ?? '').toLowerCase();
-  if (/present|ongoing|now/.test(t)) return Number.MAX_SAFE_INTEGER;
-  const years = [...t.matchAll(/\b(?:19|20)\d{2}\b/g)].map((m) => Number(m[0]));
-  if (years.length === 0) return -1;
-  // the end of the range: the latest year, and the last month named
-  const months = [...t.matchAll(/\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\b/g)].map((m) => MONTHS.indexOf(m[1]));
-  const season = /spring/.test(t) ? 4 : /summer/.test(t) ? 7 : /fall|autumn/.test(t) ? 10 : /winter/.test(t) ? 0 : -1;
-  const month = months.length > 0 ? months[months.length - 1] : season >= 0 ? season : 11;
-  return Math.max(...years) * 12 + month;
-};
-type Row = { title: string; detail?: string | null; when?: string | null; key: number; order: number };
-const timeline: Row[] = [
-  ...(page.experience ?? []).filter((e) => e.role || e.org).map((e, i) => ({ title: e.role, detail: e.org, when: e.when, key: whenKey(e.when), order: i })),
-  ...(page.honors ?? []).filter((h) => h.title).map((h, i) => ({ title: h.title, detail: h.detail, when: h.when, key: whenKey(h.when), order: 1000 + i })),
-].sort((a, b) => b.key - a.key || a.order - b.order);
-const hasHonors = (page.honors ?? []).some((h) => h.title);
-
-
 // writing: published musings ticked for the research profile, newest first
 type Note = { title: string; date: Date; href: string; external: boolean; source: string };
 let notes: Note[] = [];
@@ -364,22 +340,6 @@ const social: Record<string, string> = {
       </section>
     )}
 
-    {timeline.length > 0 && (
-      <section class="v-section" id="experience">
-        <div class="v-heading"><h2>{hasHonors ? 'experience and honors.' : 'experience.'}</h2></div>
-        <div class="v-scroll v-exp-scroll" tabindex="0" aria-label="Experience and honors">
-          <ul class="v-exp">
-            {timeline.map((r) => (
-              <li>
-                <span><span class="v-exp-role">{r.title}</span>{r.detail && <span class="v-exp-org"> · {r.detail}</span>}</span>
-                {r.when && <span class="v-when">{r.when}</span>}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-    )}
-
     <p class="v-footer">
       <span>{settings.copyright}</span>
     </p>
@@ -392,7 +352,11 @@ const social: Record<string, string> = {
         <a class="v-modal-backdrop" href="#projects" aria-label="Close"></a>
         <div class="v-modal-box">
           <a class="v-modal-close" href="#projects" aria-label="Close">×</a>
-          {w.data.thumbnail && <img src={w.data.thumbnail} alt="" />}
+          {w.data.thumbnail && (
+            <a class="v-modal-figure" href={w.data.thumbnail} target="_blank" rel="noopener" title="Open the image at full size">
+              <img src={w.data.thumbnail} alt={`Image from ${w.data.title}`} loading="lazy" />
+            </a>
+          )}
           <p class="v-work-kind">Project</p>
           <h3 id={`work-${w.id}-title`}>{w.data.title}</h3>
           {meta(w) && <p class="v-modal-meta">{meta(w)}</p>}

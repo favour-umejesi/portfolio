@@ -183,31 +183,6 @@ export default config({
           label: 'Papers: placeholder line',
           description: 'Shown in italics under "papers." only while the Papers collection is empty. Leave empty to hide the section until then.',
         }),
-        experience: fields.array(
-          fields.object({
-            role: fields.text({ label: 'Role', description: 'e.g. "Machine Learning Engineering Intern"' }),
-            org: fields.text({ label: 'Where', description: 'e.g. "Ursa Space Systems"' }),
-            when: fields.text({ label: 'When', description: 'e.g. "Aug – Dec 2025"' }),
-          }),
-          {
-            label: 'Experience',
-            description: 'Sorted by the date in "When", newest first, mixed with the honors; items without a date go last',
-            itemLabel: (props) =>
-              [props.fields.role.value, props.fields.org.value].filter(Boolean).join(' · ') || 'role',
-          }
-        ),
-        honors: fields.array(
-          fields.object({
-            title: fields.text({ label: 'Honor', description: 'e.g. "Break Through Tech AI Fellow"' }),
-            detail: fields.text({ label: 'Detail (optional)', description: 'e.g. "1 out of 30 selected engineering fellows"' }),
-            when: fields.text({ label: 'When (optional)', description: 'e.g. "May 2025 – May 2026"' }),
-          }),
-          {
-            label: 'Honors',
-            description: 'Listed with the experience in one list, sorted by the date in "When", newest first; an honor without a date goes last',
-            itemLabel: (props) => props.fields.title.value || 'honor',
-          }
-        ),
         showWriting: fields.checkbox({
           label: 'Show a Writing section',
           description: 'Lists the musings you ticked "Show on research profile" under "writing." (scrolls once there are more than five)',
