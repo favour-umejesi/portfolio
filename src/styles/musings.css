@@ -342,3 +342,38 @@ body.writing { padding: 36px 0 56px; --w-serif: "Source Serif 4", "Iowan Old Sty
   .d-grid { gap: 30px 20px; }
   .d-item img { height: 150px; }
 }
+
+/* bits and pieces: snapshots under the drawings (builds, crochet, me), taped
+   up rather than pinned, each the same width so the wall reads as a row of
+   prints; a tall photo comes out tall. Captions are handwritten. */
+.p-section { margin-top: 72px; }
+.p-title { font-family: var(--v-heading); font-size: 26px; font-weight: 500; line-height: 1.2; letter-spacing: -0.01em; font-variation-settings: "SOFT" 100; }
+.p-intro { margin-top: 10px; max-width: 66ch; font-family: var(--w-serif); font-size: 16px; color: var(--v-muted); }
+.p-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  align-items: start;
+  gap: 44px 30px;
+  margin-top: 36px;
+  padding-top: 10px; /* room for the tape */
+}
+.p-item { margin: 0; padding: 7px 7px 0; box-shadow: 3px 4px 0 0 var(--ink); }
+.p-item img { aspect-ratio: auto; max-height: 340px; object-fit: cover; }
+.p-item figcaption {
+  font-family: "Kalam", "Segoe Print", "Chalkboard", cursive;
+  font-size: 14.5px;
+  line-height: 1.35;
+  color: var(--ink);
+  padding: 7px 4px 9px;
+  white-space: pre-line;
+}
+.p-when { color: var(--v-muted); font-size: 13px; white-space: nowrap; }
+.p-grid .p-item:nth-child(4n + 1) { transform: rotate(-1.6deg); }
+.p-grid .p-item:nth-child(4n + 2) { transform: rotate(1.2deg); }
+.p-grid .p-item:nth-child(4n + 3) { transform: rotate(-0.6deg); }
+.p-grid .p-item:nth-child(4n) { transform: rotate(1.8deg); }
+.p-grid .p-item:nth-child(2n)::before { transform: translateX(-50%) rotate(4deg); }
+@media (max-width: 560px) {
+  .p-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 18px; }
+  .p-item figcaption { font-size: 13px; }
+}

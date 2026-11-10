@@ -5,6 +5,7 @@ import { readSingleton } from '../lib/reader';
 const page = await readSingleton('drawingsPage');
 // a drawing only counts once a picture is uploaded
 const drawings = page.drawings.filter((d) => d.image);
+const pictures = page.pictures.filter((p) => p.image);
 ---
 
 <MusingsLayout
@@ -36,5 +37,25 @@ const drawings = page.drawings.filter((d) => d.image);
     </div>
   ) : (
     <p class="w-empty">Nothing on the wall yet.</p>
+  )}
+
+  {pictures.length > 0 && (
+    <section class="p-section" aria-labelledby="bits">
+      <h2 class="p-title" id="bits">bits and pieces.</h2>
+      {page.picturesIntro && <p class="p-intro">{page.picturesIntro}</p>}
+      <div class="p-grid">
+        {pictures.map((p) => (
+          <figure class="taped-photo p-item">
+            <img src={p.image} alt={p.caption || 'A snapshot'} loading="lazy" />
+            {(p.caption || p.when) && (
+              <figcaption>
+                {p.caption}
+                {p.when && <span class="p-when">{p.caption ? ' · ' : ''}{p.when}</span>}
+              </figcaption>
+            )}
+          </figure>
+        ))}
+      </div>
+    </section>
   )}
 </MusingsLayout>

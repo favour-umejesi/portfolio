@@ -131,6 +131,31 @@ export default config({
             itemLabel: (props) => props.fields.caption.value || 'drawing',
           }
         ),
+        picturesIntro: fields.text({
+          label: 'Bits and pieces: intro line',
+          multiline: true,
+          description: 'Optional line under the "bits and pieces." heading, below the drawings',
+        }),
+        pictures: fields.array(
+          fields.object({
+            image: fields.image({
+              label: 'Picture',
+              directory: 'public/images/pictures',
+              publicPath: '/images/pictures/',
+            }),
+            caption: fields.text({
+              label: 'Caption',
+              description: 'A line or two, handwritten under the snapshot; also used as alt text. e.g. "the robot arm finally moves (sort of)"',
+              multiline: true,
+            }),
+            when: fields.text({ label: 'When (optional)', description: 'e.g. "Nov 2026"; shown after the caption' }),
+          }),
+          {
+            label: 'Bits and pieces',
+            description: 'Snapshots taped up under the drawings: builds and electronics, crochet, pictures of you, anything. Shown in this order; newest first reads best. The section stays hidden until one has a picture.',
+            itemLabel: (props) => props.fields.caption.value.slice(0, 60) || 'picture',
+          }
+        ),
       },
     }),
     researchPage: singleton({
@@ -200,7 +225,7 @@ export default config({
           }),
           {
             label: 'Social links',
-            description: 'Shown on the profile card and in the musings footer',
+            description: 'Shown in the contact list under your name on the homepage',
             itemLabel: (props) => props.fields.label.value,
           }
         ),
