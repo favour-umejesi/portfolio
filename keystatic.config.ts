@@ -174,11 +174,6 @@ export default config({
           description: 'Wrap a phrase in == to highlight it, in ** to bold it, or in * for italics, e.g. ==Grambling State University==, **mathematics**, *Whisper of the Heart*. :guitar: drops in a small guitar icon.',
           itemLabel: (props) => props.value.slice(0, 60) || 'paragraph',
         }),
-        interests: fields.array(fields.text({ label: 'Interest' }), {
-          label: 'Research interests',
-          description: 'The list under the "research interests." heading',
-          itemLabel: (props) => props.value,
-        }),
         papersNote: fields.text({
           label: 'Papers: placeholder line',
           description: 'Shown in italics under "papers." only while the Papers collection is empty. Leave empty to hide the section until then.',

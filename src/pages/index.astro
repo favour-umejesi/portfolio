@@ -171,13 +171,6 @@ const social: Record<string, string> = {
       </div>
     </section>
 
-    {page.interests.length > 0 && (
-      <section class="v-section" id="interests">
-        <div class="v-heading"><h2>research interests.</h2></div>
-        <ul class="v-interests">{page.interests.map((i) => <li>{i}</li>)}</ul>
-      </section>
-    )}
-
     {news.length > 0 && (
       <section class="v-section" id="news">
         <div class="v-heading"><h2>news.</h2></div>

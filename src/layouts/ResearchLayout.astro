@@ -170,19 +170,6 @@ import '../styles/plain.css';
   .v-draft { color: var(--v-gold); font-weight: 500; }
   .v-placeholder { font-style: italic; color: var(--v-muted); }
 
-  .v-interests { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px 24px; max-width: 66ch; }
-  .v-interests li { padding-left: 16px; position: relative; }
-  .v-interests li::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0.95em;
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: var(--v-text);
-  }
-
 
   /* boxes that scroll on their own (news, selected projects), so a list can
      grow for years without pushing the rest of the page down */
@@ -425,7 +412,6 @@ import '../styles/plain.css';
     .v-socials { margin-left: 0; justify-content: center; }
     .v-actions { justify-content: center; align-self: center; margin-top: 12px; }
     .v-photo { margin-bottom: 14px; }
-    .v-interests { grid-template-columns: 1fr; }
     .v-projects { grid-template-columns: 1fr; }
     .v-modal { padding: 12px; }
     .v-modal-box { max-height: calc(100vh - 24px); max-height: calc(100dvh - 24px); padding: 20px 16px 22px; }
