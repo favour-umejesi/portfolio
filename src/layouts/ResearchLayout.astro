@@ -126,17 +126,15 @@ import '../styles/plain.css';
     .v-roles-static { display: inline; }
   }
   .v-affiliation { color: var(--v-muted); font-size: 13px; margin-top: 8px; line-height: 1.5; }
-  .v-socials { display: flex; gap: 2px; margin: 16px 0 0 -7px; }
-  .v-socials a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    border-radius: 6px;
-    color: var(--v-text);
-  }
-  .v-socials a:hover { background: var(--v-hover); }
+  /* contact: a short list under the name, a gold icon and the name of each
+     place, in the same serif heading as the sections */
+  .v-contact { margin-top: 26px; width: 100%; }
+  .v-contact h2 { font-family: var(--v-heading); font-size: 21px; font-weight: 500; line-height: 1.2; letter-spacing: -0.01em; font-variation-settings: "SOFT" 100; margin-bottom: 10px; }
+  .v-contact ul { list-style: none; display: grid; gap: 4px; }
+  .v-contact a { display: inline-flex; align-items: center; gap: 12px; font-size: 14px; color: var(--v-text); padding: 3px 0; }
+  .v-contact a:hover span { color: var(--v-gold); }
+  .v-contact svg { width: 18px; height: 18px; flex: none; stroke: var(--v-gold); }
+  .v-contact-letter { width: 18px; text-align: center; font-size: 13px; font-weight: 700; color: var(--v-gold); }
   .v-actions { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 12px; }
   .v-actions a {
     display: inline-flex;
@@ -409,7 +407,8 @@ import '../styles/plain.css';
     .v-identity-text { align-items: center; align-self: center; }
     .v-identity h1 { text-align: center; }
     .v-roles li { text-align: center; }
-    .v-socials { margin-left: 0; justify-content: center; }
+    .v-contact { text-align: center; }
+    .v-contact ul { display: inline-grid; text-align: left; }
     .v-actions { justify-content: center; align-self: center; margin-top: 12px; }
     .v-photo { margin-bottom: 14px; }
     .v-projects { grid-template-columns: 1fr; }

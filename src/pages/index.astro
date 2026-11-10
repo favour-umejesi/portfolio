@@ -65,6 +65,11 @@ const fmt = (d: Date) =>
 // proper names for the social links, keyed by the label in site settings
 const properName: Record<string, string> = { email: 'Email', github: 'GitHub', linkedin: 'LinkedIn', medium: 'Medium', x: 'X' };
 const cap = (s: string) => properName[s] ?? s.charAt(0).toUpperCase() + s.slice(1);
+// what each contact line says: the address for email, written "name [at]
+// domain" so scrapers pass it by; the lowercase name of the site for the rest
+const contactName: Record<string, string> = { x: 'x/twitter' };
+const contactText = (s: { label: string; url: string }) =>
+  s.url.startsWith('mailto:') ? s.url.slice(7).replace('@', ' [at] ') : (contactName[s.label] ?? s.label.toLowerCase());
 
 const meta = (w: (typeof works)[number]) =>
   [w.data.context, w.data.role, w.data.year].filter(Boolean).join(' · ');
@@ -138,21 +143,26 @@ const social: Record<string, string> = {
         </div>
       )}
       {page.affiliation && <p class="v-affiliation">{page.affiliation}</p>}
-      <p class="v-socials">
-        {settings.socials.map((s) => (
-          <a
-            href={s.url}
-            title={cap(s.label)}
-            aria-label={cap(s.label)}
-            target={s.url.startsWith('mailto:') ? undefined : '_blank'}
-            rel={s.url.startsWith('mailto:') ? undefined : 'noopener'}
-          >
-            {social[s.label]
-              ? <svg viewBox="0 0 24 24" set:html={social[s.label]} />
-              : <span>{s.label.charAt(0).toUpperCase()}</span>}
-          </a>
-        ))}
-      </p>
+      {settings.socials.length > 0 && (
+        <div class="v-contact">
+          <h2>contact.</h2>
+          <ul>
+            {settings.socials.map((s) => {
+              const mail = s.url.startsWith('mailto:');
+              return (
+                <li>
+                  <a href={s.url} target={mail ? undefined : '_blank'} rel={mail ? undefined : 'noopener'}>
+                    {social[s.label]
+                      ? <svg viewBox="0 0 24 24" aria-hidden="true" set:html={social[s.label]} />
+                      : <span class="v-contact-letter" aria-hidden="true">{s.label.charAt(0).toUpperCase()}</span>}
+                    <span>{contactText(s)}</span>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      )}
       </div>
     </div>
     <div class="v-actions">
