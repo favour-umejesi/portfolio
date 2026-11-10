@@ -21,5 +21,7 @@ export default defineConfig({
     '/diary': '/',
     '/about': '/',
     '/patent-law': '/',
+    // drawings merged into bits and pieces
+    '/drawings': '/bits-and-pieces',
   },
 });

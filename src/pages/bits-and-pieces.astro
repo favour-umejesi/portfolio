@@ -1,0 +1,43 @@
+---
+import MusingsLayout from '../layouts/MusingsLayout.astro';
+import { readSingleton } from '../lib/reader';
+
+const page = await readSingleton('bitsPage');
+// a picture only counts once an image is uploaded
+const pictures = page.pictures.filter((p) => p.image);
+---
+
+<MusingsLayout
+  title="Bits and pieces"
+  description="Bits and pieces by Favour Umejesi: drawings, builds, crochet and other things made away from the screen."
+>
+  <div class="w-title-row">
+    <h1 class="w-title">bits and pieces.</h1>
+    <a class="w-title-link" href="/musings">explore musings →</a>
+  </div>
+  {page.intro.length > 0 && (
+    <div class="p-intro">
+      {page.intro.map((paragraph) => <p>{paragraph}</p>)}
+    </div>
+  )}
+
+  {pictures.length > 0 ? (
+    <div class="p-grid">
+      {pictures.map((p) => (
+        <figure class={`taped-photo p-item${p.glow ? ' has-glow' : ''}`} style={p.glow ? `--glow: ${p.glow}` : undefined}>
+          <span class="p-pic">
+            <img src={p.image} alt={p.caption || 'A snapshot'} loading="lazy" />
+          </span>
+          {(p.caption || p.when) && (
+            <figcaption>
+              {p.caption}
+              {p.when && <span class="p-when">{p.caption ? ' · ' : ''}{p.when}</span>}
+            </figcaption>
+          )}
+        </figure>
+      ))}
+    </div>
+  ) : (
+    <p class="p-soon">coming soon ♡...</p>
+  )}
+</MusingsLayout>

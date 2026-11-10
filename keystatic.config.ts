@@ -96,45 +96,20 @@ export default config({
     brand: { name: 'Favour Umejesi' },
     navigation: {
       'Research': ['research', 'papers', 'news', 'researchPage'],
-      'Musings': ['musings', 'series', 'drawingsPage'],
+      'Musings': ['musings', 'series', 'bitsPage'],
       'Site': ['settings'],
     },
   },
   singletons: {
-    drawingsPage: singleton({
-      label: 'Drawings page',
-      path: 'src/content/pages/drawings',
+    bitsPage: singleton({
+      label: 'Bits and pieces page',
+      path: 'src/content/pages/bits-and-pieces',
       format: { data: 'yaml' },
       schema: {
         intro: fields.array(fields.text({ label: 'Paragraph', multiline: true }), {
           label: 'Intro paragraphs',
-          description: 'Shown under the "drawings." heading',
+          description: 'Shown under the "bits and pieces." heading',
           itemLabel: (props) => props.value.slice(0, 60) || 'paragraph',
-        }),
-        drawings: fields.array(
-          fields.object({
-            image: fields.image({
-              label: 'Drawing',
-              directory: 'public/images/drawings',
-              publicPath: '/images/drawings/',
-            }),
-            caption: fields.text({ label: 'Caption', description: 'Written under the print; also used as alt text' }),
-            when: fields.text({ label: 'When (optional)', description: 'e.g. "Oct 2026"; shown after the caption' }),
-            glow: fields.text({
-              label: 'Candle glow (optional)',
-              description: 'Dims the picture towards its edges and pools warm light at this spot, written as left% top%, e.g. "63% 63%". Leave empty for no glow.',
-            }),
-          }),
-          {
-            label: 'Drawings',
-            description: 'Taped to the wall in this order. Newest first reads best.',
-            itemLabel: (props) => props.fields.caption.value || 'drawing',
-          }
-        ),
-        picturesIntro: fields.text({
-          label: 'Bits and pieces: intro line',
-          multiline: true,
-          description: 'Optional line under the "bits and pieces." heading, below the drawings',
         }),
         pictures: fields.array(
           fields.object({
@@ -149,10 +124,14 @@ export default config({
               multiline: true,
             }),
             when: fields.text({ label: 'When (optional)', description: 'e.g. "Nov 2026"; shown after the caption' }),
+            glow: fields.text({
+              label: 'Candle glow (optional)',
+              description: 'For a candlelit drawing: dims the picture towards its edges and pools warm light at this spot, written as left% top%, e.g. "63% 63%". Leave empty for no glow.',
+            }),
           }),
           {
-            label: 'Bits and pieces',
-            description: 'Snapshots taped up under the drawings: builds and electronics, crochet, pictures of you, anything. Shown in this order; newest first reads best. The section stays hidden until one has a picture.',
+            label: 'Pictures',
+            description: 'Snapshots taped to the wall: drawings, builds and electronics, crochet, pictures of you, anything. Shown in this order; newest first reads best. Until one has a picture, the page says "coming soon".',
             itemLabel: (props) => props.fields.caption.value.slice(0, 60) || 'picture',
           }
         ),
